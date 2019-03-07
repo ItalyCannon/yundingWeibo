@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>	
+	<link rel="stylesheet" type="text/css" href="./css/style.css" id="css1">
+	<link rel="stylesheet" type="text/css" href="./css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+</head>
+<body>
+
+	<div id="1">
+		<div class="public_header">
+			<div class="public_container">
+				<div class="header_logo">
+					<i class="iconfont">&#xe61a;</i>
+					<p class="logo_text">微博</p>
+				</div>
+				<ul class="header_ul">
+					<a href="" title=""><li class="clearfloat">首页</li></a>
+					<a href="" title=""><li class="clearfloat">视频</li></a>
+					<a href="" title=""><li class="clearfloat">发现</li></a>
+					<a href="" title=""><li class="clearfloat">游戏</li></a>
+				</ul>
+				<div class="header_search">
+					<input type="text" name="">
+					<i class="iconfont">&#xe600;</i>
+				</div>
+				<div class="header_rank">
+					<a href="" title="">
+						<a href="" title=""><i class="iconfont">&#xe665;</i></a>
+						<p class="rank_text">排行榜</p>
+					</a>
+				</div>
+				<div class="header_register">
+					<img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+					<div class="modify">
+						<i class="iconfont">&#xe64d;</i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="public_container">
+				<div class="sidebar">
+					<ul>
+						<li class="item_1" style="cursor: pointer;">首页</li>
+						<li class="item_2" style="cursor: pointer;" onclick="load_home2();">我的收藏</li>
+						<li style="cursor: pointer;" onclick="load_home3();">我的点赞</li>
+						<li style="cursor: pointer;" onclick="load_home4();">我的评论</li>
+					</ul>
+					<ul class="ul">
+						<li>■ 好友圈</li>
+						<li>■ 特别关注</li>
+						<li>● 设计</li>
+						<li>● 互联网</li>
+						<li>● 同学</li>
+						<li>● 朋友</li>
+					</ul>
+				</div>
+
+				<div class="middle">
+					<div class="middle_up">
+						<textarea name="" class="text"></textarea>
+						<p class="expression"><i class="iconfont">&#xe643;</i> &nbsp;表情</p>
+						<p class="picture"><i class="iconfont">&#xe643;</i> &nbsp;图片</p>
+						<p class="video"><i class="iconfont">&#xe643;</i> 视频</p>
+						<p class="topic"><i class="iconfont">&#xe643;</i> 话题</p>
+						<input type="submit" name="" value="发布" class="submit">
+					</div>
+					<div class="middle_middle">
+						<p class="item">全部</p>
+						<p>原创</p>
+						<p>图片</p>
+						<p>视频</p>
+						<p>文章</p>
+						<div class="search">
+							<input type="text" name="" placeholder="我关注的人">
+							<i class="iconfont">&#xe600;</i>
+						</div>
+						<div class="triangle"></div>
+					</div>
+				</div>
+
+				<div class="right">
+					<div class="right_mine">
+						<img src="./img/right_mine_background.jpg" alt="img" class="background">
+						<img src="./img/right_mine_portrait.jpg" alt="img" class="portrait">
+						<p class="name">jetris</p>
+						<div class="message">
+							<p class="attention"><span>123</span><br/>关注</p>
+							<p class="fans"><span>23</span><br/>粉丝</p>
+							<p class="microblog"><span>123</span><br/>微博</p>
+						</div>
+					</div>
+					<div class="right_new">
+						<div class="title">
+							<p class="title_text">热门话题</p>
+							<p class="title_change"><i class="iconfont"></i>换一换</p>
+						</div>
+						<p class="topic"># 这个是话题啊啊啊啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话题啊 #<span>1.2亿</span></p>
+						<p class="topic"># 这个是话题啊啊啊啊啊啊 #<span>1.1亿</span></p>
+						<p class="topic"># 这个是话题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话题啊啊啊啊啊啊啊啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是啊啊啊话题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话啊啊题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话啊啊啊啊题啊 #<span>1.7亿</span></p>
+						<p class="more">查看更多</p>
+					</div>
+				</div>
+
+				<!-- <div class="empty"></div> -->
+				
+				<div class="blog">
+
+					<div class="middle_down">
+							<img src="./img/portrait_1.jpg" alt="" class="portrait">
+							<div class="name">
+								<p class="nickname">这个是昵称（备注名称）</p>
+								<p class="date">今天 14:12</p>
+							</div>
+							<!-- <div class="pull_down"></div> -->
+							<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+							<div class="imgs">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img3">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img4">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img5">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img6">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img7">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img8">
+								<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img9">
+							</div>
+							<div class="bottom">
+								<p><i class="iconfont">&#xe665;</i> 收藏</p>
+								<p><i class="iconfont">&#xe64d;</i> 转发</p>
+								<p><i class="iconfont">&#xe643;</i> 32</p>
+								<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+							</div>
+					</div>
+
+					<div class="part_1">
+						<img src="./img/portrait_1.jpg" alt="" class="portrait">
+						<div class="name">
+							<p class="nickname">这个是昵称（备注名称）</p>
+							<p class="date">今天 14:12</p>
+						</div>
+						<!-- <div class="pull_down"></div> -->
+						<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img3">
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img4">
+						<div class="bottom">
+							<p><i class="iconfont">&#xe665;</i> 收藏</p>
+							<p><i class="iconfont">&#xe64d;</i> 转发</p>
+							<p><i class="iconfont">&#xe643;</i> 32</p>
+							<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="part_2">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 已收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>
+				</div>
+				
+				<div class="part_3">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>	
+				</div>
+
+				<div class="part_4">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>	
+				</div>
+
+				<div class="part_5">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<video src="" autobuffer autoloop loop controls poster="./img/video_1.jpg" class="video"></video>
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>	
+				</div>
+
+				<div class="part_6">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+					<div class="small_imgs">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img small_img_1">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+						<img src="./img/portrait_1.jpg" alt="img" class="small_img">
+					</div>
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>	
+				</div>
+
+				<div class="part_7">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">网小（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。啊啊啊，啊啊啊，啊纯文字，字数少的情况</p>
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>
+				</div>
+
+				<div class="part_8">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">大二（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。纯文字，字数多需要隐藏的情况，啊啊啊，啊啊啊啊啊啊啊啊啊啊啊，啊啊啊啊啊啊。啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊…<span>展开全文</span></p>
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>
+				</div>
+
+				<div class="part_9">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">关于人际关系，大家喜欢把重点放在认识人上，觉得成为社交达人就得经常出入各种活动，认识很多人，这的确是建立良好人际关系所需要的，但不是必要的，处理好人际关系，或者说要想拥有强大人际关系，更重要的是懂得为他人创造价值，只有为他人创造价值，人际关系才会持久，否则认识再多的人，也是无效社交，因为没有人会记得你。<br/><br/>——怎样学会真正情商，做想要的自己——<br/><br/>这些年，自己在情商这块撞过不少墙，也请教过不少前辈，总结了一些提升情商的心得，屡试不爽：<br/><br/>[good]（1）了解和接纳自己，懂得自己是怎样的人，自我需求是什么，掌控自己的人生。<br/><br/>拥有高情商并不一定需要你去改变自己的性格，不管外向还是内向，都有自己情商的优势，重要的是知道自己的性格，找到适合自己的情绪和情感表达方式，发掘自我的优势和乐趣，多点自我激励<br/><br/>同时，要懂得自己要什么，这样面对外在的环境，才有自己的准则，不会受到外在的干扰，能够真正按照自己的意愿过一生，如此，你的世界才会变得美好，你的能量和气场就会强，与他人的关系也会走向良心循环。 <span>收起全文</span></p>
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+						<div class="triangle"></div>
+					</div>
+					<div class="comment">
+						<div class="write">
+							<img src="./img/portrait_1.jpg" alt="img" class="head_img">
+							<textarea name="" class="text"></textarea>
+							<div class="option">
+								<i class="iconfont expression">&#xe60c;</i>
+								<i class="iconfont image">&#xe60c;</i>
+								<div class="check"></div>
+								<p class="word">同时转发到我的微博</p>
+								<input type="submit" name="" value="发布" class="submit">
+							</div>
+							<div class="option_1">
+								<img src="./img/portrait_1.jpg" alt="img" class="head_img">
+								<div class="message">
+									<p class="nickname"><span>昵称啊：</span>这个是评论的内容啊，啊啊啊啊的啦啦</p>
+									<p class="date">9-12 14:11</p>
+									<p class="reply">回复</p>
+									<p class="string"></p>
+									<p class="like"><i class="iconfont">&#xe60c;</i> 12</p>
+								</div>
+								<div class="option_1_option">
+									<img src="./img/portrait_1.jpg" alt="img" class="head_img">
+									<div class="message">
+										<p class="nickname"><span>昵称啊：</span>这个是评论的内容啊，啊啊啊啊的啦啦</p>
+										<p class="date">9-12 14:11</p>
+										<p class="reply">回复</p>
+										<p class="string"></p>
+										<p class="like"><i class="iconfont">&#xe60c;</i> 12</p>
+									</div>
+								</div>
+							</div>
+							<div class="option_2">
+								<img src="./img/portrait_1.jpg" alt="img" class="head_img">
+								<div class="message">
+									<p class="nickname"><span>jetris：</span>这个是评论的内容啊，啊啊啊啊的啦啦</p>
+									<p class="date">9-12 14:11</p>
+									<p class="reply">回复</p>
+									<p class="string"></p>
+									<p class="like"><i class="iconfont">&#xe60c;</i> 12</p>
+								</div>
+							</div>
+							<div class="option_3">
+								<img src="./img/portrait_1.jpg" alt="img" class="head_img">
+								<div class="message">
+									<p class="nickname"><span>昵啊：</span>这个是评论的内容啊</p>
+									<p class="date">9-12 14:11</p>
+									<p class="reply">回复</p>
+									<p class="string"></p>
+									<p class="like"><i class="iconfont">&#xe60c;</i> 12</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="2" style="display: none;">
+		<div class="public_header">
+		<div class="public_container">
+			<div class="header_logo">
+				<i class="iconfont">&#xe61a;</i>
+				<p class="logo_text">微博</p>
+			</div>
+			<ul class="header_ul">
+				<a href="" title=""><li class="clearfloat">首页</li></a>
+				<a href="" title=""><li class="clearfloat">视频</li></a>
+				<a href="" title=""><li class="clearfloat">发现</li></a>
+				<a href="" title=""><li class="clearfloat">游戏</li></a>
+			</ul>
+			<div class="header_search">
+				<input type="text" name="">
+				<i class="iconfont">&#xe600;</i>
+			</div>
+			<div class="header_rank">
+				<a href="" title="">
+					<a href="" title=""><i class="iconfont">&#xe665;</i></a>
+					<p class="rank_text">排行榜</p>
+				</a>
+			</div>
+			<div class="header_register">
+				<img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+				<div class="modify">
+					<i class="iconfont">&#xe64d;</i>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="main">
+		<div class="public_container">
+			<div class="sidebar">
+				<ul>
+					<li style="cursor: pointer;" onclick="load_home1();">首页</li>
+					<li class="item_1" style="cursor: pointer;">我的收藏</li>
+					<li style="cursor: pointer;" onclick="load_home3();">我的点赞</li>
+					<li style="cursor: pointer;" onclick="load_home4();">我的评论</li>
+				</ul>
+				<ul class="ul">
+					<li>■ 好友圈</li>
+					<li>■ 特别关注</li>
+					<li>● 设计</li>
+					<li>● 互联网</li>
+					<li>● 同学</li>
+					<li>● 朋友</li>
+				</ul>
+			</div>
+			<div class="middle">
+				<div class="middle_up">
+					<p class="title">全部收藏 123</p>
+					<div class="search">
+						<input type="text" name="" placeholder="搜索我的收藏">
+						<i class="iconfont">&#xe600;</i>
+					</div>
+					<div class="label">
+						<p class="label_1">全部（99）</p>
+						<p class="label_2">文字多的（12）</p>
+						<p class="label_3">设计（12）</p>
+						<p class="label_4">教育（12）</p>
+						<p class="label_5">板式（12）</p>
+						<p class="label_6">音乐（12）</p>
+						<p class="label_7">电影（12）</p>
+						<p class="label_8">文字多的（12）</p>
+						<p class="label_9">电影学（12）</p>
+						<p class="label_10">设计（12）</p>
+						<p class="label_11">文字多的（12）</p>
+						<p class="label_12">板式（12）</p>
+						<p class="label_13">板式（12）</p>
+						<p class="label_14">板式（12）</p>
+						<p class="label_15">电影学（12）</p>
+						<p class="label_16">电影学（12）</p>
+						<p class="label_17">未添加标签（134）</p>
+					</div>
+				</div>
+				<div class="middle_down">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+					<div class="tally">
+						<p>电影学（12）</p>
+						<p>加标签</p>
+					</div>
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 已收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="right_mine">
+					<img src="./img/right_mine_background.jpg" alt="img" class="background">
+					<img src="./img/right_mine_portrait.jpg" alt="img" class="portrait">
+					<p class="name">jetris</p>
+					<div class="message">
+						<p class="attention"><span>123</span><br/>关注</p>
+						<p class="fans"><span>23</span><br/>粉丝</p>
+						<p class="microblog"><span>123</span><br/>微博</p>
+					</div>
+				</div>
+				<div class="right_new">
+					<div class="title">
+						<p class="title_text">热门收藏</p>
+						<p id="change" class="title_change"><i class="iconfont"></i>换一换</p>
+					</div>
+					<p id="topic1" class="topic"># 这个是话题啊啊啊啊 #<span>1.7亿</span></p>
+					<p id="topic2" class="topic"># 这个是话题啊 #<span>1.2亿</span></p>
+					<p id="topic3" class="topic"># 这个是话题啊啊啊啊啊啊 #<span>1.1亿</span></p>
+					<p id="topic4" class="topic"># 这个是话题啊 #<span>1.7亿</span></p>
+					<p id="topic5" class="topic"># 这个是话题啊啊啊啊啊啊啊啊 #<span>1.7亿</span></p>
+					<p id="topic6" class="topic"># 这个是啊啊啊话题啊 #<span>1.7亿</span></p>
+					<p id="topic7" class="topic"># 这个是话啊啊题啊 #<span>1.7亿</span></p>
+					<p id="topic8" class="topic"># 这个是话啊啊啊啊题啊 #<span>1.7亿</span></p>
+					<p class="more">查看更多</p>
+				</div>
+			</div>
+
+			<div class="collect">
+				<img src="./img/portrait_1.jpg" alt="" class="portrait">
+				<div class="name">
+					<p class="nickname">这个是昵称（备注名称）</p>
+					<p class="date">今天 14:12</p>
+				</div>
+				<!-- <div class="pull_down"></div> -->
+				<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+				<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+				<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+				<div class="tally">
+					<p>加标签</p>
+				</div>
+				<div class="bottom">
+					<p><i class="iconfont">&#xe665;</i> 已收藏</p>
+					<p><i class="iconfont">&#xe64d;</i> 转发</p>
+					<p><i class="iconfont">&#xe643;</i> 32</p>
+					<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+				</div>
+			</div>
+
+		</div>
+		</div>
+	</div>
+
+	<div id="3" style="display: none;">
+		<div class="public_header">
+		<div class="public_container">
+			<div class="header_logo">
+				<i class="iconfont">&#xe61a;</i>
+				<p class="logo_text">微博</p>
+			</div>
+			<ul class="header_ul">
+				<a href="" title=""><li class="clearfloat">首页</li></a>
+				<a href="" title=""><li class="clearfloat">视频</li></a>
+				<a href="" title=""><li class="clearfloat">发现</li></a>
+				<a href="" title=""><li class="clearfloat">游戏</li></a>
+			</ul>
+			<div class="header_search">
+				<input type="text" name="">
+				<i class="iconfont">&#xe600;</i>
+			</div>
+			<div class="header_rank">
+				<a href="" title="">
+					<a href="" title=""><i class="iconfont">&#xe665;</i></a>
+					<p class="rank_text">排行榜</p>
+				</a>
+			</div>
+			<div class="header_register">
+				<img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+				<div class="modify">
+					<i class="iconfont">&#xe64d;</i>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="main">
+			<div class="public_container">
+				<div class="sidebar">
+					<ul>
+						<li style="cursor: pointer;" onclick="load_home1()">首页</li>
+						<li style="cursor: pointer;" onclick="load_home2()">我的收藏</li>
+						<li class="item_1" style="cursor: pointer;">我的点赞</li>
+						<li style="cursor: pointer;" onclick="load_home4()">我的评论</li>
+					</ul>
+					<ul class="ul">
+						<li>■ 好友圈</li>
+						<li>■ 特别关注</li>
+						<li>● 设计</li>
+						<li>● 互联网</li>
+						<li>● 同学</li>
+						<li>● 朋友</li>
+					</ul>
+				</div>
+				<div class="middle">
+					<div class="middle_up">
+						<p class="title">我的点赞 123</p>
+						<div class="search">
+							<input type="text" name="" placeholder="搜索我的点赞">
+							<i class="iconfont">&#xe600;</i>
+						</div>
+					</div>
+					<div class="middle_down">
+						<img src="./img/portrait_1.jpg" alt="" class="portrait">
+						<div class="name">
+							<p class="nickname">这个是昵称（备注名称）</p>
+							<p class="date">今天 14:12</p>
+						</div>
+						<!-- <div class="pull_down"></div> -->
+						<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img3">
+						<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img4">
+						<div class="bottom">
+							<p><i class="iconfont">&#xe665;</i> 收藏</p>
+							<p><i class="iconfont">&#xe64d;</i> 转发</p>
+							<p><i class="iconfont">&#xe643;</i> 32</p>
+							<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="right_mine">
+						<img src="./img/right_mine_background.jpg" alt="img" class="background">
+						<img src="./img/right_mine_portrait.jpg" alt="img" class="portrait">
+						<p class="name">jetris</p>
+						<div class="message">
+							<p class="attention"><span>123</span><br/>关注</p>
+							<p class="fans"><span>23</span><br/>粉丝</p>
+							<p class="microblog"><span>123</span><br/>微博</p>
+						</div>
+					</div>
+					<div class="right_new">
+						<div class="title">
+							<p class="title_text">热门收藏</p>
+							<p class="title_change"><i class="iconfont"></i>换一换</p>
+						</div>
+						<p class="topic"># 这个是话题啊啊啊啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话题啊 #<span>1.2亿</span></p>
+						<p class="topic"># 这个是话题啊啊啊啊啊啊 #<span>1.1亿</span></p>
+						<p class="topic"># 这个是话题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话题啊啊啊啊啊啊啊啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是啊啊啊话题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话啊啊题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话啊啊啊啊题啊 #<span>1.7亿</span></p>
+						<p class="more">查看更多</p>
+					</div>
+				</div>
+
+				<div class="collect">
+					<img src="./img/portrait_1.jpg" alt="" class="portrait">
+					<div class="name">
+						<p class="nickname">这个是昵称（备注名称）</p>
+						<p class="date">今天 14:12</p>
+					</div>
+					<!-- <div class="pull_down"></div> -->
+					<p class="text">素质过硬的图片，均衡有效的布局，轻重对比的色彩，在好的设计里面这些东西一个都不能少 ~ 轻重对比的色彩，在好的设计里面这些东西一个，轻重对比的色彩，在好的设计里面这。<span>#这个是话题#</span></p>
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img3">
+					<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img4">
+					<div class="bottom">
+						<p><i class="iconfont">&#xe665;</i> 收藏</p>
+						<p><i class="iconfont">&#xe64d;</i> 转发</p>
+						<p><i class="iconfont">&#xe643;</i> 32</p>
+						<p class="last"><i class="iconfont">&#xe60c;</i> 12</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="4" style="display: none;">
+		<div class="public_header">
+		<div class="public_container">
+			<div class="header_logo">
+				<i class="iconfont">&#xe61a;</i>
+				<p class="logo_text">微博</p>
+			</div>
+			<ul class="header_ul">
+				<a href="" title=""><li class="clearfloat">首页</li></a>
+				<a href="" title=""><li class="clearfloat">视频</li></a>
+				<a href="" title=""><li class="clearfloat">发现</li></a>
+				<a href="" title=""><li class="clearfloat">游戏</li></a>
+			</ul>
+			<div class="header_search">
+				<input type="text" name="">
+				<i class="iconfont">&#xe600;</i>
+			</div>
+			<div class="header_rank">
+				<a href="" title="">
+					<a href="" title=""><i class="iconfont">&#xe665;</i></a>
+					<p class="rank_text">排行榜</p>
+				</a>
+			</div>
+			<div class="header_register">
+				<img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+				<div class="modify">
+					<i class="iconfont">&#xe64d;</i>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<div class="main">
+			<div class="public_container">
+				<div class="sidebar">
+					<ul>
+						<li style="cursor: pointer;" onclick="load_home1();">首页</li>
+						<li style="cursor: pointer;" onclick="load_home2();">我的收藏</li>
+						<li style="cursor: pointer;" onclick="load_home3();">我的点赞</li>
+						<li class="item_1">我的评论</li>
+					</ul>
+					<ul class="ul">
+						<li>■ 好友圈</li>
+						<li>■ 特别关注</li>
+						<li>● 设计</li>
+						<li>● 互联网</li>
+						<li>● 同学</li>
+						<li>● 朋友</li>
+					</ul>
+				</div>
+				<div class="middle">
+					<div class="middle_up">
+						<p class="title_1">收到</p>
+						<p class="title_2">发出</p>
+						<div class="triangle"></div>
+						<div class="search">
+							<input type="text" name="" placeholder="搜索我的微博">
+							<i class="iconfont">&#xe600;</i>
+						</div>
+					</div>
+					<div class="middle_down">
+						<div class="part_1">
+							<p class="content">“这个是我评论的内容”</p>
+							<!-- <div class="close"></div> -->
+							<div class="text"><p>9-14 14:12评论了蛋蛋秀的微博: #蛋蛋秀# 2018年个人院线十大华语佳片！如果文字多就啊啊啊啊啊啊啊啊啊啊啊啊啊…</p></div>
+						</div>
+						<div class="part_2">
+							<p class="content">“这个是我评论的内容”</p>
+							<!-- <div class="close"></div> -->
+							<div class="text"><p>9-14 14:12评论了蛋蛋秀的微博: #蛋蛋秀# 2018年个人院线十大华语佳片！</p></div>
+						</div>
+						<div class="part_3">
+							<p class="content">“这个是我评论的内容”</p>
+							<!-- <div class="close"></div> -->
+							<div class="text"><p>9-14 14:12评论了蛋蛋秀的微博: #蛋蛋秀# 2018年个人院线十大华语佳片！</p></div>
+						</div>
+					</div>
+				</div>
+				<div class="right">
+					<div class="right_mine">
+						<img src="./img/right_mine_background.jpg" alt="img" class="background">
+						<img src="./img/right_mine_portrait.jpg" alt="img" class="portrait">
+						<p class="name">jetris</p>
+						<div class="message">
+							<p class="attention"><span>123</span><br/>关注</p>
+							<p class="fans"><span>23</span><br/>粉丝</p>
+							<p class="microblog"><span>123</span><br/>微博</p>
+						</div>
+					</div>
+					<div class="right_new">
+						<div class="title">
+							<p class="title_text">热门收藏</p>
+							<p class="title_change"><i class="iconfont"></i>换一换</p>
+						</div>
+						<p class="topic"># 这个是话题啊啊啊啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话题啊 #<span>1.2亿</span></p>
+						<p class="topic"># 这个是话题啊啊啊啊啊啊 #<span>1.1亿</span></p>
+						<p class="topic"># 这个是话题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话题啊啊啊啊啊啊啊啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是啊啊啊话题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话啊啊题啊 #<span>1.7亿</span></p>
+						<p class="topic"># 这个是话啊啊啊啊题啊 #<span>1.7亿</span></p>
+						<p class="more">查看更多</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="./js/htmls.js"></script>
