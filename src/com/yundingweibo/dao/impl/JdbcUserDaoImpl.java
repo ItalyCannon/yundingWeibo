@@ -148,7 +148,7 @@ public class JdbcUserDaoImpl implements UserDao {
             if (id != null) {
                 int userId = id.intValue();
                 sql = "insert into user_info(user_id,login_id,registration_time,nickname) values(?,?,now(),?)";
-                DaoUtil.query(sql, userId, registerUser.getLoginId(), "用户"+id);
+                DaoUtil.query(sql, userId, registerUser.getLoginId(), "用户" + id);
             } else {
                 throw new RuntimeException("也不知道是什么错误，请检查JdbcUserDaoImpl的addUser方法，错因是在login_info表中找不到当前用户的login_id");
             }
@@ -165,5 +165,34 @@ public class JdbcUserDaoImpl implements UserDao {
     public void removeAttention(User sessionUser, User removeUsere) {
         String sql = "delete from user_relation where user_id=? and target_id=?";
         DaoUtil.query(sql, sessionUser.getUserId(), removeUsere.getUserId());
+    }
+
+    /**
+     * 显示user的所有粉丝
+     *
+     * @param user .
+     * @return .
+     */
+    @Override
+    public Integer showFansNum(User user) {
+        String sql = "select count(*) from user_relation where target_id=?";
+        Long i = (Long) DaoUtil.getObject(sql, user.getUserId());
+        if (i == null) {
+            return 1;
+        } else {
+            return i.intValue();
+        }
+    }
+
+    /**
+     * 在我的关注页面的左上角显示个人数据
+     *
+     * @param user .
+     * @return .
+     */
+    @Override
+    public User showBasicInfo(User user) {
+        String sql = "select nickname,signature,profile_picture from user_info where user_id=?";
+        return DaoUtil.toBeanSingle(User.class, sql, user.getUserId());
     }
 }

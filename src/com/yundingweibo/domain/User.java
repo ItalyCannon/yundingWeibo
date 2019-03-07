@@ -38,6 +38,13 @@ public class User {
     private String attentionGroup;
     private String verifyCode;
 
+    public User() {
+    }
+
+    public User(int userId) {
+        this.userId = userId;
+    }
+
     public String getVerifyCode() {
         return verifyCode;
     }
@@ -116,7 +123,7 @@ public class User {
 
     public String getNickname() {
         if (nickname == null) {
-            return "用户" + loginId;
+            return "用户" + userId;
         }
         return nickname;
     }

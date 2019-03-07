@@ -135,4 +135,18 @@ public class UserService {
     public void removeAttention(User sessionUser, User removeUser) {
         DaoFactory.getUserDao().removeAttention(sessionUser, removeUser);
     }
+
+    public int showFansNum(User user) {
+        return DaoFactory.getUserDao().showFansNum(user);
+    }
+
+    /**
+     * 在我的关注页面的左上角显示个人数据，返回昵称，头像，个性签名
+     *
+     * @param user .
+     * @return .
+     */
+    public User showBasicInfo(User user) {
+        return DaoFactory.getUserDao().showBasicInfo(user);
+    }
 }

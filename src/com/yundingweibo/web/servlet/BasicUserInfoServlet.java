@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 测试通过，未测试session
+ * 用于在我的关注页面的左上角显示用户的头像，昵称，个签等
  *
  * @author 杜奕明
- * @date 2019/3/1 20:12
+ * @date 2019/3/7 11:10
  */
-@WebServlet(name = "ShowAttentionServlet", urlPatterns = "/ShowAttentionServlet")
-public class ShowAttentionServlet extends HttpServlet {
+@WebServlet(name = "BasicUserInfoServlet", urlPatterns = "/BasicUserInfoServlet")
+public class BasicUserInfoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -30,25 +30,10 @@ public class ShowAttentionServlet extends HttpServlet {
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
         User user = (User) request.getSession().getAttribute("sessionUser");
-        user = new User();
-        user.setUserId(1);
-        int t;
-
-        String para = request.getParameter("type");
-        if (para != null) {
-            t = Integer.parseInt(para);
-        } else {
-            throw new RuntimeException("参数不能为空");
-        }
-
-        // 1为按照关注时间降序，2为按照昵称首字母排序
-        if (t != 1 && t != 2) {
-            throw new RuntimeException("type必须为1或2");
-        }
-
-        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(User.class,
-                "userId", "nickname", "signature", "profilePicture", "attentionGroup");
-        String json = JSON.toJSONString(new UserService().showUserAttention(user, t), filter);
+        user = new User(1);
+        SimplePropertyPreFilter simplePropertyPreFilter = new SimplePropertyPreFilter(User.class,
+                "nickname", "signature", "profilePicture");
+        String json = JSON.toJSONString(new UserService().showBasicInfo(user), simplePropertyPreFilter);
         response.getWriter().write(json);
     }
 }

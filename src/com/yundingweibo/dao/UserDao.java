@@ -87,7 +87,7 @@ public interface UserDao {
      * @param registerId .
      * @return .
      */
-    User findUserByLoginInId(String registerId); // TODO: 2019/3/2 等会看这个方法的功能
+    User findUserByLoginInId(String registerId);
 
     /**
      * 把registerUser的loginId和userId同时写入login_info和user_info表
@@ -103,4 +103,20 @@ public interface UserDao {
      * @param removeUsere .
      */
     void removeAttention(User sessionUser, User removeUsere);
+
+    /**
+     * 显示user的所有粉丝
+     *
+     * @param user .
+     * @return .
+     */
+    Integer showFansNum(User user);
+
+    /**
+     * 在我的关注页面的左上角显示个人数据
+     *
+     * @param user .
+     * @return .
+     */
+    User showBasicInfo(User user);
 }
