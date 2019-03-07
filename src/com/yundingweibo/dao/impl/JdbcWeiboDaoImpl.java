@@ -1,5 +1,7 @@
 package com.yundingweibo.dao.impl;
 
+import com.yundingweibo.dao.DaoFactory;
+import com.yundingweibo.dao.UserDao;
 import com.yundingweibo.dao.WeiboDao;
 import com.yundingweibo.dao.impl.daoutil.DaoUtil;
 import com.yundingweibo.domain.*;
@@ -16,6 +18,8 @@ import java.util.List;
  * @date 2019/2/16 20:25
  */
 public class JdbcWeiboDaoImpl implements WeiboDao {
+    private UserDao userDao = DaoFactory.getUserDao();
+
     /**
      * 根据id查询微博
      *
@@ -26,10 +30,15 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     public Weibo getWeibo(int weiboId) {
         String sql = "select * from weibo_data where weibo_id = ?";
         Weibo weibo = DaoUtil.toBean(Weibo.class, sql, weiboId).get(0);
+        addCommentsAndNickname(weibo, weibo.getUserId());
+        return weibo;
+    }
+
+    private void addCommentsAndNickname(Weibo weibo, int userId) {
         List<Comment> comment = this.getComment(weibo);
         weibo.setCommentNum(comment.size());
         weibo.setComments(comment);
-        return weibo;
+        weibo.setNickname(userDao.getUserNickname(userId));
     }
 
     /**
@@ -43,9 +52,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         String sql = "select * from weibo_data where user_id = ? order by create_time desc";
         List<Weibo> weiboList = DaoUtil.toBean(Weibo.class, sql, userId);
         for (Weibo w : weiboList) {
-            List<Comment> comment = this.getComment(w);
-            w.setCommentNum(comment.size());
-            w.setComments(comment);
+            addCommentsAndNickname(w, userId);
         }
         return weiboList;
     }
@@ -91,9 +98,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             sql = "select * from weibo_data where user_id in (select target_id from user_relation where user_id=? and type=1) order by create_time desc limit ?,?";
             List<Weibo> beanList = DaoUtil.toBean(Weibo.class, sql, user.getUserId(), (pageCode - 1) * pageSize, pageSize);
             for (Weibo w : beanList) {
-                List<Comment> comment = this.getComment(w);
-                w.setCommentNum(comment.size());
-                w.setComments(comment);
+                addCommentsAndNickname(w, user.getUserId());
             }
             pageBean.setBeanList(beanList);
             return pageBean;
