@@ -126,4 +126,8 @@ public class WeiboService {
     public void addReply(Comment comment, ReplyComment replyComment, User user) {
         DaoFactory.getWeiboDao().addReply(comment, replyComment, user);
     }
+
+    public void showCommentAndReply() {
+
+    }
 }

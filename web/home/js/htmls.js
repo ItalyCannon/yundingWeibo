@@ -50,6 +50,8 @@ function load_home4() {
     css.href = "../我的评论（发出）/css/style.css"
 }
 
+var allCollection;
+
 function showWeibo() {
     $.ajax({
         url: '/HomeWeiboServlet',
@@ -57,53 +59,78 @@ function showWeibo() {
         dataType: 'json',
         data: {},
         success: function (text) {
+            $.ajax({
+                url: '/CollectionServlet?type=show',
+                type: 'get',
+                dataType: 'json',
+                data: {},
+                success: function (text) {
+                    allCollection = eval(text);
+                },
+                async: false
+            });
+
             var data = eval(text);
             var html = '';
             for (var i = 0; i < data.beanList.length; i++) {
-                alert(data.beanList[i]);
-                alert(data.beanList[i].nickname);
                 html +=
-                    '<div class="part_2">' +
+                    '<div class="part_1">' +
                     '<img src="' + data.beanList[i].profilePicture + ' alt="" class="portrait">' +
                     '<div class="name">' +
-                    '<p class="nickname">' + data.benList.nickname + '</p>' +
-                    '<p class="date">' + '今天 14:12' + '</p>' +
+                    '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
+                    '<p class="date">' + data.beanList[i].formatCreateTime + '</p>' +
                     '</div>' +
-                    '<p class="text">' + '素质过硬的图片' + '<span>' + '#这个是话题#' + '</span></p>' +
+                    '<p class="text">' + data.beanList[i].weiboContent + '<span>' + '' + '</span></p>' +
                     '<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">' +
                     '<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">' +
                     '<div class="bottom">' +
-                    '<p onclick="collection(' + data[i].weiboId + ')"><i class="iconfont" id="' + data[i].weiboId + 'c' + '">&#xe665;</i> 收藏</p>'
-                    + '<p onclick="repost()"><i class="iconfont" id="' + data[i].weiboId + 'r' + '">&#xe64d;</i> 转发</p>'
-                    + '<p onclick="显示评论()"><i class="iconfont">&#xe643;</i> ' + '32' + '</p>' +
+                    '<p onclick="collection(' + data.beanList[i].weiboId + ')" id="' + data.beanList[i].weiboId + 'c'
+                    + '"><i class="iconfont">&#xe665;</i> '
+                    + collectionCondition(data.beanList[i].weiboId) + '</p>'
+                    + '<p onclick="repost()"><i class="iconfont" id="' + data.beanList[i].weiboId + 'r' + '">&#xe64d;</i> 转发</p>'
+                    + '<p onclick="showComment(' + data.beanList[i].weiboId + ')"><i class="iconfont">&#xe643;</i> ' + '32' + '</p>' +
                     '<p class="last" onclick="点赞()"><i class="iconfont">&#xe60c;</i> ' + '12' + '</p>' +
-                    '</div> </div>';
+                    '</div>' + '</div>';
                 noApplicationRecord.innerHTML = html
             }
         }
     })
 }
 
-$("#collection").click(
-    function () {
-        var url;
-        if ($("#collection").html() === "收藏") {
-            url = "/CollectionServlet?type=add";
-            $("#collection").html("已收藏");
-        } else {
-            url = "/CollectionServlet?type=delete";
-            $("#collection").html("收藏");
+function collectionCondition(weiboId) {
+    for (var q = 0; q < allCollection.length; ++q) {
+        if (allCollection[q].weiboId === weiboId) {
+            return "已收藏";
         }
-
-        $.ajax({
-            url: url,
-            type: 'get',
-            dataType: 'json',
-            data: {},
-            success: {}
-        })
     }
-);
+    return "未收藏";
+}
+
+function showComment(weiboId) {
+
+}
+
+function collection(weiboId) {
+    var url;
+    var collention = document.getElementById(weiboId + "c");
+    if (collectionCondition(weiboId) === "收藏") {
+        url = "/CollectionServlet?type=add";
+        collention.innerHTML = '<i class="iconfont">&#xe665;</i>' + "已收藏";
+    } else {
+        url = "/CollectionServlet?type=delete";
+        collention.innerHTML = '<i class="iconfont">&#xe665;</i>' + "收藏";
+    }
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        data: {
+            weibo: weiboId
+        },
+        success: {},
+        async: false
+    })
+}
 
 // //获取列表中的原有内容
 // var content = document.getElementById("img").innerHTML;

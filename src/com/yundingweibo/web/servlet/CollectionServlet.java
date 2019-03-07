@@ -26,11 +26,12 @@ public class CollectionServlet extends HttpServlet {
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
         sessionUser = new User();
         sessionUser.setUserId(1);
-        String weibo1 = request.getParameter("weibo");
+        String weiboId = request.getParameter("weibo");
 
         Weibo weibo = null;
-        if (weibo1 != null) {
-            weibo = (Weibo) JSON.parse(weibo1);
+        if (weiboId != null) {
+            weibo = new Weibo();
+            weibo.setWeiboId(Integer.parseInt(weiboId));
         }
         String type = request.getParameter("type");
         if (type == null) {

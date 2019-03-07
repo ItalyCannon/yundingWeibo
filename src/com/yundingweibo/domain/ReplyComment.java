@@ -12,7 +12,25 @@ public class ReplyComment {
     private int commentId;
     private String replyContent;
     private Date replyTime;
+    private int replyPraise;
     private int userId;
+    private String nickname;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getReplyPraise() {
+        return replyPraise;
+    }
+
+    public void setReplyPraise(int replyPraise) {
+        this.replyPraise = replyPraise;
+    }
 
     public int getUserId() {
         return userId;

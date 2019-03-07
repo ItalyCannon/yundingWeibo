@@ -14,8 +14,17 @@ public class Comment {
     private int commentPraise;
     private Date commentTime;
     private int userId;
+    private String nickname;
     private int weiboId;
     private List<ReplyComment> replyComments;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
     public List<ReplyComment> getReplyComments() {
         return replyComments;

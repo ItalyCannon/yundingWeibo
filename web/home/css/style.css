@@ -1,1837 +1,1838 @@
-.public_container{
-	max-width: 1200px;
-	position: relative;
-	margin: 0 auto;
+.public_container {
+    max-width: 1200px;
+    position: relative;
+    margin: 0 auto;
 }
 
-.clearfloat{
-	zoom: 1;
-}
-	.clearfloat:after{
-		display: block;
-		clear: both;
-		content: "";
-		visibility: hidden;
-		height: 0;
-	}
-
-.public_header{
-	width: 100%;
-	height: 50px;
-	border-top: 3px solid #eb7350;
-	border-bottom: 1px solid #DDD;
-	box-shadow: 0 3px 10px #DDD;
-	position: fixed;
-	top: 0;
-	z-index: 100;
+.clearfloat {
+    zoom: 1;
 }
 
-	.header_logo{
-		width: 80px;
-		height: 40px;
-		display: inline-block;
-		margin-top: 8px;
-	}
-
-		.header_logo .iconfont{
-			display: inline-block;
-			font-size: 30px;
-		}
-
-		.header_logo .logo_text{
-			display: inline-block;
-			font-size: 18px;
-		}
-
-	.header_ul{
-		margin-left: 30px;
-		display: inline-block;
-	}
-
-		.header_ul li{
-			float: left;
-			margin-left: 50px;
-		}
-
-		.header_ul a{
-			color: #000;
-		}
-
-	.header_search{
-		width: 300px;
-		height: 36px;
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 8px;
-		margin-left: 80px;
-		position: relative;
-	}
-
-		.header_search input{
-			width: 300px;
-			height: 30px;
-			outline: none;
-		}
-
-		.header_search .iconfont{
-			position: absolute;
-			right: 12px;
-			top: 8px;
-			font-size: 20px;
-		}
-
-	.header_rank{
-		width: 100px;
-		height: 40px;
-		display: inline-block;
-		margin-left: 80px;
-	}
-
-		.header_rank .iconfont{
-			display: inline-block;
-			font-size: 28px;
-		}
-
-		.header_rank .rank_text{
-			display: inline-block;
-			margin-left: 5px;
-		}
-
-		.header_rank a{
-			color: #000;
-		}
-
-	.header_register{
-		width: 100px;
-		height: 34px;
-		display: inline-block;
-		position: absolute;
-		top: 10px;
-		right: 0;
-	}
-
-		.header_register .portrait{
-			width: 34px;
-			height: 34px;
-			border-radius: 50px;
-			display: inline-block;
-		}
-
-		.header_register .modify{
-			width: 32px;
-			height: 32px;
-			line-height: 32px;
-			text-align: center;
-			background-color: #EA824B;
-			display: inline-block;
-			vertical-align: top;
-			margin-left: 24px;
-		}
-
-			.header_register .modify .iconfont{
-				font-size: 18px;
-				color: #fff;
-			}
-
-.main{
-	width: 100%;
-	background-color: #F3F2F5;
-	overflow: hidden;
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
 }
 
-	.main .sidebar{
-		width: 120px;
-		height: 577px;
-		background-color: #fff;
-		margin-top: 80px;
-		display: inline-block;
-	}
+.public_header {
+    width: 100%;
+    height: 50px;
+    border-top: 3px solid #eb7350;
+    border-bottom: 1px solid #DDD;
+    box-shadow: 0 3px 10px #DDD;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
 
-		.main .sidebar li{
-			width: 100px;
-			height: 40px;
-			line-height: 40px;
-			padding-left: 20px;
-			font-size: 14px;
-		}
+.header_logo {
+    width: 80px;
+    height: 40px;
+    display: inline-block;
+    margin-top: 8px;
+}
 
-		.main .sidebar .item_1{
-			color: #EA824B;
-			border-left: 2px solid #EA824B;
-		}
+.header_logo .iconfont {
+    display: inline-block;
+    font-size: 30px;
+}
 
-		.main .sidebar .ul{
-			margin-top: 40px;
-		}
+.header_logo .logo_text {
+    display: inline-block;
+    font-size: 18px;
+}
 
-			.main .sidebar .ul li{
-				font-size: 12px;
-			}
+.header_ul {
+    margin-left: 30px;
+    display: inline-block;
+}
 
-	.main .middle{
-		width: 750px;
-		height: 577px;
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 80px;
-		margin-left: 15px;
-	}
+.header_ul li {
+    float: left;
+    margin-left: 50px;
+}
 
-		.main .middle_up{
-			width: 720px;
-			height: 150px;
-			background-color: #fff;
-			padding: 15px;
-			position: relative;
-		}
+.header_ul a {
+    color: #000;
+}
 
-			.main .middle_up .text{
-				width: 710px;
-				height: 86px;
-				margin: 0 auto;
-				margin-top: 5px;
-				border: 1px solid #EAEAEA;
-				background-color: #FDFDFD;
-			}
+.header_search {
+    width: 300px;
+    height: 36px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+    margin-left: 80px;
+    position: relative;
+}
 
-			.main .middle_up .expression{
-				width: 60px;
-				height: 24px;
-				font-size: 12px;
-				color: #222;
-				display: inline-block;
-				margin-top: 20px;
-				margin-left: 5px;
-			}
+.header_search input {
+    width: 300px;
+    height: 30px;
+    outline: none;
+}
 
-				.main .middle_up .expression .iconfont{
-					font-size: 18px;
-					color: #F4BB61;
-				}
+.header_search .iconfont {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 20px;
+}
 
-			.main .middle_up .picture,.video,.topic{
-				width: 60px;
-				height: 24px;
-				font-size: 12px;
-				color: #222;
-				display: inline-block;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
+.header_rank {
+    width: 100px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 80px;
+}
 
-				.main .middle_up .picture .iconfont{
-					font-size: 18px;
-					color: #A4DE96;
-				}
+.header_rank .iconfont {
+    display: inline-block;
+    font-size: 28px;
+}
 
-				.main .middle_up .video .iconfont{
-					font-size: 18px;
-					color: #FC9220;
-				}
+.header_rank .rank_text {
+    display: inline-block;
+    margin-left: 5px;
+}
 
-				.main .middle_up .topic .iconfont{
-					font-size: 18px;
-					color: #649ED0;
-				}
+.header_rank a {
+    color: #000;
+}
 
-			.main .middle_up .submit{
-				width: 86px;
-				height: 32px;
-				line-height: 32px;
-				text-align: center;
-				background-color: #EA824B;
-				color: #fff;
-				font-size: 14px;
-				letter-spacing: 2px;
-				display: inline-block;
-				border: 0;
-				margin-left: 336px;
-			}
+.header_register {
+    width: 100px;
+    height: 34px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
 
-		.main .middle_middle{
-			width: 750px;
-			height: 46px;
-			background-color: #fff;
-			margin-top: 16px;
-			position: relative;
-		}
+.header_register .portrait {
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+    display: inline-block;
+}
 
-			.main .middle_middle p{
-				width: 64px;
-				height: 46px;
-				line-height: 46px;
-				text-align: center;
-				font-size: 12px;
-				display: inline-block;
-				vertical-align: top;
-			}
+.header_register .modify {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #EA824B;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 24px;
+}
 
-				.main .middle_middle .item{
-					color: #EA824B;
-				}
+.header_register .modify .iconfont {
+    font-size: 18px;
+    color: #fff;
+}
 
-			.main .middle_middle .search{
-				display: inline-block;
-				position: relative;
-				margin-top: 10px;
-				margin-left: 194px;
-			}
+.main {
+    width: 100%;
+    background-color: #F3F2F5;
+    overflow: hidden;
+}
 
-				.main .middle_middle .search input{
-					width: 180px;
-					height: 26px;
-					padding-left: 10px;
-					border: 1px solid #DDD;
-					font-size: 12px;
-					color: #999;
-				}
+.main .sidebar {
+    width: 120px;
+    height: 577px;
+    background-color: #fff;
+    margin-top: 80px;
+    display: inline-block;
+}
 
-				.main .middle_middle .search .iconfont{
-					font-size: 14px;
-					position: absolute;
-					right: 12px;
-					top: 8px;
-					color: #BBB;
-				}
+.main .sidebar li {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    font-size: 14px;
+}
 
-			.main .middle_middle .triangle{
-				width: 8px;
-				height: 8px;
-				background-color: #F3F2F5;
-				position: absolute;
-				bottom: -4px;
-				left: 28px;
-				transform: rotate(45deg);
-			}
+.main .sidebar .item_1 {
+    color: #EA824B;
+    border-left: 2px solid #EA824B;
+}
 
-	.main .right{
-		width: 290px;
-		height: 577px;
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 80px;
-		margin-left: 15px;
-	}
+.main .sidebar .ul {
+    margin-top: 40px;
+}
 
-		.main .right_mine{
-			width: 290px;
-			height: 166px;
-			position: relative;
-			background-color: #fff;
-		}
+.main .sidebar .ul li {
+    font-size: 12px;
+}
 
-			.main .right_mine .background{
-				width: 290px;
-				height: 68px;
-			}
+.main .middle {
+    width: 750px;
+    height: 577px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 80px;
+    margin-left: 15px;
+}
 
-			.main .right_mine .portrait{
-				width: 60px;
-				height: 60px;
-				border-radius: 50px;
-				border: 1px solid #fff;
-				position: absolute;
-				top: 30px;
-				left: 110px;
-			}
+.main .middle_up {
+    width: 720px;
+    height: 150px;
+    background-color: #fff;
+    padding: 15px;
+    position: relative;
+}
 
-			.main .right_mine .name{
-				width: 290px;
-				height: 21px;
-				text-align: center;
-				font-size: 16px;
-				color: #222;
-				margin-top: 26px;
-				margin-bottom: 4px;
-			}
+.main .middle_up .text {
+    width: 710px;
+    height: 86px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border: 1px solid #EAEAEA;
+    background-color: #FDFDFD;
+}
 
-			.main .right_mine .message{
-				width: 210px;
-				height: 38px;
-				margin: 0 auto;
-			}
+.main .middle_up .expression {
+    width: 60px;
+    height: 24px;
+    font-size: 12px;
+    color: #222;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 5px;
+}
 
-			.main .right_mine .message .attention{
-				font-size: 12px;
-				color: #999;
-				display: inline-block;
-			}
+.main .middle_up .expression .iconfont {
+    font-size: 18px;
+    color: #F4BB61;
+}
 
-				.main .right_mine .message .attention span{
-					font-size: 14px;
-					color: #222;
-					font-weight: bold;
-				}
+.main .middle_up .picture, .video, .topic {
+    width: 60px;
+    height: 24px;
+    font-size: 12px;
+    color: #222;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 10px;
+}
 
-			.main .right_mine .message .fans{
-				width: 100px;
-				height: 34px;
-				border-left: 1px solid #DDD;
-				border-right: 1px solid #DDD;
-				display: inline-block;
-				vertical-align: top;
-				text-align: center;
-				font-size: 12px;
-				color: #999;
-				margin-left: 20px;
-				margin-right: 26px;
-			}
+.main .middle_up .picture .iconfont {
+    font-size: 18px;
+    color: #A4DE96;
+}
 
-				.main .right_mine .message .fans span{
-					font-size: 14px;
-					color: #222;
-					font-weight: bold;
-				}
+.main .middle_up .video .iconfont {
+    font-size: 18px;
+    color: #FC9220;
+}
 
-			.main .right_mine .message .microblog{
-				display: inline-block;
-				vertical-align: top;
-				font-size: 12px;
-				color: #999;
-			}
+.main .middle_up .topic .iconfont {
+    font-size: 18px;
+    color: #649ED0;
+}
 
-				.main .right_mine .message .microblog span{
-					font-size: 14px;
-					color: #222;
-					font-weight: bold;
-				}
+.main .middle_up .submit {
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #EA824B;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    display: inline-block;
+    border: 0;
+    margin-left: 336px;
+}
 
-		.main .right_new{
-			width: 290px;
-			height: 396px;
-			margin-top: 16px;
-			background-color: #fff;
-		}
+.main .middle_middle {
+    width: 750px;
+    height: 46px;
+    background-color: #fff;
+    margin-top: 16px;
+    position: relative;
+}
 
-			.main .right_new .title{
-				width: 290px;
-				height: 40px;
-				border-bottom: 1px solid #EAEAEA;
-				margin-bottom: 4px;
-			}
+.main .middle_middle p {
+    width: 64px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+}
 
-				.main .right_new .title_text{
-					width: 100px;
-					height: 40px;
-					line-height: 40px;
-					text-align: center;
-					font-size: 14px;
-					color: #222;
-					display: inline-block;
-				}
+.main .middle_middle .item {
+    color: #EA824B;
+}
 
-				.main .right_new .title_change{
-					width: 80px;
-					height: 40px;
-					line-height: 40px;
-					text-align: center;
-					font-size: 12px;
-					color: #999;
-					display: inline-block;
-					vertical-align: top;
-					margin-left: 100px;
-				}
+.main .middle_middle .search {
+    display: inline-block;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 194px;
+}
 
-			.main .right_new .topic{
-				width: 260px;
-				height: 40px;
-				line-height: 40px;
-				margin: 0 auto;
-				font-size: 12px;
-				color: #222;
-				position: relative;
-				margin-left: 14px;
-			}
+.main .middle_middle .search input {
+    width: 180px;
+    height: 26px;
+    padding-left: 10px;
+    border: 1px solid #DDD;
+    font-size: 12px;
+    color: #999;
+}
 
-				.main .right_new .topic span{
-					position: absolute;
-					right: 0;
-					color: #888;
-				}
+.main .middle_middle .search .iconfont {
+    font-size: 14px;
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    color: #BBB;
+}
 
-			.main .right_new .more{
-				width: 290px;
-				height: 20px;
-				line-height: 20px;
-				text-align: center;
-				font-size: 12px;
-				color: #666;
-				letter-spacing: 1px;
-			}
+.main .middle_middle .triangle {
+    width: 8px;
+    height: 8px;
+    background-color: #F3F2F5;
+    position: absolute;
+    bottom: -4px;
+    left: 28px;
+    transform: rotate(45deg);
+}
 
-	.main .empty{
-		height: 336px;
-	}
+.main .right {
+    width: 290px;
+    height: 577px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 80px;
+    margin-left: 15px;
+}
 
-	.main .blog{
-		width: 750px;
-		height: 1002px;
-		margin-left: 140px;
-		margin-top: -335px;
-		margin-bottom: 20px;
-	}
+.main .right_mine {
+    width: 290px;
+    height: 166px;
+    position: relative;
+    background-color: #fff;
+}
 
-		.main .blog .middle_down{
-			width: 750px;
-			height: 637px;
-			background-color: #fff;
-			margin-top: 16px;
-			margin-bottom: 20px;
-		}
+.main .right_mine .background {
+    width: 290px;
+    height: 68px;
+}
 
-			.main .blog .middle_down .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
+.main .right_mine .portrait {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 30px;
+    left: 110px;
+}
 
-			.main .blog .middle_down .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
+.main .right_mine .name {
+    width: 290px;
+    height: 21px;
+    text-align: center;
+    font-size: 16px;
+    color: #222;
+    margin-top: 26px;
+    margin-bottom: 4px;
+}
 
-				.main .blog .middle_down .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
+.main .right_mine .message {
+    width: 210px;
+    height: 38px;
+    margin: 0 auto;
+}
 
-				.main .blog .middle_down .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
+.main .right_mine .message .attention {
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
 
-			.main .blog .middle_down .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
+.main .right_mine .message .attention span {
+    font-size: 14px;
+    color: #222;
+    font-weight: bold;
+}
 
-			.main .blog .middle_down .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 10px;
-				color: #222;
-			}
+.main .right_mine .message .fans {
+    width: 100px;
+    height: 34px;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    margin-left: 20px;
+    margin-right: 26px;
+}
 
-				.main .blog .middle_down .text span{
-					color: #EA824B;
-				}
+.main .right_mine .message .fans span {
+    font-size: 14px;
+    color: #222;
+    font-weight: bold;
+}
 
-			.main .blog .middle_down .imgs{
-				width: 480px;
-				height: 440px;
-				margin-top: 12px;
-				margin-bottom: 18px;
-				margin-left: 78px;
-			}
+.main .right_mine .message .microblog {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    color: #999;
+}
 
-				.main .blog .middle_down .middle_down_img{
-					width: 136px;
-					height: 136px;
-					display: inline-block;
-					vertical-align: top;
-					margin-left: 6px;
-					margin-top: 10px;
-				}
+.main .right_mine .message .microblog span {
+    font-size: 14px;
+    color: #222;
+    font-weight: bold;
+}
 
-					/*.main .middle_down .middle_down_img1{
-						margin-left: 78px;
-					}*/
+.main .right_new {
+    width: 290px;
+    height: 396px;
+    margin-top: 16px;
+    background-color: #fff;
+}
+
+.main .right_new .title {
+    width: 290px;
+    height: 40px;
+    border-bottom: 1px solid #EAEAEA;
+    margin-bottom: 4px;
+}
+
+.main .right_new .title_text {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #222;
+    display: inline-block;
+}
+
+.main .right_new .title_change {
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 100px;
+}
+
+.main .right_new .topic {
+    width: 260px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #222;
+    position: relative;
+    margin-left: 14px;
+}
+
+.main .right_new .topic span {
+    position: absolute;
+    right: 0;
+    color: #888;
+}
+
+.main .right_new .more {
+    width: 290px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+.main .empty {
+    height: 336px;
+}
+
+.main .blog {
+    width: 750px;
+    height: 1002px;
+    margin-left: 140px;
+    margin-top: -335px;
+    margin-bottom: 20px;
+}
+
+.main .blog .middle_down {
+    width: 750px;
+    height: 637px;
+    background-color: #fff;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.main .blog .middle_down .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .blog .middle_down .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .blog .middle_down .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .blog .middle_down .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .blog .middle_down .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .blog .middle_down .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 10px;
+    color: #222;
+}
+
+.main .blog .middle_down .text span {
+    color: #EA824B;
+}
+
+.main .blog .middle_down .imgs {
+    width: 480px;
+    height: 440px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    margin-left: 78px;
+}
+
+.main .blog .middle_down .middle_down_img {
+    width: 136px;
+    height: 136px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 6px;
+    margin-top: 10px;
+}
+
+/*.main .middle_down .middle_down_img1{
+    margin-left: 78px;
+}*/
 
 /*					.main .middle_down .middle_down_img4{
 						margin-left: 78px;
 						display: block;
 					}*/
 
-			.main .blog .middle_down .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .blog .middle_down .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 10px;
-					font-size: 12px;
-				}
-
-				.main .blog .middle_down .bottom .last{
-					border: none;
-				}
-
-				.main .blog .middle_down .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .blog .part_1{
-		width: 750px;
-		height: 345px;
-		background-color: #fff;
-	}
-
-			.main .blog .part_1 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .blog .part_1 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .blog .part_1 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .blog .part_1 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .blog .part_1 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .blog .part_1 .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 10px;
-				color: #222;
-			}
-
-				.main .blog .part_1 .text span{
-					color: #EA824B;
-				}
-
-			.main .blog .part_1 .middle_down_img{
-				width: 136px;
-				height: 136px;
-				display: inline-block;
-				vertical-align: top;
-				margin-left: 10px;
-				margin-top: 16px;
-			}
-
-				.main .blog .part_1 .middle_down_img1{
-					margin-left: 78px;
-				}
-
-			.main .blog .part_1 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-				margin-top: 20px;
-			}
-
-				.main .blog .part_1 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 10px;
-					font-size: 12px;
-				}
-
-				.main .blog .part_1 .bottom .last{
-					border: none;
-					color: #EA824B;
-				}
-
-				.main .blog .part_1 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_2{
-		width: 750px;
-		height: 345px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_2 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_2 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_2 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_2 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_2 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_2 .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-			}
-
-				.main .part_2 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_2 .middle_down_img{
-				width: 136px;
-				height: 136px;
-				display: inline-block;
-				vertical-align: top;
-				margin-left: 10px;
-				margin-top: 20px;
-				margin-bottom: 16px;
-			}
-
-				.main .part_2 .middle_down_img1{
-					margin-left: 78px;
-				}
-
-			.main .part_2 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_2 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_2 .bottom .last{
-					border: none;
-				}
-
-				.main .part_2 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_3{
-		width: 750px;
-		height: 529px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_3 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_3 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_3 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_3 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_3 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_3 .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-			}
-
-				.main .part_3 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_3 .middle_down_img{
-				width: 205px;
-				height: 320px;
-				display: inline-block;
-				vertical-align: top;
-				margin-left: 10px;
-				margin-top: 16px;
-				margin-bottom: 20px;
-			}
-
-				.main .part_3 .middle_down_img1{
-					margin-left: 78px;
-				}
-
-			.main .part_3 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_3 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_3 .bottom .last{
-					border: none;
-				}
-
-				.main .part_3 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_4{
-		width: 750px;
-		height: 377px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_4 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_4 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_4 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_4 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_4 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_4 .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-			}
-
-				.main .part_4 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_4 .middle_down_img{
-				width: 282px;
-				height: 168px;
-				display: inline-block;
-				vertical-align: top;
-				margin-left: 10px;
-				margin-top: 16px;
-				margin-bottom: 20px;
-			}
-
-				.main .part_4 .middle_down_img1{
-					margin-left: 78px;
-				}
-
-			.main .part_4 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_4 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_4 .bottom .last{
-					border: none;
-				}
-
-				.main .part_4 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_5{
-		width: 750px;
-		height: 569px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_5 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_5 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_5 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_5 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_5 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_5 .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-			}
-
-				.main .part_5 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_5 .video{
-				width: 644px;
-				height: 360px;
-				margin-left: 78px;
-				margin-bottom: 10px;
-			}
-
-			.main .part_5 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_5 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_5 .bottom .last{
-					border: none;
-				}
-
-				.main .part_5 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_6{
-		width: 750px;
-		height: 1167px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_6 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_6 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_6 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_6 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_6 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_6 .text{
-				width: 644px;
-				height: 40px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-			}
-
-				.main .part_6 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_6 .middle_down_img{
-				width: 644px;
-				height: 878px;
-				display: inline-block;
-				vertical-align: top;
-				margin-left: 10px;
-				margin-top: 16px;
-				margin-bottom: 16px;
-			}
-
-				.main .part_6 .middle_down_img1{
-					margin-left: 78px;
-				}
-
-			.main .part_6 .small_imgs{
-				width: 656px;
-				height: 70px;
-				margin-left: 74px;
-				margin-top: 0px;
-				margin-bottom: 16px;
-			}
-
-				.main .part_6 .small_imgs .small_img{
-					width: 68px;
-					height: 66px;
-					/*margin-left: 4px;*/
-					margin: 0;
-				}
-
-				.main .part_6 .small_imgs .small_img_1{
-					margin-left: 0;
-					border: 2px solid #EA824B;
-				}
-
-			.main .part_6 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_6 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_6 .bottom .last{
-					border: none;
-				}
-
-				.main .part_6 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_7{
-		width: 750px;
-		height: 215px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_7 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_7 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_7 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_7 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_7 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_7 .text{
-				width: 640px;
-				height: 60px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-				margin-bottom: 20px;
-			}
-
-				.main .part_7 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_7 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_7 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_7 .bottom .last{
-					border: none;
-				}
-
-				.main .part_7 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_8{
-		width: 750px;
-		height: 235px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 20px;
-	}
-
-			.main .part_8 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_8 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_8 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_8 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_8 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_8 .text{
-				width: 640px;
-				height: 80px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-				margin-bottom: 20px;
-			}
-
-				.main .part_8 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_8 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-			}
-
-				.main .part_8 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_8 .bottom .last{
-					border: none;
-				}
-
-				.main .part_8 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-	.main .part_9{
-		width: 750px;
-		height: 1361px;
-		background-color: #fff;
-		margin-left: 140px;
-		margin-bottom: 200px;
-		border: 1px solid #EAEAEA;
-	}
-
-			.main .part_9 .portrait{
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin-top: 20px;
-				margin-left: 18px;
-				display: inline-block;
-			}
-
-			.main .part_9 .name{
-				width: 200px;
-				height: 50px;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-
-				.main .part_9 .name .nickname{
-					font-size: 14px;
-					margin-top: 4px;
-				}
-
-				.main .part_9 .name .date{
-					font-size: 12px;
-					margin-top: 8px;
-					color: #999;
-				}
-
-			.main .part_9 .pull_down{
-				width: 20px;
-				height: 20px;
-				background-color: pink;
-				display: inline-block;
-				vertical-align: top;
-				margin-top: 20px;
-				margin-left: 400px;
-			}
-
-			.main .part_9 .text{
-				width: 640px;
-				height: 330px;
-				font-size: 14px;
-				margin-left: 78px;
-				margin-top: 20px;
-				color: #222;
-				margin-bottom: 10px;
-			}
-
-				.main .part_9 .text span{
-					color: #EA824B;
-				}
-
-			.main .part_9 .bottom{
-				width: 750px;
-				height: 38px;
-				border-top: 1px solid #EAEAEA;
-				position: relative;
-			}
-
-				.main .part_9 .bottom p{
-					width: 182px;
-					height: 24px;
-					line-height: 24px;
-					display: inline-block;
-					vertical-align: top;
-					text-align: center;
-					border-right: 1px solid #DDD;
-					margin-top: 6px;
-					font-size: 12px;
-				}
-
-				.main .part_9 .bottom .last{
-					border: none;
-				}
-
-				.main .part_9 .bottom .iconfont{
-					font-size: 14px;
-					letter-spacing: 4px;
-				}
-
-				.main .part_9 .bottom .triangle{
-					width: 12px;
-					height: 12px;
-					background-color: #F2F2F5;
-					position: absolute;
-					right: 278px;
-					bottom: -6px;
-					transform: rotate(45deg);
-				}
-
-			.main .part_9 .comment{
-				width: 748px;
-				height: 489px;
-				background-color: #F2F2F5;
-				margin: 0 auto;
-				border-left: 1px solid #EAEAEA;
-				border-right: 1px solid #EAEAEA;
-			}
-
-				.main .part_9 .comment .write{
-					width: 748px;
-					height: 100px;
-				}
-
-					.main .part_9 .comment .write .head_img{
-						width: 40px;
-						height: 40px;
-						margin-top: 16px;
-						margin-left: 26px;
-						display: inline-block;
-					}
-
-					.main .part_9 .comment .write .text{
-						width: 642px;
-						height: 38px;
-						display: inline-block;
-						background-color: #fff;
-						border: 1px solid #EAEAEA;
-						padding: 0;
-						margin: 0;
-						margin-left: 10px;
-					}
-
-					.main .part_9 .comment .write .option{
-						width: 644px;
-						height: 32px;
-						line-height: 32px;
-						margin-left: 81px;
-					}
-
-						.main .part_9 .comment .write .option .expression{
-							font-size: 18px;
-							color: #F4BB61;
-							display: inline-block;
-						}
-
-						.main .part_9 .comment .write .option .image{
-							font-size: 18px;
-							color: #A4DE96;
-							display: inline-block;
-							margin-left: 10px;
-						}
-
-						.main .part_9 .comment .write .option .check{
-							width: 12px;
-							height: 12px;
-							background-color: #EA824B;
-							display: inline-block;
-							margin-left: 14px;
-						}
-
-						.main .part_9 .comment .write .option .word{
-							width: 108px;
-							height: 15px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-							vertical-align: top;
-						}
-
-						.main .part_9 .comment .write .option .submit{
-							width: 86px;
-							height: 32px;
-							line-height: 32px;
-							text-align: center;
-							background-color: #EA824B;
-							font-size: 14px;
-							color: #fff;
-							border: 0;
-							margin-left: 358px;
-						}
-
-				.main .part_9 .comment .option_1{
-					width: 748px;
-					height: 134px;
-					margin-top: 30px;
-				}
-
-					.main .part_9 .comment .option_1 .head_img{
-						width: 40px;
-						height: 40px;
-						margin-top: 16px;
-						margin-left: 26px;
-						display: inline-block;
-					}
-
-					.main .part_9 .comment .option_1 .message{
-						width: 642px;
-						height: 40px;
-						display: inline-block;
-						margin-left: 10px;
-						overflow: hidden;
-					}
-
-						.main .part_9 .comment .option_1 .message .nickname{
-							font-size: 12px;
-							color: #222;
-						}
-
-							.main .part_9 .comment .option_1 .message .nickname span{
-								color: #F0712E;
-							}
-
-						.main .part_9 .comment .option_1 .message .date{
-							width: 100px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-						.main .part_9 .comment .option_1 .message .reply{
-							width: 30px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-							margin-left: 448px;
-						}
-
-						.main .part_9 .comment .option_1 .message .string{
-							width: 1px;
-							height: 12px;
-							background-color: #DDD;
-							display: inline-block;
-							margin-left: 4px;
-							margin-right: 4px;
-						}
-
-						.main .part_9 .comment .option_1 .message .like{
-							width: 36px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-					.main .part_9 .comment .option_1_option{
-						width: 644px;
-						height: 68px;
-						background-color: #E9E9F0;
-						margin-left: 78px;
-					}
-
-
-						.main .part_9 .comment .option_1_option .head_img{
-						width: 40px;
-						height: 40px;
-						margin-top: 16px;
-						margin-left: 26px;
-						display: inline-block;
-					}
-
-					.main .part_9 .comment .option_1_option .message{
-						width: 560px;
-						height: 40px;
-						display: inline-block;
-						margin-left: 10px;
-						overflow: hidden;
-					}
-
-						.main .part_9 .comment .option_1_option .message .nickname{
-							font-size: 12px;
-							color: #222;
-						}
-
-							.main .part_9 .comment .option_1_option .message .nickname span{
-								color: #F0712E;
-							}
-
-						.main .part_9 .comment .option_1_option .message .date{
-							width: 100px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-						.main .part_9 .comment .option_1_option .message .reply{
-							width: 30px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-							margin-left: 355px;
-						}
-
-						.main .part_9 .comment .option_1_option .message .string{
-							width: 1px;
-							height: 12px;
-							background-color: #DDD;
-							display: inline-block;
-							margin-left: 4px;
-							margin-right: 4px;
-						}
-
-						.main .part_9 .comment .option_1_option .message .like{
-							width: 36px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-				.main .part_9 .comment .option_2{
-					width: 748px;
-					height: 74px;
-					margin-top: 10px;
-					/*background-color: pink;*/
-				}
-
-					.main .part_9 .comment .option_2 .head_img{
-						width: 40px;
-						height: 40px;
-						margin-top: 16px;
-						margin-left: 26px;
-						display: inline-block;
-					}
-
-					.main .part_9 .comment .option_2 .message{
-						width: 642px;
-						height: 40px;
-						display: inline-block;
-						margin-left: 10px;
-						overflow: hidden;
-					}
-
-						.main .part_9 .comment .option_2 .message .nickname{
-							font-size: 12px;
-							color: #222;
-						}
-
-							.main .part_9 .comment .option_2 .message .nickname span{
-								color: #F0712E;
-							}
-
-						.main .part_9 .comment .option_2 .message .date{
-							width: 100px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-						.main .part_9 .comment .option_2 .message .reply{
-							width: 30px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-							margin-left: 448px;
-						}
-
-						.main .part_9 .comment .option_2 .message .string{
-							width: 1px;
-							height: 12px;
-							background-color: #DDD;
-							display: inline-block;
-							margin-left: 4px;
-							margin-right: 4px;
-						}
-
-						.main .part_9 .comment .option_2 .message .like{
-							width: 36px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-				.main .part_9 .comment .option_3{
-					width: 748px;
-					height: 74px;
-					/*margin-top: 10px;*/
-					/*background-color: pink;*/
-				}
-
-					.main .part_9 .comment .option_3 .head_img{
-						width: 40px;
-						height: 40px;
-						margin-top: 16px;
-						margin-left: 26px;
-						display: inline-block;
-					}
-
-					.main .part_9 .comment .option_3 .message{
-						width: 642px;
-						height: 40px;
-						display: inline-block;
-						margin-left: 10px;
-						overflow: hidden;
-					}
-
-						.main .part_9 .comment .option_3 .message .nickname{
-							font-size: 12px;
-							color: #222;
-						}
-
-							.main .part_9 .comment .option_3 .message .nickname span{
-								color: #F0712E;
-							}
-
-						.main .part_9 .comment .option_3 .message .date{
-							width: 100px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
-
-						.main .part_9 .comment .option_3 .message .reply{
-							width: 30px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-							margin-left: 448px;
-						}
-
-						.main .part_9 .comment .option_3 .message .string{
-							width: 1px;
-							height: 12px;
-							background-color: #DDD;
-							display: inline-block;
-							margin-left: 4px;
-							margin-right: 4px;
-						}
-
-						.main .part_9 .comment .option_3 .message .like{
-							width: 36px;
-							height: 16px;
-							line-height: 16px;
-							font-size: 12px;
-							color: #999;
-							display: inline-block;
-						}
+.main .blog .middle_down .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .blog .middle_down .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.main .blog .middle_down .bottom .last {
+    border: none;
+}
+
+.main .blog .middle_down .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .blog .part_1 {
+    width: 750px;
+    height: 345px;
+    background-color: #fff;
+}
+
+.main .blog .part_1 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .blog .part_1 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .blog .part_1 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .blog .part_1 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .blog .part_1 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .blog .part_1 .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 10px;
+    color: #222;
+}
+
+.main .blog .part_1 .text span {
+    color: #EA824B;
+}
+
+.main .blog .part_1 .middle_down_img {
+    width: 136px;
+    height: 136px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 16px;
+}
+
+.main .blog .part_1 .middle_down_img1 {
+    margin-left: 78px;
+}
+
+.main .blog .part_1 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+    margin-top: 20px;
+}
+
+.main .blog .part_1 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.main .blog .part_1 .bottom .last {
+    border: none;
+    color: #EA824B;
+}
+
+.main .blog .part_1 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_2 {
+    width: 750px;
+    height: 345px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_2 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_2 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_2 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_2 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_2 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_2 .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+}
+
+.main .part_2 .text span {
+    color: #EA824B;
+}
+
+.main .part_2 .middle_down_img {
+    width: 136px;
+    height: 136px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.main .part_2 .middle_down_img1 {
+    margin-left: 78px;
+}
+
+.main .part_2 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_2 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_2 .bottom .last {
+    border: none;
+}
+
+.main .part_2 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_3 {
+    width: 750px;
+    height: 529px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_3 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_3 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_3 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_3 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_3 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_3 .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+}
+
+.main .part_3 .text span {
+    color: #EA824B;
+}
+
+.main .part_3 .middle_down_img {
+    width: 205px;
+    height: 320px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.main .part_3 .middle_down_img1 {
+    margin-left: 78px;
+}
+
+.main .part_3 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_3 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_3 .bottom .last {
+    border: none;
+}
+
+.main .part_3 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_4 {
+    width: 750px;
+    height: 377px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_4 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_4 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_4 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_4 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_4 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_4 .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+}
+
+.main .part_4 .text span {
+    color: #EA824B;
+}
+
+.main .part_4 .middle_down_img {
+    width: 282px;
+    height: 168px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.main .part_4 .middle_down_img1 {
+    margin-left: 78px;
+}
+
+.main .part_4 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_4 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_4 .bottom .last {
+    border: none;
+}
+
+.main .part_4 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_5 {
+    width: 750px;
+    height: 569px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_5 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_5 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_5 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_5 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_5 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_5 .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+}
+
+.main .part_5 .text span {
+    color: #EA824B;
+}
+
+.main .part_5 .video {
+    width: 644px;
+    height: 360px;
+    margin-left: 78px;
+    margin-bottom: 10px;
+}
+
+.main .part_5 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_5 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_5 .bottom .last {
+    border: none;
+}
+
+.main .part_5 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_6 {
+    width: 750px;
+    height: 1167px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_6 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_6 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_6 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_6 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_6 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_6 .text {
+    width: 644px;
+    height: 40px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+}
+
+.main .part_6 .text span {
+    color: #EA824B;
+}
+
+.main .part_6 .middle_down_img {
+    width: 644px;
+    height: 878px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.main .part_6 .middle_down_img1 {
+    margin-left: 78px;
+}
+
+.main .part_6 .small_imgs {
+    width: 656px;
+    height: 70px;
+    margin-left: 74px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+.main .part_6 .small_imgs .small_img {
+    width: 68px;
+    height: 66px;
+    /*margin-left: 4px;*/
+    margin: 0;
+}
+
+.main .part_6 .small_imgs .small_img_1 {
+    margin-left: 0;
+    border: 2px solid #EA824B;
+}
+
+.main .part_6 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_6 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_6 .bottom .last {
+    border: none;
+}
+
+.main .part_6 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_7 {
+    width: 750px;
+    height: 215px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_7 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_7 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_7 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_7 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_7 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_7 .text {
+    width: 640px;
+    height: 60px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.main .part_7 .text span {
+    color: #EA824B;
+}
+
+.main .part_7 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_7 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_7 .bottom .last {
+    border: none;
+}
+
+.main .part_7 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_8 {
+    width: 750px;
+    height: 235px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.main .part_8 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_8 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_8 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_8 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_8 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_8 .text {
+    width: 640px;
+    height: 80px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.main .part_8 .text span {
+    color: #EA824B;
+}
+
+.main .part_8 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+}
+
+.main .part_8 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_8 .bottom .last {
+    border: none;
+}
+
+.main .part_8 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_9 {
+    width: 750px;
+    height: 1361px;
+    background-color: #fff;
+    margin-left: 140px;
+    margin-bottom: 200px;
+    border: 1px solid #EAEAEA;
+}
+
+.main .part_9 .portrait {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 18px;
+    display: inline-block;
+}
+
+.main .part_9 .name {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.main .part_9 .name .nickname {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.main .part_9 .name .date {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.main .part_9 .pull_down {
+    width: 20px;
+    height: 20px;
+    background-color: pink;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.main .part_9 .text {
+    width: 640px;
+    height: 330px;
+    font-size: 14px;
+    margin-left: 78px;
+    margin-top: 20px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.main .part_9 .text span {
+    color: #EA824B;
+}
+
+.main .part_9 .bottom {
+    width: 750px;
+    height: 38px;
+    border-top: 1px solid #EAEAEA;
+    position: relative;
+}
+
+.main .part_9 .bottom p {
+    width: 182px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid #DDD;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.main .part_9 .bottom .last {
+    border: none;
+}
+
+.main .part_9 .bottom .iconfont {
+    font-size: 14px;
+    letter-spacing: 4px;
+}
+
+.main .part_9 .bottom .triangle {
+    width: 12px;
+    height: 12px;
+    background-color: #F2F2F5;
+    position: absolute;
+    right: 278px;
+    bottom: -6px;
+    transform: rotate(45deg);
+}
+
+.main .part_9 .comment {
+    width: 748px;
+    height: 489px;
+    background-color: #F2F2F5;
+    margin: 0 auto;
+    border-left: 1px solid #EAEAEA;
+    border-right: 1px solid #EAEAEA;
+}
+
+.main .part_9 .comment .write {
+    width: 748px;
+    height: 100px;
+}
+
+.main .part_9 .comment .write .head_img {
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_9 .comment .write .text {
+    width: 642px;
+    height: 38px;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #EAEAEA;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.main .part_9 .comment .write .option {
+    width: 644px;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 81px;
+}
+
+.main .part_9 .comment .write .option .expression {
+    font-size: 18px;
+    color: #F4BB61;
+    display: inline-block;
+}
+
+.main .part_9 .comment .write .option .image {
+    font-size: 18px;
+    color: #A4DE96;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.main .part_9 .comment .write .option .check {
+    width: 12px;
+    height: 12px;
+    background-color: #EA824B;
+    display: inline-block;
+    margin-left: 14px;
+}
+
+.main .part_9 .comment .write .option .word {
+    width: 108px;
+    height: 15px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main .part_9 .comment .write .option .submit {
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #EA824B;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    margin-left: 358px;
+}
+
+.main .part_9 .comment .option_1 {
+    width: 748px;
+    height: 134px;
+    margin-top: 30px;
+}
+
+.main .part_9 .comment .option_1 .head_img {
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_1 .message {
+    width: 642px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_9 .comment .option_1 .message .nickname {
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_9 .comment .option_1 .message .nickname span {
+    color: #F0712E;
+}
+
+.main .part_9 .comment .option_1 .message .date {
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_1 .message .reply {
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 448px;
+}
+
+.main .part_9 .comment .option_1 .message .string {
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_9 .comment .option_1 .message .like {
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_1_option {
+    width: 644px;
+    height: 68px;
+    background-color: #E9E9F0;
+    margin-left: 78px;
+}
+
+
+.main .part_9 .comment .option_1_option .head_img {
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_1_option .message {
+    width: 560px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_9 .comment .option_1_option .message .nickname {
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_9 .comment .option_1_option .message .nickname span {
+    color: #F0712E;
+}
+
+.main .part_9 .comment .option_1_option .message .date {
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_1_option .message .reply {
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 355px;
+}
+
+.main .part_9 .comment .option_1_option .message .string {
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_9 .comment .option_1_option .message .like {
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_2 {
+    width: 748px;
+    height: 74px;
+    margin-top: 10px;
+    /*background-color: pink;*/
+}
+
+.main .part_9 .comment .option_2 .head_img {
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_2 .message {
+    width: 642px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_9 .comment .option_2 .message .nickname {
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_9 .comment .option_2 .message .nickname span {
+    color: #F0712E;
+}
+
+.main .part_9 .comment .option_2 .message .date {
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_2 .message .reply {
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 448px;
+}
+
+.main .part_9 .comment .option_2 .message .string {
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_9 .comment .option_2 .message .like {
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_3 {
+    width: 748px;
+    height: 74px;
+    /*margin-top: 10px;*/
+    /*background-color: pink;*/
+}
+
+.main .part_9 .comment .option_3 .head_img {
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_3 .message {
+    width: 642px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_9 .comment .option_3 .message .nickname {
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_9 .comment .option_3 .message .nickname span {
+    color: #F0712E;
+}
+
+.main .part_9 .comment .option_3 .message .date {
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_9 .comment .option_3 .message .reply {
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 448px;
+}
+
+.main .part_9 .comment .option_3 .message .string {
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_9 .comment .option_3 .message .like {
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
