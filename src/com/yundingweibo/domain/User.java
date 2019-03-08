@@ -174,7 +174,7 @@ public class User {
 
     public String getFormatBirthday() {
         if (this.birthday != null) {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
             return sd.format(birthday);
         } else {
             return null;
@@ -195,7 +195,7 @@ public class User {
 
     public String getFormatRegistrationTime() {
         if (this.registrationTime != null) {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
             return sd.format(registrationTime);
         } else {
             return null;

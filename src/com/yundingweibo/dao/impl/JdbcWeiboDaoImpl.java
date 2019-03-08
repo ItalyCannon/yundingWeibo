@@ -306,6 +306,8 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             String photo = (String) DaoUtil.getObject(sql, weibo.getWeiboId());
             sql = "insert into weibo_data(weibo_content,photo,is_origin,user_id,create_time) values(?,?,false,?,?)";
             DaoUtil.query(sql, weibo1.getWeiboContent(), photo, user.getUserId(), format);
+            sql = "update user_info set weibo_num = weibo_num +1 where user_id = ?";
+            DaoUtil.query(sql, user.getUserId());
         } catch (RuntimeException e) {
             String sql = "delete from weibo_repost where weibo_id=? and user_id=? and repost_time=?";
             DaoUtil.query(sql, weibo.getWeiboId(), user.getUserId(), format);

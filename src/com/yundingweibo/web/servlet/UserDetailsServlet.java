@@ -40,6 +40,8 @@ public class UserDetailsServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         User u = (User) request.getSession().getAttribute("sessionUser");
+        u = new User(1);
+        u.setLoginId("15635323339");
         User details = new UserService().showInfo(u);
         PropertyFilter propertyFilter = (o, s, o1) -> !"attentionGroup".equals(s);
         String s = JSON.toJSONString(details, propertyFilter);
