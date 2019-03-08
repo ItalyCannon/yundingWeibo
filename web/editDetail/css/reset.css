@@ -1,0 +1,17 @@
+html,body,div,ul,li,p,input,i,img,select{
+	padding: 0;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+	outline: none;
+}
+
+ul,li{
+	list-style: none;
+}
+
+input,select{
+	outline: none;
+}

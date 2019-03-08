@@ -224,20 +224,19 @@ public class DaoUtil {
             for (String colName : colNames) {
                 Method[] ms = User.class.getMethods();
                 Object o = null;
-                String methodName = "toBean" + underlineToHump(colName);
+                String methodName = "get" + underlineToHump(colName);
                 for (Method m : ms) {
                     if (methodName.equals(m.getName())) {
                         o = m.invoke(u);
+                        break;
                     }
                 }
                 if (o != null) {
                     pstmt = conn.prepareStatement("update user_info set " + colName + "=?" + " where user_id="
                             + u.getUserId());
                     pstmt.setObject(1, o);
-                } else {
-                    continue;
+                    pstmt.executeUpdate();
                 }
-                pstmt.executeUpdate();
             }
         } catch (IllegalAccessException | SQLException | InvocationTargetException e) {
             throw new DaoException(e.getMessage());

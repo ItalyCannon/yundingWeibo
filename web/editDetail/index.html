@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资料详情(编辑)</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+</head>
+<body>
+
+<div class="public_header">
+    <div class="public_container">
+        <div class="header_logo">
+            <i class="iconfont">&#xe61a;</i>
+            <p class="logo_text">微博</p>
+        </div>
+        <ul class="header_ul">
+            <a href="" title="">
+                <li class="clearfloat">首页</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">视频</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">发现</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">游戏</li>
+            </a>
+        </ul>
+        <div class="header_search">
+            <input type="text" name="">
+            <i class="iconfont">&#xe600;</i>
+        </div>
+        <div class="header_rank">
+            <a href="" title="">
+                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+                <p class="rank_text">排行榜</p>
+            </a>
+        </div>
+        <div class="header_register">
+            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <div class="modify">
+                <i class="iconfont">&#xe64d;</i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="public_container">
+        <div class="personage">
+            <div class="personage_up">
+                <img src="" alt="img" class="portrait" id="profilePicture">
+                <p class="name" id="nicknameLeft"></p>
+                <p class="signature" id="signatureLeft"></p>
+            </div>
+            <div class="personage_down">
+                <div class="message">
+                    <p class="attention"><span id="attentionNum"> </span><br/>关注</p>
+                    <p class="fans"><span id="fansNum"> </span><br/>粉丝</p>
+                    <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
+                </div>
+            </div>
+        </div>
+        <div class="information">
+            <div class="basic">
+                <p class="basic_message">基本信息</p>
+                <p class="cross"></p>
+                <p class="compile" onclick="query()">保存</p>
+                <p class="fixed register">登录名</p>
+                <p class="alter" id="loginId"></p>
+                <p class="fixed">昵称</p><input type="text" name="" value="" class="input_1" id="nicknameRight">
+                <p class="fixed">姓名</p><input type="text" name="" value="" class="input_2" id="realName">
+                <p class="fixed">性别</p>
+                <select name="" class="sex" id="gender">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+                <p class="fixed">所在地</p>
+                <select name="" class="province">
+                    <option value="山西">山西</option>
+                    <option value="北京">北京</option>
+                </select>
+                <select name="" class="city">
+                    <option value="太原">太原</option>
+                    <option value="长治">长治</option>
+                </select>
+                <p class="fixed">性取向</p>
+                <select name="" class="sexual_orientation" id="sexualOrientation">
+                    <option value="异性">异性</option>
+                    <option value="同性">同性</option>
+                </select>
+                <p class="fixed">感情状况</p>
+                <select name="" class="feeling" id="emotionalState">
+                    <option value="单身">单身</option>
+                    <option value="恋爱">恋爱</option>
+                    <option value="已婚">已婚</option>
+                </select>
+                <p class="fixed">生日</p>
+                <select name="" class="year">
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                </select>
+                <select name="" class="month">
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                </select>
+                <select name="" class="day">
+                    <option value="21">21</option>
+                    <option value="20">20</option>
+                </select>
+                <p class="fixed">签名</p>
+                <input type="text" name="" value="设计的力量" class="autograph" id="signatureRight">
+                <p class="fixed">注册时间</p>
+                <p class="alter" id="registrationTime">2014-12-12</p>
+            </div>
+            <div class="contact">
+                <p class="contact_message">联系信息</p>
+                <p class="cross"></p>
+                <p class="compile">保存</p>
+                <p class="fixed">邮箱</p>
+                <input type="text" name="" value="jetris@qq.com" class="mailbox" id="email">
+                <p class="fixed">QQ</p>
+                <input type="text" name="" value="12312312121" class="QQ" id="qq">
+            </div>
+            <div class="education">
+                <p class="contact_message">教育信息</p>
+                <p class="cross"></p>
+                <p class="compile">保存</p>
+                <p class="fixed">本科</p>
+                <input type="text" name="" value="太原理工大学" class="school" id="undergraduateSchool">
+                <p class="fixed">研究生</p>
+                <p class="alter"><a href="" class="postgraduate" id="graduateSchool">添加+</a></p>
+            </div>
+            <div class="label">
+                <p class="contact_message">标签信息</p>
+                <p class="cross"></p>
+                <p class="compile">保存</p>
+                <p class="fixed">标签</p>
+                <p class="items">#电影</p>
+                <p class="items">#设计</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+</html>

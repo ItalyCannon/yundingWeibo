@@ -1,0 +1,443 @@
+.public_container{
+	max-width: 1200px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.clearfloat{
+	zoom: 1;
+}
+	.clearfloat:after{
+		display: block;
+		clear: both;
+		content: "";
+		visibility: hidden;
+		height: 0;
+	}
+
+.public_header{
+	width: 100%;
+	height: 50px;
+	border-top: 3px solid #eb7350;
+	border-bottom: 1px solid #DDD;
+	box-shadow: 0 3px 10px #DDD;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	background-color: #fff;
+}
+
+	.header_logo{
+		width: 80px;
+		height: 40px;
+		display: inline-block;
+		margin-top: 8px;
+	}
+
+		.header_logo .iconfont{
+			display: inline-block;
+			font-size: 30px;
+		}
+
+		.header_logo .logo_text{
+			display: inline-block;
+			font-size: 18px;
+		}
+
+	.header_ul{
+		margin-left: 30px;
+		display: inline-block;
+	}
+
+		.header_ul li{
+			float: left;
+			margin-left: 50px;
+		}
+
+		.header_ul a{
+			color: #000;
+		}
+
+	.header_search{
+		width: 300px;
+		height: 36px;
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 8px;
+		margin-left: 80px;
+		position: relative;
+	}
+
+		.header_search input{
+			width: 300px;
+			height: 30px;
+			outline: none;
+		}
+
+		.header_search .iconfont{
+			position: absolute;
+			right: 12px;
+			top: 8px;
+			font-size: 20px;
+		}
+
+	.header_rank{
+		width: 100px;
+		height: 40px;
+		display: inline-block;
+		margin-left: 80px;
+	}
+
+		.header_rank .iconfont{
+			display: inline-block;
+			font-size: 28px;
+		}
+
+		.header_rank .rank_text{
+			display: inline-block;
+			margin-left: 5px;
+		}
+
+		.header_rank a{
+			color: #000;
+		}
+
+	.header_register{
+		width: 100px;
+		height: 34px;
+		display: inline-block;
+		position: absolute;
+		top: 10px;
+		right: 0;
+	}
+
+		.header_register .portrait{
+			width: 34px;
+			height: 34px;
+			border-radius: 50px;
+			display: inline-block;
+		}
+
+		.header_register .modify{
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			background-color: #EA824B;
+			display: inline-block;
+			vertical-align: top;
+			margin-left: 24px;
+		}
+
+			.header_register .modify .iconfont{
+				font-size: 18px;
+				color: #fff;
+			}
+
+.main{
+	width: 100%;
+	height: 1120px;
+	background-color: #F3F2F5;
+	overflow: hidden;
+}
+
+	.main .personage{
+		width: 290px;
+		height: 340px;
+		margin-top: 80px;
+		display: inline-block;
+	}
+
+		.main .personage_up{
+			width: 290px;
+			height: 263px;
+			background-color: #fff;
+		}
+
+			.main .personage_up .portrait{
+				width: 80px;
+				height: 80px;
+				border-radius: 50px;
+				margin-left: 105px;
+				margin-top: 50px;
+			}
+
+			.main .personage_up .name{
+				width: 290px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 18px;
+				text-align: center;
+			}
+
+			.main .personage_up .signature{
+				width: 290px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 12px;
+				text-align: center;
+				color: #999;
+			}
+
+		.main .personage_down{
+			width: 290px;
+			height: 60px;
+			background-color: #fff;
+			margin-top: 17px;
+			overflow: hidden;
+		}
+
+			.main .personage_down .message{
+				width: 210px;
+				height: 38px;
+				margin: 0 auto;
+				margin-top: 14px;
+			}
+
+			.main .personage_down .message .attention{
+				font-size: 12px;
+				color: #999;
+				display: inline-block;
+			}
+
+				.main .personage_down .message .attention span{
+					font-size: 14px;
+					color: #222;
+					font-weight: bold;
+				}
+
+			.main .personage_down .message .fans{
+				width: 100px;
+				height: 34px;
+				border-left: 1px solid #DDD;
+				border-right: 1px solid #DDD;
+				display: inline-block;
+				vertical-align: top;
+				text-align: center;
+				font-size: 12px;
+				color: #999;
+				margin-left: 20px;
+				margin-right: 26px;
+			}
+
+				.main .personage_down .message .fans span{
+					font-size: 14px;
+					color: #222;
+					font-weight: bold;
+				}
+
+			.main .personage_down .message .microblog{
+				display: inline-block;
+				vertical-align: top;
+				font-size: 12px;
+				color: #999;
+			}
+
+				.main .personage_down .message .microblog span{
+					font-size: 14px;
+					color: #222;
+					font-weight: bold;
+				}
+
+	.main .information{
+		width: 890px;
+		height: 967px;
+		background-color: #fff;
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 80px;
+		margin-left: 10px;
+	}
+
+		.main .information .basic{
+			width: 846px;
+			height: 441px;
+			margin: 0 auto;
+			margin-top: 22px;
+		}
+
+			.main .information .basic_message,.contact_message{
+				font-size: 14px;
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+
+			.main .information .basic .sex{
+				width: 52px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				margin-right: 700px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .province{
+				width: 84px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .city{
+				width: 84px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				margin-right: 550px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .sexual_orientation,.feeling{
+				width: 84px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				margin-right: 660px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .year{
+				width: 84px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .month{
+				width: 52px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .day{
+				width: 52px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				margin-right: 500px;
+				padding-left: 5px;
+				font-size: 12px;
+			}
+
+			.main .information .basic .autograph{
+				width: 410px;
+				height: 26px;
+				line-height: 26px;
+				padding-left: 10px;
+				border: 1px solid #EAEAEA;
+				font-size: 12px;
+				color: #222;
+				margin-left: 15px;
+				margin-right: 300px;
+			}
+
+			.main .information .input_1,.input_2{
+				width: 107px;
+				height: 26px;
+				border: 1px solid #EAEAEA;
+				font-size: 12px;
+				padding-left: 10px;
+				margin-left: 20px;
+				margin-right: 620px;
+			}
+
+			.main .information .cross{
+				width: 722px;
+				height: 1px;
+				background-color: #EAEAEA;
+				display: inline-block;
+				vertical-align: top;
+				margin-top: 12px;
+				margin-left: 16px;
+				margin-right: 16px;
+			}
+
+			.main .information .compile{
+				font-size: 12px;
+				display: inline-block;
+			}
+
+			.main .information .fixed{
+				width: 56px;
+				height: 40px;
+				line-height: 40px;
+				text-align: right;
+				color: #888;
+				font-size: 12px;
+				display: inline-block;
+			}
+
+			.main .information .alter{
+				width: 760px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 12px;
+				color: #222;
+				display: inline-block;
+				margin-left: 20px;
+			}
+
+		.main .information .contact{
+			width: 846px;
+			height: 120px;
+			margin: 0 auto;
+		}
+
+			.main .information .contact .mailbox,.QQ{
+				width: 410px;
+				height: 26px;
+				line-height: 26px;
+				font-size: 12px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				padding-left: 10px;
+				margin-right: 300px;
+			}
+
+		.main .information .education{
+			width: 846px;
+			height: 128px;
+			margin: 0 auto;
+		}
+
+			.main .information .education .school{
+				width: 410px;
+				height: 26px;
+				line-height: 26px;
+				font-size: 12px;
+				border: 1px solid #EAEAEA;
+				margin-left: 15px;
+				padding-left: 10px;
+				margin-right: 300px;
+			}
+
+			.main .information .education .postgraduate{
+				color: #EA824B;
+			}
+
+		.main .information .label{
+			width: 846px;
+			height: 128px;
+			margin: 0 auto;
+		}
+
+			.main .information .label .items{
+				width: 60px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				font-size: 12px;
+				background-color: rgba(234,130,75,0.1);
+				display: inline-block;
+				margin-left: 20px;
+			}
