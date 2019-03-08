@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.yundingweibo.domain.Comment;
 import com.yundingweibo.domain.ReplyComment;
 import com.yundingweibo.domain.User;
-import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.WeiboService;
 
 import javax.servlet.ServletException;
@@ -27,11 +26,16 @@ public class PraiseServlet extends HttpServlet {
         String param = request.getParameter("type");
         WeiboService weiboService = new WeiboService();
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
+        sessionUser = new User(1);
         switch (param) {
             case "weibo":
                 String weibo = request.getParameter("weibo");
-                Weibo parse = (Weibo) JSON.parse(weibo);
-                weiboService.praiseWeibo(parse, sessionUser);
+                int parse = (int) JSON.parse(weibo);
+                try {
+                    weiboService.praiseWeibo(parse, sessionUser);
+                } catch (Exception e) {
+                    response.getWriter().write(JSON.toJSONString(e.getMessage()));
+                }
                 break;
             case "comment":
                 String comment = request.getParameter("comment");

@@ -1526,7 +1526,7 @@ target_id</ColNames>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="290" name="parise_time">
+    <column id="366" parent="290" name="praise_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>

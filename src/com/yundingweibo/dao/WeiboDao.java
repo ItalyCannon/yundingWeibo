@@ -62,10 +62,10 @@ public interface WeiboDao {
     /**
      * 微博点赞
      *
-     * @param weibo 要点赞的微博
+     * @param weiboId 要点赞的微博Id
      * @param user  sessionUser
      */
-    void like(Weibo weibo, User user);
+    void like(int weiboId, User user);
 
     /**
      * 评论点赞

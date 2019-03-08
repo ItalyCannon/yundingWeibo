@@ -2,7 +2,6 @@ package com.yundingweibo.web.servlet;
 
 import com.alibaba.fastjson.JSON;
 import com.yundingweibo.domain.User;
-import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.UserService;
 
 import javax.servlet.ServletException;
@@ -29,14 +28,16 @@ public class RepostServlet extends HttpServlet {
             throw new RuntimeException("type不能为空");
         }
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
-        Weibo weibo = (Weibo) JSON.parse(request.getParameter("weibo"));
+        sessionUser = new User(1);
+        int weiboId = (int) JSON.parse(request.getParameter("weibo"));
 
         switch (type) {
             case "add":
-                new UserService().addRepost(sessionUser, weibo);
+                //需要完整的微博数据
+                new UserService().addRepost(sessionUser, weiboId);
                 break;
             case "delete":
-                new UserService().deleteRepost(sessionUser, weibo);
+                new UserService().deleteRepost(sessionUser, weiboId);
                 break;
             case "show":
                 new UserService().getRepost(sessionUser);

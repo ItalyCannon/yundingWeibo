@@ -2,6 +2,7 @@ package com.yundingweibo.service;
 
 import com.yundingweibo.dao.DaoFactory;
 import com.yundingweibo.dao.UserDao;
+import com.yundingweibo.dao.WeiboDao;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 
@@ -120,11 +121,15 @@ public class UserService {
         throw new RuntimeException("用户不存在");
     }
 
-    public void addRepost(User user, Weibo weibo) {
+    public void addRepost(User user, int weiboId) {
+        WeiboDao weiboDao = DaoFactory.getWeiboDao();
+        Weibo weibo = weiboDao.getWeibo(weiboId);
         DaoFactory.getWeiboDao().addRepost(user, weibo);
     }
 
-    public void deleteRepost(User user, Weibo weibo) {
+    public void deleteRepost(User user, int weiboId) {
+        WeiboDao weiboDao = DaoFactory.getWeiboDao();
+        Weibo weibo = weiboDao.getWeibo(weiboId);
         DaoFactory.getWeiboDao().deleteRepost(user, weibo);
     }
 

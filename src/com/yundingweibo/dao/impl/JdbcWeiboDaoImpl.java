@@ -82,9 +82,9 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             /*
              * 得到totalRecord
              */
-            String sql = "select count(*) from weibo_data where user_id in (select target_id from user_relation where user_id=? and type=1)";
+            String sql = "select count(*) from weibo_data where user_id in (select target_id from user_relation where user_id=? and type=1) or user_id=?";
             int totalRecord;
-            Object o = DaoUtil.getObject(sql, user.getUserId());
+            Object o = DaoUtil.getObject(sql, user.getUserId(), user.getUserId());
             if (o == null) {
                 totalRecord = 0;
             } else {
@@ -95,8 +95,8 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             /*
              * 得到beanList
              */
-            sql = "select * from weibo_data where user_id in (select target_id from user_relation where user_id=? and type=1) order by create_time desc limit ?,?";
-            List<Weibo> beanList = DaoUtil.toBean(Weibo.class, sql, user.getUserId(), (pageCode - 1) * pageSize, pageSize);
+            sql = "select * from weibo_data where user_id in (select target_id from user_relation where user_id=? and type=1) or user_id=? order by create_time desc limit ?,?";
+            List<Weibo> beanList = DaoUtil.toBean(Weibo.class, sql, user.getUserId(), user.getUserId(), (pageCode - 1) * pageSize, pageSize);
             for (Weibo w : beanList) {
                 addCommentsAndNickname(w, user.getUserId());
             }
@@ -142,35 +142,35 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      * <p>
      * 2019/3/3 16:56 好像不用事务更麻烦，但是我都已经写完了
      *
-     * @param weibo 要点赞的微博
-     * @param user  sessionUser
+     * @param weiboId 要点赞的微博id
+     * @param user    sessionUser
      */
     @Override
-    public void like(Weibo weibo, User user) {
+    public void like(int weiboId, User user) {
         String sql = "select user_id from weibo_praise where weibo_id=? and user_id=?";
-        Long praiseNum = (Long) DaoUtil.getObject(sql, weibo.getWeiboId(), user.getUserId());
+        Long praiseNum = (Long) DaoUtil.getObject(sql, weiboId, user.getUserId());
         if (praiseNum != null) {
             throw new RuntimeException("已经点过赞了");
         }
 
         try {
-            sql = "insert into weibo_praise(user_id,weibo_id) values(?,?)";
-            DaoUtil.query(sql, user.getUserId(), weibo.getWeiboId());
+            sql = "insert into weibo_praise(user_id,weibo_id,praise_time) values(?,?,now())";
+            DaoUtil.query(sql, user.getUserId(), weiboId);
             sql = "update weibo_data set praise_num=praise_num+1 where weibo_id=?";
-            DaoUtil.query(sql, weibo.getWeiboId());
+            DaoUtil.query(sql, weiboId);
         } catch (Exception e) {
             sql = "delete from weibo_praise where weibo_id=? and user_id=?";
-            DaoUtil.query(sql, weibo.getWeiboId(), user.getUserId());
+            DaoUtil.query(sql, weiboId, user.getUserId());
             sql = "select count(*) from weibo_praise where weibo_id=?";
-            Long num = (Long) DaoUtil.getObject(sql, weibo.getWeiboId());
+            Long num = (Long) DaoUtil.getObject(sql, weiboId);
             if (num != null) {
                 int praise = num.intValue();
                 sql = "update weibo_data set praise_num=? where weibo_id=?";
-                DaoUtil.query(sql, praise, weibo.getWeiboId());
+                DaoUtil.query(sql, praise, weiboId);
             }
             if (num == null) {
                 sql = "update weibo_data set praise_num=0 where weibo_id=?";
-                DaoUtil.query(sql, weibo.getWeiboId());
+                DaoUtil.query(sql, weiboId);
             }
             throw new RuntimeException("点赞出错");
         }

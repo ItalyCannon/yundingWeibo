@@ -79,8 +79,8 @@ public class WeiboService {
      * @param weibo .
      * @param user  .
      */
-    public void praiseWeibo(Weibo weibo, User user) {
-        DaoFactory.getWeiboDao().like(weibo, user);
+    public void praiseWeibo(int weiboId, User user) {
+        DaoFactory.getWeiboDao().like(weiboId, user);
     }
 
     /**
