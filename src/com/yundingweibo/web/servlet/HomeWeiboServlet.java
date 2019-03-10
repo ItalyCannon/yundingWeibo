@@ -33,7 +33,6 @@ public class HomeWeiboServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         User user = (User) request.getSession().getAttribute("sessionUser");
-        user = new User(1);
         int pageCode = getPageCode(request);
         int pageSize = 6;
         PageBean<Weibo> pb = new WeiboService().findAll(user, pageCode, pageSize);

@@ -8,6 +8,7 @@ import com.yundingweibo.domain.*;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -98,7 +99,9 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             sql = "select * from weibo_data where user_id in (select target_id from user_relation where user_id=? and type=1) or user_id=? order by create_time desc limit ?,?";
             List<Weibo> beanList = DaoUtil.toBean(Weibo.class, sql, user.getUserId(), user.getUserId(), (pageCode - 1) * pageSize, pageSize);
             for (Weibo w : beanList) {
-                addCommentsAndNickname(w, user.getUserId());
+                addCommentsAndNickname(w, w.getUserId());
+                User user1 = userDao.getUser(w.getUserId());
+                w.setProfilePicture(user1.getProfilePicture());
             }
             pageBean.setBeanList(beanList);
             return pageBean;
@@ -106,6 +109,8 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             throw new RuntimeException(e);
         }
     }
+
+
 
     @Override
     public List<Weibo> getPraiseList() {
@@ -322,5 +327,79 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     public List<Weibo> getRepost(User user) {
         String sql = "select * from weibo_data where weibo_id in (select weibo_id from weibo_repost where user_id=? order by repost_time desc)";
         return DaoUtil.toBean(Weibo.class, sql, user.getUserId());
+    }
+
+    /**
+     * 显示我发出的评论，这里把评论的回复也封装成了Comment对象，后期有时间的话会砍掉ReplyComment类，然后重新设计评论和回复部分的数据库
+     *
+     * @param user .
+     * @return .
+     */
+    @Override
+    public List<Comment> showCommentSend(User user) {
+        String sql = "select * from weibo_comment where user_id=?";
+        List<Comment> comments = DaoUtil.toBean(Comment.class, sql, user.getUserId());
+        sql = "select * from reply_comment where user_id=?";
+        List<ReplyComment> replyComments = DaoUtil.toBean(ReplyComment.class, sql, user.getUserId());
+        toComment(comments, replyComments);
+        return comments;
+    }
+
+    /**
+     * 显示我收到的评论，这里把评论的回复也封装成了Comment对象，后期有时间的话会砍掉ReplyComment类，然后重新设计评论和回复部分的数据库
+     *
+     * @param user .
+     * @return .
+     */
+    @Override
+    public List<Comment> showCommentReceive(User user) {
+        String sql = "select * from weibo_comment where weibo_id in (select weibo_id from weibo_data where user_id=?)";
+        List<Comment> comments = DaoUtil.toBean(Comment.class, sql, user.getUserId());
+        List<Comment> all = new ArrayList<>(comments);
+        for (Comment comment : comments) {
+            if (setProfilePicture(comment)) {
+                continue;
+            }
+            sql = "select * from reply_comment where comment_id=?";
+            List<ReplyComment> replyComments = DaoUtil.toBean(ReplyComment.class, sql, comment.getCommentId());
+            toComment(all, replyComments);
+        }
+        return all;
+    }
+
+    private boolean setProfilePicture(Comment comment) {
+        int userId = comment.getUserId();
+        if (userId < 0) {
+            return true;
+        }
+        User user1 = userDao.getUser(userId);
+        if (user1 == null) {
+            return true;
+        }
+        comment.setProfilePicture(user1.getProfilePicture());
+        return false;
+    }
+
+    private void toComment(List<Comment> all, List<ReplyComment> replyComments) {
+        String sql;
+        for (ReplyComment r : replyComments) {
+            sql = "select weibo_id from weibo_comment where comment_id=?";
+            Long weiboIdL = (Long) DaoUtil.getObject(sql, r.getCommentId());
+            if (weiboIdL != null) {
+                int weiboId = weiboIdL.intValue();
+                Comment c = new Comment();
+                if (setProfilePicture(c)) {
+                    continue;
+                }
+                c.setCommentId(-1);
+                c.setWeiboId(weiboId);
+                c.setCommentContent(r.getReplyContent());
+                c.setCommentPraise(r.getReplyPraise());
+                c.setCommentTime(r.getReplyTime());
+                c.setNickname(r.getNickname());
+                c.setUserId(r.getUserId());
+                all.add(c);
+            }
+        }
     }
 }

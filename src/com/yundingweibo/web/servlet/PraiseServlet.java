@@ -26,7 +26,6 @@ public class PraiseServlet extends HttpServlet {
         String param = request.getParameter("type");
         WeiboService weiboService = new WeiboService();
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
-        sessionUser = new User(1);
         switch (param) {
             case "weibo":
                 String weibo = request.getParameter("weibo");

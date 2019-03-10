@@ -25,7 +25,7 @@ public class JdbcUserDaoImpl implements UserDao {
     @Override
     public User getUser(int userId) {
         String sql = "select * from user_info where user_id = ?";
-        return DaoUtil.toBean(User.class, sql, userId).get(0);
+        return DaoUtil.toBeanSingle(User.class, sql, userId);
     }
 
     /**
@@ -192,7 +192,7 @@ public class JdbcUserDaoImpl implements UserDao {
      */
     @Override
     public User showBasicInfo(User user) {
-        String sql = "select nickname,signature,profile_picture from user_info where user_id=?";
+        String sql = "select nickname,signature,profile_picture,fans_num,weibo_num,subscribe_num from user_info where user_id=?";
         return DaoUtil.toBeanSingle(User.class, sql, user.getUserId());
     }
 }

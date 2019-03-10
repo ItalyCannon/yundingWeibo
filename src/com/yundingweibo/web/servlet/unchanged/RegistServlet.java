@@ -68,42 +68,43 @@ public class RegistServlet extends HttpServlet {
                         try {
                             registUser.setLoginId(registId);
                             registUser.setPassword(password);
+                            registUser.setProfilePicture("https://www.baidu.com/img/dong1_dd071b75788996a161c3964d450fcd8c.gif");
                             new UserService().addUser(registUser);
                             //注册成功，存储数据
                             session.setAttribute("user", registUser);
                             //储存信息到request
                             session.setAttribute("regist_error", "您已成功注册");
                             //转发到登录页面
-                            response.sendRedirect("/web/regist.jsp");
+                            response.sendRedirect("/home/index.html");
                         } catch (Exception e) {
                             session.setAttribute("regist_error", e.getMessage());
-                            response.sendRedirect("/web/regist.jsp");
+                            response.sendRedirect("/register/regist.jsp");
                         }
                     } else {
                         //验证码错误
                         session.setAttribute("regist_error", "您输入的手机短信验证码有误");
                         //转发到注册页面
-                        response.sendRedirect("/web/regist.jsp");
+                        response.sendRedirect("/register/regist.jsp");
                     }
 
                 } else {
                     //验证码错误
                     session.setAttribute("regist_error", "您输入的验证码有误");
                     //转发到注册页面
-                    response.sendRedirect("/web/regist.jsp");
+                    response.sendRedirect("/register/regist.jsp");
                 }
             } else {
                 //两次密码输入不同
                 //储存信息到request
                 request.getSession().setAttribute("regist_error", "您两次输入的密码不同");
-                response.sendRedirect("/web/regist.jsp");
+                response.sendRedirect("/register/regist.jsp");
             }
 
         } else {
             //手机格式错误
             //储存信息到request
             request.getSession().setAttribute("regist_error", "请您输入正确的手机号");
-            response.sendRedirect("/web/regist.jsp");
+            response.sendRedirect("/register/regist.jsp");
         }
 
     }

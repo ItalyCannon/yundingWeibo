@@ -7,6 +7,7 @@ function getInfo() {
         success: function (text) {
             var data = eval(text);
             $("#profilePicture").attr('src', data.profilePicture);
+            $("#profilePictureEdit").attr('src', data.profilePicture);
             $("#nicknameLeft").html(data.nickname);
             $("#signatureLeft").html(data.signature);
             $("#attentionNum").html(data.subscribeNum);
@@ -73,6 +74,15 @@ function getInfo() {
         },
         async: true
     });
+}
+
+function appear() {
+    var personage = document.getElementById("personage_more");
+    if (personage.style.display == "none") {
+        personage.style.display = 'block';
+    } else {
+        personage.style.display = 'none';
+    }
 }
 
 window.onload = getInfo();

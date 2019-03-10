@@ -28,7 +28,6 @@ public class RepostServlet extends HttpServlet {
             throw new RuntimeException("type不能为空");
         }
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
-        sessionUser = new User(1);
         int weiboId = (int) JSON.parse(request.getParameter("weibo"));
 
         switch (type) {

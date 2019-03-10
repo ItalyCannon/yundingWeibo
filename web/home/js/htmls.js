@@ -12,42 +12,15 @@ function load_home1() {
 }
 
 function load_home2() {
-    var one = document.getElementById("1");
-    one.style.display = 'none';
-    var two = document.getElementById("2");
-    two.style.display = 'block';
-    var two = document.getElementById("3");
-    two.style.display = 'none';
-    var two = document.getElementById("4");
-    two.style.display = 'none';
-    var css = document.getElementById("css1");
-    css.href = "../我的收藏/css/style.css"
+    window.location.href = "/collection/index.html";
 }
 
 function load_home3() {
-    var one = document.getElementById("1");
-    one.style.display = 'none';
-    var two = document.getElementById("2");
-    two.style.display = 'none';
-    var two = document.getElementById("3");
-    two.style.display = 'block';
-    var two = document.getElementById("4");
-    two.style.display = 'none';
-    var css = document.getElementById("css1");
-    css.href = "../我的点赞/css/style.css"
+    window.location.href = "/praise/index.html";
 }
 
 function load_home4() {
-    var one = document.getElementById("1");
-    one.style.display = 'none';
-    var two = document.getElementById("2");
-    two.style.display = 'none';
-    var two = document.getElementById("3");
-    two.style.display = 'none';
-    var two = document.getElementById("4");
-    two.style.display = 'block';
-    var css = document.getElementById("css1");
-    css.href = "../我的评论（发出）/css/style.css"
+    window.location.href = "/commentReceive/index.html";
 }
 
 var allCollection;
@@ -57,7 +30,7 @@ var PageCode = 1;
 function showWeibo() {
     var url = '/HomeWeiboServlet?pc=' + PageCode;
     $.ajax({
-        url: '/HomeWeiboServlet?pc=',
+        url: url,
         type: 'get',
         dataType: 'json',
         data: {},
@@ -65,31 +38,80 @@ function showWeibo() {
             flushAllCollections();
 
             var data = eval(text);
-            var html = '';
+            var html = noApplicationRecord.innerHTML;
             for (var i = 0; i < data.beanList.length; i++) {
                 html +=
-                    '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + '">' +
-                    '<img src="' + data.beanList[i].profilePicture + ' alt="" class="portrait">' +
+                    '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + 'main' + ' "' + '>' +
+                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
                     '<p class="date">' + data.beanList[i].formatCreateTime + '</p>' +
                     '</div>' +
                     '<p class="text">' + data.beanList[i].weiboContent + '<span>' + '' + '</span></p>' +
-                    '<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img1">' +
-                    '<img src="./img/portrait_1.jpg" alt="img" class="middle_down_img middle_down_img2">' +
+                    '<div id="imgs" class="imgs"' + imgHeight(data.beanList[i].photo) + '>' +
+                    picture(data.beanList[i].photo) +
+                    '</div>' +
                     '<div class="bottom">' +
-                    '<p onclick="collection(' + data.beanList[i].weiboId + ')" id="' + data.beanList[i].weiboId + 'c'
-                    + '"><i class="iconfont">&#xe665;</i> '
-                    + collectionCondition(data.beanList[i].weiboId) + '</p>'
-                    + '<p onclick="repost(' + data.beanList[i].weiboId + ')"><i class="iconfont" id="' + data.beanList[i].weiboId + 'r' + '">&#xe64d;</i> 转发</p>'
-                    + '<p onclick="showComment(' + data.beanList[i].weiboId + ')"><i class="iconfont">&#xe643;</i> ' + data.beanList[i].commentNum + '</p>' +
-                    '<p class="last" onclick="praise(' + data.beanList[i].weiboId + ')"><i class="iconfont">&#xe60c;</i> ' + data.beanList[i].praiseNum + '</p>' +
-                    '</div>' + '</div>';
-                noApplicationRecord.innerHTML = html
+                    '<div class="bottom_part bottom1" onclick="collection(' + data.beanList[i].weiboId + ')" style="cursor: pointer;">' +
+                    '<i class="iconfont">&#xe665;</i>' +
+                    '<p class="bottom1_text" id="' + data.beanList[i].weiboId + 'c' + '">' + collectionCondition(data.beanList[i].weiboId) + '</p>' +
+                    '</div>' +
+                    '<div class="bottom_part bottom2" onclick="repost(' + data.beanList[i].weiboId + ')" style="cursor: pointer;">' +
+                    '<i class="iconfont">&#xe64d;</i>' +
+                    '<p class="bottom2_text">转发</p>' +
+                    '</div>' +
+                    '<div class="bottom_part bottom3" id="' + data.beanList[i].weiboId + 's' + '" onclick="showComment(' + data.beanList[i].weiboId + 's' + ')" style="cursor: pointer;">' +
+                    '<i class="iconfont">&#xe643;</i>' +
+                    '<p class="bottom3_text">' + data.beanList[i].commentNum + '</p>' +
+                    '</div>' +
+                    '<div class="bottom_part bottom4" onclick="praise(' + data.beanList[i].weiboId + ')" style="cursor: pointer;">' +
+                    '<i class="iconfont">&#xe60c;</i>' +
+                    '<p class="bottom4_text" id="' + data.beanList[i].weiboId + 'p' + '">' + data.beanList[i].praiseNum + '</p>' +
+                    '</div>' +
+                    '</div>'
+
+                    + '</div>';
+                noApplicationRecord.innerHTML = html;
             }
-        }
+        },
+        async: false
     });
     PageCode++;
+}
+
+function baseInfo() {
+    $.ajax({
+        url: '/BasicUserInfoServlet',
+        type: 'get',
+        dataType: 'json',
+        data: {},
+        success: function (text) {
+            user = eval(text);
+            $("#profilePicture").attr('src', user.profilePicture);
+            $("#profile1").attr('src', user.profilePicture);
+            $("#nicknameLeft").html(user.nickname);
+            $("#subscribeNum").html(user.subscribeNum);
+            $("#fansNum").html(user.fansNum);
+            $("#weiboNum").html(user.weiboNum);
+        },
+        async: false
+    });
+}
+
+function imgHeight(photo) {
+    var pic = 'style="height: ';
+    if (photo.length === 0) {
+        return pic + '0"';
+    }
+    if (photo.length >= 1 && photo.length <= 3) {
+        return pic + '136px"'
+    }
+    if (photo.length >= 4 && photo.length <= 7) {
+        return pic + '280px"';
+    }
+    if (photo.length >= 8) {
+        return pic + '420px"';
+    }
 }
 
 function flushAllCollections() {
@@ -103,6 +125,19 @@ function flushAllCollections() {
         },
         async: false
     });
+}
+
+function picture(photo) {
+    var img = '';
+    if (photo.length === 0) {
+        return img;
+    }
+
+    for (var i = 0; i < photo.length; ++i) {
+        img +=
+            '<img src="' + photo[i] + '" alt="img" class="middle_down_img middle_down_img' + (i + 1) + '">'
+    }
+    return img;
 }
 
 function repost(weiboId) {
@@ -128,12 +163,16 @@ function collectionCondition(weiboId) {
     return "收藏";
 }
 
-function showComment(weiboId) {
-    var weiboDiv = document.getElementById(weiboId);
-
+//s是后缀，不是复数的意思
+function showComment(weiboIds) {
+    alert("111");
+    // alert(weiboIds);
+    // var commentDiv = $("#weiboIds");
 }
 
+
 function praise(weiboId) {
+    var flag = 0;
     $.ajax({
         url: '/PraiseServlet?type=weibo',
         type: 'get',
@@ -141,10 +180,19 @@ function praise(weiboId) {
         data: {
             weibo: weiboId
         },
-        success: {},
+        success: function (text) {
+            if (text != null) {
+                alert(text);
+                flag++;
+            }
+        },
         async: false
     });
 
+    if (flag === 0) {
+        var praiseNum = document.getElementById(weiboId + 'p');
+        praiseNum.innerHTML = parseInt(praiseNum.innerHTML) + 1;
+    }
 }
 
 function collection(weiboId) {
@@ -152,11 +200,11 @@ function collection(weiboId) {
     var collention = document.getElementById(weiboId + "c");
     if (collectionCondition(weiboId) === "收藏") {
         url = "/CollectionServlet?type=add";
-        collention.innerHTML = '<i class="iconfont">&#xe665;</i>' + "已收藏";
+        collention.innerHTML = "已收藏";
         allCollection.push({"weiboId": weiboId});
     } else {
         url = "/CollectionServlet?type=delete";
-        collention.innerHTML = '<i class="iconfont">&#xe665;</i>' + "收藏";
+        collention.innerHTML = "收藏";
         for (var b = 0; b < allCollection.length; ++b) {
             if (allCollection[b].weiboId === weiboId) {
                 allCollection.splice(b, 1);
@@ -182,14 +230,6 @@ function showTopic() {
 
 }
 
-//获取列表中的原有内容
-var content = document.getElementById("noApplicationRecord").innerHTML;
-
-//每被调用一次，就将网页原有内容添加一份，这个大家可以写自己要加载的内容或指令
-function addLi() {
-    document.getElementById("noApplicationRecord").innerHTML += content;
-}
-
 /*
  * 监听滚动条，本来不想用jQuery但是发现js里面监听滚动条的事件不好添加，这边就引用了Jquery的$(obj).scroll();这个方法了
  */
@@ -210,5 +250,6 @@ $(window).scroll(function () {
 
 
 window.onload = function () {
-    // showWeibo();
+    showWeibo();
+    baseInfo();
 };

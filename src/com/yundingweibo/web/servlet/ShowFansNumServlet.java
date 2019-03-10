@@ -29,7 +29,6 @@ public class ShowFansNumServlet extends HttpServlet {
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
-        sessionUser = new User(1);
         int fansNum = new UserService().showFansNum(sessionUser);
         String json = JSON.toJSONString(fansNum);
         response.getWriter().write(json);

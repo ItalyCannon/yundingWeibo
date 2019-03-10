@@ -1374,7 +1374,7 @@
     </column>
     <column id="338" parent="286" name="profile_picture">
       <Position>20</Position>
-      <DataType>varchar(100)|0s</DataType>
+      <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="339" parent="286" name="PRIMARY">
@@ -1467,7 +1467,7 @@ target_id</ColNames>
     </column>
     <column id="355" parent="289" name="photo">
       <Position>3</Position>
-      <DataType>text|0s</DataType>
+      <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="356" parent="289" name="repost_num">

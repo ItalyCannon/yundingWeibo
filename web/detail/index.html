@@ -1,100 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>资料详情</title>
-	<link rel="stylesheet" type="text/css" href="./css/reset.css">
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+    <meta charset="UTF-8">
+    <title>资料详情</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
 </head>
 <body>
 
-	<div class="public_header">
-		<div class="public_container">
-			<div class="header_logo">
-				<i class="iconfont">&#xe61a;</i>
-				<p class="logo_text">微博</p>
-			</div>
-			<ul class="header_ul">
-				<a href="" title=""><li class="clearfloat">首页</li></a>
-				<a href="" title=""><li class="clearfloat">视频</li></a>
-				<a href="" title=""><li class="clearfloat">发现</li></a>
-				<a href="" title=""><li class="clearfloat">游戏</li></a>
-			</ul>
-			<div class="header_search">
-				<input type="text" name="">
-				<i class="iconfont">&#xe600;</i>
-			</div>
-			<div class="header_rank">
-				<a href="" title="">
-					<a href="" title=""><i class="iconfont">&#xe665;</i></a>
-					<p class="rank_text">排行榜</p>
-				</a>
-			</div>
-			<div class="header_register">
-				<img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
-				<div class="modify">
-					<i class="iconfont">&#xe64d;</i>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="public_header">
+    <div class="public_container">
+        <div class="header_logo">
+            <i class="iconfont">&#xe61a;</i>
+            <p class="logo_text">微博</p>
+        </div>
+        <ul class="header_ul">
+            <a href="" title="">
+                <li class="clearfloat">首页</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">视频</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">发现</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">游戏</li>
+            </a>
+        </ul>
+        <div class="header_search">
+            <input type="text" name="">
+            <i class="iconfont">&#xe600;</i>
+        </div>
+        <div class="header_rank">
+            <a href="" title="">
+                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+                <p class="rank_text">排行榜</p>
+            </a>
+        </div>
+        <div class="header_register">
+            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <div class="modify">
+                <i class="iconfont">&#xe64d;</i>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<div class="main">
-		<div class="public_container">
-			<div class="personage">
-				<div class="personage_up">
-					<img src="" alt="img" class="portrait" id="profilePicture">
-					<p class="name" id="nicknameLeft"> </p>
-					<p class="signature" id="signatureLeft"> </p>
-				</div>
-				<div class="personage_down">
-					<div class="message">
-						<p class="attention"><span id="attentionNum"> </span><br/>关注</p>
-						<p class="fans"><span id="fansNum"> </span><br/>粉丝</p>
-						<p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="basic">
-					<p class="basic_message">基本信息</p>
-					<p class="cross"></p>
-					<p class="compile">编辑</p>
-					<p class="fixed register">登录名</p><p class="alter" id="loginId"> </p>
-					<p class="fixed">昵称</p><p class="alter" id="nicknameRight"> </p>
-					<p class="fixed">姓名</p><p class="alter" id="realName"> </p>
-					<p class="fixed">性别</p><p class="alter" id="gender"> </p>
-					<p class="fixed">所在地</p><p class="alter" id="location"> </p>
-					<p class="fixed">性取向</p><p class="alter" id="sexualOrientation"> </p>
-					<p class="fixed">感情状况</p><p class="alter" id="emotionalState"> </p>
-					<p class="fixed">生日</p><p class="alter" id="birthday"> </p>
-					<p class="fixed">签名</p><p class="alter" id="signatureRight"> </p>
-					<p class="fixed">注册时间</p><p class="alter" id="registrationTime"> </p>
-				</div>
-				<div class="contact">
-					<p class="contact_message">联系信息</p>
-					<p class="cross"></p>
-					<p class="compile">编辑</p>
-					<p class="fixed">邮箱</p><p class="alter" id="email"> </p>
-					<p class="fixed">QQ</p><p class="alter" id="qq"> </p>
-				</div>
-				<div class="education">
-					<p class="contact_message">教育信息</p>
-					<p class="cross"></p>
-					<p class="compile">编辑</p>
-					<p class="fixed">本科</p><p class="alter" id="undergraduateSchool"> </p>
-					<p class="fixed">研究生</p><p class="alter" id="graduateSchool"> </p>
-				</div>
-				<div class="label" id="tag">
-					<p class="contact_message">标签信息</p>
-					<p class="cross"></p>
-					<p class="compile">编辑</p>
-					<p class="fixed">标签</p>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="main">
+    <div class="public_container">
+        <div class="personage">
+            <div class="personage_up">
+                <img src="" alt="img" class="portrait" id="profilePicture" onclick="appear();">
+                <p class="name" id="nicknameLeft"></p>
+                <p class="signature" id="signatureLeft"></p>
+            </div>
+            <div class="personage_down">
+                <div class="message">
+                    <p class="attention"><span id="attentionNum"> </span><br/>关注</p>
+                    <p class="fans"><span id="fansNum"> </span><br/>粉丝</p>
+                    <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
+                </div>
+            </div>
+            <div id="personage_more" class="personage_more" style="display: none;">
+                <img src="" alt="img" class="portrait" id="profilePictureEdit">
+                <div class="change">更换头像
+                    <form action="http://localhost:8080/photoUploadServlet" method="post" enctype="multipart/form-data">
+                        <input type="file" name="photo"/>
+                        <input type="submit" value="ok"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="information">
+            <div class="basic">
+                <p class="basic_message">基本信息</p>
+                <p class="cross"></p>
+                <p class="compile">编辑</p>
+                <p class="fixed register">登录名</p>
+                <p class="alter" id="loginId"></p>
+                <p class="fixed">昵称</p>
+                <p class="alter" id="nicknameRight"></p>
+                <p class="fixed">姓名</p>
+                <p class="alter" id="realName"></p>
+                <p class="fixed">性别</p>
+                <p class="alter" id="gender"></p>
+                <p class="fixed">所在地</p>
+                <p class="alter" id="location"></p>
+                <p class="fixed">性取向</p>
+                <p class="alter" id="sexualOrientation"></p>
+                <p class="fixed">感情状况</p>
+                <p class="alter" id="emotionalState"></p>
+                <p class="fixed">生日</p>
+                <p class="alter" id="birthday"></p>
+                <p class="fixed">签名</p>
+                <p class="alter" id="signatureRight"></p>
+                <p class="fixed">注册时间</p>
+                <p class="alter" id="registrationTime"></p>
+            </div>
+            <div class="contact">
+                <p class="contact_message">联系信息</p>
+                <p class="cross"></p>
+                <p class="compile">编辑</p>
+                <p class="fixed">邮箱</p>
+                <p class="alter" id="email"></p>
+                <p class="fixed">QQ</p>
+                <p class="alter" id="qq"></p>
+            </div>
+            <div class="education">
+                <p class="contact_message">教育信息</p>
+                <p class="cross"></p>
+                <p class="compile">编辑</p>
+                <p class="fixed">本科</p>
+                <p class="alter" id="undergraduateSchool"></p>
+                <p class="fixed">研究生</p>
+                <p class="alter" id="graduateSchool"></p>
+            </div>
+            <div class="label" id="tag">
+                <p class="contact_message">标签信息</p>
+                <p class="cross"></p>
+                <p class="compile">编辑</p>
+                <p class="fixed">标签</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

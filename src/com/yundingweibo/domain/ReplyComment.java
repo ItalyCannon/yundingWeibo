@@ -15,6 +15,15 @@ public class ReplyComment {
     private int replyPraise;
     private int userId;
     private String nickname;
+    private int weiboId;
+
+    public int getWeiboId() {
+        return weiboId;
+    }
+
+    public void setWeiboId(int weiboId) {
+        this.weiboId = weiboId;
+    }
 
     public String getNickname() {
         return nickname;

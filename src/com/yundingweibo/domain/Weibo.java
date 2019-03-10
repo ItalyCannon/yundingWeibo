@@ -24,6 +24,15 @@ public class Weibo {
     private List<Comment> comments;
     private int commentNum;
     private String nickname;
+    private String profilePicture;
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
 
     public int getCommentNum() {
         return commentNum;

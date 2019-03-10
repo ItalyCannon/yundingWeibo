@@ -1,5 +1,7 @@
 package com.yundingweibo.web.servlet;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.WeiboService;
 
@@ -26,7 +28,7 @@ public class ListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
+        response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
 
         String type = request.getParameter("type");
@@ -39,9 +41,9 @@ public class ListServlet extends HttpServlet {
         List<Weibo> list = new WeiboService().showList(type);
         request.getSession().setAttribute("list", list);
 
-//        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(Weibo.class,
-//                "weiboContent", "praiseNum", "repostNum");
-//        String json = JSON.toJSONString(list, filter);
-//        response.getWriter().write(json);
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(Weibo.class,
+                "weiboContent", "praiseNum", "repostNum");
+        String json = JSON.toJSONString(list, filter);
+        response.getWriter().write(json);
     }
 }

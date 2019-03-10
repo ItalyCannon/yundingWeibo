@@ -30,8 +30,6 @@ public class ShowAttentionServlet extends HttpServlet {
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
         User user = (User) request.getSession().getAttribute("sessionUser");
-        user = new User();
-        user.setUserId(1);
         int t;
 
         String para = request.getParameter("type");

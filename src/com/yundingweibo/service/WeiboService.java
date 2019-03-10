@@ -1,6 +1,7 @@
 package com.yundingweibo.service;
 
 import com.yundingweibo.dao.DaoFactory;
+import com.yundingweibo.dao.UserDao;
 import com.yundingweibo.dao.WeiboDao;
 import com.yundingweibo.domain.*;
 
@@ -76,8 +77,8 @@ public class WeiboService {
      * 点赞微博
      * 只需要weiboId和userId
      *
-     * @param weibo .
-     * @param user  .
+     * @param weiboId .
+     * @param user    .
      */
     public void praiseWeibo(int weiboId, User user) {
         DaoFactory.getWeiboDao().like(weiboId, user);
@@ -127,7 +128,38 @@ public class WeiboService {
         DaoFactory.getWeiboDao().addReply(comment, replyComment, user);
     }
 
-    public void showCommentAndReply() {
+    /**
+     * 只需要userId，这里把评论回复也处理成评论了，不过评论回复的commentId是-1
+     *
+     * @param user .
+     * @param type 1是send 2是receive
+     * @return .
+     */
+    public List<Comment> showCommentAndReply(User user, int type) {
+        WeiboDao weiboDao = DaoFactory.getWeiboDao();
+        UserDao userDao = DaoFactory.getUserDao();
+        List<Comment> comments;
+        switch (type) {
+            case 1:
+                comments = weiboDao.showCommentSend(user);
+                break;
+            case 2:
+                comments = weiboDao.showCommentReceive(user);
+                break;
+            default:
+                throw new RuntimeException("type类型未知");
+        }
 
+        for (Comment c : comments) {
+            Weibo weibo = weiboDao.getWeibo(c.getWeiboId());
+            c.setNickname(userDao.getUserNickname(weibo.getUserId()));
+            String content = weibo.getWeiboContent();
+            if (content.length() > 42) {
+                content = content.substring(0, 39);
+                content += "...";
+            }
+            c.setWeiboContent(content);
+        }
+        return comments;
     }
 }

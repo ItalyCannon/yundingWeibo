@@ -24,8 +24,6 @@ public class CollectionServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
-        sessionUser = new User();
-        sessionUser.setUserId(1);
         String weiboId = request.getParameter("weibo");
 
         Weibo weibo = null;

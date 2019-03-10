@@ -419,6 +419,7 @@
     font-size: 14px;
     color: #222;
     display: inline-block;
+
 }
 
 .main .right_new .title_change {
@@ -466,10 +467,11 @@
 
 .main .blog {
     width: 750px;
-    height: 1002px;
+    /*height: 1002px;*/
     margin-left: 140px;
     margin-top: -335px;
-    margin-bottom: 20px;
+    margin-bottom: 400px;
+    height: 100%;
 }
 
 .main .blog .middle_down {
@@ -549,50 +551,51 @@
     margin-top: 10px;
 }
 
-/*.main .middle_down .middle_down_img1{
-    margin-left: 78px;
-}*/
-
-/*					.main .middle_down .middle_down_img4{
-						margin-left: 78px;
-						display: block;
-					}*/
-
 .main .blog .middle_down .bottom {
     width: 750px;
     height: 38px;
     border-top: 1px solid #EAEAEA;
 }
 
-.main .blog .middle_down .bottom p {
+.main .blog .middle_down .bottom_part {
     width: 182px;
     height: 24px;
     line-height: 24px;
+    margin-top: 10px;
+    border-right: 1px solid #DDD;
     display: inline-block;
     vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 10px;
-    font-size: 12px;
 }
 
-.main .blog .middle_down .bottom .last {
+.main .blog .middle_down .bottom4 {
     border: none;
 }
 
-.main .blog .middle_down .bottom .iconfont {
+.main .blog .middle_down .bottom_part .iconfont {
+    width: 20px;
+    height: 24px;
+    display: inline-block;
+    margin-left: 68px;
     font-size: 14px;
-    letter-spacing: 4px;
 }
 
-.main .blog .part_1 {
+.main .blog .middle_down .bottom_part p {
+    width: 62px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.part_1 {
     width: 750px;
-    height: 345px;
+    /*height: 345px;*/
     background-color: #fff;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.main .blog .part_1 .portrait {
+.part_1 .portrait {
     width: 50px;
     height: 50px;
     border-radius: 50px;
@@ -601,7 +604,7 @@
     display: inline-block;
 }
 
-.main .blog .part_1 .name {
+.part_1 .name {
     width: 200px;
     height: 50px;
     display: inline-block;
@@ -610,1230 +613,82 @@
     margin-left: 10px;
 }
 
-.main .blog .part_1 .name .nickname {
+.part_1 .name .nickname {
     font-size: 14px;
     margin-top: 4px;
 }
 
-.main .blog .part_1 .name .date {
+.part_1 .name .date {
     font-size: 12px;
     margin-top: 8px;
     color: #999;
 }
 
-.main .blog .part_1 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .blog .part_1 .text {
+.part_1 .text {
     width: 644px;
     height: 40px;
     font-size: 14px;
     margin-left: 78px;
     margin-top: 10px;
     color: #222;
+    display: block;
+    word-break: break-all;
 }
 
-.main .blog .part_1 .text span {
+.part_1 .text span {
     color: #EA824B;
 }
 
-.main .blog .part_1 .middle_down_img {
+.part_1 .imgs {
+    width: 480px;
+    height: 136px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    margin-left: 78px;
+}
+
+.part_1 .middle_down_img {
     width: 136px;
     height: 136px;
     display: inline-block;
     vertical-align: top;
     margin-left: 10px;
-    margin-top: 16px;
-}
-
-.main .blog .part_1 .middle_down_img1 {
-    margin-left: 78px;
-}
-
-.main .blog .part_1 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-    margin-top: 20px;
-}
-
-.main .blog .part_1 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 10px;
-    font-size: 12px;
-}
-
-.main .blog .part_1 .bottom .last {
-    border: none;
-    color: #EA824B;
-}
-
-.main .blog .part_1 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_2 {
-    width: 750px;
-    height: 345px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_2 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_2 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_2 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_2 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_2 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_2 .text {
-    width: 644px;
-    height: 40px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-}
-
-.main .part_2 .text span {
-    color: #EA824B;
-}
-
-.main .part_2 .middle_down_img {
-    width: 136px;
-    height: 136px;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 16px;
-}
-
-.main .part_2 .middle_down_img1 {
-    margin-left: 78px;
-}
-
-.main .part_2 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-}
-
-.main .part_2 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_2 .bottom .last {
-    border: none;
-}
-
-.main .part_2 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_3 {
-    width: 750px;
-    height: 529px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_3 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_3 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_3 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_3 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_3 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_3 .text {
-    width: 644px;
-    height: 40px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-}
-
-.main .part_3 .text span {
-    color: #EA824B;
-}
-
-.main .part_3 .middle_down_img {
-    width: 205px;
-    height: 320px;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
-    margin-top: 16px;
-    margin-bottom: 20px;
-}
-
-.main .part_3 .middle_down_img1 {
-    margin-left: 78px;
-}
-
-.main .part_3 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-}
-
-.main .part_3 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_3 .bottom .last {
-    border: none;
-}
-
-.main .part_3 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_4 {
-    width: 750px;
-    height: 377px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_4 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_4 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_4 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_4 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_4 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_4 .text {
-    width: 644px;
-    height: 40px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-}
-
-.main .part_4 .text span {
-    color: #EA824B;
-}
-
-.main .part_4 .middle_down_img {
-    width: 282px;
-    height: 168px;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
-    margin-top: 16px;
-    margin-bottom: 20px;
-}
-
-.main .part_4 .middle_down_img1 {
-    margin-left: 78px;
-}
-
-.main .part_4 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-}
-
-.main .part_4 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_4 .bottom .last {
-    border: none;
-}
-
-.main .part_4 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_5 {
-    width: 750px;
-    height: 569px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_5 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_5 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_5 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_5 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_5 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_5 .text {
-    width: 644px;
-    height: 40px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-}
-
-.main .part_5 .text span {
-    color: #EA824B;
-}
-
-.main .part_5 .video {
-    width: 644px;
-    height: 360px;
-    margin-left: 78px;
     margin-bottom: 10px;
 }
 
-.main .part_5 .bottom {
+.part_1 .bottom {
     width: 750px;
     height: 38px;
+    margin-top: 26px;
     border-top: 1px solid #EAEAEA;
 }
 
-.main .part_5 .bottom p {
+.part_1 .bottom_part {
     width: 182px;
     height: 24px;
     line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_5 .bottom .last {
-    border: none;
-}
-
-.main .part_5 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_6 {
-    width: 750px;
-    height: 1167px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_6 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_6 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_6 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_6 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_6 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_6 .text {
-    width: 644px;
-    height: 40px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-}
-
-.main .part_6 .text span {
-    color: #EA824B;
-}
-
-.main .part_6 .middle_down_img {
-    width: 644px;
-    height: 878px;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 10px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
-
-.main .part_6 .middle_down_img1 {
-    margin-left: 78px;
-}
-
-.main .part_6 .small_imgs {
-    width: 656px;
-    height: 70px;
-    margin-left: 74px;
-    margin-top: 0px;
-    margin-bottom: 16px;
-}
-
-.main .part_6 .small_imgs .small_img {
-    width: 68px;
-    height: 66px;
-    /*margin-left: 4px;*/
-    margin: 0;
-}
-
-.main .part_6 .small_imgs .small_img_1 {
-    margin-left: 0;
-    border: 2px solid #EA824B;
-}
-
-.main .part_6 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-}
-
-.main .part_6 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_6 .bottom .last {
-    border: none;
-}
-
-.main .part_6 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_7 {
-    width: 750px;
-    height: 215px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_7 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_7 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_7 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_7 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_7 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_7 .text {
-    width: 640px;
-    height: 60px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-    margin-bottom: 20px;
-}
-
-.main .part_7 .text span {
-    color: #EA824B;
-}
-
-.main .part_7 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-}
-
-.main .part_7 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_7 .bottom .last {
-    border: none;
-}
-
-.main .part_7 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_8 {
-    width: 750px;
-    height: 235px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 20px;
-}
-
-.main .part_8 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_8 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_8 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_8 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_8 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_8 .text {
-    width: 640px;
-    height: 80px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-    margin-bottom: 20px;
-}
-
-.main .part_8 .text span {
-    color: #EA824B;
-}
-
-.main .part_8 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-}
-
-.main .part_8 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_8 .bottom .last {
-    border: none;
-}
-
-.main .part_8 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_9 {
-    width: 750px;
-    height: 1361px;
-    background-color: #fff;
-    margin-left: 140px;
-    margin-bottom: 200px;
-    border: 1px solid #EAEAEA;
-}
-
-.main .part_9 .portrait {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-left: 18px;
-    display: inline-block;
-}
-
-.main .part_9 .name {
-    width: 200px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.main .part_9 .name .nickname {
-    font-size: 14px;
-    margin-top: 4px;
-}
-
-.main .part_9 .name .date {
-    font-size: 12px;
-    margin-top: 8px;
-    color: #999;
-}
-
-.main .part_9 .pull_down {
-    width: 20px;
-    height: 20px;
-    background-color: pink;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 20px;
-    margin-left: 400px;
-}
-
-.main .part_9 .text {
-    width: 640px;
-    height: 330px;
-    font-size: 14px;
-    margin-left: 78px;
-    margin-top: 20px;
-    color: #222;
-    margin-bottom: 10px;
-}
-
-.main .part_9 .text span {
-    color: #EA824B;
-}
-
-.main .part_9 .bottom {
-    width: 750px;
-    height: 38px;
-    border-top: 1px solid #EAEAEA;
-    position: relative;
-}
-
-.main .part_9 .bottom p {
-    width: 182px;
-    height: 24px;
-    line-height: 24px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    border-right: 1px solid #DDD;
-    margin-top: 6px;
-    font-size: 12px;
-}
-
-.main .part_9 .bottom .last {
-    border: none;
-}
-
-.main .part_9 .bottom .iconfont {
-    font-size: 14px;
-    letter-spacing: 4px;
-}
-
-.main .part_9 .bottom .triangle {
-    width: 12px;
-    height: 12px;
-    background-color: #F2F2F5;
-    position: absolute;
-    right: 278px;
-    bottom: -6px;
-    transform: rotate(45deg);
-}
-
-.main .part_9 .comment {
-    width: 748px;
-    height: 489px;
-    background-color: #F2F2F5;
-    margin: 0 auto;
-    border-left: 1px solid #EAEAEA;
-    border-right: 1px solid #EAEAEA;
-}
-
-.main .part_9 .comment .write {
-    width: 748px;
-    height: 100px;
-}
-
-.main .part_9 .comment .write .head_img {
-    width: 40px;
-    height: 40px;
-    margin-top: 16px;
-    margin-left: 26px;
-    display: inline-block;
-}
-
-.main .part_9 .comment .write .text {
-    width: 642px;
-    height: 38px;
-    display: inline-block;
-    background-color: #fff;
-    border: 1px solid #EAEAEA;
-    padding: 0;
-    margin: 0;
-    margin-left: 10px;
-}
-
-.main .part_9 .comment .write .option {
-    width: 644px;
-    height: 32px;
-    line-height: 32px;
-    margin-left: 81px;
-}
-
-.main .part_9 .comment .write .option .expression {
-    font-size: 18px;
-    color: #F4BB61;
-    display: inline-block;
-}
-
-.main .part_9 .comment .write .option .image {
-    font-size: 18px;
-    color: #A4DE96;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-.main .part_9 .comment .write .option .check {
-    width: 12px;
-    height: 12px;
-    background-color: #EA824B;
-    display: inline-block;
-    margin-left: 14px;
-}
-
-.main .part_9 .comment .write .option .word {
-    width: 108px;
-    height: 15px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-    vertical-align: top;
-}
-
-.main .part_9 .comment .write .option .submit {
-    width: 86px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    background-color: #EA824B;
-    font-size: 14px;
-    color: #fff;
-    border: 0;
-    margin-left: 358px;
-}
-
-.main .part_9 .comment .option_1 {
-    width: 748px;
-    height: 134px;
-    margin-top: 30px;
-}
-
-.main .part_9 .comment .option_1 .head_img {
-    width: 40px;
-    height: 40px;
-    margin-top: 16px;
-    margin-left: 26px;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_1 .message {
-    width: 642px;
-    height: 40px;
-    display: inline-block;
-    margin-left: 10px;
-    overflow: hidden;
-}
-
-.main .part_9 .comment .option_1 .message .nickname {
-    font-size: 12px;
-    color: #222;
-}
-
-.main .part_9 .comment .option_1 .message .nickname span {
-    color: #F0712E;
-}
-
-.main .part_9 .comment .option_1 .message .date {
-    width: 100px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_1 .message .reply {
-    width: 30px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-    margin-left: 448px;
-}
-
-.main .part_9 .comment .option_1 .message .string {
-    width: 1px;
-    height: 12px;
-    background-color: #DDD;
-    display: inline-block;
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-.main .part_9 .comment .option_1 .message .like {
-    width: 36px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_1_option {
-    width: 644px;
-    height: 68px;
-    background-color: #E9E9F0;
-    margin-left: 78px;
-}
-
-
-.main .part_9 .comment .option_1_option .head_img {
-    width: 40px;
-    height: 40px;
-    margin-top: 16px;
-    margin-left: 26px;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_1_option .message {
-    width: 560px;
-    height: 40px;
-    display: inline-block;
-    margin-left: 10px;
-    overflow: hidden;
-}
-
-.main .part_9 .comment .option_1_option .message .nickname {
-    font-size: 12px;
-    color: #222;
-}
-
-.main .part_9 .comment .option_1_option .message .nickname span {
-    color: #F0712E;
-}
-
-.main .part_9 .comment .option_1_option .message .date {
-    width: 100px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_1_option .message .reply {
-    width: 30px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-    margin-left: 355px;
-}
-
-.main .part_9 .comment .option_1_option .message .string {
-    width: 1px;
-    height: 12px;
-    background-color: #DDD;
-    display: inline-block;
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-.main .part_9 .comment .option_1_option .message .like {
-    width: 36px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_2 {
-    width: 748px;
-    height: 74px;
     margin-top: 10px;
-    /*background-color: pink;*/
-}
-
-.main .part_9 .comment .option_2 .head_img {
-    width: 40px;
-    height: 40px;
-    margin-top: 16px;
-    margin-left: 26px;
+    border-right: 1px solid #DDD;
     display: inline-block;
+    vertical-align: top;
 }
 
-.main .part_9 .comment .option_2 .message {
-    width: 642px;
-    height: 40px;
+.part_1 .bottom4 {
+    border: none;
+}
+
+.part_1 .bottom_part .iconfont {
+    width: 20px;
+    height: 24px;
     display: inline-block;
-    margin-left: 10px;
-    overflow: hidden;
+    margin-left: 68px;
+    font-size: 14px;
 }
 
-.main .part_9 .comment .option_2 .message .nickname {
+.part_1 .bottom_part p {
+    width: 62px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
     font-size: 12px;
-    color: #222;
-}
-
-.main .part_9 .comment .option_2 .message .nickname span {
-    color: #F0712E;
-}
-
-.main .part_9 .comment .option_2 .message .date {
-    width: 100px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_2 .message .reply {
-    width: 30px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-    margin-left: 448px;
-}
-
-.main .part_9 .comment .option_2 .message .string {
-    width: 1px;
-    height: 12px;
-    background-color: #DDD;
-    display: inline-block;
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-.main .part_9 .comment .option_2 .message .like {
-    width: 36px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_3 {
-    width: 748px;
-    height: 74px;
-    /*margin-top: 10px;*/
-    /*background-color: pink;*/
-}
-
-.main .part_9 .comment .option_3 .head_img {
-    width: 40px;
-    height: 40px;
-    margin-top: 16px;
-    margin-left: 26px;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_3 .message {
-    width: 642px;
-    height: 40px;
-    display: inline-block;
-    margin-left: 10px;
-    overflow: hidden;
-}
-
-.main .part_9 .comment .option_3 .message .nickname {
-    font-size: 12px;
-    color: #222;
-}
-
-.main .part_9 .comment .option_3 .message .nickname span {
-    color: #F0712E;
-}
-
-.main .part_9 .comment .option_3 .message .date {
-    width: 100px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-}
-
-.main .part_9 .comment .option_3 .message .reply {
-    width: 30px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
-    margin-left: 448px;
-}
-
-.main .part_9 .comment .option_3 .message .string {
-    width: 1px;
-    height: 12px;
-    background-color: #DDD;
-    display: inline-block;
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
-.main .part_9 .comment .option_3 .message .like {
-    width: 36px;
-    height: 16px;
-    line-height: 16px;
-    font-size: 12px;
-    color: #999;
-    display: inline-block;
 }

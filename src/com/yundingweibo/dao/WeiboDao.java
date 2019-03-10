@@ -63,7 +63,7 @@ public interface WeiboDao {
      * 微博点赞
      *
      * @param weiboId 要点赞的微博Id
-     * @param user  sessionUser
+     * @param user    sessionUser
      */
     void like(int weiboId, User user);
 
@@ -100,9 +100,37 @@ public interface WeiboDao {
      */
     void addReply(Comment comment, ReplyComment replyComment, User user);
 
+    /**
+     * 删除转发
+     *
+     * @param user  .
+     * @param weibo .
+     */
     void deleteRepost(User user, Weibo weibo);
 
+    /**
+     * 转发
+     *
+     * @param user  .
+     * @param weibo .
+     */
     void addRepost(User user, Weibo weibo);
 
     List<Weibo> getRepost(User user);
+
+    /**
+     * 显示我发出的评论，这里把评论的回复也封装成了Comment对象，后期有时间的话会砍掉ReplyComment类，然后重新设计评论和回复部分的数据库
+     *
+     * @param user .
+     * @return .
+     */
+    List<Comment> showCommentSend(User user);
+
+    /**
+     * 显示我收到的评论，这里把评论的回复也封装成了Comment对象，后期有时间的话会砍掉ReplyComment类，然后重新设计评论和回复部分的数据库
+     *
+     * @param user .
+     * @return .
+     */
+    List<Comment> showCommentReceive(User user);
 }

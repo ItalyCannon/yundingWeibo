@@ -17,6 +17,38 @@ public class Comment {
     private String nickname;
     private int weiboId;
     private List<ReplyComment> replyComments;
+    private String weiboContent;
+    private String profilePicture;
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getWeiboContent() {
+        return weiboContent;
+    }
+
+    public void setWeiboContent(String weiboContent) {
+        this.weiboContent = weiboContent;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", commentContent='" + commentContent + '\'' +
+                ", commentPraise=" + commentPraise +
+                ", commentTime=" + commentTime +
+                ", userId=" + userId +
+                ", nickname='" + nickname + '\'' +
+                ", weiboId=" + weiboId +
+                ", replyComments=" + replyComments +
+                '}';
+    }
 
     public String getNickname() {
         return nickname;
