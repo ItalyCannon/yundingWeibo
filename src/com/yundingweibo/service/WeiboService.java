@@ -30,6 +30,10 @@ public class WeiboService {
         return DaoFactory.getWeiboDao().findAll(user, pageCode, pageSize);
     }
 
+    public PageBean<Weibo> findPraise(User user, int pageCode, int pageSize) {
+        return DaoFactory.getWeiboDao().findPraise(user, pageCode, pageSize);
+    }
+
     /**
      * 用于排行榜
      *

@@ -110,7 +110,56 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         }
     }
 
+    /**
+     * 分页显示我的点赞
+     *
+     * @param user     .
+     * @param pageCode .
+     * @param pageSize .
+     * @return .
+     */
+    @Override
+    public PageBean<Weibo> findPraise(User user, int pageCode, int pageSize) {
+        try {
+            /*
+             * 1. 设置PageBean对象pageBean
+             * 2. 设置pb的pageCode和pageSize
+             * 3. 得到totalRecord，设置给pageBean
+             * 4. 得到beanList，设置给pageBean
+             * 5. 返回pageBean
+             */
+            PageBean<Weibo> pageBean = new PageBean<>();
+            pageBean.setPageCode(pageCode);
+            pageBean.setPageSize(pageSize);
+            /*
+             * 得到totalRecord
+             */
+            String sql = "select count(*) from weibo_data where weibo_id in (select weibo_id from weibo_praise where user_id=?)";
+            int totalRecord;
+            Object o = DaoUtil.getObject(sql, user.getUserId());
+            if (o == null) {
+                totalRecord = 0;
+            } else {
+                totalRecord = ((Long) o).intValue();
+            }
 
+            pageBean.setTotalRecord(totalRecord);
+            /*
+             * 得到beanList
+             */
+            sql = "select * from weibo_data where weibo_id in (select weibo_id from weibo_praise where user_id=?) limit ?,?";
+            List<Weibo> beanList = DaoUtil.toBean(Weibo.class, sql, user.getUserId(), (pageCode - 1) * pageSize, pageSize);
+            for (Weibo w : beanList) {
+                addCommentsAndNickname(w, w.getUserId());
+                User user1 = userDao.getUser(w.getUserId());
+                w.setProfilePicture(user1.getProfilePicture());
+            }
+            pageBean.setBeanList(beanList);
+            return pageBean;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     public List<Weibo> getPraiseList() {
@@ -136,7 +185,12 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         List<Comment> comments = DaoUtil.toBean(Comment.class, sql, weibo.getWeiboId());
         sql = "select * from reply_comment where comment_id=? order by reply_time desc";
         for (Comment c : comments) {
-            c.setReplyComments(DaoUtil.toBean(ReplyComment.class, sql, c.getCommentId()));
+            List<ReplyComment> replyComments = DaoUtil.toBean(ReplyComment.class, sql, c.getCommentId());
+            for (ReplyComment r : replyComments) {
+                r.setNickname(userDao.getUserNickname(r.getUserId()));
+            }
+            c.setReplyComments(replyComments);
+            c.setNickname(userDao.getUserNickname(c.getUserId()));
         }
         return comments;
     }

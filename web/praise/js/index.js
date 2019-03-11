@@ -20,7 +20,7 @@ var allCollection;
 var PageCode = 1;
 
 function showWeibo() {
-    var url = '/HomeWeiboServlet?pc=' + PageCode;
+    var url = '/MyPraiseServlet?pc=' + PageCode;
     $.ajax({
         url: url,
         type: 'get',
@@ -94,7 +94,7 @@ function showWeibo() {
             for (var k = 0; k < messages.length; ++k) {
                 document.getElementById(ids[k]).innerHTML = messages[k];
             }
-
+            $("#mypraise").html("我的点赞 " + data.totalRecord);
         },
         async: false
     });

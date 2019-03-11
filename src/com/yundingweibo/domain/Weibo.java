@@ -139,7 +139,7 @@ public class Weibo {
 
     public String getFormatCreateTime() {
         if (this.createTime != null) {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return sd.format(createTime);
         } else {
             return null;

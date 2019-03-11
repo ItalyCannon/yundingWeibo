@@ -14,18 +14,24 @@ import java.io.IOException;
  * @author 杜奕明
  * @date 2019/3/4 17:14
  */
-@WebFilter(filterName = "LoginFilter", urlPatterns = "/aaaaaaaaaa")
+@WebFilter(filterName = "LoginFilter", urlPatterns = {
+        "/home", "/home/*", "/attention", "/attention/*",
+        "/collection", "/collection/*", "/commentReceive", "/commentReceive/*",
+        "/commentSend", "/commentSend/*", "/detail", "/detail/*",
+        "/editDetail", "/editDetail/*", "/fans", "/fans/*",
+        "/list", "/list/*", "/praise", "/praise/*", "/space", "/space/*"
+})
 public class LoginFilter implements Filter {
+
     public void destroy() {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=utf-8");
+        req.setCharacterEncoding("utf-8");
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         User u = (User) request.getSession().getAttribute("sessionUser");
         if (u == null) {
-            response.getWriter().print("您还没有登录");
             response.sendRedirect(request.getContextPath() + "/login/index.html");
             return;
         }

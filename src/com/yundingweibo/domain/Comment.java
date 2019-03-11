@@ -68,7 +68,7 @@ public class Comment {
 
     public String getFormatCommentTime() {
         if (this.commentTime != null) {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return sd.format(commentTime);
         } else {
             return null;

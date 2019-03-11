@@ -38,6 +38,16 @@ public interface WeiboDao {
     PageBean<Weibo> findAll(User user, int pageCode, int pageSize);
 
     /**
+     * 分页显示我的点赞
+     *
+     * @param user .
+     * @param pageCode .
+     * @param pageSize .
+     * @return .
+     */
+    PageBean<Weibo> findPraise(User user, int pageCode, int pageSize);
+
+    /**
      * 点赞排行榜前25名
      *
      * @return 点赞排行榜前25名的Weibo对象
@@ -133,4 +143,5 @@ public interface WeiboDao {
      * @return .
      */
     List<Comment> showCommentReceive(User user);
+
 }

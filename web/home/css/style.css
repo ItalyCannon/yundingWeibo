@@ -692,3 +692,360 @@
     display: inline-block;
     font-size: 12px;
 }
+.main .part_1 .comment{
+    width: 748px;
+    height: 489px;
+    background-color: #F2F2F5;
+    margin: 0 auto;
+    border-left: 1px solid #EAEAEA;
+    border-right: 1px solid #EAEAEA;
+}
+
+.main .part_1 .comment .write{
+    width: 748px;
+    height: 100px;
+}
+
+.main .part_1 .comment .write .head_img{
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_1 .comment .write .text{
+    width: 642px;
+    height: 38px;
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #EAEAEA;
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.main .part_1 .comment .write .option{
+    width: 644px;
+    height: 32px;
+    line-height: 32px;
+    margin-left: 81px;
+}
+
+.main .part_1 .comment .write .option .expression{
+    font-size: 18px;
+    color: #F4BB61;
+    display: inline-block;
+}
+
+.main .part_1 .comment .write .option .image{
+    font-size: 18px;
+    color: #A4DE96;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.main .part_1 .comment .write .option .check{
+    width: 12px;
+    height: 12px;
+    background-color: #EA824B;
+    display: inline-block;
+    margin-left: 14px;
+}
+
+.main .part_1 .comment .write .option .word{
+    width: 108px;
+    height: 15px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main .part_1 .comment .write .option .submit{
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #EA824B;
+    font-size: 14px;
+    color: #fff;
+    border: 0;
+    margin-left: 358px;
+}
+
+.main .part_1 .comment .option_1{
+    width: 748px;
+    height: 134px;
+    margin-top: 30px;
+}
+
+.main .part_1 .comment .option_1 .head_img{
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_1 .message{
+    width: 642px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_1 .comment .option_1 .message .nickname{
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_1 .comment .option_1 .message .nickname span{
+    color: #F0712E;
+}
+
+.main .part_1 .comment .option_1 .message .date{
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_1 .message .reply{
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 448px;
+}
+
+.main .part_1 .comment .option_1 .message .string{
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_1 .comment .option_1 .message .like{
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_1_option{
+    width: 644px;
+    height: 68px;
+    background-color: #E9E9F0;
+    margin-left: 78px;
+}
+
+
+.main .part_1 .comment .option_1_option .head_img{
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_1_option .message{
+    width: 560px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_1 .comment .option_1_option .message .nickname{
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_1 .comment .option_1_option .message .nickname span{
+    color: #F0712E;
+}
+
+.main .part_1 .comment .option_1_option .message .date{
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_1_option .message .reply{
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 355px;
+}
+
+.main .part_1 .comment .option_1_option .message .string{
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_1 .comment .option_1_option .message .like{
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_2{
+    width: 748px;
+    height: 74px;
+    margin-top: 10px;
+    /*background-color: pink;*/
+}
+
+.main .part_1 .comment .option_2 .head_img{
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_2 .message{
+    width: 642px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_1 .comment .option_2 .message .nickname{
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_1 .comment .option_2 .message .nickname span{
+    color: #F0712E;
+}
+
+.main .part_1 .comment .option_2 .message .date{
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_2 .message .reply{
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 448px;
+}
+
+.main .part_1 .comment .option_2 .message .string{
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_1 .comment .option_2 .message .like{
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_3{
+    width: 748px;
+    height: 74px;
+    /*margin-top: 10px;*/
+    /*background-color: pink;*/
+}
+
+.main .part_1 .comment .option_3 .head_img{
+    width: 40px;
+    height: 40px;
+    margin-top: 16px;
+    margin-left: 26px;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_3 .message{
+    width: 642px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+.main .part_1 .comment .option_3 .message .nickname{
+    font-size: 12px;
+    color: #222;
+}
+
+.main .part_1 .comment .option_3 .message .nickname span{
+    color: #F0712E;
+}
+
+.main .part_1 .comment .option_3 .message .date{
+    width: 100px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}
+
+.main .part_1 .comment .option_3 .message .reply{
+    width: 30px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+    margin-left: 448px;
+}
+
+.main .part_1 .comment .option_3 .message .string{
+    width: 1px;
+    height: 12px;
+    background-color: #DDD;
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.main .part_1 .comment .option_3 .message .like{
+    width: 36px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 12px;
+    color: #999;
+    display: inline-block;
+}

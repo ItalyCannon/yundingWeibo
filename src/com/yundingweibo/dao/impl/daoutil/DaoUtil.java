@@ -373,12 +373,11 @@ public class DaoUtil {
                         m.invoke(object, rs.getString(colName));
                         break;
                     case "java.util.Date":
-                        java.sql.Date date = rs.getDate(colName);
-                        if (date == null) {
+                        Timestamp timestamp = rs.getTimestamp(colName);
+                        if (timestamp == null) {
                             break;
                         }
-                        long time = date.getTime();
-                        m.invoke(object, new java.util.Date(time));
+                        m.invoke(object, new java.util.Date(timestamp.getTime()));
                         break;
                     case "double":
                     case "java.lang.Double":

@@ -51,7 +51,7 @@ public class ReplyComment {
 
     public String getFormatReplyTime() {
         if (this.replyTime != null) {
-            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return sd.format(replyTime);
         } else {
             return null;

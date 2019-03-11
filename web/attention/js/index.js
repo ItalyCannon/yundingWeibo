@@ -1,3 +1,20 @@
+function load_home1() {
+    css.href = "/home/index.html"
+}
+
+function load_home2() {
+    window.location.href = "/collection/index.html";
+}
+
+function load_home3() {
+    window.location.href = "/praise/index.html";
+}
+
+function load_home4() {
+    window.location.href = "/commentReceive/index.html";
+}
+
+
 function time() {
     $.ajax({
         url: '/ShowAttentionServlet?type=1',
