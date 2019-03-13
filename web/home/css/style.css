@@ -19,7 +19,7 @@
 .public_header {
     width: 100%;
     height: 50px;
-    border-top: 3px solid #eb7350;
+    border-top: 3px solid #224584;
     border-bottom: 1px solid #DDD;
     box-shadow: 0 3px 10px #DDD;
     position: fixed;
@@ -28,25 +28,23 @@
 }
 
 .header_logo {
-    width: 80px;
+    width: 100px;
     height: 40px;
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 2px;
 }
 
-.header_logo .iconfont {
-    display: inline-block;
-    font-size: 30px;
-}
+.header_logo .logo {
+    width: 120px;
+    height: 40px;
 
-.header_logo .logo_text {
-    display: inline-block;
-    font-size: 18px;
 }
 
 .header_ul {
     margin-left: 30px;
     display: inline-block;
+    vertical-align: top;
+    margin-top: 18px;
 }
 
 .header_ul li {
@@ -85,6 +83,8 @@
     width: 100px;
     height: 40px;
     display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
     margin-left: 80px;
 }
 
@@ -123,7 +123,7 @@
     height: 32px;
     line-height: 32px;
     text-align: center;
-    background-color: #EA824B;
+    background-color: #224584;
     display: inline-block;
     vertical-align: top;
     margin-left: 24px;
@@ -157,8 +157,8 @@
 }
 
 .main .sidebar .item_1 {
-    color: #EA824B;
-    border-left: 2px solid #EA824B;
+    color: #224584;
+    border-left: 2px solid #224584;
 }
 
 .main .sidebar .ul {
@@ -240,7 +240,7 @@
     height: 32px;
     line-height: 32px;
     text-align: center;
-    background-color: #EA824B;
+    background-color: #224584;
     color: #fff;
     font-size: 14px;
     letter-spacing: 2px;
@@ -268,7 +268,7 @@
 }
 
 .main .middle_middle .item {
-    color: #EA824B;
+    color: #224584;
 }
 
 .main .middle_middle .search {
@@ -531,7 +531,7 @@
 }
 
 .main .blog .middle_down .text span {
-    color: #EA824B;
+    color: #224584;
 }
 
 .main .blog .middle_down .imgs {
@@ -636,7 +636,7 @@
 }
 
 .part_1 .text span {
-    color: #EA824B;
+    color: #224584;
 }
 
 .part_1 .imgs {
@@ -692,21 +692,22 @@
     display: inline-block;
     font-size: 12px;
 }
-.main .part_1 .comment{
+
+.main .part_1 .comment {
     width: 748px;
-    height: 489px;
+    /*height: 489px;*/
     background-color: #F2F2F5;
     margin: 0 auto;
     border-left: 1px solid #EAEAEA;
     border-right: 1px solid #EAEAEA;
 }
 
-.main .part_1 .comment .write{
+.main .part_1 .comment .write {
     width: 748px;
     height: 100px;
 }
 
-.main .part_1 .comment .write .head_img{
+.main .part_1 .comment .write .head_img {
     width: 40px;
     height: 40px;
     margin-top: 16px;
@@ -714,7 +715,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .write .text{
+.main .part_1 .comment .write .text {
     width: 642px;
     height: 38px;
     display: inline-block;
@@ -725,35 +726,35 @@
     margin-left: 10px;
 }
 
-.main .part_1 .comment .write .option{
+.main .part_1 .comment .write .option {
     width: 644px;
     height: 32px;
     line-height: 32px;
     margin-left: 81px;
 }
 
-.main .part_1 .comment .write .option .expression{
+.main .part_1 .comment .write .option .expression {
     font-size: 18px;
     color: #F4BB61;
     display: inline-block;
 }
 
-.main .part_1 .comment .write .option .image{
+.main .part_1 .comment .write .option .image {
     font-size: 18px;
     color: #A4DE96;
     display: inline-block;
     margin-left: 10px;
 }
 
-.main .part_1 .comment .write .option .check{
+.main .part_1 .comment .write .option .check {
     width: 12px;
     height: 12px;
-    background-color: #EA824B;
+    background-color: #224584;
     display: inline-block;
     margin-left: 14px;
 }
 
-.main .part_1 .comment .write .option .word{
+.main .part_1 .comment .write .option .word {
     width: 108px;
     height: 15px;
     font-size: 12px;
@@ -762,25 +763,25 @@
     vertical-align: top;
 }
 
-.main .part_1 .comment .write .option .submit{
+.main .part_1 .comment .write .option .submit {
     width: 86px;
     height: 32px;
     line-height: 32px;
     text-align: center;
-    background-color: #EA824B;
+    background-color: #224584;
     font-size: 14px;
     color: #fff;
     border: 0;
     margin-left: 358px;
 }
 
-.main .part_1 .comment .option_1{
+.main .part_1 .comment .option_1 {
     width: 748px;
-    height: 134px;
-    margin-top: 30px;
+    height: 70px;
+    margin-top: 10px;
 }
 
-.main .part_1 .comment .option_1 .head_img{
+.main .part_1 .comment .option_1 .head_img {
     width: 40px;
     height: 40px;
     margin-top: 16px;
@@ -788,24 +789,24 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_1 .message{
+.main .part_1 .comment .option_1 .message {
     width: 642px;
-    height: 40px;
+    height: 49px;
     display: inline-block;
     margin-left: 10px;
     overflow: hidden;
 }
 
-.main .part_1 .comment .option_1 .message .nickname{
+.main .part_1 .comment .option_1 .message .nickname {
     font-size: 12px;
     color: #222;
 }
 
-.main .part_1 .comment .option_1 .message .nickname span{
+.main .part_1 .comment .option_1 .message .nickname span {
     color: #F0712E;
 }
 
-.main .part_1 .comment .option_1 .message .date{
+.main .part_1 .comment .option_1 .message .date {
     width: 100px;
     height: 16px;
     line-height: 16px;
@@ -814,7 +815,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_1 .message .reply{
+.main .part_1 .comment .option_1 .message .reply {
     width: 30px;
     height: 16px;
     line-height: 16px;
@@ -824,7 +825,7 @@
     margin-left: 448px;
 }
 
-.main .part_1 .comment .option_1 .message .string{
+.main .part_1 .comment .option_1 .message .string {
     width: 1px;
     height: 12px;
     background-color: #DDD;
@@ -833,7 +834,7 @@
     margin-right: 4px;
 }
 
-.main .part_1 .comment .option_1 .message .like{
+.main .part_1 .comment .option_1 .message .like {
     width: 36px;
     height: 16px;
     line-height: 16px;
@@ -842,7 +843,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_1_option{
+.main .part_1 .comment .option_1_option {
     width: 644px;
     height: 68px;
     background-color: #E9E9F0;
@@ -850,7 +851,7 @@
 }
 
 
-.main .part_1 .comment .option_1_option .head_img{
+.main .part_1 .comment .option_1_option .head_img {
     width: 40px;
     height: 40px;
     margin-top: 16px;
@@ -858,7 +859,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_1_option .message{
+.main .part_1 .comment .option_1_option .message {
     width: 560px;
     height: 40px;
     display: inline-block;
@@ -866,16 +867,16 @@
     overflow: hidden;
 }
 
-.main .part_1 .comment .option_1_option .message .nickname{
+.main .part_1 .comment .option_1_option .message .nickname {
     font-size: 12px;
     color: #222;
 }
 
-.main .part_1 .comment .option_1_option .message .nickname span{
+.main .part_1 .comment .option_1_option .message .nickname span {
     color: #F0712E;
 }
 
-.main .part_1 .comment .option_1_option .message .date{
+.main .part_1 .comment .option_1_option .message .date {
     width: 100px;
     height: 16px;
     line-height: 16px;
@@ -884,7 +885,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_1_option .message .reply{
+.main .part_1 .comment .option_1_option .message .reply {
     width: 30px;
     height: 16px;
     line-height: 16px;
@@ -894,7 +895,7 @@
     margin-left: 355px;
 }
 
-.main .part_1 .comment .option_1_option .message .string{
+.main .part_1 .comment .option_1_option .message .string {
     width: 1px;
     height: 12px;
     background-color: #DDD;
@@ -903,7 +904,7 @@
     margin-right: 4px;
 }
 
-.main .part_1 .comment .option_1_option .message .like{
+.main .part_1 .comment .option_1_option .message .like {
     width: 36px;
     height: 16px;
     line-height: 16px;
@@ -912,14 +913,14 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_2{
+.main .part_1 .comment .option_2 {
     width: 748px;
     height: 74px;
     margin-top: 10px;
     /*background-color: pink;*/
 }
 
-.main .part_1 .comment .option_2 .head_img{
+.main .part_1 .comment .option_2 .head_img {
     width: 40px;
     height: 40px;
     margin-top: 16px;
@@ -927,7 +928,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_2 .message{
+.main .part_1 .comment .option_2 .message {
     width: 642px;
     height: 40px;
     display: inline-block;
@@ -935,16 +936,16 @@
     overflow: hidden;
 }
 
-.main .part_1 .comment .option_2 .message .nickname{
+.main .part_1 .comment .option_2 .message .nickname {
     font-size: 12px;
     color: #222;
 }
 
-.main .part_1 .comment .option_2 .message .nickname span{
+.main .part_1 .comment .option_2 .message .nickname span {
     color: #F0712E;
 }
 
-.main .part_1 .comment .option_2 .message .date{
+.main .part_1 .comment .option_2 .message .date {
     width: 100px;
     height: 16px;
     line-height: 16px;
@@ -953,7 +954,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_2 .message .reply{
+.main .part_1 .comment .option_2 .message .reply {
     width: 30px;
     height: 16px;
     line-height: 16px;
@@ -963,7 +964,7 @@
     margin-left: 448px;
 }
 
-.main .part_1 .comment .option_2 .message .string{
+.main .part_1 .comment .option_2 .message .string {
     width: 1px;
     height: 12px;
     background-color: #DDD;
@@ -972,7 +973,7 @@
     margin-right: 4px;
 }
 
-.main .part_1 .comment .option_2 .message .like{
+.main .part_1 .comment .option_2 .message .like {
     width: 36px;
     height: 16px;
     line-height: 16px;
@@ -981,14 +982,14 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_3{
+.main .part_1 .comment .option_3 {
     width: 748px;
     height: 74px;
     /*margin-top: 10px;*/
     /*background-color: pink;*/
 }
 
-.main .part_1 .comment .option_3 .head_img{
+.main .part_1 .comment .option_3 .head_img {
     width: 40px;
     height: 40px;
     margin-top: 16px;
@@ -996,7 +997,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_3 .message{
+.main .part_1 .comment .option_3 .message {
     width: 642px;
     height: 40px;
     display: inline-block;
@@ -1004,16 +1005,16 @@
     overflow: hidden;
 }
 
-.main .part_1 .comment .option_3 .message .nickname{
+.main .part_1 .comment .option_3 .message .nickname {
     font-size: 12px;
     color: #222;
 }
 
-.main .part_1 .comment .option_3 .message .nickname span{
+.main .part_1 .comment .option_3 .message .nickname span {
     color: #F0712E;
 }
 
-.main .part_1 .comment .option_3 .message .date{
+.main .part_1 .comment .option_3 .message .date {
     width: 100px;
     height: 16px;
     line-height: 16px;
@@ -1022,7 +1023,7 @@
     display: inline-block;
 }
 
-.main .part_1 .comment .option_3 .message .reply{
+.main .part_1 .comment .option_3 .message .reply {
     width: 30px;
     height: 16px;
     line-height: 16px;
@@ -1032,7 +1033,7 @@
     margin-left: 448px;
 }
 
-.main .part_1 .comment .option_3 .message .string{
+.main .part_1 .comment .option_3 .message .string {
     width: 1px;
     height: 12px;
     background-color: #DDD;
@@ -1041,7 +1042,7 @@
     margin-right: 4px;
 }
 
-.main .part_1 .comment .option_3 .message .like{
+.main .part_1 .comment .option_3 .message .like {
     width: 36px;
     height: 16px;
     line-height: 16px;

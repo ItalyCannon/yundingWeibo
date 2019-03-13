@@ -19,7 +19,6 @@
                 async: true
             }
         );
-
     }
 </script>
 

@@ -70,7 +70,7 @@ public class RegisterServlet extends HttpServlet {
                 request.setAttribute("cc_error", "您输入的验证码有误");
                 //转发到注册页面
                 // TODO: 2019/3/3 注册页面
-                request.getRequestDispatcher("/regist.jsp").forward(request, response);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
         } else {
             //两次密码输入不同
@@ -78,7 +78,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("msg", "您两次输入的密码不同");
             //转发到注册页面
             // TODO: 2019/3/3 注册页面
-            request.getRequestDispatcher("/regist.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }
 

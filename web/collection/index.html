@@ -11,7 +11,7 @@
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo">
+        <div class="header_logo" onclick="load_home1()" style="cursor: pointer">
             <i class="iconfont">&#xe61a;</i>
             <p class="logo_text">微博</p>
         </div>
@@ -33,14 +33,14 @@
             <input type="text" name="">
             <i class="iconfont">&#xe600;</i>
         </div>
-        <div class="header_rank">
+        <div class="header_rank" onclick="show_list()" style="cursor: pointer">
             <a href="" title="">
                 <a href="" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <img src="" alt="img" class="portrait" id="profile1">
             <div class="modify">
                 <i class="iconfont">&#xe64d;</i>
             </div>
@@ -97,12 +97,12 @@
         <div class="right">
             <div class="right_mine">
                 <img src="./img/right_mine_background.jpg" alt="img" class="background">
-                <img src="./img/right_mine_portrait.jpg" alt="img" class="portrait">
-                <p class="name">jetris</p>
+                <img src="" alt="img" class="portrait" id="profilePicture">
+                <p class="name" id="nicknameLeft"></p>
                 <div class="message">
-                    <p class="attention"><span>123</span><br/>关注</p>
-                    <p class="fans"><span>23</span><br/>粉丝</p>
-                    <p class="microblog"><span>123</span><br/>微博</p>
+                    <p class="attention"><span id="subscribeNum"> </span><br/>关注</p>
+                    <p class="fans"><span id="fansNum"> </span><br/>粉丝</p>
+                    <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
                 </div>
             </div>
             <div class="right_new">
@@ -128,8 +128,6 @@
 </body>
 </html>
 
-<!-- <script type="text/javascript" src="./js/base.js"></script>
-<script type="text/javascript" src="./js/ajax.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="./js/index.js" charset="UTF-8"></script>
 <script type="text/javascript" src="./js/index_2.js" charset="UTF-8"></script>

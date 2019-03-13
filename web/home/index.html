@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -7,14 +8,16 @@
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
 </head>
+
 <body>
 
 <div id="1">
     <div class="public_header">
         <div class="public_container">
-            <div class="header_logo">
-                <i class="iconfont">&#xe61a;</i>
-                <p class="logo_text">微博</p>
+            <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
+                <div class="header_logo">
+                    <img class="logo" src="./img/logo.png" alt="">
+                </div>
             </div>
             <ul class="header_ul">
                 <a href="" title="">
@@ -34,14 +37,14 @@
                 <input type="text" name="">
                 <i class="iconfont">&#xe600;</i>
             </div>
-            <div class="header_rank">
+            <div class="header_rank" onclick="show_list()" style="cursor: pointer">
                 <a href="" title="">
                     <a href="" title=""><i class="iconfont">&#xe665;</i></a>
                     <p class="rank_text">排行榜</p>
                 </a>
             </div>
             <div class="header_register">
-                <img src="" alt="img" class="portrait" id="profile1">
+                <img src="" alt="img" class="portrait" id="profile1" onclick="loadDetail()">
                 <div class="modify">
                     <i class="iconfont">&#xe64d;</i>
                 </div>
@@ -128,6 +131,6 @@
     </div>
 </div>
 </body>
-</html>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="./js/htmls.js"></script>
+</html>

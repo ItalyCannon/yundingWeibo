@@ -38,19 +38,20 @@ public class RegistServlet extends HttpServlet {
         if (registId != null && registId.matches("^(13|15|18|14|17)[\\d]{9}")) {
             int maxPwd = 20;
             int minPwd = 6;
-            if (password.length() > maxPwd || password.length() < minPwd) {
+            if (password.length() > maxPwd || password.length() <= minPwd) {
                 request.getSession().setAttribute("regist_error", "密码长度必须为6-20位");
-                response.sendRedirect("/web/regist.jsp");
+                response.sendRedirect("/register/index.jsp");
                 return;
             }
 
-            if (password != null && password.equals(password2)) {
+            if (password.equals(password2)) {
 
                 //password两次一样
 
                 //获取生成的验证码
                 HttpSession session = request.getSession();
                 String checkCode_session = (String) session.getAttribute("checkCode_session");
+
                 String sms_session = (String) session.getAttribute("sms_session");
                 //删除session中的验证码
                 session.removeAttribute("checkCode_session");
@@ -78,33 +79,33 @@ public class RegistServlet extends HttpServlet {
                             response.sendRedirect("/home/index.html");
                         } catch (Exception e) {
                             session.setAttribute("regist_error", e.getMessage());
-                            response.sendRedirect("/register/regist.jsp");
+                            response.sendRedirect("/register/index.jsp");
                         }
                     } else {
                         //验证码错误
                         session.setAttribute("regist_error", "您输入的手机短信验证码有误");
                         //转发到注册页面
-                        response.sendRedirect("/register/regist.jsp");
+                        response.sendRedirect("/register/index.jsp");
                     }
 
                 } else {
                     //验证码错误
                     session.setAttribute("regist_error", "您输入的验证码有误");
                     //转发到注册页面
-                    response.sendRedirect("/register/regist.jsp");
+                    response.sendRedirect("/register/index.jsp");
                 }
             } else {
                 //两次密码输入不同
                 //储存信息到request
                 request.getSession().setAttribute("regist_error", "您两次输入的密码不同");
-                response.sendRedirect("/register/regist.jsp");
+                response.sendRedirect("/register/index.jsp");
             }
 
         } else {
             //手机格式错误
             //储存信息到request
             request.getSession().setAttribute("regist_error", "请您输入正确的手机号");
-            response.sendRedirect("/register/regist.jsp");
+            response.sendRedirect("/register/index.jsp");
         }
 
     }

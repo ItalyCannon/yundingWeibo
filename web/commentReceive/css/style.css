@@ -138,6 +138,7 @@
     width: 100%;
     background-color: #F3F2F5;
     overflow: hidden;
+    /*margin-bottom: 100px;*/
 }
 
 .main .sidebar {
@@ -493,12 +494,12 @@
     height: 234px;
     background-color: #fff;
     margin-left: 140px;
-    margin-top: -250px;
-    margin-bottom: -500px;
+    /*margin-top: -250px;*/
+    margin-bottom: 20px;
 }
 
-#collect1 {
-    margin-bottom: -450px;
+#collect0 {
+    margin-top: -500px;
 }
 
 .main .collect .portrait {

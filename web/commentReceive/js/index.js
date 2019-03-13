@@ -9,7 +9,7 @@ function CommentReceive() {
             var html = '';
             for (var i = 0; i < data.length; i++) {
                 html +=
-                    '<div class="collect" id="' +'collect' + i + '">' +
+                    '<div class="collect" id="' + 'collect' + i + '">' +
                     '<img src="' + data[i].profilePicture + '" alt="" class="portrait">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data[i].nickname + '</p>' +
@@ -49,6 +49,14 @@ function baseInfo() {
         },
         async: false
     });
+}
+
+function load_home1() {
+    window.location.href = "/home/index.html"
+}
+
+function showList() {
+    window.location.href = "/list/index.html"
 }
 
 window.onload = function () {

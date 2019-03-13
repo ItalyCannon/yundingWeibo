@@ -37,6 +37,9 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
 
     private void addCommentsAndNickname(Weibo weibo, int userId) {
         List<Comment> comment = this.getComment(weibo);
+        for (Comment c : comment) {
+            c.setProfilePicture(userDao.getUser(c.getUserId()).getProfilePicture());
+        }
         weibo.setCommentNum(comment.size());
         weibo.setComments(comment);
         weibo.setNickname(userDao.getUserNickname(userId));
