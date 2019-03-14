@@ -13,9 +13,9 @@ import java.util.Random;
  * @date 2019/2/18 17:25
  */
 public class WeiboService {
-    public List<Weibo> getWeiboByUserId(int userId) {
+    public PageBean<Weibo> getWeiboByUserId(int userId, int pageCode, int pageSize) {
         WeiboDao weiboDao = DaoFactory.getWeiboDao();
-        return weiboDao.getWeiboByUserId(userId);
+        return weiboDao.getWeiboByUserId(userId, pageCode, pageSize);
     }
 
     /**

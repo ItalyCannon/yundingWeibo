@@ -59,18 +59,18 @@ function getInfo() {
                 default:
 
             }
-            $("#birthday").html(data.birthday);
+            $("#birthday").html(data.formatBirthday);
             $("#signatureRight").html(data.signature);
-            $("#registrationTime").html(data.registrationTime);
+            $("#registrationTime").html(data.formatRegistrationTime);
             $("#email").html(data.email);
             $("#qq").html(data.qq);
             $("#undergraduateSchool").html(data.undergraduateSchool);
             $("#graduateSchool").html(data.graduateSchool);
 
-            var tags = data.tag;
-            for (var i = 0; i < tags.length; ++i) {
-                $("#tag").append('<p class="items">' + tags[i] + '</p>');
-            }
+            // var tags = data.tag;
+            // for (var i = 0; i < tags.length; ++i) {
+            //     $("#tag").append('<p class="items">' + tags[i] + '</p>');
+            // }
         },
         async: true
     });

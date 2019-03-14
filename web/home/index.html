@@ -44,7 +44,7 @@
                 </a>
             </div>
             <div class="header_register">
-                <img src="" alt="img" class="portrait" id="profile1" onclick="loadDetail()">
+                <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()">
                 <div class="modify">
                     <i class="iconfont">&#xe64d;</i>
                 </div>
@@ -97,12 +97,12 @@
             <div class="right">
                 <div class="right_mine">
                     <img src="./img/right_mine_background.jpg" alt="img" class="background">
-                    <img src="" alt="img" class="portrait" id="profilePicture">
+                    <img src="" alt="img" class="portrait" id="profilePicture" onclick="loadDetail()">
                     <p class="name" id="nicknameLeft"></p>
                     <div class="message">
-                        <p class="attention"><span id="subscribeNum"> </span><br/>关注</p>
-                        <p class="fans"><span id="fansNum"> </span><br/>粉丝</p>
-                        <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
+                        <p class="attention" onclick="load_attention()"><span id="subscribeNum"> </span><br/>关注</p>
+                        <p class="fans" onclick="load_fans()"><span id="fansNum"> </span><br/>粉丝</p>
+                        <p class="microblog" onclick="load_space()"><span id="weiboNum"> </span><br/>微博</p>
                     </div>
                 </div>
                 <div class="right_new">

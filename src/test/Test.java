@@ -1,7 +1,6 @@
 package test;
 
 import com.yundingweibo.domain.PageBean;
-import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.WeiboService;
 
@@ -11,7 +10,7 @@ import com.yundingweibo.service.WeiboService;
  */
 public class Test {
     public static void main(String[] args) {
-        PageBean<Weibo> pb = new WeiboService().findAll(new User(1), 1, 6);
-        System.out.println(pb);
+        PageBean<Weibo> weiboByUserId = new WeiboService().getWeiboByUserId(1, 1, 6);
+        System.out.println(weiboByUserId);
     }
 }

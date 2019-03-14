@@ -35,6 +35,9 @@ public class MyCommentServlet extends HttpServlet {
 
         List<Comment> comments;
         String type = request.getParameter("type");
+        if (type == null) {
+            throw new RuntimeException("必须传递type");
+        }
         switch (type) {
             case "send":
                 comments = new WeiboService().showCommentAndReply(sessionUser, 1);
@@ -43,7 +46,7 @@ public class MyCommentServlet extends HttpServlet {
                 comments = new WeiboService().showCommentAndReply(sessionUser, 2);
                 break;
             default:
-                throw new RuntimeException("必须传递type");
+                throw new RuntimeException("type类型错误");
         }
 
         String json = JSON.toJSONString(comments);

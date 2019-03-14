@@ -33,14 +33,14 @@
             <input type="text" name="">
             <i class="iconfont">&#xe600;</i>
         </div>
-        <div class="header_rank" onclick="showList()">
+        <div class="header_rank" onclick="show_list()" style="cursor: pointer">
             <a href="" title="">
                 <a href="" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <img src="" alt="img" class="portrait" id="profile1" onclick="loadDetail()">
             <div class="modify">
                 <i class="iconfont">&#xe64d;</i>
             </div>
@@ -52,10 +52,10 @@
     <div class="public_container">
         <div class="sidebar">
             <ul>
-                <li>首页</li>
-                <li>我的收藏</li>
-                <li>我的点赞</li>
-                <li class="item_1">我的评论</li>
+                <li class="" style="cursor: pointer;" onclick="load_home1()">首页</li>
+                <li class="" style="cursor: pointer;" onclick="load_home2();">我的收藏</li>
+                <li style="cursor: pointer;" onclick="load_home3();">我的点赞</li>
+                <li style="cursor: pointer;" onclick="load_home4();" class="item_1">我的评论</li>
             </ul>
             <ul class="ul">
                 <li>■ 好友圈</li>
@@ -68,8 +68,8 @@
         </div>
         <div class="middle">
             <div class="middle_up">
-                <p class="title_1">收到</p>
-                <p class="title_2">发出</p>
+                <p class="title_1" onclick="load_receive()">收到</p>
+                <p class="title_2" onclick="load_send()">发出</p>
                 <div class="triangle"></div>
                 <div class="search">
                     <input type="text" name="" placeholder="搜索我的微博">

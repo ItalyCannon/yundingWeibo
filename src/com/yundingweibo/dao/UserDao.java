@@ -81,6 +81,14 @@ public interface UserDao {
     List<User> showUserAttention(User user);
 
     /**
+     * 查询user关注的粉丝
+     *
+     * @param user .
+     * @return .
+     */
+    List<User> showFans(User user);
+
+    /**
      * 根据loginId查询用户
      * 查询的是login_info表
      *
@@ -119,4 +127,11 @@ public interface UserDao {
      * @return .
      */
     User showBasicInfo(User user);
+
+    /**
+     * sessionUser关注targetUser
+     * @param sessionUser .
+     * @param targetUser .
+     */
+    void addAttention(User sessionUser, User targetUser);
 }

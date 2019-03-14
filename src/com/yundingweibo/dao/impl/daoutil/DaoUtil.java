@@ -168,7 +168,7 @@ public class DaoUtil {
                 return rs.getObject(1);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             try {
                 free(conn, ps, rs);
@@ -192,7 +192,7 @@ public class DaoUtil {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             try {
                 free(conn, ps);

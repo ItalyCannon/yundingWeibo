@@ -75,44 +75,43 @@
                 <p class="fixed">姓名</p><input type="text" name="" value="" class="input_2" id="realName">
                 <p class="fixed">性别</p>
                 <select name="" class="sex" id="gender">
-                    <option value="男">男</option>
-                    <option value="女">女</option>
+                    <option value="0">保密</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
                 </select>
                 <p class="fixed">所在地</p>
-                <select name="" class="province">
-                    <option value="山西">山西</option>
-                    <option value="北京">北京</option>
+                <select name="" class="province" id="province">
+                    <option value="请选择城市">请选择省份</option>
                 </select>
-                <select name="" class="city">
-                    <option value="太原">太原</option>
-                    <option value="长治">长治</option>
+                <select name="" class="city" id="city">
+                    <option value="请选择城市">请选择城市</option>
                 </select>
                 <p class="fixed">性取向</p>
                 <select name="" class="sexual_orientation" id="sexualOrientation">
-                    <option value="异性">异性</option>
-                    <option value="同性">同性</option>
+                    <option value="0">保密</option>
+                    <option value="1">异性</option>
+                    <option value="2">同性</option>
                 </select>
                 <p class="fixed">感情状况</p>
                 <select name="" class="feeling" id="emotionalState">
-                    <option value="单身">单身</option>
-                    <option value="恋爱">恋爱</option>
-                    <option value="已婚">已婚</option>
+                    <option value="0">保密</option>
+                    <option value="1">单身</option>
+                    <option value="2">恋爱</option>
+                    <option value="3">已婚</option>
                 </select>
+
+
                 <p class="fixed">生日</p>
-                <select name="" class="year">
-                    <option value="1994">1994</option>
-                    <option value="1995">1995</option>
+                <select name="YYYY" onChange="YYYYDD(this.value)" class="year" id="year">
                 </select>
-                <select name="" class="month">
-                    <option value="12">12</option>
-                    <option value="11">11</option>
+                <select name="MM" onChange="MMDD(this.value)" class="month" id="month">
                 </select>
-                <select name="" class="day">
-                    <option value="21">21</option>
-                    <option value="20">20</option>
+                <select name="DD" onChange="DDD(this.value)" class="day" id="day">
                 </select>
+
+
                 <p class="fixed">签名</p>
-                <input type="text" name="" value="设计的力量" class="autograph" id="signatureRight">
+                <input type="text" name="" value="" class="autograph" id="signatureRight">
                 <p class="fixed">注册时间</p>
                 <p class="alter" id="registrationTime">2014-12-12</p>
             </div>
@@ -121,18 +120,19 @@
                 <p class="cross"></p>
                 <p class="compile">保存</p>
                 <p class="fixed">邮箱</p>
-                <input type="text" name="" value="jetris@qq.com" class="mailbox" id="email">
+                <input type="text" name="" value="" class="mailbox" id="email">
                 <p class="fixed">QQ</p>
-                <input type="text" name="" value="12312312121" class="QQ" id="qq">
+                <input type="text" name="" value="" class="QQ" id="qq">
             </div>
             <div class="education">
                 <p class="contact_message">教育信息</p>
                 <p class="cross"></p>
                 <p class="compile">保存</p>
                 <p class="fixed">本科</p>
-                <input type="text" name="" value="太原理工大学" class="school" id="undergraduateSchool">
+                <input type="text" name="" value="" class="school" id="undergraduateSchool">
                 <p class="fixed">研究生</p>
-                <p class="alter"><a href="" class="postgraduate" id="graduateSchool">添加+</a></p>
+                <input type="text" name="" value="" class="school" id="graduateSchool">
+                <!--<p class="alter"><a href="" class="postgraduate" id="graduateSchool">添加+</a></p>-->
             </div>
             <div class="label">
                 <p class="contact_message">标签信息</p>

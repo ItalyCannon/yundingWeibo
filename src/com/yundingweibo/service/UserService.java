@@ -92,6 +92,27 @@ public class UserService {
         throw new RuntimeException("未知形参");
     }
 
+    public List<User> showFans(User user, int type) {
+        List<User> userList = DaoFactory.getUserDao().showFans(user);
+        if (type == 1) {
+            return userList;
+        }
+        if (type == 2) {
+            userList.sort(new Comparator<User>() {
+                Collator collator = Collator.getInstance(Locale.CHINA);
+
+                @Override
+                public int compare(User o1, User o2) {
+                    CollationKey k1 = collator.getCollationKey(o1.getNickname());
+                    CollationKey k2 = collator.getCollationKey(o2.getNickname());
+                    return k1.compareTo(k2);
+                }
+            });
+            return userList;
+        }
+        throw new RuntimeException("未知形参");
+    }
+
     public void addUser(User user) {
         UserDao userDao = DaoFactory.getUserDao();
         User u = userDao.findUserByLoginInId(user.getLoginId());
@@ -153,5 +174,9 @@ public class UserService {
      */
     public User showBasicInfo(User user) {
         return DaoFactory.getUserDao().showBasicInfo(user);
+    }
+
+    public void addAttention(User sessionUser, User targetUser) {
+        DaoFactory.getUserDao().addAttention(sessionUser, targetUser);
     }
 }

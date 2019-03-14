@@ -22,10 +22,12 @@ public interface WeiboDao {
     /**
      * 根据用户id查询微博
      *
-     * @param userId 用户id
+     * @param userId   用户id
+     * @param pageCode 页码
+     * @param pageSize 一页显示几条记录
      * @return 用户id对应的所有微博
      */
-    List<Weibo> getWeiboByUserId(int userId);
+    PageBean<Weibo> getWeiboByUserId(int userId, int pageCode, int pageSize);
 
     /**
      * 分页显示微博，查找的是user关注的用户的微博，微博按创建时间排序
@@ -40,7 +42,7 @@ public interface WeiboDao {
     /**
      * 分页显示我的点赞
      *
-     * @param user .
+     * @param user     .
      * @param pageCode .
      * @param pageSize .
      * @return .

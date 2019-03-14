@@ -52,13 +52,46 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      * @return 用户id对应的所有微博
      */
     @Override
-    public List<Weibo> getWeiboByUserId(int userId) {
-        String sql = "select * from weibo_data where user_id = ? order by create_time desc";
-        List<Weibo> weiboList = DaoUtil.toBean(Weibo.class, sql, userId);
-        for (Weibo w : weiboList) {
-            addCommentsAndNickname(w, userId);
+    public PageBean<Weibo> getWeiboByUserId(int userId, int pageCode, int pageSize) {
+        try {
+            /*
+             * 1. 设置PageBean对象pageBean
+             * 2. 设置pb的pageCode和pageSize
+             * 3. 得到totalRecord，设置给pageBean
+             * 4. 得到beanList，设置给pageBean
+             * 5. 返回pageBean
+             */
+            PageBean<Weibo> pageBean = new PageBean<>();
+            pageBean.setPageCode(pageCode);
+            pageBean.setPageSize(pageSize);
+            /*
+             * 得到totalRecord
+             */
+            String sql = "select count(*) from weibo_data where user_id = ? order by create_time desc";
+            int totalRecord;
+            Object o = DaoUtil.getObject(sql, userId, userId);
+            if (o == null) {
+                totalRecord = 0;
+            } else {
+                totalRecord = ((Long) o).intValue();
+            }
+
+            pageBean.setTotalRecord(totalRecord);
+            /*
+             * 得到beanList
+             */
+            sql = "select * from weibo_data where user_id = ? order by create_time desc limit ?,?";
+            List<Weibo> beanList = DaoUtil.toBean(Weibo.class, sql, userId, (pageCode - 1) * pageSize, pageSize);
+            for (Weibo w : beanList) {
+                addCommentsAndNickname(w, w.getUserId());
+                User user1 = userDao.getUser(w.getUserId());
+                w.setProfilePicture(user1.getProfilePicture());
+            }
+            pageBean.setBeanList(beanList);
+            return pageBean;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return weiboList;
     }
 
     /**

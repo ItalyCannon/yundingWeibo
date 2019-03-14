@@ -8,7 +8,9 @@ import com.yundingweibo.domain.Comment;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -107,6 +109,27 @@ public class JdbcUserDaoImpl implements UserDao {
     }
 
     /**
+     * 查询user关注的粉丝
+     *
+     * @param user .
+     * @return .
+     */
+    @Override
+    public List<User> showFans(User user) {
+        String sql = "select user_id,attention_time,attention_group from user_relation where target_id=? order by attention_time desc";
+        List<User> list = DaoUtil.toBean(User.class, sql, user.getUserId());
+        List<User> userList = new ArrayList<>();
+        int i = 0;
+        for (User u : list) {
+            sql = "select user_id,nickname,signature,profile_picture from user_info where user_id=?";
+            u = DaoUtil.toBeanSingle(User.class, sql, list.get(i).getUserId());
+            userList.add(u);
+            i++;
+        }
+        return userList;
+    }
+
+    /**
      * 根据loginId查询用户
      * 查询的是login_info表
      *
@@ -161,10 +184,89 @@ public class JdbcUserDaoImpl implements UserDao {
         }
     }
 
+    /**
+     * sessionUser取关removeUser
+     *
+     * @param sessionUser .
+     * @param removeUser  .
+     */
     @Override
-    public void removeAttention(User sessionUser, User removeUsere) {
-        String sql = "delete from user_relation where user_id=? and target_id=?";
-        DaoUtil.query(sql, sessionUser.getUserId(), removeUsere.getUserId());
+    public void removeAttention(User sessionUser, User removeUser) {
+        Long subscribeNum = null;
+        Long fansNum = null;
+        try {
+            String sql = "delete from user_relation where user_id=? and target_id=?";
+            DaoUtil.query(sql, sessionUser.getUserId(), removeUser.getUserId());
+
+            sql = "select subscribe_num from user_info where user_id=?";
+            subscribeNum = (Long) DaoUtil.getObject(sql, sessionUser.getUserId());
+            sql = "update user_info set subscribe_num=subscribe_num-1 where user_id=?";
+            DaoUtil.query(sql, sessionUser.getUserId());
+
+            sql = "select fans_num from user_info where user_id=?";
+            fansNum = (Long) DaoUtil.getObject(sql, removeUser.getUserId());
+            sql = "update user_info set fans_num=fans_num-1 where user_id=?";
+            DaoUtil.query(sql, removeUser.getUserId());
+        } catch (Exception e) {
+            String sql;
+            if (subscribeNum != null) {
+                sql = "update user_info set subscribe_num=subscribe_num+1 where user_id=?";
+                DaoUtil.query(sql, sessionUser.getUserId());
+            }
+            if (fansNum != null) {
+                sql = "update user_info set fans_num=fans_num+1 where user_id=?";
+                DaoUtil.query(sql, removeUser.getUserId());
+            }
+            throw new RuntimeException("写入数据库失败");
+        }
+    }
+
+    /**
+     * sessionUser关注targetUser
+     *
+     * @param sessionUser .
+     * @param targetUser  .
+     */
+    @Override
+    public void addAttention(User sessionUser, User targetUser) {
+        Long subscribeNum = null;
+        Long fansNum = null;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = simpleDateFormat.format(new Date());
+        try {
+            String sql = "insert into user_relation set user_id=?,target_id=?,type=1,attention_time=?";
+            DaoUtil.query(sql, sessionUser.getUserId(), targetUser.getUserId(), format);
+
+            //获取原来的关注数
+            sql = "select subscribe_num from user_info where user_id =?";
+            subscribeNum = (Long) DaoUtil.getObject(sql, sessionUser.getUserId());
+
+            sql = "update user_info set subscribe_num = subscribe_num+1 where user_id=?";
+            DaoUtil.query(sql, sessionUser.getUserId());
+
+            //获取原来的粉丝数
+            sql = "select subscribe_num from user_info where user_id =?";
+            fansNum = (Long) DaoUtil.getObject(sql, targetUser.getUserId());
+
+            sql = "update user_info set fans_num = fans_num+1 where user_id=?";
+            DaoUtil.query(sql, targetUser.getUserId());
+        } catch (Exception e) {
+            String sql = "delete from user_relation where user_id=? and target_id=? and attention_time=?";
+            DaoUtil.query(sql, sessionUser.getUserId(), targetUser.getUserId(), format);
+
+            //如果不为空，说明数据库中的数据已经加一
+            if (subscribeNum != null) {
+                sql = "update user_info set subscribe_num=subscribe_num-1 where user_id=?";
+                DaoUtil.query(sql, sessionUser.getUserId());
+            }
+
+            if (fansNum != null) {
+                sql = "update user_info set fans_num=fans_num-1 where user_id=?";
+                DaoUtil.query(sql, targetUser.getUserId());
+            }
+
+            throw new RuntimeException("写入数据库失败");
+        }
     }
 
     /**

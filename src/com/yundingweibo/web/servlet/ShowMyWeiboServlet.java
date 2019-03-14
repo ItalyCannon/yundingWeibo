@@ -1,7 +1,7 @@
 package com.yundingweibo.web.servlet;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.PropertyFilter;
+import com.yundingweibo.domain.PageBean;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.WeiboService;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * 测试通过
@@ -32,17 +31,20 @@ public class ShowMyWeiboServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         User u = (User) request.getSession().getAttribute("sessionUser");
-        List<Weibo> list = new WeiboService().getWeiboByUserId(u.getUserId());
-        PropertyFilter propertyFilter = (o, s, o1) -> {
-            if ("createTime".equals(s)) {
-                return false;
-            }
-            if ("origin".equals(s)) {
-                return false;
-            }
-            return true;
-        };
-        String json = JSON.toJSONString(list, propertyFilter);
+
+        int pageCode = getPageCode(request);
+        int pageSize = 6;
+        PageBean<Weibo> list = new WeiboService().getWeiboByUserId(u.getUserId(), pageCode, pageSize);
+
+        String json = JSON.toJSONString(list);
         response.getWriter().write(json);
+    }
+
+    private int getPageCode(HttpServletRequest request) {
+        String value = request.getParameter("pc");
+        if (value == null || value.trim().isEmpty()) {
+            return 1;
+        }
+        return Integer.parseInt(value);
     }
 }
