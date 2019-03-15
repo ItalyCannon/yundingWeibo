@@ -11,9 +11,10 @@
 
 	<div class="public_header">
 		<div class="public_container">
-			<div class="header_logo" onclick="load_home1()" style="cursor: pointer">
-				<i class="iconfont">&#xe61a;</i>
-				<p class="logo_text">微博</p>
+			<div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
+				<div class="header_logo">
+					<img class="logo" src="./img/logo.png" alt="">
+				</div>
 			</div>
 			<ul class="header_ul">
 				<a href="" title=""><li class="clearfloat">首页</li></a>
@@ -32,7 +33,7 @@
 				</a>
 			</div>
 			<div class="header_register">
-				<img src="" alt="img" class="portrait" id="profile1">
+				<img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
 				<div class="modify">
 					<i class="iconfont">&#xe64d;</i>
 				</div>
@@ -45,8 +46,8 @@
 		<div class="title">
 			<div class="public_container">
 				<p class="title_title">排行榜</p>
-				<p class="like" onclick="praise()" id="like">点赞榜</p>
-				<p class="transmit" onclick="repost()" id="transmit">转发榜</p>
+				<p class="like" onclick="praise()" id="like" style="cursor: pointer">点赞榜</p>
+				<p class="transmit" onclick="repost()" id="transmit" style="cursor: pointer">转发榜</p>
 			</div>
 		</div>
 
@@ -54,8 +55,8 @@
 			<div class="public_container">
 				<div class="title">
 					<p class="text_1">序号</p>
-					<p class="text_2">关键词<span>（点赞数）</span></p>
-					<p class="text_3">整点刷新，统计上一小时内的点赞数</p>
+					<p class="text_2">关键词<span id="word1">（点赞数）</span></p>
+					<p class="text_3" id="word2">整点刷新，统计上一小时内的点赞数</p>
 				</div>
 				<div id="list"></div>
 			</div>

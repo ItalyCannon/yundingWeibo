@@ -1,3 +1,43 @@
+function load_home1() {
+    window.location.href = "/home"
+}
+
+function load_home2() {
+    window.location.href = "/collection";
+}
+
+function load_home3() {
+    window.location.href = "/praise";
+}
+
+function load_home4() {
+    window.location.href = "/commentReceive";
+}
+
+function show_list() {
+    window.location.href = "/list";
+}
+
+function loadDetail() {
+    window.location.href = "/detail"
+}
+
+function load_attention() {
+    window.location.href = "/attention"
+}
+
+function load_fans() {
+    window.location.href = "/fans"
+}
+
+function load_space() {
+    window.location.href = "/space"
+}
+
+function load_edit() {
+    window.location.href = "/editDetail"
+}
+
 function getInfo() {
     $.ajax({
         url: '/UserDetailsServlet',
@@ -6,6 +46,7 @@ function getInfo() {
         data: {},
         success: function (text) {
             var data = eval(text);
+            $("#profile1").attr('src', data.profilePicture);
             $("#profilePicture").attr('src', data.profilePicture);
             $("#profilePictureEdit").attr('src', data.profilePicture);
             $("#nicknameLeft").html(data.nickname);
@@ -54,7 +95,10 @@ function getInfo() {
                     $("#emotionalState").html("单身");
                     break;
                 case 2:
-                    $("#emotionalState").html("非单身");
+                    $("#emotionalState").html("恋爱");
+                    break;
+                case 3:
+                    $("#emotionalState").html("已婚");
                     break;
                 default:
 

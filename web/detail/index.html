@@ -11,12 +11,13 @@
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo">
-            <i class="iconfont">&#xe61a;</i>
-            <p class="logo_text">微博</p>
+        <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
+            <div class="header_logo">
+                <img class="logo" src="../space/img/logo.png" alt="">
+            </div>
         </div>
         <ul class="header_ul">
-            <a href="" title="">
+            <a href="/home" title="">
                 <li class="clearfloat">首页</li>
             </a>
             <a href="" title="">
@@ -34,13 +35,13 @@
             <i class="iconfont">&#xe600;</i>
         </div>
         <div class="header_rank">
-            <a href="" title="">
-                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+            <a href="/list" title="">
+                <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <img src="" alt="img" class="portrait" id="profile1" style="cursor: pointer" onclick="load_space()">
             <div class="modify">
                 <i class="iconfont">&#xe64d;</i>
             </div>
@@ -52,32 +53,24 @@
     <div class="public_container">
         <div class="personage">
             <div class="personage_up">
-                <img src="" alt="img" class="portrait" id="profilePicture" onclick="appear();">
+                <img src="" alt="img" class="portrait" id="profilePicture" onclick="">
                 <p class="name" id="nicknameLeft"></p>
                 <p class="signature" id="signatureLeft"></p>
             </div>
             <div class="personage_down">
                 <div class="message">
-                    <p class="attention"><span id="attentionNum"> </span><br/>关注</p>
-                    <p class="fans"><span id="fansNum"> </span><br/>粉丝</p>
-                    <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
+                    <p class="attention" onclick="load_attention()" style="cursor: pointer"><span id="attentionNum"> </span><br/>关注</p>
+                    <p class="fans" onclick="load_fans()" style="cursor: pointer"><span id="fansNum"> </span><br/>粉丝</p>
+                    <p class="microblog" onclick="load_space()" style="cursor: pointer"><span id="weiboNum"> </span><br/>微博</p>
                 </div>
             </div>
-            <div id="personage_more" class="personage_more" style="display: none;">
-                <img src="" alt="img" class="portrait" id="profilePictureEdit">
-                <div class="change">更换头像
-                    <form action="http://localhost:8080/photoUploadServlet" method="post" enctype="multipart/form-data">
-                        <input type="file" name="photo"/>
-                        <input type="submit" value="ok"/>
-                    </form>
-                </div>
-            </div>
+
         </div>
         <div class="information">
             <div class="basic">
                 <p class="basic_message">基本信息</p>
                 <p class="cross"></p>
-                <p class="compile">编辑</p>
+                <p class="compile" onclick="load_edit()" style="cursor: pointer">编辑</p>
                 <p class="fixed register">登录名</p>
                 <p class="alter" id="loginId"></p>
                 <p class="fixed">昵称</p>
@@ -102,7 +95,7 @@
             <div class="contact">
                 <p class="contact_message">联系信息</p>
                 <p class="cross"></p>
-                <p class="compile">编辑</p>
+                <p class="compile" onclick="load_edit()" style="cursor: pointer">编辑</p>
                 <p class="fixed">邮箱</p>
                 <p class="alter" id="email"></p>
                 <p class="fixed">QQ</p>
@@ -111,7 +104,7 @@
             <div class="education">
                 <p class="contact_message">教育信息</p>
                 <p class="cross"></p>
-                <p class="compile">编辑</p>
+                <p class="compile" onclick="load_edit()" style="cursor: pointer">编辑</p>
                 <p class="fixed">本科</p>
                 <p class="alter" id="undergraduateSchool"></p>
                 <p class="fixed">研究生</p>
@@ -120,7 +113,7 @@
             <div class="label" id="tag">
                 <p class="contact_message">标签信息</p>
                 <p class="cross"></p>
-                <p class="compile">编辑</p>
+                <p class="compile" onclick="load_edit()" style="cursor: pointer">编辑</p>
                 <p class="fixed">标签</p>
                 <p class="items">#电影</p>
                 <p class="items">#设计</p>

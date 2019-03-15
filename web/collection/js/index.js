@@ -1,17 +1,37 @@
 function load_home1() {
-    window.location.href = "/home/index.html"
+    window.location.href = "/home"
 }
 
 function load_home2() {
-    window.location.href = "/collection/index.html";
+    window.location.href = "/collection";
 }
 
 function load_home3() {
-    window.location.href = "/praise/index.html";
+    window.location.href = "/praise";
 }
 
 function load_home4() {
-    window.location.href = "/commentReceive/index.html";
+    window.location.href = "/commentReceive";
+}
+
+function show_list() {
+    window.location.href = "/list";
+}
+
+function loadDetail() {
+    window.location.href = "/detail"
+}
+
+function load_attention() {
+    window.location.href = "/attention"
+}
+
+function load_fans() {
+    window.location.href = "/fans"
+}
+
+function load_space() {
+    window.location.href = "/space"
 }
 
 var c = 0;
@@ -29,6 +49,7 @@ function fun() {
             var html = noApplicationRecord.innerHTML;
             var messages = [];
             var ids = [];
+            console.log(data);
             for (var i = 0; i < data.length; i++) {
                 html +=
                     '<div class="part_1"' + ' id="' + data[i].weiboId + 'main' + '"' + ' style="' + firstDiv() + '">' +
@@ -66,16 +87,20 @@ function fun() {
                 //先把一条微博的轮廓搭起来，然后再往里加评论的部分
                 noApplicationRecord.innerHTML = html;
                 var message = '';
-                message += '<div class="option">' +
+                message += '<div class="write">' +
+                    '<img src="' + profile + '" alt="img" class="head_img">' +
+                    '<textarea name="" class="text">' + '' + '</textarea>' +
+                    '<div class="option">' +
                     '<i class="iconfont expression">&#xe60c;</i>' +
                     '<i class="iconfont image">&#xe60c;</i>' +
                     '<div class="check"></div>' +
                     '<p class="word">同时转发到我的微博</p>' +
                     '<input type="submit" name="" value="发布" class="submit">' +
+                    '</div>' +
                     '</div>';
                 for (var j = 0; j < data[i].comments.length; ++j) {
                     message += '<div class="option_1">' +
-                        '<img src="' + './img/portrait_1.jpg' + '" alt="img" class="head_img">' +
+                        '<img src="' + data[i].comments[j].profilePicture + '" alt="img" class="head_img">' +
                         '<div class="message">' +
                         '<p class="nickname"><span>' + data[i].comments[j].nickname + '：' + '</span>' + data[i].comments[j].commentContent + '</p>' +
                         '<p class="date">' + data[i].comments[j].formatCommentTime + '</p>' +
@@ -188,10 +213,6 @@ function collection(weiboId) {
     })
 }
 
-function show_list() {
-    window.location.href = "/list/index.html";
-}
-
 function imgHeight(photo) {
     var pic = 'style="height: ';
     if (photo.length === 0) {
@@ -248,6 +269,8 @@ function repost(weiboId) {
     alert("转发成功!");
 }
 
+var profile = '';
+
 function baseInfo() {
     $.ajax({
         url: '/BasicUserInfoServlet',
@@ -256,6 +279,7 @@ function baseInfo() {
         data: {},
         success: function (text) {
             user = eval(text);
+            profile = user.profilePicture;
             $("#profilePicture").attr('src', user.profilePicture);
             $("#profile1").attr('src', user.profilePicture);
             $("#nicknameLeft").html(user.nickname);

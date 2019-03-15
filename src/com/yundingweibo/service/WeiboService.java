@@ -166,4 +166,8 @@ public class WeiboService {
         }
         return comments;
     }
+
+    public void addWeibo(User user, Weibo weibo) {
+        DaoFactory.getWeiboDao().addWeibo(user, weibo);
+    }
 }

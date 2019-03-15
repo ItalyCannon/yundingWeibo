@@ -1,5 +1,37 @@
 function load_home1() {
-    css.href = "/home/index.html"
+    window.location.href = "/home"
+}
+
+function load_home2() {
+    window.location.href = "/collection";
+}
+
+function load_home3() {
+    window.location.href = "/praise";
+}
+
+function load_home4() {
+    window.location.href = "/commentReceive";
+}
+
+function show_list() {
+    window.location.href = "/list";
+}
+
+function loadDetail() {
+    window.location.href = "/detail"
+}
+
+function load_attention() {
+    window.location.href = "/attention"
+}
+
+function load_fans() {
+    window.location.href = "/fans"
+}
+
+function load_space() {
+    window.location.href = "/space"
 }
 
 function time() {
@@ -58,6 +90,7 @@ function fansNum() {
         success: function (text) {
             var fansNum = document.getElementById("fansNum");
             fansNum.innerHTML = "粉丝 " + text;
+            $("#allFans").html("全部粉丝 " + text);
         }
     })
 }
@@ -81,8 +114,12 @@ function removeAttention(userId) {
             userId: userId
         },
         success: function (text) {
-            $("#" + userId).html("添加关注 +");
-        }
+            var $1 = $("#" + userId);
+            $1.html("添加关注 +");
+            $1.attr("onclick", "addAttention(" + userId + ")");
+            $1.attr("class", "add");
+        },
+        async: false
     })
 }
 
@@ -95,8 +132,13 @@ function addAttention(userId) {
             userId: userId
         },
         success: function () {
-            $("#" + userId).html("互相关注");
-        }
+            var $1 = $("#" + userId);
+            $1.html("互相关注");
+            $1.attr("onclick", "removeAttention(" + userId + ")");
+            $1.attr("class", "attention");
+        },
+        async: false
+
     })
 }
 
@@ -111,7 +153,7 @@ function show(text) {
     for (var i = 0; i < data.length; i++) {
         html +=
             '<div class="part_1">' +
-            '<img src="' + './img/portrait_1.jpg' + '" alt="img" class="portrait">' +
+            '<img src="' + data[i].profilePicture + '" alt="img" class="portrait">' +
             '<div class="message">' +
             '<p class="name">' + data[i].nickname + '</p>' +
             '<p class="signature">' + data[i].signature + '</p>' +
@@ -143,6 +185,7 @@ function show(text) {
     }
 }
 
+
 function userInfo() {
     $.ajax({
         url: '/BasicUserInfoServlet',
@@ -151,6 +194,7 @@ function userInfo() {
         data: {},
         success: function (text) {
             var data = eval(text);
+            $("#profile1").attr('src', data.profilePicture);
             $("#name").html(data.nickname);
             $("#signature").html(data.signature);
             $("#profile").attr('src', data.profilePicture);
@@ -161,7 +205,7 @@ function userInfo() {
 window.onload = function () {
     attention();
     initial();
-    // fansNum();
+    fansNum();
     userInfo();
 };
 

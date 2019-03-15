@@ -35,10 +35,10 @@ public class RegistServlet extends HttpServlet {
         request.getSession().setAttribute("password2", password2);
 
         //手机号格式验证
-        if (registId != null && registId.matches("^(13|15|18|14|17)[\\d]{9}")) {
+        if (registId != null && registId.matches("^(13|15|18|14|17|19)[\\d]{9}")) {
             int maxPwd = 20;
             int minPwd = 6;
-            if (password.length() > maxPwd || password.length() <= minPwd) {
+            if (password.length() > maxPwd || password.length() < minPwd) {
                 request.getSession().setAttribute("regist_error", "密码长度必须为6-20位");
                 response.sendRedirect("/register/index.jsp");
                 return;

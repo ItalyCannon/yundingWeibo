@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>注册界面</title>
+    <title>注册</title>
     <%--<link rel="stylesheet" type="text/css" href="./css/style.css">--%>
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
@@ -32,7 +32,7 @@
     }</script>
 <style>
     div{
-        color: red;
+        /*color: red;*/
     }
 </style>
 
@@ -42,9 +42,10 @@
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo">
-            <i class="iconfont">&#xe61a;</i>
-            <p class="logo_text">微博</p>
+        <div class="header_logo" onclick="" style="cursor: pointer;">
+            <div class="header_logo">
+                <img class="logo" src="../space/img/logo.png" alt="">
+            </div>
         </div>
         <ul class="header_ul">
             <a href="" title=""><li class="clearfloat">首页</li></a>
@@ -63,7 +64,7 @@
             </a>
         </div>
         <div class="header_register">
-            <a href="" title="" class="register_p1"><p>登录</p></a>
+            <a href="/login" title="" class="register_p1"><p>登录</p></a>
             <p class="register_string"></p>
             <a href="" title="" class="register_p2"><p>注册</p></a>
         </div>

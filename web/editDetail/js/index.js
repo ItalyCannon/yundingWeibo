@@ -1,4 +1,41 @@
+function load_home1() {
+    window.location.href = "/home"
+}
+
+function load_home2() {
+    window.location.href = "/collection";
+}
+
+function load_home3() {
+    window.location.href = "/praise";
+}
+
+function load_home4() {
+    window.location.href = "/commentReceive";
+}
+
+function show_list() {
+    window.location.href = "/list";
+}
+
+function loadDetail() {
+    window.location.href = "/detail"
+}
+
+function load_attention() {
+    window.location.href = "/attention"
+}
+
+function load_fans() {
+    window.location.href = "/fans"
+}
+
+function load_space() {
+    window.location.href = "/space"
+}
+
 var userId;
+var oldUserInfo;
 
 function getInfo() {
     $.ajax({
@@ -8,8 +45,10 @@ function getInfo() {
         data: {},
         success: function (text) {
             var data = eval(text);
+            oldUserInfo = data;
             userId = data.userId;
             $("#profilePicture").attr('src', data.profilePicture);
+            $("#profilePictureEdit").attr('src', data.profilePicture);
             $("#nicknameLeft").html(data.nickname);
             $("#signatureLeft").html(data.signature);
             $("#attentionNum").html(data.subscribeNum);
@@ -109,7 +148,11 @@ function query() {
     user.sexualOrientation = $("#sexualOrientation option:selected").val();
     user.emotionalState = $("#emotionalState option:selected").val();
     user.location = $("#province option:selected").val() + "-" + $("#city option:selected").val();
-    user.birthday = $("#year option:selected").val() + "-" + $("#month option:selected").val() + "-" + $("#day option:selected").val();
+    // user.birthday = $("#year option:selected").val() + "-" + $("#month option:selected").val() + "-" + $("#day option:selected").val();
+    user.subscribeNum = oldUserInfo.subscribeNum;
+    user.fansNum = oldUserInfo.fansNum;
+    user.weiboNum = oldUserInfo.weiboNum;
+    console.log(user);
     $.ajax({
         url: '/EditUserInfoServlet',
         type: 'get',
@@ -119,7 +162,8 @@ function query() {
         },
         success: function () {
             alert("保存成功");
-            getInfo();
+            loadDetail();
+            // getInfo();
         },
         async: true
     });

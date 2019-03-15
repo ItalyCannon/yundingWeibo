@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="yundingWeibo1">
-    <output-path>D:/yundingWeibo1</output-path>
+  <artifact type="exploded-war" name="yundingWeibo">
+    <output-path>D:/aaaaaaa</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

@@ -88,15 +88,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Documents/Tencent Files/1508166355/FileRecv/regist1.3/lib/fastjson-1.2.7.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$USER_HOME$/Documents/Tencent Files/1508166355/FileRecv/regist1.3/lib/httpclient-4.3.6.jar!/" />
         </CLASSES>
         <JAVADOC />

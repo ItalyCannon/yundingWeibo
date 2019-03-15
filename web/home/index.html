@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="./js/htmls.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -16,11 +17,11 @@
         <div class="public_container">
             <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
                 <div class="header_logo">
-                    <img class="logo" src="./img/logo.png" alt="">
+                    <img class="logo" src="../space/img/logo.png" alt="">
                 </div>
             </div>
             <ul class="header_ul">
-                <a href="" title="">
+                <a href="/home" title="">
                     <li class="clearfloat">首页</li>
                 </a>
                 <a href="" title="">
@@ -38,13 +39,13 @@
                 <i class="iconfont">&#xe600;</i>
             </div>
             <div class="header_rank" onclick="show_list()" style="cursor: pointer">
-                <a href="" title="">
-                    <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+                <a href="/list" title="">
+                    <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                     <p class="rank_text">排行榜</p>
                 </a>
             </div>
             <div class="header_register">
-                <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()">
+                <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
                 <div class="modify">
                     <i class="iconfont">&#xe64d;</i>
                 </div>
@@ -73,12 +74,12 @@
 
             <div class="middle">
                 <div class="middle_up">
-                    <textarea name="" class="text"></textarea>
+                    <textarea name="" class="text" id="weiboContent"></textarea>
                     <p class="expression"><i class="iconfont">&#xe643;</i> &nbsp;表情</p>
                     <p class="picture"><i class="iconfont">&#xe643;</i> &nbsp;图片</p>
                     <p class="video"><i class="iconfont">&#xe643;</i> 视频</p>
                     <p class="topic"><i class="iconfont">&#xe643;</i> 话题</p>
-                    <input type="submit" name="" value="发布" class="submit">
+                    <input type="submit" name="" value="发布" class="submit" onclick="addWeibo()" style="cursor:pointer">
                 </div>
                 <div class="middle_middle">
                     <p class="item">全部</p>
@@ -97,12 +98,16 @@
             <div class="right">
                 <div class="right_mine">
                     <img src="./img/right_mine_background.jpg" alt="img" class="background">
-                    <img src="" alt="img" class="portrait" id="profilePicture" onclick="loadDetail()">
+                    <img src="" alt="img" class="portrait" id="profilePicture" onclick="loadDetail()"
+                         style="cursor: pointer">
                     <p class="name" id="nicknameLeft"></p>
                     <div class="message">
-                        <p class="attention" onclick="load_attention()"><span id="subscribeNum"> </span><br/>关注</p>
-                        <p class="fans" onclick="load_fans()"><span id="fansNum"> </span><br/>粉丝</p>
-                        <p class="microblog" onclick="load_space()"><span id="weiboNum"> </span><br/>微博</p>
+                        <p class="attention" onclick="load_attention()" style="cursor: pointer"><span
+                                id="subscribeNum"> </span><br/>关注</p>
+                        <p class="fans" onclick="load_fans()" style="cursor: pointer"><span id="fansNum"> </span><br/>粉丝
+                        </p>
+                        <p class="microblog" onclick="load_space()" style="cursor: pointer"><span id="weiboNum"> </span><br/>微博
+                        </p>
                     </div>
                 </div>
                 <div class="right_new">
@@ -131,6 +136,5 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="./js/htmls.js"></script>
+
 </html>

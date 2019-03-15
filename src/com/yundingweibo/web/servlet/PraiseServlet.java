@@ -13,12 +13,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 可以给微博，评论和回复点赞
+ *
+ * @author 杜奕明
+ * @date 2019/3/15 17:49
+ */
 @WebServlet(name = "PraiseServlet", urlPatterns = "/PraiseServlet")
 public class PraiseServlet extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
@@ -38,12 +46,12 @@ public class PraiseServlet extends HttpServlet {
                 break;
             case "comment":
                 String comment = request.getParameter("comment");
-                Comment parse1 = (Comment) JSON.parse(comment);
+                Comment parse1 = JSON.parseObject(comment, Comment.class);
                 weiboService.praiseComment(parse1, sessionUser);
                 break;
             case "reply":
                 String reply = request.getParameter("reply");
-                ReplyComment parse2 = (ReplyComment) JSON.parse(reply);
+                ReplyComment parse2 = JSON.parseObject(reply, ReplyComment.class);
                 weiboService.praiseReply(parse2, sessionUser);
                 break;
             default:

@@ -1,34 +1,46 @@
-
 function load_home1() {
-    window.location.href = "/home/index.html"
+    window.location.href = "/home"
 }
 
 function load_home2() {
-    window.location.href = "/collection/index.html";
+    window.location.href = "/collection";
 }
 
 function load_home3() {
-    window.location.href = "/praise/index.html";
+    window.location.href = "/praise";
 }
 
 function load_home4() {
-    window.location.href = "/commentReceive/index.html";
+    window.location.href = "/commentReceive";
 }
 
 function show_list() {
-    window.location.href = "/list/index.html";
+    window.location.href = "/list";
 }
 
 function loadDetail() {
-    window.location.href = "/detail/index.html"
+    window.location.href = "/detail"
 }
 
+function load_attention() {
+    window.location.href = "/attention"
+}
+
+function load_fans() {
+    window.location.href = "/fans"
+}
+
+function load_space() {
+    window.location.href = "/space"
+}
+
+
 function load_receive() {
-    window.location.href = "/commentReceive/index.html"
+    window.location.href = "/commentReceive/"
 }
 
 function load_send() {
-    window.location.href = "/commentSend/index.html"
+    window.location.href = "/commentSend/"
 }
 
 function CommentReceive() {

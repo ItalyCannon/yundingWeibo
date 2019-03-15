@@ -83,6 +83,9 @@ public class JdbcUserDaoImpl implements UserDao {
         List<Weibo> list = DaoUtil.toBean(Weibo.class, sql, user.getUserId());
         for (Weibo w : list) {
             List<Comment> comment = DaoFactory.getWeiboDao().getComment(w);
+            for (Comment c : comment) {
+                c.setProfilePicture(this.getUser(c.getUserId()).getProfilePicture());
+            }
             w.setComments(comment);
             w.setCommentNum(comment.size());
             w.setNickname(this.getUserNickname(w.getUserId()));
@@ -170,8 +173,8 @@ public class JdbcUserDaoImpl implements UserDao {
             Long id = (Long) DaoUtil.getObject(sql, registerUser.getLoginId());
             if (id != null) {
                 int userId = id.intValue();
-                sql = "insert into user_info(user_id,login_id,registration_time,nickname) values(?,?,now(),?)";
-                DaoUtil.query(sql, userId, registerUser.getLoginId(), "用户" + id);
+                sql = "insert into user_info(user_id,login_id,registration_time,nickname,profile_picture) values(?,?,now(),?,?)";
+                DaoUtil.query(sql, userId, registerUser.getLoginId(), "用户" + id, registerUser.getProfilePicture());
             } else {
                 throw new RuntimeException("也不知道是什么错误，请检查JdbcUserDaoImpl的addUser方法，错因是在login_info表中找不到当前用户的login_id");
             }

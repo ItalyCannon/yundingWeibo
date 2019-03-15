@@ -11,12 +11,13 @@
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo">
-            <i class="iconfont">&#xe61a;</i>
-            <p class="logo_text">微博</p>
+        <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
+            <div class="header_logo">
+                <img class="logo" src="./img/logo.png" alt="">
+            </div>
         </div>
         <ul class="header_ul">
-            <a href="" title="">
+            <a href="/home" title="">
                 <li class="clearfloat">首页</li>
             </a>
             <a href="" title="">
@@ -34,13 +35,13 @@
             <i class="iconfont">&#xe600;</i>
         </div>
         <div class="header_rank">
-            <a href="" title="">
-                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+            <a href="/list" title="">
+                <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
             <div class="modify">
                 <i class="iconfont">&#xe64d;</i>
             </div>
@@ -52,9 +53,9 @@
     <div class="public_container">
 
         <div class="banner">
-            <img src="./img/portrait_1.jpg" alt="img" class="portrait">
-            <p class="name">jetris</p>
-            <p class="text">这是一句个性签名</p>
+            <img src="" alt="img" class="portrait" id="profilePicture" onclick="loadDetail()" style="cursor: pointer">
+            <p class="name" id="nickname"> </p>
+            <p class="text" id="signature"> </p>
         </div>
 
         <div class="title">
@@ -67,32 +68,32 @@
 
             <div class="personage">
                 <div class="message">
-                    <p class="attention"><span>123</span><br/>关注</p>
-                    <p class="fans"><span>23</span><br/>粉丝</p>
-                    <p class="microblog"><span>123</span><br/>微博</p>
+                    <p class="attention" onclick="load_attention()" style="cursor: pointer"><span id="subscribeNum"> </span><br/>关注</p>
+                    <p class="fans" onclick="load_fans()" style="cursor: pointer"><span id="fansNum"> </span><br/>粉丝</p>
+                    <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
                 </div>
             </div>
 
             <div class="data">
                 <p class="title">个人资料</p>
-                <p class="location"><i class="iconfont">&#xe60c;</i> &nbsp;山西 太原</p>
-                <p class="school"><i class="iconfont">&#xe60c;</i> &nbsp;毕业于太原理工大学</p>
-                <p class="birthday"><i class="iconfont">&#xe60c;</i> &nbsp;1994年4月1日</p>
-                <p class="more">资料详情</p>
+                <p class="location" id="location"><i class="iconfont">&#xe60c;</i> &nbsp;</p>
+                <p class="school" id="school"><i class="iconfont">&#xe60c;</i> &nbsp;</p>
+                <p class="birthday" id="birthday"><i class="iconfont">&#xe60c;</i> &nbsp;</p>
+                <p class="more" onclick="loadDetail()" style="cursor: pointer">资料详情</p>
             </div>
 
-            <div class="images">
-                <p class="title">相册</p>
-                <img src="./img/header_register_portrait.jpg" alt="img" class="big">
-                <div class="two">
-                    <img src="./img/header_register_portrait.jpg" alt="img" class="two_img_1">
-                    <img src="./img/header_register_portrait.jpg" alt="img" class="two_img_2">
-                </div>
-                <img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_1">
-                <img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_2">
-                <img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_3">
-                <p class="more">查看更多</p>
-            </div>
+            <!--<div class="images">-->
+                <!--<p class="title">相册</p>-->
+                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="big">-->
+                <!--<div class="two">-->
+                    <!--<img src="./img/header_register_portrait.jpg" alt="img" class="two_img_1">-->
+                    <!--<img src="./img/header_register_portrait.jpg" alt="img" class="two_img_2">-->
+                <!--</div>-->
+                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_1">-->
+                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_2">-->
+                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_3">-->
+                <!--<p class="more">查看更多</p>-->
+            <!--</div>-->
 
         </div>
 

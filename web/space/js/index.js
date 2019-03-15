@@ -140,7 +140,10 @@ function baseInfo() {
         data: {},
         success: function (text) {
             user = eval(text);
+            console.log(user);
             profile = user.profilePicture;
+            $("#nickname").html(user.nickname);
+            $("#signature").html(user.signature);
             $("#profilePicture").attr('src', user.profilePicture);
             $("#profile1").attr('src', user.profilePicture);
             $("#nicknameLeft").html(user.nickname);
@@ -311,10 +314,26 @@ function getPraise() {
     });
 }
 
+function getInfo() {
+    $.ajax({
+        url: '/UserDetailsServlet',
+        type: 'get',
+        dataType: 'json',
+        data: {},
+        success: function (text) {
+            var data = eval(text);
+            $("#location").html('<i class="iconfont">&#xe60c;</i> &nbsp;' + data.location);
+            $("#school").html('<i class="iconfont">&#xe60c;</i> &nbsp;' + data.undergraduateSchool);
+            var formatBirthday = data.formatBirthday;
+            var split = formatBirthday.split("-");
+            $("#birthday").html('<i class="iconfont">&#xe60c;</i> &nbsp;' + split[0] + '年' + split[1] + '月' + split[2] + '日');
+        }
+    })
+}
 
 window.onload = function () {
     baseInfo();
     getPraise();
     showWeibo();
-    $()
+    getInfo();
 };

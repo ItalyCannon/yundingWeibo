@@ -52,8 +52,8 @@ function showWeibo() {
             var html = noApplicationRecord.innerHTML;
             var messages = [];
             var ids = [];
+            console.log(data);
             for (var i = 0; i < data.beanList.length; i++) {
-                // console.log(data.beanList[i]);
                 html +=
                     '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + 'main' + '"' + '>' +
                     '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait">' +
@@ -92,24 +92,28 @@ function showWeibo() {
                 var message = '';
                 message += '<div class="write">' +
                     '<img src="' + profile + '" alt="img" class="head_img">' +
-                    '<textarea name="" class="text">' + '' + '</textarea>' +
+                    '<textarea name="" class="text" id="' + data.beanList[i].weiboId + 'addcomment' + '">' + '' + '</textarea>' +
                     '<div class="option">' +
                     '<i class="iconfont expression">&#xe60c;</i>' +
                     '<i class="iconfont image">&#xe60c;</i>' +
                     '<div class="check"></div>' +
                     '<p class="word">同时转发到我的微博</p>' +
-                    '<input type="submit" name="" value="发布" class="submit">' +
+                    '<input type="submit" name="" value="发布" class="submit" onclick="addComment(' + data.beanList[i].weiboId + ')" style="cursor: pointer">' +
                     '</div>' +
                     '</div>';
                 for (var j = 0; j < data.beanList[i].comments.length; ++j) {
                     message += '<div class="option_1">' +
                         '<img src="' + data.beanList[i].comments[j].profilePicture + '" alt="img" class="head_img">' +
                         '<div class="message">' +
-                        '<p class="nickname"><span>' + data.beanList[i].comments[j].nickname + '：' + '</span>' + data.beanList[i].comments[j].commentContent + '</p>' +
+                        '<p class="nickname"><span>' + data.beanList[i].comments[j].nickname + '：' + '</span>'
+                        + data.beanList[i].comments[j].commentContent + '</p>' +
                         '<p class="date">' + data.beanList[i].comments[j].formatCommentTime + '</p>' +
                         '<p class="reply">回复</p>' +
                         '<p class="string"></p>' +
-                        '<p class="like"><i class="iconfont">&#xe60c;</i> ' + data.beanList[i].comments[j].commentPraise + '</p>' +
+                        '<p class="like" style="cursor: pointer" onclick="likeComment(' + data.beanList[i].comments[j].commentId + ', '
+                        + data.beanList[i].comments[j].commentPraise + ')" id="'
+                        + data.beanList[i].comments[j].commentId + 'commentPraiseNum"><i class="iconfont">&#xe60c;</i> '
+                        + data.beanList[i].comments[j].commentPraise + '</p>' +
                         '</div>' +
                         '</div>'
                 }
@@ -136,6 +140,8 @@ function showWeibo() {
 
 var profile = '';
 
+var userInfo;
+
 function baseInfo() {
     $.ajax({
         url: '/BasicUserInfoServlet',
@@ -144,6 +150,7 @@ function baseInfo() {
         data: {},
         success: function (text) {
             user = eval(text);
+            userInfo = user;
             profile = user.profilePicture;
             $("#profilePicture").attr('src', user.profilePicture);
             $("#profile1").attr('src', user.profilePicture);
@@ -315,6 +322,74 @@ function getPraise() {
     });
 }
 
+function addWeibo() {
+    var weibo = {};
+    var weiboContent = $("#weiboContent").val();
+    if (weiboContent == undefined || weiboContent == null || weiboContent == '') {
+        alert("微博内容不能为空");
+        return;
+    }
+    weibo.weiboContent = weiboContent;
+    $.ajax({
+        url: '/AddWeiboServlet',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            weibo: JSON.stringify(weibo)
+        },
+        success: function (text) {
+        },
+        async: false
+    });
+    window.location.href = "/home"
+
+}
+
+function addComment(weiboId) {
+    var comment = {commentContent: ''};
+    var commentContent = $("#" + weiboId + "addcomment").val();
+    if (commentContent == undefined || commentContent == null || commentContent == '') {
+        alert("评论内容不能为空");
+        return;
+    }
+    comment.commentContent = commentContent;
+    var weibo = {weiboId: -1};
+    weibo.weiboId = weiboId;
+    $.ajax({
+        url: '/AddCommentServlet',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            comment: JSON.stringify(comment),
+            weibo: JSON.stringify(weibo)
+        },
+        success: function (text) {
+        },
+        async: false
+    });
+}
+
+function likeComment(commentId, praise) {
+    var comment = {};
+    comment.commentId = commentId;
+    console.log(comment);
+    $.ajax({
+        url: '/PraiseServlet?type=comment',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            comment: JSON.stringify(comment)
+        },
+        success: function (text) {
+
+        },
+        async: false
+    });
+    praise++;
+    var html = '<i class="iconfont">&#xe60c;</i> ' + praise;
+
+    $("#" + commentId + "commentPraiseNum").html(html);
+}
 
 window.onload = function () {
     baseInfo();

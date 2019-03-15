@@ -23,9 +23,13 @@ public class User {
     private String location;
     private int sexualOrientation;
     private int emotionalState;
+
     private Date birthday;
+
     private String signature;
+
     private Date registrationTime;
+
     private String email;
     private String qq;
     private String undergraduateSchool;

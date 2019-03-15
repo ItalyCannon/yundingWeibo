@@ -1,19 +1,41 @@
 function load_home1() {
-    css.href = "/home/index.html"
+    window.location.href = "/home"
 }
 
 function load_home2() {
-    window.location.href = "/collection/index.html";
+    window.location.href = "/collection";
 }
 
 function load_home3() {
-    window.location.href = "/praise/index.html";
+    window.location.href = "/praise";
 }
 
 function load_home4() {
-    window.location.href = "/commentReceive/index.html";
+    window.location.href = "/commentReceive";
 }
 
+function show_list() {
+    window.location.href = "/list";
+}
+
+function loadDetail() {
+    window.location.href = "/detail"
+}
+
+function load_attention() {
+    window.location.href = "/attention"
+}
+
+function load_fans() {
+    window.location.href = "/fans"
+}
+
+function load_space() {
+    window.location.href = "/space"
+}
+
+
+var allAttention;
 
 function time() {
     $.ajax({
@@ -42,6 +64,7 @@ function initial() {
             if (element.innerHTML != null) {
                 element.innerHTML = "";
             }
+            allAttention = eval(text);
             show(text);
         }
     })
@@ -71,7 +94,7 @@ function show(text) {
         html +=
             '<div class="part_1">'
             + '<img src="'
-            + './img/portrait_1.jpg'
+            + data[i].profilePicture
             + '" alt="img" class="portrait">'
             + '<div class="message">'
             + '<p class="name">'
@@ -85,7 +108,7 @@ function show(text) {
             + data[i].attentionGroup
             + '</option>'
             + '</select>'
-            + '<p class="attention">已关注</p>'
+            + attentionCondition(data[i].userId)
             + '</div>'
             + '</div>';
         noApplicationRecord.innerHTML = html;
@@ -121,12 +144,58 @@ function userInfo() {
         data: {},
         success: function (text) {
             var data = eval(text);
+            $("#profile1").attr('src', data.profilePicture);
             $("#name").html(data.nickname);
             $("#signature").html(data.signature);
             $("#profile").attr('src', data.profilePicture);
         }
     })
 }
+
+function removeAttention(userId) {
+    $.ajax({
+        url: '/RemoveAttentionServlet',
+        type: 'get',
+        // dataType: 'json',
+        data: {
+            userId: userId
+        },
+        success: function (text) {
+            var $1 = $("#" + userId);
+            $1.html("添加关注 +");
+            $1.attr("onclick", "addAttention(" + userId + ")");
+        },
+        async: false
+    })
+}
+
+function addAttention(userId) {
+    $.ajax({
+        url: '/AddAttentionServlet',
+        type: 'get',
+        // dataType: 'json',
+        data: {
+            userId: userId
+        },
+        success: function () {
+            var $1 = $("#" + userId);
+            $1.html("已关注");
+            $1.attr("onclick", "removeAttention(" + userId + ")");
+        },
+        async: false
+    })
+}
+
+
+function attentionCondition(userId) {
+    for (var i = 0; i < allAttention.length; ++i) {
+        if (allAttention[i].userId == userId) {
+            return '<p class="attention" onclick="removeAttention(' + userId + ')" id="' + userId + '">' + "已关注" + '</p>';
+        }
+    }
+    return '<p class="add" onclick="addAttention(' + userId + ')" id="' + userId + '">添加关注 +</p>';
+}
+
 
 window.onload = function () {
     initial();

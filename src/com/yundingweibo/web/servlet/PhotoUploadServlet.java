@@ -61,7 +61,7 @@ public class PhotoUploadServlet extends HttpServlet {
                         System.out.println(fieldName + " = " + fileValue);
                     } else {
                         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
-                        String realPath = this.getServletContext().getRealPath("/WEB-INF/");
+                        String realPath = this.getServletContext().getRealPath("/profile/");
                         String path = realPath + sessionUser.getUserId();
                         System.out.println("文件保存的路径：" + path);
 
@@ -71,7 +71,7 @@ public class PhotoUploadServlet extends HttpServlet {
                         String fileName = UUID.randomUUID().toString() + "." + suffix;
                         System.out.println("文件名 ：" + fileName);
                         //拼接文件保存路径
-                        String fileSavePath = path + "\\" + fileName;
+                        String fileSavePath = path + "/" + fileName;
                         System.out.println("保存文件完整路径：" + fileSavePath);
 
                         //创建目标文件，将来用于保存文件
@@ -87,9 +87,17 @@ public class PhotoUploadServlet extends HttpServlet {
 
                         //保存
                         item.write(new File(fileSavePath));
-                        sessionUser.setProfilePicture(fileSavePath);
+
+                        int root = fileSavePath.indexOf("ROOT");
+                        String substring = path.substring(root + 4);
+                        String url = "http://47.102.151.60:8080";
+                        String urlPath = url + substring + "/" + fileName;
+
+                        sessionUser.setProfilePicture(urlPath);
+                        System.out.println(urlPath);
 
                         new UserService().update(sessionUser);
+                        response.sendRedirect("/detail");
                     }
                 }
 

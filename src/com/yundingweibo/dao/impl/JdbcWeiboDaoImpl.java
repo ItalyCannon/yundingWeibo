@@ -387,6 +387,8 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
 
     @Override
     public void addRepost(User user, Weibo weibo) {
+        Long repostNum = null;
+        Long weiboNum = null;
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = df.format(new Date());
         try {
@@ -399,13 +401,34 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             }
             sql = "select photo from weibo_data where weibo_id=?";
             String photo = (String) DaoUtil.getObject(sql, weibo.getWeiboId());
+
             sql = "insert into weibo_data(weibo_content,photo,is_origin,user_id,create_time) values(?,?,false,?,?)";
             DaoUtil.query(sql, weibo1.getWeiboContent(), photo, user.getUserId(), format);
+
+            sql = "select repost_num from weibo_data where weibo_id = ?";
+            repostNum = (Long) DaoUtil.getObject(sql, weibo.getWeiboId());
+
+            sql = "update weibo_data set repost_num = repost_num + 1 where weibo_id=?";
+            DaoUtil.query(sql, weibo.getWeiboId());
+
+            sql = "select weibo_num from user_info where user_id=?";
+            weiboNum = (Long) DaoUtil.getObject(sql, user.getUserId());
+
             sql = "update user_info set weibo_num = weibo_num +1 where user_id = ?";
             DaoUtil.query(sql, user.getUserId());
         } catch (RuntimeException e) {
             String sql = "delete from weibo_repost where weibo_id=? and user_id=? and repost_time=?";
             DaoUtil.query(sql, weibo.getWeiboId(), user.getUserId(), format);
+            if (repostNum != null) {
+                sql = "update weibo_data set repost_num = repost_num - 1 where weibo_id=?";
+                DaoUtil.query(sql, weibo.getWeiboId());
+            }
+
+            if (weiboNum != null) {
+                sql = "update user_info set weibo_num = weibo_num -1 where user_id = ?";
+                DaoUtil.query(sql, user.getUserId());
+            }
+
             //这句可能出问题，但是概率很低
             sql = "delete from weibo_data where user_id=? and create_time=?";
             DaoUtil.query(sql, user.getUserId(), format, weibo.getWeiboContent());
@@ -427,7 +450,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      */
     @Override
     public List<Comment> showCommentSend(User user) {
-        String sql = "select * from weibo_comment where user_id=?";
+        String sql = "select * from weibo_comment where user_id=? order by comment_time desc";
         List<Comment> comments = DaoUtil.toBean(Comment.class, sql, user.getUserId());
         sql = "select * from reply_comment where user_id=?";
         List<ReplyComment> replyComments = DaoUtil.toBean(ReplyComment.class, sql, user.getUserId());
@@ -443,7 +466,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      */
     @Override
     public List<Comment> showCommentReceive(User user) {
-        String sql = "select * from weibo_comment where weibo_id in (select weibo_id from weibo_data where user_id=?)";
+        String sql = "select * from weibo_comment where weibo_id in (select weibo_id from weibo_data where user_id=?) order by comment_time desc";
         List<Comment> comments = DaoUtil.toBean(Comment.class, sql, user.getUserId());
         List<Comment> all = new ArrayList<>(comments);
         for (Comment comment : comments) {
@@ -491,5 +514,19 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
                 all.add(c);
             }
         }
+    }
+
+    /**
+     * .
+     *
+     * @param user  .
+     * @param weibo .
+     */
+    @Override
+    public void addWeibo(User user, Weibo weibo) {
+        String sql = "insert into weibo_data(weibo_content,user_id,create_time) values(?,?,now())";
+        DaoUtil.query(sql, weibo.getWeiboContent(), user.getUserId());
+        sql = "update user_info set weibo_num = weibo_num+1 where user_id = ?";
+        DaoUtil.query(sql, user.getUserId());
     }
 }

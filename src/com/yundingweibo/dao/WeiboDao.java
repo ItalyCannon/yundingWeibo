@@ -146,4 +146,11 @@ public interface WeiboDao {
      */
     List<Comment> showCommentReceive(User user);
 
+    /**
+     * .
+     *
+     * @param user  .
+     * @param weibo .
+     */
+    void addWeibo(User user, Weibo weibo);
 }

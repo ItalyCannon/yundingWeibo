@@ -7,16 +7,19 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
 </head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
 <body>
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo">
-            <i class="iconfont">&#xe61a;</i>
-            <p class="logo_text">微博</p>
+        <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
+            <div class="header_logo">
+                <img class="logo" src="./img/logo.png" alt="">
+            </div>
         </div>
         <ul class="header_ul">
-            <a href="" title="">
+            <a href="/home" title="">
                 <li class="clearfloat">首页</li>
             </a>
             <a href="" title="">
@@ -33,14 +36,14 @@
             <input type="text" name="">
             <i class="iconfont">&#xe600;</i>
         </div>
-        <div class="header_rank">
-            <a href="" title="">
-                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+        <div class="header_rank" onclick="show_list()" style="cursor: pointer">
+            <a href="/list" title="">
+                <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <img src="./img/header_register_portrait.jpg" alt="img" class="portrait">
+            <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
             <div class="modify">
                 <i class="iconfont">&#xe64d;</i>
             </div>
@@ -52,9 +55,9 @@
     <div class="public_container">
         <div class="personage">
             <div class="personage_up">
-                <img src="./img/portrait_1.jpg" alt="img" class="portrait">
-                <p class="name">jetris</p>
-                <p class="signature">这一句是个性签名</p>
+                <img src="" alt="img" class="portrait" id="profile" onclick="loadDetail()" style="cursor: pointer">
+                <p class="name" id="name"></p>
+                <p class="signature" id="signature"></p>
             </div>
 
 
@@ -63,7 +66,7 @@
             </div>
 
             <div class="personage_down">
-                <p class="title" id="attentionNum">关注 </p>
+                <p class="title" id="attentionNum" onclick="load_attention()" style="cursor: pointer">关注 </p>
                 <p><i class="iconfont">&#xe643;</i> 特别关注 </p>
                 <p><i class="iconfont">&#xe643;</i> 好友圈 </p>
                 <p><i class="iconfont">&#xe643;</i> 兴趣主页 </p>
@@ -76,7 +79,7 @@
         </div>
         <div class="information">
             <div class="title">
-                <p>全部粉丝 123</p>
+                <p id="allFans">全部粉丝 </p>
             </div>
             <select name="" class="select" id="showType">
                 <option value="initial">姓名首字母</option>
@@ -95,6 +98,5 @@
 </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="./js/index.js"></script>
+
 </html>

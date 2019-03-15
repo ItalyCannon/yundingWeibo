@@ -15,10 +15,11 @@
 		height: 0;
 	}
 
-.public_header{
+
+.public_header {
 	width: 100%;
 	height: 50px;
-	border-top: 3px solid #eb7350;
+	border-top: 3px solid #224584;
 	border-bottom: 1px solid #DDD;
 	box-shadow: 0 3px 10px #DDD;
 	position: fixed;
@@ -26,112 +27,113 @@
 	z-index: 100;
 }
 
-	.header_logo{
-		width: 80px;
-		height: 40px;
-		display: inline-block;
-		margin-top: 8px;
-	}
+.header_logo {
+	width: 100px;
+	height: 40px;
+	display: inline-block;
+	margin-top: 2px;
+}
 
-		.header_logo .iconfont{
-			display: inline-block;
-			font-size: 30px;
-		}
+.header_logo .logo {
+	width: 120px;
+	height: 40px;
 
-		.header_logo .logo_text{
-			display: inline-block;
-			font-size: 18px;
-		}
+}
 
-	.header_ul{
-		margin-left: 30px;
-		display: inline-block;
-	}
+.header_ul {
+	margin-left: 30px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 18px;
+}
 
-		.header_ul li{
-			float: left;
-			margin-left: 50px;
-		}
+.header_ul li {
+	float: left;
+	margin-left: 50px;
+}
 
-		.header_ul a{
-			color: #000;
-		}
+.header_ul a {
+	color: #000;
+}
 
-	.header_search{
-		width: 300px;
-		height: 36px;
-		display: inline-block;
-		vertical-align: top;
-		margin-top: 8px;
-		margin-left: 80px;
-		position: relative;
-	}
+.header_search {
+	width: 300px;
+	height: 36px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 8px;
+	margin-left: 80px;
+	position: relative;
+}
 
-		.header_search input{
-			width: 300px;
-			height: 30px;
-			outline: none;
-		}
+.header_search input {
+	width: 300px;
+	height: 30px;
+	outline: none;
+}
 
-		.header_search .iconfont{
-			position: absolute;
-			right: 12px;
-			top: 8px;
-			font-size: 20px;
-		}
+.header_search .iconfont {
+	position: absolute;
+	right: 12px;
+	top: 8px;
+	font-size: 20px;
+}
 
-	.header_rank{
-		width: 100px;
-		height: 40px;
-		display: inline-block;
-		margin-left: 80px;
-	}
+.header_rank {
+	width: 100px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-left: 80px;
+}
 
-		.header_rank .iconfont{
-			display: inline-block;
-			font-size: 28px;
-		}
+.header_rank .iconfont {
+	display: inline-block;
+	font-size: 28px;
+}
 
-		.header_rank .rank_text{
-			display: inline-block;
-			margin-left: 5px;
-		}
+.header_rank .rank_text {
+	display: inline-block;
+	margin-left: 5px;
+}
 
-		.header_rank a{
-			color: #000;
-		}
+.header_rank a {
+	color: #000;
+}
 
-	.header_register{
-		width: 100px;
-		height: 34px;
-		display: inline-block;
-		position: absolute;
-		top: 10px;
-		right: 0;
-	}
+.header_register {
+	width: 100px;
+	height: 34px;
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
 
-		.header_register .portrait{
-			width: 34px;
-			height: 34px;
-			border-radius: 50px;
-			display: inline-block;
-		}
+.header_register .portrait {
+	width: 34px;
+	height: 34px;
+	border-radius: 50px;
+	display: inline-block;
+}
 
-		.header_register .modify{
-			width: 32px;
-			height: 32px;
-			line-height: 32px;
-			text-align: center;
-			background-color: #EA824B;
-			display: inline-block;
-			vertical-align: top;
-			margin-left: 24px;
-		}
+.header_register .modify {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #224584;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 24px;
+}
 
-			.header_register .modify .iconfont{
-				font-size: 18px;
-				color: #fff;
-			}
+.header_register .modify .iconfont {
+	font-size: 18px;
+	color: #fff;
+}
+
 
 .background{
 	width: 100%;
@@ -169,7 +171,7 @@
 			display: inline-block;
 			margin-left: 260px;
 			margin-top: 11px;
-			/*border-bottom: 3px solid #EA824B;*/
+			/*border-bottom: 3px solid #224584;*/
 		}
 
 		.background .title .transmit{
@@ -182,7 +184,7 @@
 			display: inline-block;
 			margin-left: 560px;
 			margin-top: 11px;
-			/*border-bottom: 3px solid #EA824B;*/
+			/*border-bottom: 3px solid #224584;*/
 		}
 
 	.background .main{
@@ -304,7 +306,7 @@
 				height: 22px;
 				line-height: 22px;
 				text-align: center;
-				background-color: #E69A72;
+				background-color: #224584;
 				font-size: 12px;
 				color: #fff;
 				display: inline-block;
@@ -379,7 +381,7 @@
 				}
 
 			.background .main .part_4 .hot{
-				background-color: #EA824B;
+				background-color: #224584;
 			}
 
 		.background .main .part_5{
