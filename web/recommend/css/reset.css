@@ -1,0 +1,13 @@
+html,body,div,ul,li,p,i,img,input{
+	padding: 0;
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+	outline: none;
+}
+
+ul,li{
+	list-style: none;
+}
