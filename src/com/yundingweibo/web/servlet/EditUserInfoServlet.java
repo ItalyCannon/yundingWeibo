@@ -35,6 +35,7 @@ public class EditUserInfoServlet extends HttpServlet {
         if (json == null) {
             return;
         }
+
         User u = JSON.parseObject(json, User.class, Feature.AllowISO8601DateFormat);
         new UserService().update(u);
         response.getWriter().write("");

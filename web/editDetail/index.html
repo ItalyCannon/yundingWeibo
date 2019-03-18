@@ -68,7 +68,10 @@
                 <img src="" alt="img" class="portrait" id="profilePictureEdit">
                 <div class="change">
                     <form action="/photoUploadServlet" method="post" enctype="multipart/form-data">
-                        <input type="file" name="photo" class="change"/>
+                        <div class="select">
+                            <p class="text" id="select">选择文件</p>
+                            <input id="img_upload" type="file" name="photo" style="display: none;" />
+                        </div>
                         <input type="submit" value="提交" class="change"/>
                     </form>
                 </div>

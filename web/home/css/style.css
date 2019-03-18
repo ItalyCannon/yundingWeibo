@@ -146,6 +146,8 @@
     background-color: #fff;
     margin-top: 80px;
     display: inline-block;
+    position: fixed;
+    z-index: 10;
 }
 
 .main .sidebar li {
@@ -175,7 +177,7 @@
     display: inline-block;
     vertical-align: top;
     margin-top: 80px;
-    margin-left: 15px;
+    margin-left: 140px;
 }
 
 .main .middle_up {
@@ -312,6 +314,8 @@
     vertical-align: top;
     margin-top: 80px;
     margin-left: 15px;
+    position: fixed;
+    z-index: 10;
 }
 
 .main .right_mine {

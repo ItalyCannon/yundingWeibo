@@ -260,12 +260,14 @@
 }
 
 .main .personage_more .change{
+	border: 0;
+	padding: 0;
 	width: 100px;
 	height: 26px;
 	line-height: 26px;
 	text-align: center;
 	margin: 0 auto;
-	background-color: #eb7350;
+	background-color: #224584;
 	margin-top: 20px;
 	/*letter-spacing: 2px;*/
 	color: #fff;

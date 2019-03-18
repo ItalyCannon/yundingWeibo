@@ -44,7 +44,7 @@
     <div class="public_container">
         <div class="header_logo" onclick="" style="cursor: pointer;">
             <div class="header_logo">
-                <img class="logo" src="../space/img/logo.png" alt="">
+                <img class="logo" src="./img/logo.png" alt="">
             </div>
         </div>
         <ul class="header_ul">

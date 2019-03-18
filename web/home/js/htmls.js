@@ -367,6 +367,7 @@ function addComment(weiboId) {
         },
         async: false
     });
+    window.location.href = "/home";
 }
 
 function likeComment(commentId, praise) {

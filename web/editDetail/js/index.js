@@ -108,15 +108,17 @@ function getInfo() {
                 default:
             }
 
-            var split = data.formatBirthday.split("-");
-            for (var m = 1; m < split.length; ++m) {
-                if (split[m][0] == "0") {
-                    split[m] = split[m].slice(1, 2);
+            if (data.formatBirthday != undefined || data.formatBirthday != null || data.formatBirthday != "") {
+                var split = data.formatBirthday.split("-");
+                for (var m = 1; m < split.length; ++m) {
+                    if (split[m][0] == "0") {
+                        split[m] = split[m].slice(1, 2);
+                    }
                 }
+                $("#year option[value=" + split[0] + "]").attr("selected", true);
+                $("#month option[value=" + split[1] + "]").attr("selected", true);
+                $("#day option[value=" + split[2] + "]").attr("selected", true);
             }
-            $("#year option[value=" + split[0] + "]").attr("selected", true);
-            $("#month option[value=" + split[1] + "]").attr("selected", true);
-            $("#day option[value=" + split[2] + "]").attr("selected", true);
 
             $("#signatureRight").attr("value", data.signature);
             $("#registrationTime").html(data.formatRegistrationTime);
@@ -147,8 +149,24 @@ function query() {
     user.gender = $("#gender option:selected").val();
     user.sexualOrientation = $("#sexualOrientation option:selected").val();
     user.emotionalState = $("#emotionalState option:selected").val();
-    user.location = $("#province option:selected").val() + "-" + $("#city option:selected").val();
-    // user.birthday = $("#year option:selected").val() + "-" + $("#month option:selected").val() + "-" + $("#day option:selected").val();
+
+    var location = $("#province option:selected").val() + "-" + $("#city option:selected").val();
+    if (location.indexOf("请") != -1) {
+        user.location = "";
+    } else {
+        user.location = location;
+    }
+
+    var year = $("#year option:selected").val();
+    var month = $("#month option:selected").val();
+    if (month.length == 1) {
+        month = "0" + month;
+    }
+    var day = $("#day option:selected").val();
+    if (day.length == 1) {
+        day = "0" + day;
+    }
+    user.birthday = year + "-" + month + "-" + day;
     user.subscribeNum = oldUserInfo.subscribeNum;
     user.fansNum = oldUserInfo.fansNum;
     user.weiboNum = oldUserInfo.weiboNum;
@@ -353,3 +371,9 @@ function GetProvince() {
         objprovince.options[i + 1] = new Option(parray[i], parray[i]);
     }
 }
+
+$(document).ready(function(){
+    $('#select').click(function(){
+        $('#img_upload').click();
+    });
+});
