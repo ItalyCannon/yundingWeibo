@@ -1,7 +1,7 @@
 package com.yundingweibo.web.servlet;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
+import com.yundingweibo.domain.PageBean;
 import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.WeiboService;
 
@@ -11,16 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
- * 测试通过，本功能不需要session
+ * recommend界面的微博展示，直接把数据库的所有微博按照时间降序展示
  *
  * @author 杜奕明
- * @date 2019/3/1 20:32
+ * @date 2019/3/19 18:50
  */
-@WebServlet(name = "ListServlet", urlPatterns = "/ListServlet")
-public class ListServlet extends HttpServlet {
+@WebServlet(name = "ShowAllWeiboServlet", urlPatterns = "/ShowAllWeiboServlet")
+public class ShowAllWeiboServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -31,18 +30,20 @@ public class ListServlet extends HttpServlet {
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
 
-        String type = request.getParameter("type");
-        if (type == null) {
-            throw new RuntimeException("必须传递type参数");
-        }
-        if (!"praise".equals(type) && !"repost".equals(type)) {
-            throw new RuntimeException("type必须是praise或repost");
-        }
-        List<Weibo> list = new WeiboService().showList(type);
+        int pageCode = getPageCode(request);
+        int pageSize = 6;
+        PageBean<Weibo> pb = new WeiboService().showAll(pageCode, pageSize);
 
-        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(Weibo.class,
-                "weiboContent", "praiseNum", "repostNum");
-        String json = JSON.toJSONString(list, filter);
+        String json = JSON.toJSONString(pb);
         response.getWriter().write(json);
     }
+
+    private int getPageCode(HttpServletRequest request) {
+        String value = request.getParameter("pc");
+        if (value == null || value.trim().isEmpty()) {
+            return 1;
+        }
+        return Integer.parseInt(value);
+    }
+
 }

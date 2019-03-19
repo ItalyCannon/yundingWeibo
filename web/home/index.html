@@ -17,7 +17,7 @@
         <div class="public_container">
             <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
                 <div class="header_logo">
-                    <img class="logo" src="../space/img/logo.png" alt="">
+                    <img class="logo" src="./img/logo.png" alt="">
                 </div>
             </div>
             <ul class="header_ul">
@@ -76,7 +76,8 @@
                 <div class="middle_up">
                     <textarea name="" class="text" id="weiboContent"></textarea>
                     <p class="expression"><i class="iconfont">&#xe643;</i> &nbsp;表情</p>
-                    <p class="picture"><i class="iconfont">&#xe643;</i> &nbsp;图片</p>
+                    <p class="picture" onclick="openBrowse();" style="cursor: pointer"><i class="iconfont">&#xe643;</i> &nbsp;图片</p>
+                    <input type="file" id="file" style="display: none;">
                     <p class="video"><i class="iconfont">&#xe643;</i> 视频</p>
                     <p class="topic"><i class="iconfont">&#xe643;</i> 话题</p>
                     <input type="submit" name="" value="发布" class="submit" onclick="addWeibo()" style="cursor:pointer">

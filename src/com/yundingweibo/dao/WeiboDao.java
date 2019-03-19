@@ -153,4 +153,13 @@ public interface WeiboDao {
      * @param weibo .
      */
     void addWeibo(User user, Weibo weibo);
+
+    /**
+     * 用于随机展示微博
+     *
+     * @param pageCode .
+     * @param pageSize .
+     * @return .
+     */
+    PageBean<Weibo> showAll(int pageCode, int pageSize);
 }

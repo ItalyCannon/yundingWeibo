@@ -24,6 +24,10 @@ public class AddCommentServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
+        if (sessionUser == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
         Weibo weibo = JSON.parseObject(request.getParameter("weibo"), Weibo.class);
         Comment comment = JSON.parseObject(request.getParameter("comment"), Comment.class);
 

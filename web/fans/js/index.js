@@ -138,7 +138,6 @@ function addAttention(userId) {
             $1.attr("class", "attention");
         },
         async: false
-
     })
 }
 

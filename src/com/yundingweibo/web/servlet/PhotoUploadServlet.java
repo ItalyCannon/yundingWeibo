@@ -31,6 +31,8 @@ public class PhotoUploadServlet extends HttpServlet {
         if (!ServletFileUpload.isMultipartContent(request)) {
             throw new RuntimeException("当前请求不支持文件上传");
         } else {
+            String type = request.getParameter("type");
+            System.out.println(type);
             try {
                 //为基于磁盘item工厂
                 DiskFileItemFactory factory = new DiskFileItemFactory();

@@ -397,3 +397,18 @@ window.onload = function () {
     getPraise();
     showWeibo();
 };
+
+function openBrowse() {
+    var ie = navigator.appName == "Microsoft Internet Explorer" ? true : false;
+    if (ie) {
+        document.getElementById("file").click();
+    } else {
+        var a = document.createEvent("MouseEvents");//FF的处理
+        a.initEvent("click", true, true);
+        document.getElementById("file").dispatchEvent(a);
+    }
+
+    $.ajax(
+
+    );
+}

@@ -24,6 +24,11 @@ public class CollectionServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
+        if (sessionUser == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
+
         String weiboId = request.getParameter("weibo");
 
         Weibo weibo = null;

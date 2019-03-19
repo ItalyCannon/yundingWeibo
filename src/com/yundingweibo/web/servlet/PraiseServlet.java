@@ -34,6 +34,11 @@ public class PraiseServlet extends HttpServlet {
         String param = request.getParameter("type");
         WeiboService weiboService = new WeiboService();
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
+        if (sessionUser == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
+
         switch (param) {
             case "weibo":
                 String weibo = request.getParameter("weibo");

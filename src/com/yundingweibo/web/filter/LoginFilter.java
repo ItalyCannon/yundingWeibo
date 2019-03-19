@@ -19,25 +19,29 @@ import java.io.IOException;
         "/collection", "/collection/*", "/commentReceive", "/commentReceive/*",
         "/commentSend", "/commentSend/*", "/detail", "/detail/*",
         "/editDetail", "/editDetail/*", "/fans", "/fans/*",
-        "/list", "/list/*", "/praise", "/praise/*", "/space", "/space/*"
+        "/list", "/list/*", "/praise", "/praise/*", "/space", "/space/*",
+        "/recommend", "/recommend/*"
 })
 public class LoginFilter implements Filter {
 
+    @Override
     public void destroy() {
     }
 
+    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         User u = (User) request.getSession().getAttribute("sessionUser");
         if (u == null) {
-            response.sendRedirect(request.getContextPath() + "/login/index.html");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         chain.doFilter(req, resp);
     }
 
+    @Override
     public void init(FilterConfig config) throws ServletException {
 
     }

@@ -31,7 +31,7 @@ public class BasicUserInfoServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         User user = (User) request.getSession().getAttribute("sessionUser");
         SimplePropertyPreFilter simplePropertyPreFilter = new SimplePropertyPreFilter(User.class,
-                "nickname", "signature", "profilePicture", "subscribeNum", "fansNum", "weiboNum");
+                "userId", "nickname", "signature", "profilePicture", "subscribeNum", "fansNum", "weiboNum");
         String json = JSON.toJSONString(new UserService().showBasicInfo(user), simplePropertyPreFilter);
         response.getWriter().write(json);
     }

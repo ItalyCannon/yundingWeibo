@@ -170,4 +170,8 @@ public class WeiboService {
     public void addWeibo(User user, Weibo weibo) {
         DaoFactory.getWeiboDao().addWeibo(user, weibo);
     }
+
+    public PageBean<Weibo> showAll(int pageCode, int pageSize) {
+        return DaoFactory.getWeiboDao().showAll(pageCode, pageSize);
+    }
 }
