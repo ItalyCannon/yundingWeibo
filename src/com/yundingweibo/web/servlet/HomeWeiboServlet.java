@@ -1,6 +1,6 @@
 package com.yundingweibo.web.servlet;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.yundingweibo.domain.PageBean;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
@@ -37,7 +37,10 @@ public class HomeWeiboServlet extends HttpServlet {
         int pageSize = 6;
         PageBean<Weibo> pb = new WeiboService().findAll(user, pageCode, pageSize);
 
-        String json = JSON.toJSONString(pb);
+        Gson gson = new Gson();
+
+        String json = gson.toJson(pb);
+
         response.getWriter().write(json);
     }
 

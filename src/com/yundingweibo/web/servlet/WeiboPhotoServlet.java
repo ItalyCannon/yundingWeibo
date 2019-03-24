@@ -1,7 +1,6 @@
 package com.yundingweibo.web.servlet;
 
 import com.yundingweibo.domain.User;
-import com.yundingweibo.service.UserService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -16,17 +15,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Description:
- *
- * @author 关栋伟
- * @date 2019/03/08
- */
-@WebServlet("/photoUploadServlet")
-public class PhotoUploadServlet extends HttpServlet {
-
+@WebServlet(name = "WeiboPhotoServlet", urlPatterns = "/WeiboPhotoServlet")
+public class WeiboPhotoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("utf-8");
         //1.0判断是否是mulitpart请求
         if (!ServletFileUpload.isMultipartContent(request)) {
             throw new RuntimeException("当前请求不支持文件上传");
@@ -63,9 +56,9 @@ public class PhotoUploadServlet extends HttpServlet {
                         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
                         String realPath;
 
-                        realPath = this.getServletContext().getRealPath("/profile/");
+                        realPath = this.getServletContext().getRealPath("/weiboImg/");
 
-                        String path = realPath + sessionUser.getUserId();
+                        String path = realPath + sessionUser.getUserId() + System.currentTimeMillis();
                         System.out.println("文件保存的路径：" + path);
 
                         //指定文件保存的名字
@@ -96,17 +89,15 @@ public class PhotoUploadServlet extends HttpServlet {
                         String url = "http://47.102.151.60:8080";
                         String urlPath = url + substring + "/" + fileName;
 
-                        sessionUser.setProfilePicture(urlPath);
+                        //把urlPath写到微博的photo字段里
                         System.out.println(urlPath);
-
-                        new UserService().update(sessionUser);
-                        response.sendRedirect("/detail");
+                        urlPath += ",";
+                        response.getWriter().write(urlPath);
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("上传失败");
-
             }
 
         }
@@ -114,6 +105,6 @@ public class PhotoUploadServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+
     }
 }

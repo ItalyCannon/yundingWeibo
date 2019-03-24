@@ -59,7 +59,7 @@ function showWeibo() {
                     '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
-                    '<p class="date">' + data.beanList[i].formatCreateTime + '</p>' +
+                    '<p class="date">' + new Date(data.beanList[i].createTime).toLocaleString() + '</p>' +
                     '</div>' +
                     '<p class="text">' + data.beanList[i].weiboContent + '<span>' + '' + '</span></p>' +
                     '<div id="imgs" class="imgs"' + imgHeight(data.beanList[i].photo) + '>' +
@@ -324,12 +324,33 @@ function getPraise() {
 
 function addWeibo() {
     var weibo = {};
+    weibo.photo = [];
     var weiboContent = $("#weiboContent").val();
     if (weiboContent == undefined || weiboContent == null || weiboContent == '') {
         alert("微博内容不能为空");
         return;
     }
+
+    //这部分应该写到openBrowse()里，但修改成本太大了，就先写到这里了
+    var formData = new FormData();
+    var file = $('input[name=weiboFile]')[0].files[0];
+    formData.append('photoForm', file);
+    $.ajax({
+        url: '/WeiboPhotoServlet',
+        method: 'POST',
+        data: formData,
+        contentType: false, // 注意这里应设为false
+        processData: false,
+        cache: false,
+        success: function (data) {
+            weibo.photo[0] = data;
+        },
+        async: false
+    });
+
     weibo.weiboContent = weiboContent;
+    console.log(weibo);
+    console.log(JSON.stringify(weibo));
     $.ajax({
         url: '/AddWeiboServlet',
         type: 'get',
@@ -338,10 +359,11 @@ function addWeibo() {
             weibo: JSON.stringify(weibo)
         },
         success: function (text) {
+            alert("发布成功");
+            window.location.href = "/home";
         },
         async: false
     });
-    window.location.href = "/home"
 
 }
 
@@ -373,7 +395,7 @@ function addComment(weiboId) {
 function likeComment(commentId, praise) {
     var comment = {};
     comment.commentId = commentId;
-    console.log(comment);
+    // console.log(comment);
     $.ajax({
         url: '/PraiseServlet?type=comment',
         type: 'get',
@@ -407,8 +429,4 @@ function openBrowse() {
         a.initEvent("click", true, true);
         document.getElementById("file").dispatchEvent(a);
     }
-
-    $.ajax(
-
-    );
 }

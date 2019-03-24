@@ -362,9 +362,9 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
          *   因为同一用户在相同时间,插入同一微博多条评论的概率太低了，所以我们就认为这三条数据可以唯一表示一条评论
          * 虽然可能还是会出错，但是我想不到别的办法了 -2019/3/3 21:43
          * */
-        sql = "select comment_id from weibo_comment where comment_time=? and user_id=? and weibo_id=?";
-        Comment comment1 = DaoUtil.toBeanSingle(Comment.class, sql, format, user.getUserId(), weibo.getWeiboId());
-        // TODO: 2019/3/3 此处获取评论id是有用的，用处暂时想不起来了
+//        sql = "select comment_id from weibo_comment where comment_time=? and user_id=? and weibo_id=?";
+//        Comment comment1 = DaoUtil.toBeanSingle(Comment.class, sql, format, user.getUserId(), weibo.getWeiboId());
+//        // TODO: 2019/3/3 此处获取评论id是有用的，用处暂时想不起来了
     }
 
     /**
@@ -523,11 +523,17 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      * @param weibo .
      */
     @Override
-    public void addWeibo(User user, Weibo weibo) {
-        String sql = "insert into weibo_data(weibo_content,user_id,create_time) values(?,?,now())";
-        DaoUtil.query(sql, weibo.getWeiboContent(), user.getUserId());
+    public int addWeibo(User user, Weibo weibo) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = df.format(new Date());
+
+        String sql = "insert into weibo_data(weibo_content,user_id,create_time,photo) values(?,?,?,?)";
+        DaoUtil.query(sql, weibo.getWeiboContent(), user.getUserId(), format, weibo.getPhoto().get(0));
         sql = "update user_info set weibo_num = weibo_num+1 where user_id = ?";
         DaoUtil.query(sql, user.getUserId());
+        sql = "select weibo_id from weibo_data where create_time=? and user_id=?";
+        Long weiboId = (Long) DaoUtil.getObject(sql, format, user.getUserId());
+        return weiboId != null ? weiboId.intValue() : 0;
     }
 
     /**

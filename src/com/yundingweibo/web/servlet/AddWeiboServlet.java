@@ -1,6 +1,6 @@
 package com.yundingweibo.web.servlet;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 import com.yundingweibo.service.WeiboService;
@@ -26,8 +26,11 @@ public class AddWeiboServlet extends HttpServlet {
 
         //需要userId和weiboContent
         String weibo = request.getParameter("weibo");
-        Weibo jsonWeibo = JSON.parseObject(weibo, Weibo.class);
-        new WeiboService().addWeibo(sessionUser, jsonWeibo);
-        response.getWriter().write("/home");
+        System.out.println(weibo);
+        Gson gson = new Gson();
+        Weibo jsonWeibo =  gson.fromJson(weibo, Weibo.class);
+        int weiboId = new WeiboService().addWeibo(sessionUser, jsonWeibo);
+        String json = "{\"weiboId\": " + weiboId + "}";
+        response.getWriter().write(json);
     }
 }

@@ -48,6 +48,7 @@ function getInfo() {
             oldUserInfo = data;
             userId = data.userId;
             $("#profilePicture").attr('src', data.profilePicture);
+            $("#profile1").attr('src', data.profilePicture);
             $("#profilePictureEdit").attr('src', data.profilePicture);
             $("#nicknameLeft").html(data.nickname);
             $("#signatureLeft").html(data.signature);

@@ -116,6 +116,10 @@ function fun() {
             for (var k = 0; k < messages.length; ++k) {
                 document.getElementById(ids[k]).innerHTML = messages[k];
             }
+            var main = document.getElementById("main").offsetHeight;
+            if(main <= "600"){
+                document.getElementById("main").style.height = "700px";
+            }
 
             var newVar = data.length;
             $("#allcollection").html("全部收藏 " + newVar);
@@ -129,7 +133,8 @@ function fun() {
                 }
             }
         }
-    })
+    });
+
 }
 
 function firstDiv() {
@@ -304,8 +309,5 @@ function getPraise() {
     });
 }
 
-window.onload = function () {
-    getPraise();
-    fun();
-    baseInfo()
-};
+
+

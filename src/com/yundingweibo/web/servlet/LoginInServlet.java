@@ -29,7 +29,7 @@ public class LoginInServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-        String path = basePath + "/home/index.html";
+        String path = basePath + "/recommend/index.html";
 
         User loginUser = new User();
         loginUser.setLoginId(loginId);
@@ -45,6 +45,10 @@ public class LoginInServlet extends HttpServlet {
             String json = JSON.toJSONString(temp);
             response.getWriter().write(json);
             return;
+        }
+
+        if (request.getSession().getAttribute("sessionUser") != null) {
+            request.getSession().removeAttribute("sessionUser");
         }
 
         //登录成功，存储数据并转发

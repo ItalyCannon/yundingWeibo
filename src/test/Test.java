@@ -1,7 +1,7 @@
 package test;
 
 import com.yundingweibo.dao.impl.JdbcWeiboDaoImpl;
-import com.yundingweibo.domain.PageBean;
+import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 
 /**
@@ -10,7 +10,10 @@ import com.yundingweibo.domain.Weibo;
  */
 public class Test {
     public static void main(String[] args) {
-        PageBean<Weibo> weiboPageBean = new JdbcWeiboDaoImpl().showAll(2, 10);
-        System.out.println(weiboPageBean);
+        Weibo weibo = new Weibo();
+        weibo.setWeiboContent("aaaaaaaaaaaaa");
+
+        int i = new JdbcWeiboDaoImpl().addWeibo(new User(1), weibo);
+        System.out.println(i);
     }
 }

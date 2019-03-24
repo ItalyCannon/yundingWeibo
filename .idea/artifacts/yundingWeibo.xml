@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="yundingWeibo">
-    <output-path>D:/aaaaaaa</output-path>
+    <output-path>D:/a</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -27,6 +27,7 @@
           <element id="file-copy" path="$USER_HOME$/Documents/Tencent Files/1508166355/FileRecv/regist1.3/lib/javax.transaction.jar" />
           <element id="file-copy" path="D:/lib/commons-io-2.6.jar" />
           <element id="file-copy" path="D:/lib/commons-fileupload-1.4.jar" />
+          <element id="file-copy" path="D:/lib/gson-2.2.2.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="yundingWeibo/web/Web" />

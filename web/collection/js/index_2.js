@@ -9,3 +9,15 @@ function fun1(){
 function fun2(){
 	document.getElementById("part2").style.color = 'red';
 }
+
+
+
+// window.onload = height();
+
+
+window.onload = function () {
+	getPraise();
+	fun();
+	baseInfo();
+	// height();
+};

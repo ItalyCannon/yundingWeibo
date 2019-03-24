@@ -3,6 +3,11 @@
     <output-path>D:/</output-path>
     <root id="archive" name="yundingWeibo_war.war">
       <element id="artifact" artifact-name="yundingWeibo:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="D:/lib/gson-2.2.2.jar" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

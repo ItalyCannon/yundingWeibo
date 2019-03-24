@@ -152,7 +152,7 @@ public interface WeiboDao {
      * @param user  .
      * @param weibo .
      */
-    void addWeibo(User user, Weibo weibo);
+    int addWeibo(User user, Weibo weibo);
 
     /**
      * 用于随机展示微博
