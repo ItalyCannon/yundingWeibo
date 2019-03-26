@@ -89,6 +89,7 @@ function showWeibo() {
 
                 //先把一条微博的轮廓搭起来，然后再往里加评论的部分
                 noApplicationRecord.innerHTML = html;
+                console.log(html);
                 var message = '';
                 message += '<div class="write">' +
                     '<img src="' + profile + '" alt="img" class="head_img">' +
@@ -131,7 +132,6 @@ function showWeibo() {
             for (var k = 0; k < messages.length; ++k) {
                 document.getElementById(ids[k]).innerHTML = messages[k];
             }
-
         },
         async: false
     });

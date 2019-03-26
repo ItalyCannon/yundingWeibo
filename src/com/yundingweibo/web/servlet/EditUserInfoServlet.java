@@ -37,6 +37,11 @@ public class EditUserInfoServlet extends HttpServlet {
         }
 
         User u = JSON.parseObject(json, User.class, Feature.AllowISO8601DateFormat);
+        User sessionUser = (User) request.getSession().getAttribute("sessionUser");
+        if (u.getUserId() != sessionUser.getUserId()) {
+            response.getWriter().write("");
+            return;
+        }
         new UserService().update(u);
         response.getWriter().write("");
     }

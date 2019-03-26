@@ -30,6 +30,9 @@ public class QuitServlet extends HttpServlet {
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
         if (sessionUser != null) {
             request.getSession().removeAttribute("sessionUser");
+            response.getWriter().write("{\"msg\":\"退出成功\"}");
+            return;
         }
+        response.getWriter().write("{\"msg\":\"退出失败\"}");
     }
 }

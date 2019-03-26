@@ -1134,11 +1134,13 @@
     <column id="293" parent="280" name="comment_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="294" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>user_id</ColNames>
+      <ColNames>user_id
+comment_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="295" parent="281" name="user_id">
@@ -1216,11 +1218,13 @@
     <column id="308" parent="283" name="reply_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="309" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>user_id</ColNames>
+      <ColNames>user_id
+reply_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="310" parent="284" name="topic_id">
@@ -1303,6 +1307,7 @@
     <column id="324" parent="286" name="location">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="325" parent="286" name="sexual_orientation">
@@ -1325,6 +1330,7 @@
     <column id="328" parent="286" name="signature">
       <Position>10</Position>
       <DataType>varchar(30)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="329" parent="286" name="registration_time">
@@ -1335,41 +1341,49 @@
     <column id="330" parent="286" name="email">
       <Position>12</Position>
       <DataType>varchar(30)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="331" parent="286" name="qq">
       <Position>13</Position>
       <DataType>varchar(15)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="332" parent="286" name="undergraduate_school">
       <Position>14</Position>
       <DataType>varchar(30)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="333" parent="286" name="graduate_school">
       <Position>15</Position>
       <DataType>varchar(30)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="334" parent="286" name="tag">
       <Position>16</Position>
       <DataType>varchar(100)|0s</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="335" parent="286" name="subscribe_num">
       <Position>17</Position>
       <DataType>int(10) unsigned|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="336" parent="286" name="fans_num">
       <Position>18</Position>
       <DataType>int(10) unsigned|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="337" parent="286" name="weibo_num">
       <Position>19</Position>
       <DataType>int(10) unsigned|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="338" parent="286" name="profile_picture">

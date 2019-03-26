@@ -1,5 +1,6 @@
 package com.yundingweibo.dao.impl;
 
+import com.alibaba.druid.pool.DruidPooledConnection;
 import com.yundingweibo.dao.DaoException;
 import com.yundingweibo.dao.DaoFactory;
 import com.yundingweibo.dao.UserDao;
@@ -8,6 +9,7 @@ import com.yundingweibo.domain.Comment;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.domain.Weibo;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -195,30 +197,23 @@ public class JdbcUserDaoImpl implements UserDao {
      */
     @Override
     public void removeAttention(User sessionUser, User removeUser) {
-        Long subscribeNum = null;
-        Long fansNum = null;
+        DruidPooledConnection connection;
         try {
+            connection = DaoUtil.beginTransaction();
             String sql = "delete from user_relation where user_id=? and target_id=?";
-            DaoUtil.query(sql, sessionUser.getUserId(), removeUser.getUserId());
+            DaoUtil.query(connection, sql, sessionUser.getUserId(), removeUser.getUserId());
 
-            sql = "select subscribe_num from user_info where user_id=?";
-            subscribeNum = (Long) DaoUtil.getObject(sql, sessionUser.getUserId());
             sql = "update user_info set subscribe_num=subscribe_num-1 where user_id=?";
-            DaoUtil.query(sql, sessionUser.getUserId());
+            DaoUtil.query(connection, sql, sessionUser.getUserId());
 
-            sql = "select fans_num from user_info where user_id=?";
-            fansNum = (Long) DaoUtil.getObject(sql, removeUser.getUserId());
             sql = "update user_info set fans_num=fans_num-1 where user_id=?";
-            DaoUtil.query(sql, removeUser.getUserId());
+            DaoUtil.query(connection, sql, removeUser.getUserId());
+            DaoUtil.commitTransaction();
         } catch (Exception e) {
-            String sql;
-            if (subscribeNum != null) {
-                sql = "update user_info set subscribe_num=subscribe_num+1 where user_id=?";
-                DaoUtil.query(sql, sessionUser.getUserId());
-            }
-            if (fansNum != null) {
-                sql = "update user_info set fans_num=fans_num+1 where user_id=?";
-                DaoUtil.query(sql, removeUser.getUserId());
+            try {
+                DaoUtil.rollbackTransaction();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
             }
             throw new RuntimeException("写入数据库失败");
         }
@@ -232,42 +227,26 @@ public class JdbcUserDaoImpl implements UserDao {
      */
     @Override
     public void addAttention(User sessionUser, User targetUser) {
-        Long subscribeNum = null;
-        Long fansNum = null;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = simpleDateFormat.format(new Date());
+        DruidPooledConnection connection;
         try {
+            connection = DaoUtil.beginTransaction();
             String sql = "insert into user_relation set user_id=?,target_id=?,type=1,attention_time=?";
-            DaoUtil.query(sql, sessionUser.getUserId(), targetUser.getUserId(), format);
-
-            //获取原来的关注数
-            sql = "select subscribe_num from user_info where user_id =?";
-            subscribeNum = (Long) DaoUtil.getObject(sql, sessionUser.getUserId());
+            DaoUtil.query(connection, sql, sessionUser.getUserId(), targetUser.getUserId(), format);
 
             sql = "update user_info set subscribe_num = subscribe_num+1 where user_id=?";
-            DaoUtil.query(sql, sessionUser.getUserId());
-
-            //获取原来的粉丝数
-            sql = "select subscribe_num from user_info where user_id =?";
-            fansNum = (Long) DaoUtil.getObject(sql, targetUser.getUserId());
+            DaoUtil.query(connection, sql, sessionUser.getUserId());
 
             sql = "update user_info set fans_num = fans_num+1 where user_id=?";
-            DaoUtil.query(sql, targetUser.getUserId());
+            DaoUtil.query(connection, sql, targetUser.getUserId());
+            DaoUtil.commitTransaction();
         } catch (Exception e) {
-            String sql = "delete from user_relation where user_id=? and target_id=? and attention_time=?";
-            DaoUtil.query(sql, sessionUser.getUserId(), targetUser.getUserId(), format);
-
-            //如果不为空，说明数据库中的数据已经加一
-            if (subscribeNum != null) {
-                sql = "update user_info set subscribe_num=subscribe_num-1 where user_id=?";
-                DaoUtil.query(sql, sessionUser.getUserId());
+            try {
+                DaoUtil.rollbackTransaction();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
             }
-
-            if (fansNum != null) {
-                sql = "update user_info set fans_num=fans_num-1 where user_id=?";
-                DaoUtil.query(sql, targetUser.getUserId());
-            }
-
             throw new RuntimeException("写入数据库失败");
         }
     }
@@ -299,7 +278,9 @@ public class JdbcUserDaoImpl implements UserDao {
     public User showBasicInfo(User user) {
         String sql = "select nickname,signature,profile_picture,fans_num,weibo_num,subscribe_num from user_info where user_id=?";
         User user1 = DaoUtil.toBeanSingle(User.class, sql, user.getUserId());
-        user1.setUserId(user.getUserId());
+        if (user1 != null) {
+            user1.setUserId(user.getUserId());
+        }
         return user1;
     }
 }

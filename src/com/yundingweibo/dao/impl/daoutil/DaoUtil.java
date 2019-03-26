@@ -3,7 +3,6 @@ package com.yundingweibo.dao.impl.daoutil;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.alibaba.druid.pool.DruidPooledConnection;
-import com.yundingweibo.dao.DaoException;
 import com.yundingweibo.domain.User;
 
 import java.io.IOException;
@@ -17,13 +16,11 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * 2019/3/3 21:42 因为没加事务，我现在快自闭了
- * 2019/3/3 20:36 我发现了一个貌似很厉害的工具叫Mybatis，用它好像也可以完成这个工具类的工作，
  * 如果有时间的话可以把这个工具类换掉
  * <p>
  * 切换方法：如果想要换成Mybatis的话就直接把dao层整个换掉，然后在daoFactoryConfig.properties里把实现类的名字改了
  * <p>
- * 此工具以Druid连接池为基础，可以实现对jdbc的部分简化，但目前我对里面的算法不太满意，有时间的话可以把这个类换掉
+ * 此工具以Druid连接池为基础，可以实现对jdbc的部分简化，但我对里面的算法不太满意，有时间的话可以把这个类换掉
  *
  * @author 杜奕明
  * @date 2019/2/15 11:24
@@ -33,6 +30,8 @@ public class DaoUtil {
      * 连接池
      */
     private static DruidDataSource dataSource;
+
+    private static ThreadLocal<DruidPooledConnection> threadLocal = new ThreadLocal<>();
 
     /*
      * 加载配置文件
@@ -58,24 +57,62 @@ public class DaoUtil {
         }
     }
 
-    public static DruidPooledConnection getConnection() throws SQLException {
-        return dataSource.getConnection();
+    /**
+     * 开启事务，一个线程只能同时开启一个事务
+     *
+     * @return 事务专用连接
+     * @throws SQLException 已经开启了一个事务
+     */
+    public static DruidPooledConnection beginTransaction() throws SQLException {
+        DruidPooledConnection connection = threadLocal.get();
+        if (connection != null) {
+            throw new SQLException("事务已经开启");
+        }
+        connection = dataSource.getConnection();
+        connection.setAutoCommit(false);
+        threadLocal.set(connection);
+        return connection;
     }
 
     /**
-     * 执行sql语句，返回一个封装好的对象集合
+     * 提交事务
      *
-     * @param clazz  期望得到的类型，比如如果想要得到一个String类的返回结果就传入String.class
-     * @param sql    要执行的sql语句
-     * @param params prepareStatement的问号占位符
-     * @return clazz.class对应的类型
-     * @throws RuntimeException clazz类中的属性不是int,double,float,String,boolean,java.util,Date或其装箱类时抛出
+     * @throws SQLException 还没开启事务，不能提交
      */
-    public static <T> List<T> toBean(Class<T> clazz, String sql, Object... params) {
+    public static void commitTransaction() throws SQLException {
+        DruidPooledConnection connection = threadLocal.get();
+        if (connection == null) {
+            throw new SQLException("还没开启事务，不能提交");
+        }
+        connection.commit();
+        connection.recycle();
+        threadLocal.remove();
+    }
+
+    public static void rollbackTransaction() throws SQLException {
+        DruidPooledConnection connection = threadLocal.get();
+        if (connection == null) {
+            throw new SQLException("还没开启事务，不能回滚");
+        }
+        connection.rollback();
+        connection.recycle();
+        threadLocal.remove();
+    }
+
+    /**
+     * 事务用这个方法
+     *
+     * @param conn   事务专用连接
+     * @param clazz  .
+     * @param sql    .
+     * @param params .
+     * @param <T>    .
+     * @return .
+     */
+    public static <T> List<T> toBean(DruidPooledConnection conn, Class<T> clazz, String sql, Object... params) {
         List<T> list = new ArrayList<>();
 
         try {
-            DruidPooledConnection conn = dataSource.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
 
             /* 替换问号占位符 */
@@ -101,16 +138,35 @@ public class DaoUtil {
                     list.add(object);
                 }
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
-                throw new DaoException(e.getMessage());
+                throw new RuntimeException(e.getMessage());
             } finally {
                 rs.close();
                 ps.close();
-                conn.recycle();
             }
         } catch (SQLException e) {
-            throw new DaoException(e.getMessage());
+            throw new RuntimeException(e);
         }
         return list;
+    }
+
+    /**
+     * 执行sql语句，返回一个封装好的对象集合
+     *
+     * @param clazz  期望得到的类型，比如如果想要得到一个String类的返回结果就传入String.class
+     * @param sql    要执行的sql语句
+     * @param params prepareStatement的问号占位符
+     * @return clazz.class对应的类型
+     * @throws RuntimeException clazz类中的属性不是int,double,float,String,boolean,java.util,Date或其装箱类时抛出
+     */
+    public static <T> List<T> toBean(Class<T> clazz, String sql, Object... params) {
+        try {
+            DruidPooledConnection connection = dataSource.getConnection();
+            List<T> bean = toBean(connection, clazz, sql, params);
+            connection.recycle();
+            return bean;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static <T> T toBeanSingle(Class<T> clazz, String sql, Object... params) {
@@ -140,14 +196,14 @@ public class DaoUtil {
                     return object;
                 }
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
-                throw new DaoException(e.getMessage());
+                throw new RuntimeException(e);
             } finally {
                 rs.close();
                 ps.close();
                 conn.recycle();
             }
         } catch (SQLException e) {
-            throw new DaoException(e.getMessage());
+            throw new RuntimeException(e);
         }
         return null;
     }
@@ -177,6 +233,31 @@ public class DaoUtil {
             }
         }
         return null;
+    }
+
+    /**
+     * 事务专用提交
+     *
+     * @param connection .
+     * @param sql        .
+     * @param params     .
+     */
+    public static void query(DruidPooledConnection connection, String sql, Object... params) {
+        PreparedStatement ps = null;
+
+        try {
+            ps = connection.prepareStatement(sql);
+            replace(ps, params);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                free(null, ps);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void query(String sql, Object... params) {
@@ -239,7 +320,7 @@ public class DaoUtil {
                 }
             }
         } catch (IllegalAccessException | SQLException | InvocationTargetException e) {
-            throw new DaoException(e.getMessage());
+            throw new RuntimeException(e);
         } finally {
             try {
                 free(conn, preparedStatement, resultset, pstmt);
