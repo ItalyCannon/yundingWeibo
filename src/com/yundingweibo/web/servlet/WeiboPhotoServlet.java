@@ -42,6 +42,7 @@ public class WeiboPhotoServlet extends HttpServlet {
                 //解析请求,获取items
                 List<FileItem> items = upload.parseRequest(request);
 
+                StringBuilder photos = new StringBuilder();
                 //遍历items
                 for (FileItem item : items) {
                     //处理常规表单字段
@@ -92,9 +93,10 @@ public class WeiboPhotoServlet extends HttpServlet {
                         //把urlPath写到微博的photo字段里
                         System.out.println(urlPath);
                         urlPath += ",";
-                        response.getWriter().write(urlPath);
+                        photos.append(urlPath);
                     }
                 }
+                response.getWriter().write(photos.toString());
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("上传失败");

@@ -11,8 +11,11 @@ import com.yundingweibo.domain.User;
 public class Test {
     public static void main(String[] args) throws Exception {
         Comment comment = new Comment();
-        comment.setCommentId(1);
-        User user = new User(1);
-        new JdbcWeiboDaoImpl().like(1, user);
+        comment.setCommentId(11);
+        comment.setWeiboId(1);
+        Comment replyComment = new Comment();
+        replyComment.setCommentContent("aaaa");
+        User u = new User(1);
+        new JdbcWeiboDaoImpl().addReply(comment, replyComment, u);
     }
 }

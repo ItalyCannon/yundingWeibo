@@ -16,9 +16,26 @@ public class Comment {
     private int userId;
     private String nickname;
     private int weiboId;
-    private List<ReplyComment> replyComments;
     private String weiboContent;
     private String profilePicture;
+    private int parent;
+    private List<Comment> children;
+
+    public int getParent() {
+        return parent;
+    }
+
+    public void setParent(int parent) {
+        this.parent = parent;
+    }
+
+    public List<Comment> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Comment> children) {
+        this.children = children;
+    }
 
     public String getProfilePicture() {
         return profilePicture;
@@ -36,34 +53,12 @@ public class Comment {
         this.weiboContent = weiboContent;
     }
 
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "commentId=" + commentId +
-                ", commentContent='" + commentContent + '\'' +
-                ", commentPraise=" + commentPraise +
-                ", commentTime=" + commentTime +
-                ", userId=" + userId +
-                ", nickname='" + nickname + '\'' +
-                ", weiboId=" + weiboId +
-                ", replyComments=" + replyComments +
-                '}';
-    }
-
     public String getNickname() {
         return nickname;
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
-    }
-
-    public List<ReplyComment> getReplyComments() {
-        return replyComments;
-    }
-
-    public void setReplyComments(List<ReplyComment> replyComments) {
-        this.replyComments = replyComments;
     }
 
     public String getFormatCommentTime() {

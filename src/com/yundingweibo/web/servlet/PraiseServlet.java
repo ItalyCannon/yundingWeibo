@@ -2,7 +2,6 @@ package com.yundingweibo.web.servlet;
 
 import com.alibaba.fastjson.JSON;
 import com.yundingweibo.domain.Comment;
-import com.yundingweibo.domain.ReplyComment;
 import com.yundingweibo.domain.User;
 import com.yundingweibo.service.WeiboService;
 
@@ -53,11 +52,6 @@ public class PraiseServlet extends HttpServlet {
                 String comment = request.getParameter("comment");
                 Comment parse1 = JSON.parseObject(comment, Comment.class);
                 weiboService.praiseComment(parse1, sessionUser);
-                break;
-            case "reply":
-                String reply = request.getParameter("reply");
-                ReplyComment parse2 = JSON.parseObject(reply, ReplyComment.class);
-                weiboService.praiseReply(parse2, sessionUser);
                 break;
             default:
                 throw new RuntimeException("type类型未知");

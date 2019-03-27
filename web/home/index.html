@@ -80,7 +80,7 @@
                     <p class="picture" onclick="openBrowse();" style="cursor: pointer"><i class="iconfont">&#xe643;</i>
                         &nbsp;图片</p>
                     <form action="/WeiboPhotoServlet" method="post" enctype="multipart/form-data" style="display: none;" id="photoForm">
-                        <input type="file" id="file" name="weiboFile">
+                        <input type="file" id="file" name="weiboFile" multiple="multiple"/>
                         <input type="submit" id="addPhoto">
                     </form>
                     <p class="video"><i class="iconfont">&#xe643;</i> 视频</p>

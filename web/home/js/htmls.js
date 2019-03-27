@@ -38,8 +38,12 @@ var allCollection;
 var allPraise;
 
 var PageCode = 1;
+var totalPage = 1;
 
 function showWeibo() {
+    if (PageCode > totalPage) {
+        return;
+    }
     var url = '/HomeWeiboServlet?pc=' + PageCode;
     $.ajax({
         url: url,
@@ -52,6 +56,7 @@ function showWeibo() {
             var html = noApplicationRecord.innerHTML;
             var messages = [];
             var ids = [];
+            totalPage = getTotalPage(data.totalRecord, data.pageSize);
             console.log(data);
             for (var i = 0; i < data.beanList.length; i++) {
                 html +=
@@ -89,7 +94,6 @@ function showWeibo() {
 
                 //先把一条微博的轮廓搭起来，然后再往里加评论的部分
                 noApplicationRecord.innerHTML = html;
-                console.log(html);
                 var message = '';
                 message += '<div class="write">' +
                     '<img src="' + profile + '" alt="img" class="head_img">' +
@@ -109,7 +113,7 @@ function showWeibo() {
                         '<p class="nickname"><span>' + data.beanList[i].comments[j].nickname + '：' + '</span>'
                         + data.beanList[i].comments[j].commentContent + '</p>' +
                         '<p class="date">' + data.beanList[i].comments[j].formatCommentTime + '</p>' +
-                        '<p class="reply">回复</p>' +
+                        '<p class="reply" onclick="addReply(' + data.beanList[i].weiboId + ',' + data.beanList[i].comments[j].commentId + ')">回复</p>' +
                         '<p class="string"></p>' +
                         '<p class="like" style="cursor: pointer" onclick="likeComment(' + data.beanList[i].comments[j].commentId + ', '
                         + data.beanList[i].comments[j].commentPraise + ')" id="'
@@ -136,6 +140,13 @@ function showWeibo() {
         async: false
     });
     PageCode++;
+}
+
+function getTotalPage(totalRecord, pageSize) {
+    if (totalRecord <= pageSize) {
+        return 1;
+    }
+    return Math.ceil(totalRecord / pageSize);
 }
 
 var profile = '';
@@ -333,8 +344,12 @@ function addWeibo() {
 
     //这部分应该写到openBrowse()里，但修改成本太大了，就先写到这里了
     var formData = new FormData();
-    var file = $('input[name=weiboFile]')[0].files[0];
-    formData.append('photoForm', file);
+
+    var inputFile = $('input[name=weiboFile]')[0];
+    for (var i = 0; i < inputFile.files.length; ++i) {
+        var file = inputFile.files[i];
+        formData.append('photoForm', file);
+    }
     $.ajax({
         url: '/WeiboPhotoServlet',
         method: 'POST',
@@ -343,6 +358,7 @@ function addWeibo() {
         processData: false,
         cache: false,
         success: function (data) {
+            console.log(data);
             weibo.photo[0] = data;
         },
         async: false
@@ -378,7 +394,7 @@ function addComment(weiboId) {
     var weibo = {weiboId: -1};
     weibo.weiboId = weiboId;
     $.ajax({
-        url: '/AddCommentServlet',
+        url: '/AddCommentServlet?type=comment',
         type: 'get',
         dataType: 'json',
         data: {
@@ -390,6 +406,33 @@ function addComment(weiboId) {
         async: false
     });
     window.location.href = "/home";
+}
+
+function addReply(weiboId, commentId) {
+    var reply = {commentContent: ''};
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //这里填上回复框的id
+    // var commentContent = $("#" + weiboId + "addReply").val();
+    // if (commentContent == undefined || commentContent == null || commentContent == '') {
+    //     alert("评论内容不能为空");
+    //     return;
+    // }
+    reply.commentContent = "aaaa";
+    var comment = {commentId: -1};
+    comment.commentId = commentId;
+    comment.weiboId = weiboId;
+    $.ajax({
+        url: '/AddCommentServlet?type=reply',
+        type: 'get',
+        dataType: 'json',
+        data: {
+            reply: JSON.stringify(reply),
+            comment: JSON.stringify(comment)
+        },
+        success: function (text) {
+        },
+        async: false
+    });
 }
 
 function likeComment(commentId, praise) {

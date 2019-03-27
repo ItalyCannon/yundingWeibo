@@ -27,8 +27,12 @@ public class WeiboService {
      * @return .
      */
     public PageBean<Weibo> findAll(User user, int pageCode, int pageSize) {
-        return DaoFactory.getWeiboDao().findAll(user, pageCode, pageSize);
+        WeiboDao weiboDao = DaoFactory.getWeiboDao();
+
+        return weiboDao.findAll(user, pageCode, pageSize);
     }
+
+
 
     public PageBean<Weibo> findPraise(User user, int pageCode, int pageSize) {
         return DaoFactory.getWeiboDao().findPraise(user, pageCode, pageSize);
@@ -100,17 +104,6 @@ public class WeiboService {
     }
 
     /**
-     * 点赞回复
-     * 只需要weiboId和userId
-     *
-     * @param replyComment .
-     * @param user         .
-     */
-    public void praiseReply(ReplyComment replyComment, User user) {
-        DaoFactory.getWeiboDao().like(replyComment, user);
-    }
-
-    /**
      * 添加评论，需要comment_content,user_id,weibo_id
      *
      * @param weibo   .
@@ -128,7 +121,7 @@ public class WeiboService {
      * @param replyComment .
      * @param user         .
      */
-    public void addReply(Comment comment, ReplyComment replyComment, User user) {
+    public void addReply(Comment comment, Comment replyComment, User user) {
         DaoFactory.getWeiboDao().addReply(comment, replyComment, user);
     }
 

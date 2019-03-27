@@ -23,15 +23,31 @@ public class AddCommentServlet extends HttpServlet {
         response.setContentType("text/json;charset=utf-8");
         response.setCharacterEncoding("utf-8");
 
+        String type = request.getParameter("type");
+        if (type == null) {
+            throw new RuntimeException("必须传递type");
+        }
+
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
         if (sessionUser == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-        Weibo weibo = JSON.parseObject(request.getParameter("weibo"), Weibo.class);
-        Comment comment = JSON.parseObject(request.getParameter("comment"), Comment.class);
 
-        new WeiboService().addComment(weibo, comment, sessionUser);
+        switch (type) {
+            case "comment":
+                Weibo weibo = JSON.parseObject(request.getParameter("weibo"), Weibo.class);
+                Comment comment = JSON.parseObject(request.getParameter("comment"), Comment.class);
+                new WeiboService().addComment(weibo, comment, sessionUser);
+                break;
+            case "reply":
+                comment = JSON.parseObject(request.getParameter("comment"), Comment.class);
+                Comment replyComment = JSON.parseObject(request.getParameter("reply"), Comment.class);
+                new WeiboService().addReply(comment, replyComment, sessionUser);
+                break;
+            default:
+        }
+
         response.sendRedirect("/home");
     }
 }

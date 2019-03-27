@@ -88,14 +88,6 @@ public interface WeiboDao {
     void like(Comment comment, User user);
 
     /**
-     * 回复点赞
-     *
-     * @param replyComment 要点赞的回复
-     * @param user         sessionUser
-     */
-    void like(ReplyComment replyComment, User user);
-
-    /**
      * 添加微博的评论，需要weiboId,commentId,userId
      *
      * @param weibo   .
@@ -110,7 +102,7 @@ public interface WeiboDao {
      * @param comment .
      * @param user    sessionUser
      */
-    void addReply(Comment comment, ReplyComment replyComment, User user);
+    void addReply(Comment comment, Comment replyComment, User user);
 
     /**
      * 删除转发
@@ -162,4 +154,13 @@ public interface WeiboDao {
      * @return .
      */
     PageBean<Weibo> showAll(int pageCode, int pageSize);
+
+    /**
+     * 用于多级评论
+     *
+     * @param parentId 上层评论
+     * @param weiboId  被评论的微博
+     * @return 下层评论
+     */
+    List<Comment> findCommentByParentId(int parentId, int weiboId);
 }
