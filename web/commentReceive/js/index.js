@@ -71,6 +71,10 @@ function CommentReceive() {
                     '</div>';
                 noApplicationRecord.innerHTML = html
             }
+            var main = document.getElementById("main");
+            if(main.offsetHeight <= "730"){
+                main.style.height = "730px";
+            }
         },
         async: true
     });
@@ -97,7 +101,25 @@ function baseInfo() {
     });
 }
 
+function change(){
+    $.ajax({
+        url: "/BackgroundServlet",
+        type: "get",
+        datatype: "json",
+        data:{},
+        success:function (data) {
+            var text = eval(data);
+            // var content = document.getElementById("content");
+            // alert(content.style.backgroundImage);
+            $(".main").css("background-image","url("+'"'+text.img+'"'+")");
+            // var content = $("#content").attr("class");
+        }
+
+    })
+}
+
 window.onload = function () {
     baseInfo();
+    change();
     CommentReceive();
 };

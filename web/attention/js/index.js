@@ -196,9 +196,27 @@ function attentionCondition(userId) {
     return '<p class="add" onclick="addAttention(' + userId + ')" id="' + userId + '">添加关注 +</p>';
 }
 
+function change(){
+    $.ajax({
+        url: "/BackgroundServlet",
+        type: "get",
+        datatype: "json",
+        data:{},
+        success:function (data) {
+            var text = eval(data);
+            // var content = document.getElementById("content");
+            // alert(content.style.backgroundImage);
+            $(".main").css("background-image","url("+'"'+text.img+'"'+")");
+            // var content = $("#content").attr("class");
+        }
+
+    })
+}
+
 
 window.onload = function () {
     initial();
+    change();
     fansNum();
     userInfo();
 };

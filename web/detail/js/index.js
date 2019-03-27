@@ -129,4 +129,24 @@ function appear() {
     }
 }
 
-window.onload = getInfo();
+function change(){
+    $.ajax({
+        url: "/BackgroundServlet",
+        type: "get",
+        datatype: "json",
+        data:{},
+        success:function (data) {
+            var text = eval(data);
+            // var content = document.getElementById("content");
+            // alert(content.style.backgroundImage);
+            $(".main").css("background-image","url("+'"'+text.img+'"'+")");
+            // var content = $("#content").attr("class");
+        }
+
+    })
+}
+
+window.onload = function () {
+    getInfo();
+    change();
+}

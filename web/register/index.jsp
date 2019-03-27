@@ -53,9 +53,13 @@
             <a href="" title=""><li class="clearfloat">发现</li></a>
             <a href="" title=""><li class="clearfloat">游戏</li></a>
         </ul>
-        <div class="header_search">
-            <input type="text" name="">
-            <i class="iconfont">&#xe600;</i>
+        <%--<div class="header_search">--%>
+            <%--<input type="text" name="">--%>
+            <%--<i class="iconfont">&#xe600;</i>--%>
+        <%--</div>--%>
+        <div class="search">
+            <input type="text" placeholder="搜索">
+            <div class="search_container"></div>
         </div>
         <div class="header_rank">
             <a href="" title="">
@@ -82,18 +86,24 @@
             <input id="pic_verification" type="text" name="checkCode" placeholder="请输入图形验证码" class="verification_text">
             <p id="pic_verification_collect" style="display: none;"></p>
 
-            <img src="${pageContext.request.contextPath}/checkCodeServlet" alt="img" id="img" class="verification_img">
+            <img src="${pageContext.request.contextPath}/checkCodeServlet" alt="img" id="img" class="verification_img" style="cursor: pointer">
 
-            <input id="password" type="password" name="password" placeholder="请输入密码" value="<%=request.getSession().getAttribute("password") == null ? "" : request.getSession().getAttribute("password")%>">
+            <div class="password_div_1">
+                <input id="password" type="password" name="password" placeholder="请输入密码" value="<%=request.getSession().getAttribute("password") == null ? "" : request.getSession().getAttribute("password")%>">
+                <i id="chakanmima_1" class="iconfont" onclick="chakan_1()">&#xe601;</i>
+            </div>
             <p id="password_collect" style="display: none;"></p>
 
-            <input id="password_again" type="password" name="password2" placeholder="请再次输入密码" value="<%=request.getSession().getAttribute("password2") == null ? "" : request.getSession().getAttribute("password2")%>">
+            <div class="password_div_2">
+                <input id="password_again" type="password" name="password2" placeholder="请再次输入密码" value="<%=request.getSession().getAttribute("password2") == null ? "" : request.getSession().getAttribute("password2")%>">
+                <i id="chakanmima_2" class="iconfont" onclick="chakan_2()">&#xe601;</i>
+            </div>
             <p id="password_again_collect" style="display: none;"></p>
 
             <input id="message_verification" type="text" name="sms" placeholder="请输入短信验证码" class="message_verification" value="<%=request.getSession().getAttribute("sms") == null ? "" : request.getSession().getAttribute("sms")%>">
             <p id="message_verification_collect" style="display: none;"></p>
 
-            <input id="" type="button" name="" value="点击获取" class="click" onclick="getSandSms()">
+            <input id="input_q" type="button" name="" value="点击获取" class="click" onclick="getSandSms();settime(this)">
             <p id="sms_collect" style="display: none;"></p>
 
             <div style="height:20px;width:200px;margin: 0 auto;text-align: center;"><%=request.getSession().getAttribute("regist_error") == null ? "" : request.getSession().getAttribute("regist_error")%></div>
@@ -115,5 +125,6 @@
 </html>
 
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
 
 <%--<script type="text/javascript" src="./js/index.js"></script>--%>

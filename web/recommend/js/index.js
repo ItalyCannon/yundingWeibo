@@ -44,6 +44,114 @@ var allAttention;
 
 var PageCode = 1;
 
+
+
+var img=document.querySelector(".banner_img");
+var right=document.querySelector(".arrow_right");
+var left=document.querySelector(".arrow_left");
+right.onclick=function(){
+    right_img();
+}
+left.onclick=function(){
+    left_img();
+}
+function right_img(){
+    index++;
+    if(index>5){
+        index=1;
+    }
+    showplay();
+    var newleft;
+    if(img.style.left == "-3740px"){
+        newleft=-748;
+    }
+    else{
+        newleft=parseInt(img.style.left)-748;
+    }
+    img.style.left=newleft+"px";
+}
+function left_img(){
+    index--;
+    if(index<0){
+        index=4;
+    }
+    showplay();
+    var newleft;
+    if(img.style.left == "0px"){
+        newleft=-2992;
+    }
+    else{
+        newleft=parseInt(img.style.left)+748;
+    }
+    img.style.left=newleft+"px";
+}
+//点击切换效果
+
+// setInterval("right_img()",1000);
+var i=null;
+function play(){
+    i=setInterval(function(){right_img();},3000);
+}
+play();
+
+var banner=document.querySelector(".banner");
+banner.onmouseover=function(){
+    clearInterval(i);
+}
+banner.onmouseleave=function(){
+    play();
+}
+//自动轮播效果
+
+function click1(){
+    var newleft2=parseInt(img.style.left);
+    newleft2=-748;
+    img.style.left=newleft2+"px";
+    index=1;
+    showplay();
+}
+function click2(){
+    var newleft2=parseInt(img.style.left);
+    newleft2=-1496;
+    img.style.left=newleft2+"px";
+    index=2;
+    showplay();
+}
+function click3(){
+    var newleft2=parseInt(img.style.left);
+    newleft2=-2244;
+    img.style.left=newleft2+"px";
+    index=3;
+    showplay();
+}
+function click4(){
+    var newleft2=parseInt(img.style.left);
+    newleft2=-2992;
+    img.style.left=newleft2+"px";
+    index=4;
+    showplay();
+}
+function click5(){
+    var newleft2=parseInt(img.style.left);
+    newleft2=-3740;
+    img.style.left=newleft2+"px";
+    index=5;
+    showplay();
+}
+//点击圆点切换效果
+
+var index=1;
+var dots=document.getElementsByTagName("input");
+function showplay(){
+    for(var s=0, len=dots.length;s<len;s++){
+        dots[s].className="";
+    }
+    dots[index].className="on";
+}
+//圆点跟随循环效果
+
+
+
 function showWeibo() {
     var url = '/ShowAllWeiboServlet?pc=' + PageCode;
     $.ajax({
@@ -455,8 +563,26 @@ function attention(userId) {
     })
 }
 
+function change(){
+    $.ajax({
+        url: "/BackgroundServlet",
+        type: "get",
+        datatype: "json",
+        data:{},
+        success:function (data) {
+            var text = eval(data);
+            var content = document.getElementById("content");
+            // alert(content.style.backgroundImage);
+            $(".content").css("background-image","url("+'"'+text.img+'"'+")");
+            // var content = $("#content").attr("class");
+        }
+
+    })
+}
+
 window.onload = function () {
     baseInfo();
+    change();
     getPraise();
     getAttention();
     showWeibo();

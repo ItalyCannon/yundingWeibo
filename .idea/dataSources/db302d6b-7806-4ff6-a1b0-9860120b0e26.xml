@@ -1370,193 +1370,198 @@ comment_id</ColNames>
       <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="335" parent="286" name="PRIMARY">
+    <column id="335" parent="286" name="background">
+      <Position>21</Position>
+      <DataType>mediumtext|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="336" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="336" parent="287" name="user_id">
+    <column id="337" parent="287" name="user_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="287" name="target_id">
+    <column id="338" parent="287" name="target_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="287" name="type">
+    <column id="339" parent="287" name="type">
       <Position>3</Position>
       <DataType>tinyint(1) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="287" name="attention_time">
+    <column id="340" parent="287" name="attention_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="287" name="attention_group">
+    <column id="341" parent="287" name="attention_group">
       <Position>5</Position>
       <DataType>varchar(8)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="341" parent="287" name="PRIMARY">
+    <key id="342" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id
 target_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="342" parent="288" name="comment_id">
+    <column id="343" parent="288" name="comment_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="288" name="comment_content">
+    <column id="344" parent="288" name="comment_content">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="288" name="comment_praise">
+    <column id="345" parent="288" name="comment_praise">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="288" name="comment_time">
+    <column id="346" parent="288" name="comment_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="288" name="user_id">
+    <column id="347" parent="288" name="user_id">
       <Position>5</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="288" name="weibo_id">
+    <column id="348" parent="288" name="weibo_id">
       <Position>6</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="288" name="parent">
+    <column id="349" parent="288" name="parent">
       <Position>7</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="349" parent="288" name="PRIMARY">
+    <key id="350" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>comment_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="350" parent="289" name="weibo_id">
+    <column id="351" parent="289" name="weibo_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="289" name="weibo_content">
+    <column id="352" parent="289" name="weibo_content">
       <Position>2</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="289" name="photo">
+    <column id="353" parent="289" name="photo">
       <Position>3</Position>
       <DataType>mediumtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="289" name="repost_num">
+    <column id="354" parent="289" name="repost_num">
       <Position>4</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="289" name="collect_num">
+    <column id="355" parent="289" name="collect_num">
       <Position>5</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="289" name="praise_num">
+    <column id="356" parent="289" name="praise_num">
       <Position>6</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="289" name="user_id">
+    <column id="357" parent="289" name="user_id">
       <Position>7</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="289" name="create_time">
+    <column id="358" parent="289" name="create_time">
       <Position>8</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="289" name="is_origin">
+    <column id="359" parent="289" name="is_origin">
       <Position>9</Position>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="359" parent="289" name="PRIMARY">
+    <key id="360" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>weibo_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="360" parent="290" name="id">
+    <column id="361" parent="290" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="290" name="user_id">
+    <column id="362" parent="290" name="user_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="290" name="weibo_id">
+    <column id="363" parent="290" name="weibo_id">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="290" name="praise_time">
+    <column id="364" parent="290" name="praise_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="364" parent="290" name="PRIMARY">
+    <key id="365" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="365" parent="291" name="id">
+    <column id="366" parent="291" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="291" name="user_id">
+    <column id="367" parent="291" name="user_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="291" name="weibo_id">
+    <column id="368" parent="291" name="weibo_id">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="291" name="repost_time">
+    <column id="369" parent="291" name="repost_time">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="369" parent="291" name="PRIMARY">
+    <key id="370" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

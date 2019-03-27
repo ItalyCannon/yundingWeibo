@@ -41,6 +41,15 @@ public class User {
     private String profilePicture;
     private String attentionGroup;
     private String verifyCode;
+    private String background;
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
+    }
 
     public User() {
     }

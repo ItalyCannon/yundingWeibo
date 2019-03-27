@@ -28,6 +28,9 @@ public class SandSmsServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         //获取手机号码
         String callphone = request.getParameter("loginId");
+        if (callphone == null || "".equals(callphone)) {
+            return;
+        }
         //发送短信验证码
         //指定模板单发
         String sid = "084e8dcdeffa72d00dc44cc6958a65bc";

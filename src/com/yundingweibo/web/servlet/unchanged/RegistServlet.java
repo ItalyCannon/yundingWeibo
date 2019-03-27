@@ -70,6 +70,7 @@ public class RegistServlet extends HttpServlet {
                             registUser.setLoginId(registId);
                             registUser.setPassword(password);
                             registUser.setProfilePicture("https://www.baidu.com/img/dong1_dd071b75788996a161c3964d450fcd8c.gif");
+                            registUser.setBackground("http://imglf0.ph.126.net/JArhqEUDh35nRkxLlFua4A==/6630333291932199435.png");
                             new UserService().addUser(registUser);
                             //注册成功，存储数据
                             session.setAttribute("user", registUser);

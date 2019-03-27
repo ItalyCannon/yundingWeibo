@@ -21,22 +21,14 @@
             </div>
         </div>
         <ul class="header_ul">
-            <a href="" title="">
-                <li class="clearfloat">首页</li>
-            </a>
-            <a href="" title="">
-                <li class="clearfloat">视频</li>
-            </a>
-            <a href="" title="">
-                <li class="clearfloat">发现</li>
-            </a>
-            <a href="" title="">
-                <li class="clearfloat">游戏</li>
-            </a>
+            <a href="" title=""><li class="clearfloat">首页</li></a>
+            <a href="" title=""><li class="clearfloat">视频</li></a>
+            <a href="" title=""><li class="clearfloat">发现</li></a>
+            <a href="" title=""><li class="clearfloat">游戏</li></a>
         </ul>
-        <div class="header_search">
-            <input type="text" name="">
-            <i class="iconfont">&#xe600;</i>
+        <div class="search">
+            <input type="text" placeholder="搜索">
+            <div class="search_container"></div>
         </div>
         <div class="header_rank">
             <a href="" title="">
@@ -45,15 +37,18 @@
             </a>
         </div>
         <div class="header_register">
-            <a href="" title="" class="register_p1"><p>登录</p></a>
+            <a href="/login" title="" class="register_p1"><p>登录</p></a>
             <p class="register_string"></p>
-            <a href="/register" title="" class="register_p2"><p>注册</p></a>
+            <a href="" title="" class="register_p2"><p>注册</p></a>
         </div>
     </div>
 </div>
 
 <div class="main">
     <div class="public_container">
+
+        <a href="/register"><div class="div_1">注册</div></a>
+
         <div class="content">
             <p class="title">用户登录</p>
 
@@ -61,13 +56,15 @@
             <p id="phonenumber_collect" style="display: none;"></p>
 
             <input id="password" type="password" name="" placeholder="请输入密码">
-            <i id="icon1" class="iconfont">&#xe600;</i>
+            <i id="icon1" class="iconfont" onclick="chakan()">&#xe601;</i>
             <p id="password_collect" style="display: none;"></p>
 
             <input id="button" type="submit" name="" value="登录" class="submit" onclick="fun();">
 
             <p id="msg"></p>
         </div>
+
+        <a href="/retrieve"><div class="div_1">找回</div></a>
 
     </div>
 </div>

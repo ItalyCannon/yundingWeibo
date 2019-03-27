@@ -25,7 +25,9 @@
     position: fixed;
     top: 0;
     z-index: 100;
+    background-color: rgb(255,255,255,0.8);
 }
+
 
 .header_logo {
     width: 100px;
@@ -56,27 +58,137 @@
     color: #000;
 }
 
-.header_search {
-    width: 300px;
-    height: 36px;
+.public_header .search{
+    height: 60px;
+    position: relative;
+    width: 200px;
+    display: inline-block;
+    margin-left: 36px;
+    /*vertical-align: top;*/
+    /*margin-top: 40px;*/
     display: inline-block;
     vertical-align: top;
-    margin-top: 8px;
-    margin-left: 80px;
-    position: relative;
+    margin-top: -4px;
+    /*margin-right: 3%;*/
+    /*vertical-align: middle;*/
+    opacity: 0.5;
 }
 
-.header_search input {
-    width: 300px;
-    height: 30px;
-    outline: none;
-}
-
-.header_search .iconfont {
+.public_header .search_container{
     position: absolute;
-    right: 12px;
-    top: 8px;
-    font-size: 20px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    /*box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);*/
+}
+
+.public_header .search_container{
+    cursor: pointer;
+}
+
+.public_header .search_container::before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 10px;
+    bottom: 0;
+    left: 10px;
+    right: 0;
+    width: 6px;
+    height: 2px;
+    background-color: #000;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+
+.public_header .search_container::after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -3px;
+    right: 0;
+    bottom: 0;
+    left: -3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    transition: all .5s;
+}
+
+
+
+.public_header .search input {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    width: 40px;
+    padding: 0 42px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    border-bottom: 2px solid transparent;
+    background-color: #224584;
+    color: #fff;
+    /*transition: 3s cubic-bezier(0, 0.8, 0, 1);*/
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    /*font-weight: bold;*/
+    font-size: 12px;
+    box-shadow: 0 0 5px 0 #224584, 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.public_header .search input:hover {
+    cursor: pointer;
+}
+
+.public_header .search input:focus {
+    width: 120px;
+    opacity: 0.7;
+    cursor: text;
+}
+
+.public_header .search input:focus ~ .search_container{
+    right: -150px;
+    background-color: #e5e6eb;
+    z-index: 6;
+    border-color: #e5e6eb;
+}
+
+.public_header .search input:focus ~ .search_container{
+    /*opacity: 0;*/
+}
+
+.public_header .search input:focus ~ .search_container::before{
+    top: 0;
+    left: 0;
+    width: 14px;
+    background-color: #224584;
+}
+
+.public_header .search input:focus ~ .search_container::after{
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 2px;
+    border: none;
+    background-color: #224584;
+    border-radius: 0%;
+    transform: rotate(-45deg);
 }
 
 .header_rank {
@@ -85,7 +197,7 @@
     display: inline-block;
     vertical-align: top;
     margin-top: 10px;
-    margin-left: 80px;
+    margin-left: 120px;
 }
 
 .header_rank .iconfont {
@@ -98,40 +210,35 @@
     margin-left: 5px;
 }
 
-.header_rank a {
+.header_rank a{
     color: #000;
 }
 
-.header_register {
-    width: 100px;
-    height: 34px;
+.header_register{
+    width: 120px;
+    height: 22px;
     display: inline-block;
     position: absolute;
-    top: 10px;
+    top: 16px;
     right: 0;
 }
 
-.header_register .portrait {
-    width: 34px;
-    height: 34px;
-    border-radius: 50px;
+.header_register p{
     display: inline-block;
 }
 
-.header_register .modify {
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    background-color: #224584;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 24px;
+.header_register .register_string{
+    width: 0;
+    height: 15px;
+    border-left: 2px solid #C0C0C0;
 }
 
-.header_register .modify .iconfont {
-    font-size: 18px;
-    color: #fff;
+.header_register .register_p1{
+    color: #224584;
+}
+
+.header_register .register_p2{
+    color: #000;
 }
 
 

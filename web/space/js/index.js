@@ -331,8 +331,43 @@ function getInfo() {
     })
 }
 
+function change(){
+    $.ajax({
+        url: "/BackgroundServlet",
+        type: "get",
+        datatype: "json",
+        data:{},
+        success:function (data) {
+            var text = eval(data);
+            var content = document.getElementById("content");
+            // alert(content.style.backgroundImage);
+            $(".content").css("background-image","url("+'"'+text.img+'"'+")");
+            // var content = $("#content").attr("class");
+        }
+
+    })
+}
+
+function change(){
+    $.ajax({
+        url: "/BackgroundServlet",
+        type: "get",
+        datatype: "json",
+        data:{},
+        success:function (data) {
+            var text = eval(data);
+            // var background = document.getElementById("background");
+            // alert(content.style.backgroundImage);
+            $(".background").css("background-image","url("+'"'+text.img+'"'+")");
+            // var content = $("#content").attr("class");
+        }
+
+    })
+}
+
 window.onload = function () {
     baseInfo();
+    change();
     getPraise();
     showWeibo();
     getInfo();

@@ -31,15 +31,27 @@ var burst = new mojs.Burst({
 }).replay();
 
 
-$("#icon1").click(function () {
+// $("#icon1").click(function () {
+// //     var password = document.getElementById("password");
+// //     if (password.type == "password") {
+// //         password.setAttribute("type", "text");
+// //     } else {
+// //         password.setAttribute("type", "password");
+// //     }
+// // });
+
+function chakan() {
     var password = document.getElementById("password");
-    if (password.type == "password") {
+    var mima = document.getElementById("icon1");
+    if(password.type == "password") {
+        mima.innerHTML = "&#xe6a1;";
         password.setAttribute("type", "text");
-    } else {
+    }else{
+        mima.innerHTML = "&#xe601;";
         password.setAttribute("type", "password");
     }
-});
-
+}
+//ResetPasswordServlet
 function fun() {
     var phone = $("#phonenumber").val();
     var pwd = $("#password").val();
