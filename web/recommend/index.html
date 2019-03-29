@@ -6,8 +6,23 @@
     <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./css/iconfont2.css">
 </head>
 <body>
+
+<div id="bg" onclick="disappear()"></div>
+
+<div id="introduce" onclick="disappear()">
+    <p class="title">个人信息</p>
+    <i class="iconfont"></i>
+    <div><p class="introduce_name">昵称</p><p id="introduceName">zsy</p></div>
+    <div><p class="introduce_sex">性别</p><p id="introduceSex">man</p></div>
+    <div><p class="introduce_age">年龄</p><p id="introduceAge">19</p></div>
+    <div><p class="introduce_birthday">生日</p><p id="introduceBirthday">1.1</p></div>
+    <div><p class="introduce_place">所在地</p><p id="introducePlace">zzz</p></div>
+</div>
+
+<div id="return" class="return"><i class="iconfont">&#xe605;</i></div>
 
 <div class="public_header">
     <div class="public_container">
@@ -17,25 +32,35 @@
             </div>
         </div>
         <ul class="header_ul">
-            <a href="" title=""><li class="clearfloat">首页</li></a>
-            <a href="" title=""><li class="clearfloat">视频</li></a>
-            <a href="" title=""><li class="clearfloat">发现</li></a>
-            <a href="" title=""><li class="clearfloat">游戏</li></a>
+            <a href="/recommend" title="">
+                <li class="clearfloat">首页</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">视频</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">发现</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">游戏</li>
+            </a>
         </ul>
         <div class="search">
             <input type="text" placeholder="搜索">
             <div class="search_container"></div>
         </div>
-        <div class="header_rank">
-            <a href="" title="">
-                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+
+        <div class="header_rank" onclick="show_list()" style="cursor: pointer">
+            <a href="/list" title="">
+                <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <a href="/login" title="" class="register_p1"><p>登录</p></a>
-            <p class="register_string"></p>
-            <a href="" title="" class="register_p2"><p>注册</p></a>
+            <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
+            <a href=""><div class="modify">
+                <i class="iconfont">&#xe64d;</i>
+            </div></a>
         </div>
     </div>
 </div>
@@ -179,4 +204,5 @@
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 
 <script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/index2.js"></script>
 </html>

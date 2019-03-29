@@ -60,27 +60,32 @@ function getInfo() {
             $("#nicknameRight").attr("value", data.nickname);
             $("#realName").attr("value", data.realName);
             var gender = data.gender;
-            switch (gender) {
-                case 0:
-                    $("#gender option[value='0']").attr("selected", true);
-                    break;
-                case 1:
-                    $("#gender option[value='1']").attr("selected", true);
-                    break;
-                case 2:
-                    $("#gender option[value='2']").attr("selected", true);
-                    break;
-                default:
+            if (gender !== undefined || gender != null) {
+                switch (gender) {
+                    case 0:
+                        $("#gender option[value='0']").attr("selected", true);
+                        break;
+                    case 1:
+                        $("#gender option[value='1']").attr("selected", true);
+                        break;
+                    case 2:
+                        $("#gender option[value='2']").attr("selected", true);
+                        break;
+                    default:
+                }
             }
 
             $("#location").html(data.location);
             var location = data.location;
-            var strings = location.split("-");
-            $("#province option[value=" + strings[0] + "]").attr("selected", true);
-            //触发onchange事件
-            $('#province').trigger('change');
-            $("#city option[value=" + strings[1] + "]").attr("selected", true);
+            if (location !== undefined && location != null && location !== "" && location.trim() !== "-") {
+                var strings = location.split("-");
 
+                $("#province option[value=" + strings[0] + "]").attr("selected", true);
+                //触发onchange事件
+                $('#province').trigger('change');
+                $("#city option[value=" + strings[1] + "]").attr("selected", true);
+
+            }
             var sexualOrientation = data.sexualOrientation;
             switch (sexualOrientation) {
                 case 0:
@@ -109,7 +114,7 @@ function getInfo() {
                 default:
             }
 
-            if (data.formatBirthday != undefined || data.formatBirthday != null || data.formatBirthday != "") {
+            if (data.formatBirthday !== undefined || data.formatBirthday != null || data.formatBirthday != "") {
                 var split = data.formatBirthday.split("-");
                 for (var m = 1; m < split.length; ++m) {
                     if (split[m][0] == "0") {
@@ -188,17 +193,17 @@ function query() {
     });
 }
 
-function change(){
+function change() {
     $.ajax({
         url: "/BackgroundServlet",
         type: "get",
         datatype: "json",
-        data:{},
-        success:function (data) {
+        data: {},
+        success: function (data) {
             var text = eval(data);
             // var content = document.getElementById("content");
             // alert(content.style.backgroundImage);
-            $(".main").css("background-image","url("+'"'+text.img+'"'+")");
+            $(".main").css("background-image", "url(" + '"' + text.img + '"' + ")");
             // var content = $("#content").attr("class");
         }
 
@@ -391,8 +396,8 @@ function GetProvince() {
     }
 }
 
-$(document).ready(function(){
-    $('#select').click(function(){
+$(document).ready(function () {
+    $('#select').click(function () {
         $('#img_upload').click();
     });
 });

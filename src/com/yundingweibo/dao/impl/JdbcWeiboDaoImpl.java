@@ -6,14 +6,15 @@ import com.yundingweibo.dao.DaoFactory;
 import com.yundingweibo.dao.UserDao;
 import com.yundingweibo.dao.WeiboDao;
 import com.yundingweibo.dao.impl.daoutil.DaoUtil;
-import com.yundingweibo.domain.*;
+import com.yundingweibo.domain.Comment;
+import com.yundingweibo.domain.PageBean;
+import com.yundingweibo.domain.User;
+import com.yundingweibo.domain.Weibo;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * 这个类其实写的不好，dao层的逻辑太多了，但是现在已经没法改了
@@ -42,8 +43,11 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     private void addCommentToBean(Weibo weibo) {
         List<Comment> comment = getTree(weibo.getWeiboId());
         for (Comment c : comment) {
+            c.setNickname(userDao.getUserNickname(c.getUserId()));
             c.setProfilePicture(userDao.getUser(c.getUserId()).getProfilePicture());
+            c.setCommentPraise(getCommentPraiseNum(c));
         }
+        comment.sort((o1, o2) -> o2.getCommentTime().compareTo(o1.getCommentTime()));
         weibo.setCommentNum(comment.size());
         weibo.setComments(comment);
     }
@@ -52,6 +56,8 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         String sql = "select * from weibo_comment where weibo_id=? and parent=0";
         List<Comment> treeList = DaoUtil.toBean(Comment.class, sql, weiboId);
         for (Comment root : treeList) {
+            sql = "select count(*) from comment_praise where comment_id=?";
+            DaoUtil.getObject(sql, root.getCommentId());
             addTree(root, weiboId);
         }
         return treeList;
@@ -65,10 +71,26 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
                 parent.setChildren(new ArrayList<>());
             }
             for (Comment temp : childComment) {
+                User user = userDao.getUser(temp.getUserId());
+                temp.setProfilePicture(user.getProfilePicture());
+                temp.setNickname(user.getNickname());
+
+                int num = getCommentPraiseNum(temp);
+                temp.setCommentPraise(num);
                 parent.getChildren().add(temp);
                 addTree(temp, weiboId);
             }
         }
+    }
+
+    private int getCommentPraiseNum(Comment temp) {
+        String sql = "select count(*) from comment_praise where comment_id=?";
+        Long object = (Long) DaoUtil.getObject(sql, temp.getCommentId());
+        int num = 0;
+        if (object != null) {
+            num = object.intValue();
+        }
+        return num;
     }
 
     /**
@@ -303,8 +325,6 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             connection = DaoUtil.beginTransaction();
             sql = "insert into comment_praise(user_id,comment_id) values(?,?)";
             DaoUtil.query(connection, sql, user.getUserId(), comment.getCommentId());
-            sql = "update weibo_comment set comment_praise=comment_praise+1 where comment_id=?";
-            DaoUtil.query(connection, sql, comment.getCommentId());
             DaoUtil.commitTransaction();
         } catch (Exception e) {
             try {
@@ -327,9 +347,27 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     @Override
     public void addComment(Weibo weibo, Comment comment, User user) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String format = df.format(new Date());
+        String format = df.format(comment.getCommentTime());
         String sql = "insert into weibo_comment(comment_content,comment_time,user_id,weibo_id,parent) values(?,?,?,?,0)";
         DaoUtil.query(sql, comment.getCommentContent(), format, user.getUserId(), weibo.getWeiboId());
+    }
+
+    /**
+     * 获取commentId对应的Comment
+     *
+     * @param comment .
+     * @return .
+     */
+    @Override
+    public Comment findComment(Comment comment) {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = df.format(comment.getCommentTime());
+        String sql = "select * from weibo_comment where comment_time=? and user_id";
+        Comment comment1 = DaoUtil.toBeanSingle(Comment.class, sql, format, comment.getUserId());
+        if (comment1 != null) {
+            comment1.setNickname(userDao.getUserNickname(comment1.getUserId()));
+        }
+        return comment1;
     }
 
     /**
@@ -340,8 +378,10 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      */
     @Override
     public void addReply(Comment comment, Comment replyComment, User user) {
-        String sql = "insert into weibo_comment(comment_content,comment_time,user_id,weibo_id,parent) values(?,now(),?,?,?)";
-        DaoUtil.query(sql, replyComment.getCommentContent(), user.getUserId(), comment.getWeiboId(), comment.getCommentId());
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = df.format(replyComment.getCommentTime());
+        String sql = "insert into weibo_comment(comment_content,comment_time,user_id,weibo_id,parent) values(?,?,?,?,?)";
+        DaoUtil.query(sql, replyComment.getCommentContent(), format, user.getUserId(), comment.getWeiboId(), comment.getCommentId());
     }
 
     @Override
@@ -409,8 +449,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     @Override
     public List<Comment> showCommentSend(User user) {
         String sql = "select * from weibo_comment where user_id=? order by comment_time desc";
-        List<Comment> comments = DaoUtil.toBean(Comment.class, sql, user.getUserId());
-        return comments;
+        return DaoUtil.toBean(Comment.class, sql, user.getUserId());
     }
 
     /**

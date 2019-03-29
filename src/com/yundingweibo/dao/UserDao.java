@@ -130,8 +130,24 @@ public interface UserDao {
 
     /**
      * sessionUser关注targetUser
+     *
      * @param sessionUser .
-     * @param targetUser .
+     * @param targetUser  .
      */
     void addAttention(User sessionUser, User targetUser);
+
+    /**
+     * 修改sessionUser的背景图
+     *
+     * @param sessionUser .
+     */
+    void queryBackground(User sessionUser);
+
+    /**
+     * 查询sessionUser的背景图
+     *
+     * @param sessionUser .
+     * @return .
+     */
+    String findBackgroundURL(User sessionUser);
 }

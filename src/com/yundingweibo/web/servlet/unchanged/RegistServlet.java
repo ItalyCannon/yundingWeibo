@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * Description:
@@ -69,8 +71,11 @@ public class RegistServlet extends HttpServlet {
                         try {
                             registUser.setLoginId(registId);
                             registUser.setPassword(password);
+                            registUser.setRealName("");
                             registUser.setProfilePicture("https://www.baidu.com/img/dong1_dd071b75788996a161c3964d450fcd8c.gif");
-                            registUser.setBackground("http://imglf0.ph.126.net/JArhqEUDh35nRkxLlFua4A==/6630333291932199435.png");
+                            registUser.setBackground("");
+                            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                            registUser.setBirthday(df.parse("2000-01-01"));
                             new UserService().addUser(registUser);
                             //注册成功，存储数据
                             session.setAttribute("user", registUser);

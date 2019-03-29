@@ -11,31 +11,41 @@
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo" onclick="" style="cursor: pointer;">
+        <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
             <div class="header_logo">
                 <img class="logo" src="./img/logo.png" alt="">
             </div>
         </div>
         <ul class="header_ul">
-            <a href="" title=""><li class="clearfloat">首页</li></a>
-            <a href="" title=""><li class="clearfloat">视频</li></a>
-            <a href="" title=""><li class="clearfloat">发现</li></a>
-            <a href="" title=""><li class="clearfloat">游戏</li></a>
+            <a href="/recommend" title="">
+                <li class="clearfloat">首页</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">视频</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">发现</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">游戏</li>
+            </a>
         </ul>
         <div class="search">
             <input type="text" placeholder="搜索">
             <div class="search_container"></div>
         </div>
-        <div class="header_rank">
-            <a href="" title="">
-                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+
+        <div class="header_rank" onclick="show_list()" style="cursor: pointer">
+            <a href="/list" title="">
+                <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <a href="/login" title="" class="register_p1"><p>登录</p></a>
-            <p class="register_string"></p>
-            <a href="" title="" class="register_p2"><p>注册</p></a>
+            <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
+            <a href=""><div class="modify">
+                <i class="iconfont">&#xe64d;</i>
+            </div></a>
         </div>
     </div>
 </div>
@@ -44,15 +54,18 @@
     <div class="public_container">
 
         <div class="banner">
-            <img src="" alt="img" class="portrait" id="profilePicture" onclick="loadDetail()" style="cursor: pointer">
-            <p class="name" id="nickname"> </p>
-            <p class="text" id="signature"> </p>
+            <img src="http://img2.imgtn.bdimg.com/it/u=709719402,2342754533&amp;fm=214&amp;gp=0.jpg" class="background">
+            <div class="banner_part">
+                <img src="" alt="img" class="portrait" id="profilePicture" onclick="loadDetail()" style="cursor: pointer">
+                <p class="name" id="nickname"> </p>
+                <p class="text" id="signature"> </p>
+            </div>
         </div>
 
         <div class="title">
-            <p class="part_1">我的主页</p>
-            <p class="part_2">我的相册</p>
-            <p class="part_3">管理中心</p>
+            <p class="part part_1">我的主页</p>
+            <p class="part part_2">我的相册</p>
+            <p class="part part_3">管理中心</p>
         </div>
 
         <div class="left">
@@ -61,7 +74,7 @@
                 <div class="message">
                     <p class="attention" onclick="load_attention()" style="cursor: pointer"><span id="subscribeNum"> </span><br/>关注</p>
                     <p class="fans" onclick="load_fans()" style="cursor: pointer"><span id="fansNum"> </span><br/>粉丝</p>
-                    <p class="microblog"><span id="weiboNum"> </span><br/>微博</p>
+                    <p class="microblog" onclick="load_fans()"><span id="weiboNum"> </span><br/>微博</p>
                 </div>
             </div>
 
@@ -74,16 +87,16 @@
             </div>
 
             <!--<div class="images">-->
-                <!--<p class="title">相册</p>-->
-                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="big">-->
-                <!--<div class="two">-->
-                    <!--<img src="./img/header_register_portrait.jpg" alt="img" class="two_img_1">-->
-                    <!--<img src="./img/header_register_portrait.jpg" alt="img" class="two_img_2">-->
-                <!--</div>-->
-                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_1">-->
-                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_2">-->
-                <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_3">-->
-                <!--<p class="more">查看更多</p>-->
+            <!--<p class="title">相册</p>-->
+            <!--<img src="./img/header_register_portrait.jpg" alt="img" class="big">-->
+            <!--<div class="two">-->
+            <!--<img src="./img/header_register_portrait.jpg" alt="img" class="two_img_1">-->
+            <!--<img src="./img/header_register_portrait.jpg" alt="img" class="two_img_2">-->
+            <!--</div>-->
+            <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_1">-->
+            <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_2">-->
+            <!--<img src="./img/header_register_portrait.jpg" alt="img" class="imgs img_3">-->
+            <!--<p class="more">查看更多</p>-->
             <!--</div>-->
 
         </div>
@@ -91,13 +104,13 @@
         <div class="right">
 
             <div class="middle">
-                <p class="item">全部</p>
-                <p>热门</p>
-                <p>原创</p>
-                <p>图片</p>
-                <p>视频</p>
-                <p>文章</p>
-                <p>标签</p>
+                <a href=""><p class="item">全部</p></a>
+                <a href=""><p>热门</p></a>
+                <a href=""><p>原创</p></a>
+                <a href=""><p>图片</p></a>
+                <a href=""><p>视频</p></a>
+                <a href=""><p>文章</p></a>
+                <a href=""><p>标签</p></a>
                 <div class="search">
                     <input type="text" name="" placeholder="搜索我的微博">
                     <i class="iconfont">&#xe600;</i>

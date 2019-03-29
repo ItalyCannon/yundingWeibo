@@ -30,29 +30,20 @@ var burst = new mojs.Burst({
     }
 }).replay();
 
-
-// $("#icon1").click(function () {
-// //     var password = document.getElementById("password");
-// //     if (password.type == "password") {
-// //         password.setAttribute("type", "text");
-// //     } else {
-// //         password.setAttribute("type", "password");
-// //     }
-// // });
-
 function chakan() {
     var password = document.getElementById("password");
     var mima = document.getElementById("icon1");
-    if(password.type == "password") {
+    if (password.type == "password") {
         mima.innerHTML = "&#xe6a1;";
         password.setAttribute("type", "text");
-    }else{
+    } else {
         mima.innerHTML = "&#xe601;";
         password.setAttribute("type", "password");
     }
 }
-//ResetPasswordServlet
+
 function fun() {
+    document.getElementById('topImgToPreventClick').style.display = 'block';
     var phone = $("#phonenumber").val();
     var pwd = $("#password").val();
     $.ajax({
@@ -70,7 +61,19 @@ function fun() {
                 return;
             }
             window.location.href = eval1.path;
-            alert(eval1.msg);
         }
     })
 }
+
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        document.getElementById('topImgToPreventClick').style.display = 'none';
+    }
+};
+
+document.onkeydown = function (event) {
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if (e && e.keyCode == 13) {
+        fun();
+    }
+};

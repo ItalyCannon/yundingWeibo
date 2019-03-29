@@ -1,7 +1,7 @@
 package com.yundingweibo.web.servlet;
 
-import com.yundingweibo.dao.impl.daoutil.DaoUtil;
 import com.yundingweibo.domain.User;
+import com.yundingweibo.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "com.yundingweibo.web.servlet.BackgroundServlet", urlPatterns = "/com.yundingweibo.web.servlet.BackgroundServlet")
+@WebServlet(name = "BackgroundServlet", urlPatterns = "/BackgroundServlet")
 public class BackgroundServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,10 +29,15 @@ public class BackgroundServlet extends HttpServlet {
         }
 
         String json;
+        UserService userService = new UserService();
         if (sessionUser.getBackground() == null || "".equals(sessionUser.getBackground())) {
-            String sql = "select background from user_info where user_id=?";
-            String background = (String) DaoUtil.getObject(sql, sessionUser.getUserId());
-            sessionUser.setBackground(background);
+            sessionUser.setBackground(userService.findBackgroundURL(sessionUser));
+        }
+
+        String url = request.getParameter("url");
+        if (url != null) {
+            sessionUser.setBackground(url);
+            userService.queryBackground(sessionUser);
         }
 
         String background = sessionUser.getBackground();

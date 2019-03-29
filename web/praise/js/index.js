@@ -129,6 +129,11 @@ function showWeibo() {
                 document.getElementById(ids[k]).innerHTML = messages[k];
             }
 
+            var main = document.getElementById("main");
+            if(main.offsetHeight <= "730"){
+                main.style.height = "730px";
+            }
+
         },
         async: false
     });
@@ -347,10 +352,19 @@ function change(){
     })
 }
 
+function height(){
+    var main = document.getElementById("main");
+    var blog = document.getElementById("blog");
+    if(main.offsetHeight >= "1130"){
+        blog.style.marginBottom = '50px';
+        // alert(main.offsetHeight);
+    }
+}
 
 window.onload = function () {
     baseInfo();
     change();
     getPraise();
     showWeibo();
+    height();
 };

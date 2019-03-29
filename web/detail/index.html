@@ -11,31 +11,41 @@
 
 <div class="public_header">
     <div class="public_container">
-        <div class="header_logo" onclick="" style="cursor: pointer;">
+        <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
             <div class="header_logo">
                 <img class="logo" src="./img/logo.png" alt="">
             </div>
         </div>
         <ul class="header_ul">
-            <a href="" title=""><li class="clearfloat">首页</li></a>
-            <a href="" title=""><li class="clearfloat">视频</li></a>
-            <a href="" title=""><li class="clearfloat">发现</li></a>
-            <a href="" title=""><li class="clearfloat">游戏</li></a>
+            <a href="/recommend" title="">
+                <li class="clearfloat">首页</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">视频</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">发现</li>
+            </a>
+            <a href="" title="">
+                <li class="clearfloat">游戏</li>
+            </a>
         </ul>
         <div class="search">
             <input type="text" placeholder="搜索">
             <div class="search_container"></div>
         </div>
-        <div class="header_rank">
-            <a href="" title="">
-                <a href="" title=""><i class="iconfont">&#xe665;</i></a>
+
+        <div class="header_rank" onclick="show_list()" style="cursor: pointer">
+            <a href="/list" title="">
+                <a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
                 <p class="rank_text">排行榜</p>
             </a>
         </div>
         <div class="header_register">
-            <a href="/login" title="" class="register_p1"><p>登录</p></a>
-            <p class="register_string"></p>
-            <a href="" title="" class="register_p2"><p>注册</p></a>
+            <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
+            <a href=""><div class="modify">
+                <i class="iconfont">&#xe64d;</i>
+            </div></a>
         </div>
     </div>
 </div>

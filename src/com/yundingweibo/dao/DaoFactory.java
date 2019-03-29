@@ -50,4 +50,14 @@ public class DaoFactory {
             throw new RuntimeException(e);
         }
     }
+
+    public static RootDao getRootDao() {
+        try {
+            String className = properties.getProperty("WeiboDaoimpl");
+            Class clazz = Class.forName(className);
+            return (RootDao) clazz.newInstance();
+        } catch (IllegalAccessException | ClassNotFoundException | InstantiationException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

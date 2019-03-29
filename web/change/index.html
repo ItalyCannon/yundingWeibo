@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>更换皮肤</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+</head>
+<body>
+
+<div class="public_header">
+	<div class="public_container">
+		<div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
+			<div class="header_logo">
+				<img class="logo" src="./img/logo.png" alt="">
+			</div>
+		</div>
+		<ul class="header_ul">
+			<a href="/recommend" title="">
+				<li class="clearfloat">首页</li>
+			</a>
+			<a href="" title="">
+				<li class="clearfloat">视频</li>
+			</a>
+			<a href="" title="">
+				<li class="clearfloat">发现</li>
+			</a>
+			<a href="" title="">
+				<li class="clearfloat">游戏</li>
+			</a>
+		</ul>
+		<div class="search">
+			<input type="text" placeholder="搜索">
+			<div class="search_container"></div>
+		</div>
+
+		<div class="header_rank" onclick="show_list()" style="cursor: pointer">
+			<a href="/list" title="">
+				<a href="/list" title=""><i class="iconfont">&#xe665;</i></a>
+				<p class="rank_text">排行榜</p>
+			</a>
+		</div>
+		<div class="header_register">
+			<img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
+			<a href=""><div class="modify">
+				<i class="iconfont">&#xe64d;</i>
+			</div></a>
+		</div>
+	</div>
+</div>
+
+	<div class="main">
+		<div class="public_container">
+			<div class="content">
+
+				<p class="title">更换皮肤</p>
+
+				<img id="img1" src="http://img.zcool.cn/community/01701c56f38be632f875a944cd8b6b.jpg@900w_1l_2o_100sh.jpg" alt="" class="img img1" onclick="click1()">
+					<!-- <div class="img1_div"></div> -->
+				<img id="img2" src="http://img3.imgtn.bdimg.com/it/u=1120424162,3882128873&fm=26&gp=0.jpg" alt="" class="img img2" onclick="click2()">
+				<img id="img3" src="http://img0.imgtn.bdimg.com/it/u=3575242220,441152374&fm=26&gp=0.jpg" alt="" class="img img3" onclick="click3()">
+				<img id="img4" src="http://img2.imgtn.bdimg.com/it/u=1385491242,160790180&fm=26&gp=0.jpg" alt="" class="img img4" onclick="click4()">
+				<img id="img5" src="http://img3.imgtn.bdimg.com/it/u=1164475243,2902704032&fm=26&gp=0.jpg" alt="" class="img img5" onclick="click5()">
+				<img id="img6" src="http://img1.imgtn.bdimg.com/it/u=4000894630,3534362533&fm=26&gp=0.jpg" alt="" class="img img6" onclick="click6()">
+				<img id="img7" src="http://img3.imgtn.bdimg.com/it/u=662754736,1029562199&fm=26&gp=0.jpg" alt="" class="img img7" onclick="click7()">
+				<img id="img8" src="http://img2.imgtn.bdimg.com/it/u=709719402,2342754533&fm=214&gp=0.jpg" alt="" class="img img8" onclick="click8()">
+
+				<input type="submit" name="" value="确认更换" id="button" class="button" onclick="getId();fun()">
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="copyright">
+		<div class="public_container">
+			<p>Copyright © 2018 云Design Powered By 云顶书院 测试项目</p>
+		</div>
+	</div>
+</body>
+</html>
+<script src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>

@@ -179,4 +179,12 @@ public class UserService {
     public void addAttention(User sessionUser, User targetUser) {
         DaoFactory.getUserDao().addAttention(sessionUser, targetUser);
     }
+
+    public void queryBackground(User sessionUser) {
+        DaoFactory.getUserDao().queryBackground(sessionUser);
+    }
+
+    public String findBackgroundURL(User sessionUser) {
+        return DaoFactory.getUserDao().findBackgroundURL(sessionUser);
+    }
 }

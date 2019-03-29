@@ -5,6 +5,7 @@ import com.yundingweibo.dao.UserDao;
 import com.yundingweibo.dao.WeiboDao;
 import com.yundingweibo.domain.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -31,8 +32,6 @@ public class WeiboService {
 
         return weiboDao.findAll(user, pageCode, pageSize);
     }
-
-
 
     public PageBean<Weibo> findPraise(User user, int pageCode, int pageSize) {
         return DaoFactory.getWeiboDao().findPraise(user, pageCode, pageSize);
@@ -110,8 +109,13 @@ public class WeiboService {
      * @param comment .
      * @param user    .
      */
-    public void addComment(Weibo weibo, Comment comment, User user) {
-        DaoFactory.getWeiboDao().addComment(weibo, comment, user);
+    public Comment addComment(Weibo weibo, Comment comment, User user) {
+        Date commentTime = new Date();
+        comment.setCommentTime(commentTime);
+        WeiboDao weiboDao = DaoFactory.getWeiboDao();
+        weiboDao.addComment(weibo, comment, user);
+
+        return weiboDao.findComment(comment);
     }
 
     /**
@@ -121,8 +125,12 @@ public class WeiboService {
      * @param replyComment .
      * @param user         .
      */
-    public void addReply(Comment comment, Comment replyComment, User user) {
-        DaoFactory.getWeiboDao().addReply(comment, replyComment, user);
+    public Comment addReply(Comment comment, Comment replyComment, User user) {
+        Date commentTime = new Date();
+        replyComment.setCommentTime(commentTime);
+        WeiboDao weiboDao = DaoFactory.getWeiboDao();
+        weiboDao.addReply(comment, replyComment, user);
+        return weiboDao.findComment(replyComment);
     }
 
     /**

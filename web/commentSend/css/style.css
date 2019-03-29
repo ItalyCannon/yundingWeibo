@@ -27,7 +27,6 @@
 	background-color: rgb(255,255,255,0.8);
 }
 
-
 .header_logo {
 	width: 100px;
 	height: 40px;
@@ -53,11 +52,15 @@
 	margin-left: 50px;
 }
 
+.header_ul li:hover{
+	color: #79BAEA;
+}
+
 .header_ul a {
 	color: #000;
 }
 
-.search{
+.header_search{
 	height: 60px;
 	position: relative;
 	width: 200px;
@@ -73,7 +76,7 @@
 	opacity: 0.5;
 }
 
-.search_container{
+.header_search .search_container{
 	position: absolute;
 	margin: auto;
 	top: 0;
@@ -90,11 +93,11 @@
 	/*box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);*/
 }
 
-.search_container{
+.header_search .search_container{
 	cursor: pointer;
 }
 
-.search_container::before{
+.header_search .search_container::before{
 	content: "";
 	position: absolute;
 	margin: auto;
@@ -109,7 +112,7 @@
 	transition: all 0.5s;
 }
 
-.search_container::after {
+.header_search .search_container::after {
 	content: "";
 	position: absolute;
 	margin: auto;
@@ -126,7 +129,7 @@
 
 
 
-.search input {
+.header_search input {
 	position: absolute;
 	margin: auto;
 	top: 0;
@@ -151,35 +154,35 @@
 	box-shadow: 0 0 5px 0 #224584, 0 2px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.search input:hover {
+.header_search input:hover {
 	cursor: pointer;
 }
 
-.search input:focus {
+.header_search input:focus {
 	width: 120px;
 	opacity: 0.7;
 	cursor: text;
 }
 
-.search input:focus ~ .search_container{
+.header_search input:focus ~ .search_container{
 	right: -150px;
 	background-color: #e5e6eb;
 	z-index: 6;
 	border-color: #e5e6eb;
 }
 
-.search input:focus ~ .search_container{
+.header_search input:focus ~ .search_container{
 	/*opacity: 0;*/
 }
 
-.search input:focus ~ .search_container::before{
+.header_search input:focus ~ .search_container::before{
 	top: 0;
 	left: 0;
 	width: 14px;
 	background-color: #224584;
 }
 
-.search input:focus ~ .search_container::after{
+.header_search input:focus ~ .search_container::after{
 	top: 0;
 	left: 0;
 	width: 14px;
@@ -196,7 +199,7 @@
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 10px;
-	margin-left: 120px;
+	margin-left: 80px;
 }
 
 .header_rank .iconfont {
@@ -209,35 +212,40 @@
 	margin-left: 5px;
 }
 
-.header_rank a{
+.header_rank a {
 	color: #000;
 }
 
-.header_register{
-	width: 120px;
-	height: 22px;
+.header_register {
+	width: 100px;
+	height: 34px;
 	display: inline-block;
 	position: absolute;
-	top: 16px;
+	top: 10px;
 	right: 0;
 }
 
-.header_register p{
+.header_register .portrait {
+	width: 34px;
+	height: 34px;
+	border-radius: 50px;
 	display: inline-block;
 }
 
-.header_register .register_string{
-	width: 0;
-	height: 15px;
-	border-left: 2px solid #C0C0C0;
+.header_register .modify {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #224584;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 24px;
 }
 
-.header_register .register_p1{
-	color: #224584;
-}
-
-.header_register .register_p2{
-	color: #000;
+.header_register .modify .iconfont {
+	font-size: 18px;
+	color: #fff;
 }
 
 
@@ -262,7 +270,12 @@
 			line-height: 40px;
 			padding-left: 20px;
 			font-size: 14px;
+			cursor: pointer;
 		}
+
+			.main .sidebar li:hover{
+				color: #79BAEA;
+			}
 
 		.main .sidebar .item_1{
 			color: #224584;
@@ -302,6 +315,10 @@
 				color: #666;
 			}
 
+				.main .middle_up .title_1:hover{
+					color: #79BAEA;
+				}
+
 			.main .middle_up .title_2{
 				font-size: 14px;
 				display: inline-block;
@@ -310,6 +327,10 @@
 				margin-left: 40px;
 				color: #224584;
 			}
+
+				.main .middle_up .title_2:hover{
+					color: #79BAEA;
+				}
 
 			.main .middle_up .triangle{
 				width: 10px;
@@ -321,24 +342,25 @@
 				transform: rotate(45deg);
 			}
 
-			.main .middle_up .search{
+			.main .middle_up .middle_search{
 				display: inline-block;
 				vertical-align: top;
 				margin-left: 400px;
 				position: relative;
 			}
 
-				.main .middle_up .search input{
+				.main .middle_up .middle_search input{
 					width: 180px;
 					height: 26px;
 					padding-left: 10px;
 				}
 
-				.main .middle_up .search .iconfont{
+				.main .middle_up .middle_search .iconfont{
 					font-size: 14px;
 					position: absolute;
 					right: 12px;
 					top: 8px;
+					cursor: pointer;
 				}
 
 		.main .middle_down{
@@ -585,7 +607,12 @@
 					display: inline-block;
 					vertical-align: top;
 					margin-left: 100px;
+					cursor: pointer;
 				}
+
+					.main .right_new .title_change:hover{
+						color: #79BAEA;
+					}
 
 			.main .right_new .topic{
 				width: 260px;
@@ -595,7 +622,16 @@
 				font-size: 12px;
 				color: #222;
 				position: relative;
+				cursor: pointer;
 			}
+
+				.main .right_new .topic:hover{
+					color: #79BAEA;
+				}
+
+				.main .right_new .topic:hover span{
+					color: #79BAEA;
+				}
 
 				.main .right_new .topic span{
 					position: absolute;
@@ -611,4 +647,9 @@
 				font-size: 12px;
 				color: #666;
 				letter-spacing: 1px;
+				cursor: pointer;
 			}
+
+				.main .right_new .more:hover{
+					color: #79BAEA;
+				}

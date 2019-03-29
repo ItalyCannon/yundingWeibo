@@ -28,7 +28,6 @@
     background-color: rgb(255,255,255,0.8);
 }
 
-
 .header_logo {
     width: 100px;
     height: 40px;
@@ -52,6 +51,10 @@
 .header_ul li {
     float: left;
     margin-left: 50px;
+}
+
+.header_ul li:hover{
+    color: #79BAEA;
 }
 
 .header_ul a {
@@ -197,7 +200,7 @@
     display: inline-block;
     vertical-align: top;
     margin-top: 10px;
-    margin-left: 120px;
+    margin-left: 80px;
 }
 
 .header_rank .iconfont {
@@ -210,35 +213,40 @@
     margin-left: 5px;
 }
 
-.header_rank a{
+.header_rank a {
     color: #000;
 }
 
-.header_register{
-    width: 120px;
-    height: 22px;
+.header_register {
+    width: 100px;
+    height: 34px;
     display: inline-block;
     position: absolute;
-    top: 16px;
+    top: 10px;
     right: 0;
 }
 
-.header_register p{
+.header_register .portrait {
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
     display: inline-block;
 }
 
-.header_register .register_string{
-    width: 0;
-    height: 15px;
-    border-left: 2px solid #C0C0C0;
+.header_register .modify {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #224584;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 24px;
 }
 
-.header_register .register_p1{
-    color: #224584;
-}
-
-.header_register .register_p2{
-    color: #000;
+.header_register .modify .iconfont {
+    font-size: 18px;
+    color: #fff;
 }
 
 .main {
@@ -265,6 +273,10 @@
     font-size: 14px;
 }
 
+.main .sidebar li:hover{
+    color: #79BAEA;
+}
+
 .main .sidebar .item_1 {
     color: #224584;
     border-left: 2px solid #224584;
@@ -276,6 +288,10 @@
 
 .main .sidebar .ul li {
     font-size: 12px;
+}
+
+.main .sidebar .ul a{
+    color: #000;
 }
 
 .main .middle {
@@ -312,6 +328,7 @@
     display: inline-block;
     margin-top: 20px;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .main .middle_up .expression .iconfont {
@@ -327,6 +344,7 @@
     display: inline-block;
     margin-top: 20px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .main .middle_up .picture .iconfont {
@@ -364,6 +382,10 @@
     background-color: #fff;
     margin-top: 16px;
     position: relative;
+}
+
+.main .middle_middle a{
+    color: #000;
 }
 
 .main .middle_middle p {
@@ -468,7 +490,6 @@
     color: #999;
     display: inline-block;
     text-align: center;
-
 }
 
 .main .right_mine .message .attention span {
@@ -516,7 +537,7 @@
 
 .main .right_new {
     width: 290px;
-    height: 396px;
+    height: 404px;
     margin-top: 16px;
     background-color: #fff;
 }
@@ -549,6 +570,11 @@
     display: inline-block;
     vertical-align: top;
     margin-left: 100px;
+    cursor: pointer;
+}
+
+.main .right_new .title_change:hover{
+    color: #79BAEA;
 }
 
 .main .right_new .topic {
@@ -560,7 +586,16 @@
     color: #222;
     position: relative;
     margin-left: 14px;
+    cursor: pointer;
 }
+
+    .main .right_new .topic:hover{
+        color: #79BAEA;
+    }
+
+    .main .right_new .topic:hover span{
+        color: #79BAEA;
+    }
 
 .main .right_new .topic span {
     position: absolute;
@@ -576,6 +611,12 @@
     font-size: 12px;
     color: #666;
     letter-spacing: 1px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.main .right_new .more:hover{
+    color: #79BAEA;
 }
 
 .main .empty {
@@ -894,7 +935,7 @@
 
 .main .part_1 .comment .option_1 {
     width: 748px;
-    height: 70px;
+    /*height: 70px;*/
     margin-top: 10px;
 }
 
@@ -962,7 +1003,7 @@
 
 .main .part_1 .comment .option_1_option {
     width: 644px;
-    height: 68px;
+    /*height: 68px;*/
     background-color: #E9E9F0;
     margin-left: 78px;
 }
@@ -978,7 +1019,7 @@
 
 .main .part_1 .comment .option_1_option .message {
     width: 560px;
-    height: 40px;
+    /*height: 40px;*/
     display: inline-block;
     margin-left: 10px;
     overflow: hidden;
@@ -1166,4 +1207,34 @@
     font-size: 12px;
     color: #999;
     display: inline-block;
+}
+
+.option_1_option {
+    width: 644px;
+    /*height: 68px;*/
+    background-color: #E9E9F0;
+    margin-left: 78px;
+}
+
+.option_1_option .OptionTextarea {
+    width: 520px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top: 12px;
+    border: none;
+    display: inline-block;
+}
+
+.option_1_option .OptionReply {
+    width: 50px;
+    height: 24px;
+    background-color: #224584;
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    margin-top: 24px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
 }

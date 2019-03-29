@@ -70,7 +70,7 @@
         <div class="header_register">
             <a href="/login" title="" class="register_p1"><p>登录</p></a>
             <p class="register_string"></p>
-            <a href="" title="" class="register_p2"><p>注册</p></a>
+            <a href="/register" title="" class="register_p2"><p>注册</p></a>
         </div>
     </div>
 </div>

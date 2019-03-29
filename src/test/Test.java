@@ -1,8 +1,8 @@
 package test;
 
-import com.yundingweibo.dao.impl.JdbcWeiboDaoImpl;
-import com.yundingweibo.domain.Comment;
-import com.yundingweibo.domain.User;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author 杜奕明
@@ -10,12 +10,9 @@ import com.yundingweibo.domain.User;
  */
 public class Test {
     public static void main(String[] args) throws Exception {
-        Comment comment = new Comment();
-        comment.setCommentId(11);
-        comment.setWeiboId(1);
-        Comment replyComment = new Comment();
-        replyComment.setCommentContent("aaaa");
-        User u = new User(1);
-        new JdbcWeiboDaoImpl().addReply(comment, replyComment, u);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date parse = df.parse("1980-01-01");
+
+        System.out.println(parse);
     }
 }

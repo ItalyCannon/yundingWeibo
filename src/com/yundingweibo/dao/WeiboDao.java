@@ -163,4 +163,12 @@ public interface WeiboDao {
      * @return 下层评论
      */
     List<Comment> findCommentByParentId(int parentId, int weiboId);
+
+    /**
+     * 获取comment对应的Comment，形参中的comment没有commentId
+     *
+     * @param comment .
+     * @return .
+     */
+    Comment findComment(Comment comment);
 }

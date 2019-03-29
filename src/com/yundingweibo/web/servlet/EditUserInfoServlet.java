@@ -37,6 +37,12 @@ public class EditUserInfoServlet extends HttpServlet {
         }
 
         User u = JSON.parseObject(json, User.class, Feature.AllowISO8601DateFormat);
+        // TODO: 2019/3/29 添加管理员权限部分
+//        Root root = (Root) request.getSession().getAttribute("root");
+//        if (root != null && RootUtils.isRoot(root)){
+//            new UserService().update(u);
+//            return;
+//        }
         User sessionUser = (User) request.getSession().getAttribute("sessionUser");
         if (u.getUserId() != sessionUser.getUserId()) {
             response.getWriter().write("");

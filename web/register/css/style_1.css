@@ -268,19 +268,22 @@
 	height: 1015px;
 	background-color: #F3F2F5;
 	overflow: hidden;
+	background-image: url("http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1511/15/c52/15285187_1447598372375_mthumb.jpg");
+	background-size: 100% 100%;
 }
 
 	.main .content{
-		width: 1200px;
-		height: 600px;
-		margin-top: 90px;
+		width: 500px;
+		height: 500px;
+		margin-top: 120px;
 		background-color: #fff;
+		margin-left: 350px;
 	}
 
 		.main .content .title{
-			width: 1200px;
-			height: 140px;
-			line-height: 140px;
+			width: 500px;
+			height: 100px;
+			line-height: 100px;
 			text-align: center;
 			font-size: 18px;
 			color: #224584;
@@ -301,7 +304,7 @@
 			width: 302px;
 			height: 40px;
 			border: 0;
-			margin-top: 38px;
+			margin-top: 10px;
 			background-color: #224584;
 			color: #fff;
 			padding: 0;
@@ -314,7 +317,7 @@
 			#chakanmima_1{
 				position: absolute;
 				top: 10px;
-				left: 720px;
+				left: 370px;
 				color: #224584;
 				cursor: pointer;
 			}
@@ -324,7 +327,7 @@
 		#chakanmima_2{
 			position: absolute;
 			top: 10px;
-			left: 720px;
+			left: 370px;
 			color: #224584;
 			cursor: pointer;
 		}
@@ -332,13 +335,13 @@
 		.main .content .verification_text{
 			width: 140px;
 			display: inline-block;
-			margin-left: 450px;
+			margin-left: 98px;
 		}
 
 		.main .content .message_verification{
 			width: 140px;
 			display: inline-block;
-			margin-left: 450px;
+			margin-left: 98px;
 		}
 
 		.main .content .click{

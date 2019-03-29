@@ -28,7 +28,6 @@
 	background-color: rgb(255,255,255,0.8);
 }
 
-
 .header_logo {
 	width: 100px;
 	height: 40px;
@@ -52,6 +51,10 @@
 .header_ul li {
 	float: left;
 	margin-left: 50px;
+}
+
+.header_ul li:hover{
+	color: #79BAEA;
 }
 
 .header_ul a {
@@ -197,7 +200,7 @@
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 10px;
-	margin-left: 120px;
+	margin-left: 80px;
 }
 
 .header_rank .iconfont {
@@ -210,35 +213,40 @@
 	margin-left: 5px;
 }
 
-.header_rank a{
+.header_rank a {
 	color: #000;
 }
 
-.header_register{
-	width: 120px;
-	height: 22px;
+.header_register {
+	width: 100px;
+	height: 34px;
 	display: inline-block;
 	position: absolute;
-	top: 16px;
+	top: 10px;
 	right: 0;
 }
 
-.header_register p{
+.header_register .portrait {
+	width: 34px;
+	height: 34px;
+	border-radius: 50px;
 	display: inline-block;
 }
 
-.header_register .register_string{
-	width: 0;
-	height: 15px;
-	border-left: 2px solid #C0C0C0;
+.header_register .modify {
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #224584;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 24px;
 }
 
-.header_register .register_p1{
-	color: #224584;
-}
-
-.header_register .register_p2{
-	color: #000;
+.header_register .modify .iconfont {
+	font-size: 18px;
+	color: #fff;
 }
 
 .main{
@@ -299,15 +307,23 @@
 				color: #222;
 				margin-left: 20px;
 				margin-top: 16px;
-
 			}
+
+				.main .personage_down .title:hover{
+					color: #79BAEA;
+				}
 
 			.main .personage_down p{
 				font-size: 12px;
 				color: #666;
 				margin-top: 14px;
 				margin-left: 20px;
+				cursor: pointer;
 			}
+
+				.main .personage_down p:hover{
+					color: #79BAEA;
+				}
 
 			.main .personage_down .ul li{
 				font-size: 12px;
@@ -322,13 +338,18 @@
 			background-color: #fff;
 			margin-top: 16px;
 			overflow: hidden;
+			cursor: pointer;
 		}
+
+			.main .personage_middle:hover{
+				color: #79BAEA;
+			}
 
 			.main .personage_middle p{
 				margin-left: 20px;
 				margin-top: 16px;
 				font-size: 14px;
-				color: #224584;
+				/*color: #224584;*/
 			}
 
 	.main .information{
