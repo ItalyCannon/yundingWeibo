@@ -3,7 +3,11 @@ package com.yundingweibo.service;
 import com.yundingweibo.dao.DaoFactory;
 import com.yundingweibo.dao.UserDao;
 import com.yundingweibo.dao.WeiboDao;
-import com.yundingweibo.domain.*;
+import com.yundingweibo.dao.impl.daoutil.DaoUtil;
+import com.yundingweibo.domain.Comment;
+import com.yundingweibo.domain.PageBean;
+import com.yundingweibo.domain.User;
+import com.yundingweibo.domain.Weibo;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +18,8 @@ import java.util.Random;
  * @date 2019/2/18 17:25
  */
 public class WeiboService {
+    UserDao userDao = DaoFactory.getUserDao();
+
     public PageBean<Weibo> getWeiboByUserId(int userId, int pageCode, int pageSize) {
         WeiboDao weiboDao = DaoFactory.getWeiboDao();
         return weiboDao.getWeiboByUserId(userId, pageCode, pageSize);
@@ -87,8 +93,8 @@ public class WeiboService {
      * @param weiboId .
      * @param user    .
      */
-    public void praiseWeibo(int weiboId, User user) {
-        DaoFactory.getWeiboDao().like(weiboId, user);
+    public int praiseWeibo(int weiboId, User user) {
+        return DaoFactory.getWeiboDao().like(weiboId, user);
     }
 
     /**
@@ -98,8 +104,8 @@ public class WeiboService {
      * @param comment .
      * @param user    .
      */
-    public void praiseComment(Comment comment, User user) {
-        DaoFactory.getWeiboDao().like(comment, user);
+    public int praiseComment(Comment comment, User user) {
+        return DaoFactory.getWeiboDao().like(comment, user);
     }
 
     /**
@@ -128,13 +134,26 @@ public class WeiboService {
     public Comment addReply(Comment comment, Comment replyComment, User user) {
         Date commentTime = new Date();
         replyComment.setCommentTime(commentTime);
+
         WeiboDao weiboDao = DaoFactory.getWeiboDao();
+
+        replyComment.setFloor(0);
+        Comment parentComment = weiboDao.findCommentByCommentId(comment);
+        String userNickname = userDao.getUserNickname(parentComment.getUserId());
         weiboDao.addReply(comment, replyComment, user);
-        return weiboDao.findComment(replyComment);
+
+        Comment comment1 = weiboDao.findComment(replyComment);
+        comment1.setParentNickname(userNickname);
+
+        Long parentFloor = (Long) DaoUtil.getObject("select floor from weibo_comment where comment_id=?", comment.getCommentId());
+        if (parentFloor != null) {
+            comment1.setParentFloor(parentFloor.intValue());
+        }
+        return comment1;
     }
 
     /**
-     * 只需要userId，这里把评论回复也处理成评论了，不过评论回复的commentId是-1
+     * 只需要userId
      *
      * @param user .
      * @param type 1是send 2是receive

@@ -9,6 +9,20 @@
 </head>
 <body>
 
+<div id="bg" onclick="disappear()"></div>
+
+<div id="introduce" onclick="disappear()">
+    <p class="title">个人信息</p>
+    <i class="iconfont"></i>
+    <div><p class="introduce_name">昵称</p><p id="introduceName">zsy</p></div>
+    <div><p class="introduce_sex">性别</p><p id="introduceSex">man</p></div>
+    <div><p class="introduce_age">年龄</p><p id="introduceAge">19</p></div>
+    <div><p class="introduce_birthday">生日</p><p id="introduceBirthday">1.1</p></div>
+    <div><p class="introduce_place">所在地</p><p id="introducePlace">zzz</p></div>
+</div>
+
+<div id="return" class="return"><i class="iconfont">&#xe605;</i></div>
+
 <div class="public_header">
     <div class="public_container">
         <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
@@ -71,7 +85,7 @@
         <div class="middle">
             <div class="middle_up">
                 <p class="title" id="mypraise">我的点赞 </p>
-                <div class="search">
+                <div class="middle_search">
                     <input type="text" name="" placeholder="搜索我的点赞">
                     <i class="iconfont">&#xe600;</i>
                 </div>
@@ -120,3 +134,4 @@
 <script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 
 <script type="text/javascript" src="./js/index.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/index2.js" charset="UTF-8"></script>

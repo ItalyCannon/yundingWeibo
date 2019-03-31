@@ -976,11 +976,13 @@
 }
 
 .part_1 .comment .write .option .check {
-    width: 12px;
-    height: 12px;
-    background-color: #224584;
+    width: 10px;
+    height: 10px;
+    /*background-color: #224584;*/
     display: inline-block;
     margin-left: 14px;
+    border: 1px solid #999;
+    cursor: pointer;
 }
 
 .part_1 .comment .write .option .word {
@@ -1002,6 +1004,7 @@
     color: #fff;
     border: 0;
     margin-left: 358px;
+    cursor: pointer;
 }
 
 .part_1 .comment .option_1 {
@@ -1297,3 +1300,76 @@
     font-size: 12px;
 }
 
+
+#bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,0.5);
+    z-index: 101;
+    display: none;
+}
+
+#introduce{
+    width: 600px;
+    height: 400px;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    background-color: #fff;
+    z-index: 102;
+    display: none;
+}
+
+#introduce .title{
+    width: 250px;
+    height: 80px;
+    padding-left: 250px;
+    line-height: 80px;
+    font-size: 24px;
+    color: #224584;
+    letter-spacing: 3px;
+    display: inline-block;
+    /*background-color: red;*/
+}
+
+#introduce p{
+    display: inline-block;
+}
+
+#introduce div{
+    width: 460px;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 140px;
+}
+
+#introduce .introduce_age,.introduce_birthday,.introduce_name,.introduce_sex,.introduce_place{
+    color: #666666;
+    margin-right: 100px;
+}
+
+#introduce .introduce_place{
+    margin-right: 85px;
+}
+
+.return{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    background-color: #fff;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.return .iconfont{
+    font-size: 26px;
+    color: #224584;
+}

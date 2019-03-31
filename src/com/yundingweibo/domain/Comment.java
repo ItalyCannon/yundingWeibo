@@ -18,8 +18,45 @@ public class Comment {
     private int weiboId;
     private String weiboContent;
     private String profilePicture;
+    /**
+     * 上一级评论的id
+     */
     private int parent;
     private List<Comment> children;
+    private String parentNickname;
+    private int floor;
+    private int parentFloor;
+
+    public int getParentFloor() {
+        return parentFloor;
+    }
+
+    public void setParentFloor(int parentFloor) {
+        this.parentFloor = parentFloor;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    public Comment(int commentId) {
+        this.commentId = commentId;
+    }
+
+    public Comment() {
+    }
+
+    public String getParentNickname() {
+        return parentNickname;
+    }
+
+    public void setParentNickname(String parentNickname) {
+        this.parentNickname = parentNickname;
+    }
 
     public int getParent() {
         return parent;

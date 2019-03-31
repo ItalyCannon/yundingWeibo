@@ -146,6 +146,14 @@ function change(){
     })
 }
 
+$(function () {
+    $("#return").click(function () {
+        $("body,html").animate({
+            scrollTop: 0
+        },1000);
+    });
+});
+
 window.onload = function () {
     praise();
     change();

@@ -187,7 +187,7 @@ function showWeibo() {
             for (var i = 0; i < data.beanList.length; i++) {
                 html +=
                     '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + 'main' + '"' + '>' +
-                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait">' +
+                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait" onclick="showOtherUserInfo('+data.beanList[i].userId+');seeMore()">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
                     '<p class="date">' + new Date(data.beanList[i].createTime).toLocaleString() + '</p>' +

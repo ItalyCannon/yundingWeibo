@@ -236,3 +236,11 @@ $(document).ready(function () {
         }
     })
 });
+
+$(function () {
+    $("#return").click(function () {
+        $("body,html").animate({
+            scrollTop: 0
+        },1000);
+    });
+});

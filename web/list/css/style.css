@@ -745,3 +745,23 @@
 				background-color: #EF7979;
 			}
 
+
+.return{
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 50px;
+	position: fixed;
+	bottom: 60px;
+	right: 60px;
+	background-color: #fff;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.return .iconfont{
+	font-size: 26px;
+	color: #224584;
+}
+

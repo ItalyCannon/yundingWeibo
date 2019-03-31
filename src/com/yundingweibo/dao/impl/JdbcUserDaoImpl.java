@@ -277,7 +277,7 @@ public class JdbcUserDaoImpl implements UserDao {
      */
     @Override
     public User showBasicInfo(User user) {
-        String sql = "select nickname,signature,profile_picture,fans_num,weibo_num,subscribe_num from user_info where user_id=?";
+        String sql = "select nickname,signature,profile_picture,fans_num,weibo_num,subscribe_num,birthday,location,gender from user_info where user_id=?";
         User user1 = DaoUtil.toBeanSingle(User.class, sql, user.getUserId());
         if (user1 != null) {
             user1.setUserId(user.getUserId());

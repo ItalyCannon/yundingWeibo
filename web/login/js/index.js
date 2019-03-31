@@ -58,6 +58,7 @@ function fun() {
             var eval1 = eval(text);
             if (eval1.msg === "密码错误") {
                 alert(eval1.msg);
+                document.getElementById('topImgToPreventClick').style.display = 'none';
                 return;
             }
             window.location.href = eval1.path;

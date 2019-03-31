@@ -40,7 +40,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         return weibo;
     }
 
-    private void addCommentToBean(Weibo weibo) {
+    public void addCommentToBean(Weibo weibo) {
         List<Comment> comment = getTree(weibo.getWeiboId());
         for (Comment c : comment) {
             c.setNickname(userDao.getUserNickname(c.getUserId()));
@@ -48,9 +48,12 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             c.setCommentPraise(getCommentPraiseNum(c));
         }
         comment.sort((o1, o2) -> o2.getCommentTime().compareTo(o1.getCommentTime()));
+
         weibo.setCommentNum(comment.size());
         weibo.setComments(comment);
     }
+
+    private static int floor = 1;
 
     private List<Comment> getTree(int weiboId) {
         String sql = "select * from weibo_comment where weibo_id=? and parent=0";
@@ -59,6 +62,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             sql = "select count(*) from comment_praise where comment_id=?";
             DaoUtil.getObject(sql, root.getCommentId());
             addTree(root, weiboId);
+            floor = 1;
         }
         return treeList;
     }
@@ -74,11 +78,17 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
                 User user = userDao.getUser(temp.getUserId());
                 temp.setProfilePicture(user.getProfilePicture());
                 temp.setNickname(user.getNickname());
-
+                temp.setFloor(floor);
+                DaoUtil.query("update weibo_comment set floor=? where comment_id=?", floor, temp.getCommentId());
+                floor++;
                 int num = getCommentPraiseNum(temp);
                 temp.setCommentPraise(num);
                 parent.getChildren().add(temp);
                 addTree(temp, weiboId);
+                Long object = (Long) DaoUtil.getObject("select floor from weibo_comment where comment_id=?", temp.getParent());
+                if (object != null) {
+                    temp.setParentFloor(object.intValue());
+                }
             }
         }
     }
@@ -264,13 +274,14 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     }
 
     /**
-     * 微博点赞
+     * 微博点赞，如果点过赞了就取消点赞
      *
      * @param weiboId 要点赞的微博id
      * @param user    sessionUser
+     * @return 返回0是取消点赞，返回1是添加点赞
      */
     @Override
-    public void like(int weiboId, User user) {
+    public int like(int weiboId, User user) {
         String sql = "select user_id from weibo_praise where weibo_id=? and user_id=?";
         Long userId;
         try {
@@ -279,11 +290,29 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             //基本不可能执行到这里，实在想不出来这个DaoUtil.toBeanSingle可能会出什么问题
             throw new RuntimeException("发生未知错误");
         }
+        //事务专用连接
+        DruidPooledConnection connection;
+
+        //如果点过赞就取消点赞，取消点赞之后直接终止函数执行
         if (userId != null) {
-            throw new RuntimeException("已经点过赞了");
+            try {
+                connection = DaoUtil.beginTransaction();
+                sql = "delete from weibo_praise where user_id=? and weibo_id=?";
+                DaoUtil.query(connection, sql, user.getUserId(), weiboId);
+                sql = "update weibo_data set praise_num=praise_num-1 where weibo_id=?";
+                DaoUtil.query(connection, sql, weiboId);
+                DaoUtil.commitTransaction();
+                return 0;
+            } catch (Exception e) {
+                try {
+                    DaoUtil.rollbackTransaction();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+                throw new RuntimeException("取消点赞出错");
+            }
         }
 
-        DruidPooledConnection connection;
         try {
             connection = DaoUtil.beginTransaction();
             sql = "insert into weibo_praise(user_id,weibo_id,praise_time) values(?,?,now())";
@@ -291,6 +320,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             sql = "update weibo_data set praise_num=praise_num+1 where weibo_id=?";
             DaoUtil.query(connection, sql, weiboId);
             DaoUtil.commitTransaction();
+            return 1;
         } catch (Exception e) {
             try {
                 DaoUtil.rollbackTransaction();
@@ -305,9 +335,10 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
      * 评论点赞
      *
      * @param comment 要点赞的评论
+     * @return 返回0是取消点赞，返回1是添加点赞
      */
     @Override
-    public void like(Comment comment, User user) {
+    public int like(Comment comment, User user) {
         String sql = "select user_id from comment_praise where user_id=? and comment_id=?";
         Comment comment1;
         try {
@@ -316,22 +347,22 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
             //基本不可能执行到这里，实在想不出来这个DaoUtil.toBeanSingle可能会出什么问题
             throw new RuntimeException("发生未知错误");
         }
+
         if (comment1 != null) {
-            throw new RuntimeException("已经点过赞了");
+            try {
+                sql = "delete from comment_praise where user_id=? and comment_id=?";
+                DaoUtil.query(sql, user.getUserId(), comment.getCommentId());
+                return 0;
+            } catch (Exception e) {
+                throw new RuntimeException("点赞出错");
+            }
         }
 
-        DruidPooledConnection connection;
         try {
-            connection = DaoUtil.beginTransaction();
             sql = "insert into comment_praise(user_id,comment_id) values(?,?)";
-            DaoUtil.query(connection, sql, user.getUserId(), comment.getCommentId());
-            DaoUtil.commitTransaction();
+            DaoUtil.query(sql, user.getUserId(), comment.getCommentId());
+            return 1;
         } catch (Exception e) {
-            try {
-                DaoUtil.rollbackTransaction();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
             throw new RuntimeException("点赞出错");
         }
     }
@@ -380,8 +411,12 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
     public void addReply(Comment comment, Comment replyComment, User user) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = df.format(replyComment.getCommentTime());
-        String sql = "insert into weibo_comment(comment_content,comment_time,user_id,weibo_id,parent) values(?,?,?,?,?)";
-        DaoUtil.query(sql, replyComment.getCommentContent(), format, user.getUserId(), comment.getWeiboId(), comment.getCommentId());
+        String sql = "insert into weibo_comment(comment_content,comment_time,user_id,weibo_id,parent,floor) values(?,?,?,?,?,?)";
+        DaoUtil.query(sql, replyComment.getCommentContent(),
+                format, user.getUserId(), comment.getWeiboId(), comment.getCommentId(), replyComment.getFloor());
+        Weibo w = new Weibo();
+        w.setWeiboId(comment.getWeiboId());
+        this.addCommentToBean(w);
     }
 
     @Override
@@ -555,4 +590,15 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         return pageBean;
     }
 
+    /**
+     * 根据commnetId查找评论
+     *
+     * @param comment .
+     * @return .
+     */
+    @Override
+    public Comment findCommentByCommentId(Comment comment) {
+        String sql = "select * from weibo_comment where comment_id =?";
+        return DaoUtil.toBeanSingle(Comment.class, sql, comment.getCommentId());
+    }
 }

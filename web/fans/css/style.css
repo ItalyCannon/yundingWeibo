@@ -387,7 +387,7 @@
 			display: inline-block;
 		}
 
-		.main .information .search{
+		.main .information .information_search{
 			width: 192px;
 			height: 28px;
 			display: inline-block;
@@ -395,7 +395,7 @@
 			position: relative;
 		}
 
-			.main .information .search input{
+			.main .information .information_search input{
 				width: 180px;
 				height: 26px;
 				font-size: 12px;
@@ -403,7 +403,7 @@
 				padding-left: 10px;
 			}
 
-			.main .information .search .iconfont{
+			.main .information .information_search .iconfont{
 				font-size: 14px;
 				position: absolute;
 				right: 12px;
@@ -481,3 +481,22 @@
 					right: 0;
 					bottom: 4px;
 				}
+
+.return{
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 50px;
+	position: fixed;
+	bottom: 60px;
+	right: 60px;
+	background-color: #fff;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.return .iconfont{
+	font-size: 26px;
+	color: #224584;
+}

@@ -18,36 +18,48 @@ var introduceSex = document.getElementById("introduceSex");
 var introduceBirthday = document.getElementById("introduceBirthday");
 var introducePlace = document.getElementById("introducePlace");
 
-$("#portrait").click(function () {
+function showOtherUserInfo(userId) {
     $.ajax({
-        url: '',
+        url: '/OtherUserBaseInfoServlet',
         type: 'get',
         dataType: 'json',
-        data: {},
-        success: function(data){
+        data: {
+            user: userId
+        },
+        success: function (data) {
             var text = eval(data);
-            introduceName.innerHTML = text.XXX;
-            introduceSex.innerHTML = text.XXX;
-            introduceAge.innerHTML = text.XXX;
-            introduceBirthday.innerHTML = text.XXX;
-            introducePlace.innerHTML = text.XXX;
+
+            introduceName.innerHTML = text.nickname;
+            switch (text.gender) {
+                case 0:
+                    introduceSex.innerHTML = "保密";
+                    break;
+                case 1:
+                    introduceSex.innerHTML = "男";
+                    break;
+                case 2:
+                    introduceSex.innerHTML = "女";
+                    break;
+                default:
+            }
+
+            var thisYear = new Date().toLocaleDateString().substr(0, 4);
+            var birthday = new Date(text.birthday).toLocaleDateString();
+            var birthdayYear = birthday.substr(0, 4);
+            introduceAge.innerHTML = thisYear - birthdayYear;
+            introduceBirthday.innerHTML = birthday;
+            introducePlace.innerHTML = text.location;
         }
     })
-})
+}
 
 $(function () {
     $("#return").click(function () {
         $("body,html").animate({
             scrollTop: 0
-        },1000);
+        }, 1000);
     });
 });
 
-//加载时遮罩层
-// document.onreadystatechange = function () {
-//     if(document.readyState=="complete") {
-//         document.getElementById('bg').style.display='none';
-//     }
-// }
 
 

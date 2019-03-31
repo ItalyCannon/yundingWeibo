@@ -55,7 +55,7 @@ function CommentReceive() {
             for (var i = 0; i < data.length; i++) {
                 html +=
                     '<div class="collect" id="' + 'collect' + i + '">' +
-                    '<img src="' + data[i].profilePicture + '" alt="" class="portrait">' +
+                    '<img src="' + data[i].profilePicture + '" alt="" class="portrait" onclick="seeMore()" style="cursor: pointer">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data[i].nickname + '</p>' +
                     '<p class="date">' + data[i].formatCommentTime + '</p>' +

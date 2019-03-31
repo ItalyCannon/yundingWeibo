@@ -57,7 +57,7 @@ function showWeibo() {
                 // console.log(data.beanList[i]);
                 html +=
                     '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + 'main' + '"' + '>' +
-                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait">' +
+                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait" style="cursor: pointer" onclick="seeMore()">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
                     '<p class="date">' + data.beanList[i].formatCreateTime + '</p>' +
@@ -95,8 +95,8 @@ function showWeibo() {
                     '<img src="' + profile + '" alt="img" class="head_img">' +
                     '<textarea name="" class="text">' + '' + '</textarea>' +
                     '<div class="option">' +
-                    '<i class="iconfont expression">&#xe60c;</i>' +
-                    '<i class="iconfont image">&#xe60c;</i>' +
+                    '<i class="iconfont expression" style="cursor: pointer">&#xe614;</i>' +
+                    '<i class="iconfont image" style="cursor: pointer">&#xe72f;</i>' +
                     '<div class="check"></div>' +
                     '<p class="word">同时转发到我的微博</p>' +
                     '<input type="submit" name="" value="发布" class="submit">' +

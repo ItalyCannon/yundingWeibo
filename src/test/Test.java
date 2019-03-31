@@ -1,8 +1,6 @@
 package test;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
 
 /**
  * @author 杜奕明
@@ -10,9 +8,9 @@ import java.util.Date;
  */
 public class Test {
     public static void main(String[] args) throws Exception {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        Date parse = df.parse("1980-01-01");
-
-        System.out.println(parse);
+        HashMap map = new HashMap(16);
+        map.put("1", "xxx");
+        map.put("2", "yyy");
+        System.out.println(map);
     }
 }

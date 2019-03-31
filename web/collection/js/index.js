@@ -53,7 +53,7 @@ function fun() {
             for (var i = 0; i < data.length; i++) {
                 html +=
                     '<div class="part_1"' + ' id="' + data[i].weiboId + 'main' + '"' + ' style="' + firstDiv() + '">' +
-                    '<img src="' + data[i].profilePicture + '" alt="" class="portrait">' +
+                    '<img src="' + data[i].profilePicture + '" alt="" class="portrait" onclick="seeMore()" style="cursor: pointer">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data[i].nickname + '</p>' +
                     '<p class="date">' + data[i].formatCreateTime + '</p>' +
@@ -91,8 +91,8 @@ function fun() {
                     '<img src="' + profile + '" alt="img" class="head_img">' +
                     '<textarea name="" class="text">' + '' + '</textarea>' +
                     '<div class="option">' +
-                    '<i class="iconfont expression">&#xe60c;</i>' +
-                    '<i class="iconfont image">&#xe60c;</i>' +
+                    '<i class="iconfont expression">&#xe614;</i>' +
+                    '<i class="iconfont image">&#xe72f;</i>' +
                     '<div class="check"></div>' +
                     '<p class="word">同时转发到我的微博</p>' +
                     '<input type="submit" name="" value="发布" class="submit">' +

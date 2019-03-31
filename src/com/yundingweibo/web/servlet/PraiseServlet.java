@@ -43,7 +43,9 @@ public class PraiseServlet extends HttpServlet {
                 String weibo = request.getParameter("weibo");
                 int parse = (int) JSON.parse(weibo);
                 try {
-                    weiboService.praiseWeibo(parse, sessionUser);
+                    int i = weiboService.praiseWeibo(parse, sessionUser);
+
+                    response.getWriter().write("{\"msg\":" + i + "}");
                 } catch (Exception e) {
                     response.getWriter().write(JSON.toJSONString(e.getMessage()));
                 }
@@ -51,7 +53,9 @@ public class PraiseServlet extends HttpServlet {
             case "comment":
                 String comment = request.getParameter("comment");
                 Comment parse1 = JSON.parseObject(comment, Comment.class);
-                weiboService.praiseComment(parse1, sessionUser);
+                int i = weiboService.praiseComment(parse1, sessionUser);
+                response.getWriter().write("{\"msg\":" + i + "}");
+
                 break;
             default:
                 throw new RuntimeException("type类型未知");

@@ -40,6 +40,9 @@ var allPraise;
 var PageCode = 1;
 var totalPage = 1;
 var toRecordFirstCommentIds = 0;
+var topFloor = [];
+var floorRecord = 0;
+var childrenListGlobalArr = [];
 
 function showWeibo() {
     if (PageCode > totalPage) {
@@ -66,7 +69,7 @@ function showWeibo() {
             for (var i = 0; i < data.beanList.length; i++) {
                 html +=
                     '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + 'main' + '"' + '>' +
-                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait">' +
+                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait" onclick="showOtherUserInfo('+data.beanList[i].userId+');seeMore()" style="cursor: pointer">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
                     '<p class="date">' + new Date(data.beanList[i].createTime).toLocaleString() + '</p>' +
@@ -106,8 +109,8 @@ function showWeibo() {
                     '<img src="' + profile + '" alt="img" class="head_img">' +
                     '<textarea name="" class="text" id="' + data.beanList[i].weiboId + 'addcomment' + '">' + '' + '</textarea>' +
                     '<div class="option">' +
-                    '<i class="iconfont expression">&#xe614;</i>' +
-                    '<i class="iconfont image">&#xe72f;</i>' +
+                    '<i class="iconfont expression" style="cursor: pointer">&#xe614;</i>' +
+                    '<i class="iconfont image" style="cursor: pointer">&#xe72f;</i>' +
                     '<div class="check"></div>' +
                     '<p class="word">同时转发到我的微博</p>' +
                     '<input type="submit" name="" value="发布" class="submit" onclick="addComment(' + data.beanList[i].weiboId + ')" style="cursor: pointer">' +
@@ -115,6 +118,7 @@ function showWeibo() {
                     '</div>';
                 //评论主体
                 for (var j = 0; j < data.beanList[i].comments.length; ++j) {
+                    floorRecord++;
                     messageIds[toRecordFirstCommentIds] = data.beanList[i].comments[j].commentId;
 
                     message += '<div class="option_1" id="' + data.beanList[i].comments[j].commentId + 'comment">' +
@@ -153,6 +157,14 @@ function showWeibo() {
                     }
 
                     childrenList.sort(compare('commentTime'));
+                    // 楼层相关，此功能已砍
+                    // childrenList.topFloor = childrenList.length;
+                    // topFloor[floorRecord] = childrenList.length;
+                    // var childrenListWithParentCommentId = childrenList;
+                    // childrenListWithParentCommentId.parentCommentId = data.beanList[i].comments[j].commentId;
+                    // childrenListGlobalArr.push(childrenListWithParentCommentId);
+
+                    console.log(topFloor);
 
                     function showAt(nickname) {
                         if (nickname === undefined) {
@@ -161,15 +173,24 @@ function showWeibo() {
                         return ' @' + nickname;
                     }
 
-                    // console.log(childrenList);
+                    function showReplyFloor(parentFloor) {
+                        if (parentFloor == 0) {
+                            return "";
+                        }
+                        // return " 回复" + parentFloor + "#";
+                        return "";
+                    }
+
+                    console.log(childrenList);
                     //回复部分
                     for (var b = 0; b < childrenList.length; ++b) {
                         reply += '<div class="option_1_option" id="' + childrenList[b].commentId + 'replyCommentAAA">' +
                             '<img src="' + childrenList[b].profilePicture + '" alt="img" class="head_img">' +
                             '<div class="message">' +
-                            '<p class="nickname"><span>' + childrenList[b].nickname + showAt(childrenList[b].praentNickname) + ' ：</span>' + childrenList[b].commentContent + '</p>' +
+                            '<p class="nickname"><span>' + childrenList[b].nickname + showReplyFloor(childrenList[b].parentFloor) + showAt(childrenList[b].praentNickname) + ' ：</span>' + childrenList[b].commentContent + '</p>'
+                            + '<p class="floor">' + "" + '</p>' +
                             '<p class="date">' + new Date(childrenList[b].commentTime).toLocaleString() + '</p>' +
-                            '<p class="reply" onclick="showReplySReplyTextArea(' + childrenList[b].commentId + ', ' + data.beanList[i].comments[j].weiboId + ')" style="cursor: pointer">回复</p>' +
+                            '<p class="reply" onclick="showReplySReplyTextArea(' + childrenList[b].commentId + ', ' + data.beanList[i].comments[j].weiboId + ',' + childrenList[b].parentFloor + ')" style="cursor: pointer">回复</p>' +
                             '<p class="string"></p>' +
                             '<p class="like" onclick="likeComment(' + childrenList[b].commentId + ',' + childrenList[b].commentPraise
                             + ')" id="' + childrenList[b].commentId + 'commentPraiseNum" style="cursor: pointer"><i class="iconfont">&#xe60c;</i> ' + childrenList[b].commentPraise + '</p>' +
@@ -180,7 +201,6 @@ function showWeibo() {
                     replys[toRecordFirstCommentIds] = reply;
                     reply = '';
                     toRecordFirstCommentIds++;
-
                 }
                 //message是一级评论，即直接评论的微博
                 messages[i] = message;
@@ -202,7 +222,7 @@ function showWeibo() {
                 var weiboId = data.beanList[n].weiboId;
                 for (var m = 0; m < allPraise.length; ++m) {
                     if (allPraise[m].weiboId == weiboId) {
-                        document.getElementById(weiboId + "aaaa").style.color = "red";
+                        document.getElementById(weiboId + "aaaa").style.color = "#224584";
                     }
                 }
             }
@@ -219,7 +239,9 @@ function showWeibo() {
                     continue;
                 }
                 var elementById = document.getElementById(messageIds[k] + "options");
-                elementById.innerHTML = replys[k];
+                elementById.innerHTML = replys[k]
+                    + ' <div class="option_bottom" style="width:749px;height: 20px;background-color:#F2F2F5;"></div>';
+
             }
         },
         async: false
@@ -279,22 +301,52 @@ function addTree(parent, list) {
     list.push(parent);
 }
 
-function addReply(commentId, textArea, weiboId) {
+function addReply(commentId, textArea, weiboId, parentFloor) {
     var isFirstReply = 0;
-    if (commentId < 0) {
-        commentId = -commentId;
-        isFirstReply = 1;
-    }
+    var topFloor = -1;
+
+    var commentIdToAdjust = commentId < 0 ? -commentId : commentId;
+    // 楼层相关，此功能已砍
+    // try {
+    //     childrenListGlobalArr.forEach(function (value) {
+    //         if (value.parentCommentId != undefined && value.parentCommentId != null && value.parentCommentId == commentIdToAdjust) {
+    //             value.topFloor++;
+    //             topFloor = value.topFloor;
+    //             throw "";
+    //         }
+    //
+    //         value.forEach(function (commentValue) {
+    //             if (commentValue.commentId !== undefined && commentValue.commentId != null && commentValue.commentId == commentIdToAdjust) {
+    //                 value.topFloor++;
+    //                 topFloor = value.topFloor;
+    //                 throw "";
+    //             }
+    //         });
+    //     });
+    // } catch (e) {
+    //
+    // }
+
     var inCommentId = commentId;
+    if (inCommentId < 0) {
+        inCommentId = -commentId;
+    }
     var content = $("#" + commentId + textArea).val();
     if (content === undefined || content == null) {
         return;
     }
+    if (commentId < 0) {
+        commentId = -commentId;
+        isFirstReply = 1;
+    }
+
     var reply = {};
     reply.commentContent = content;
+    reply.floor = topFloor;
     var comment = {};
     comment.commentId = commentId;
     comment.weiboId = weiboId;
+    comment.parentFloor = parentFloor;
     $.ajax({
         url: '/AddCommentServlet?type=reply',
         type: 'get',
@@ -309,7 +361,27 @@ function addReply(commentId, textArea, weiboId) {
         async: false
     });
 
-    console.log(comment);
+    // 楼层相关，此功能已砍
+    // //把新加入的评论放到childrenListGlobalArr里
+    // try {
+    //     childrenListGlobalArr.forEach(function (value) {
+    //         if (value.parentCommentId != undefined && value.parentCommentId != null && value.parentCommentId == commentIdToAdjust) {
+    //             value.push(comment);
+    //             throw "";
+    //         }
+    //
+    //         value.forEach(function (commentValue) {
+    //             if (commentValue.commentId !== undefined && commentValue.commentId != null && commentValue.commentId == commentIdToAdjust) {
+    //                 value.push(comment);
+    //             }
+    //             throw "";
+    //         });
+    //     });
+    // } catch (e) {
+    //
+    // }
+
+    // console.log(comment);
     //隐藏输入框
     var elementById1 = document.getElementById(commentId + "replyTextArea");
     if (elementById1 !== undefined && elementById1 != null && elementById1.innerHTML != "") {
@@ -331,13 +403,22 @@ function addReply(commentId, textArea, weiboId) {
         return ' @' + nickname;
     }
 
-    console.log(comment);
+    function showReplyFloor(parentFloor) {
+        if (parentFloor == 0) {
+            return "";
+        }
+        // return " 回复" + parentFloor + "#";
+        return "";
+    }
+
+    // console.log(comment);
     var toReplySReply = '<div class="option_1_option" id="' + comment.commentId + 'replyCommentAAA">' +
         '<img src="' + userInfo.profilePicture + '" alt="img" class="head_img">' +
         '<div class="message">' +
-        '<p class="nickname"><span>' + userInfo.nickname + showAt(comment.nickname) + ' ：</span>' + content + '</p>' +
+        '<p class="nickname"><span>' + userInfo.nickname + showReplyFloor(comment.parentFloor) + showAt(comment.parentNickname) + ' ：</span>' + content + '</p>' +
+        '<p class="floor">' + "" + '</p>' +
         '<p class="date">' + new Date().toLocaleString() + '</p>' +
-        '<p class="reply" onclick="showReplySReplyTextArea(' + comment.commentId + ', ' + comment.weiboId + ')" style="cursor: pointer">回复</p>' +
+        '<p class="reply" onclick="showReplySReplyTextArea(' + comment.commentId + ', ' + comment.weiboId + ',' + parentFloor + ')" style="cursor: pointer">回复</p>' +
         '<p class="string"></p>' +
         '<p class="like" onclick="likeComment(' + comment.commentId + ',' + 0
         + ')" id="' + comment.commentId + 'commentPraiseNum" style="cursor: pointer"><i class="iconfont">&#xe60c;</i> ' + 0 + '</p>' +
@@ -358,22 +439,25 @@ function addReply(commentId, textArea, weiboId) {
 
 function showReplyTextArea(commentId, weiboId) {
     var textArea = document.getElementById(commentId + "replyTextArea");
+    commentId = -commentId;
+    //如果是一级评论就写上这个标记
+    var i = -1;
     if (textArea.innerHTML == "") {
         textArea.innerHTML = '<div class="option_1_option">' +
             '<textarea class="OptionTextarea" id="' + commentId + 'replyTextAreaInput"></textarea>' +
-            '<input type="submit" name="" value="回复" class="OptionReply" onclick="addReply(' + (-commentId) + ',' + '\'replyTextAreaInput\'' + ',' + weiboId + ')">' +
+            '<input type="submit" name="" value="回复" class="OptionReply" onclick="addReply(' + commentId + ',' + '\'replyTextAreaInput\'' + ',' + weiboId + ',' + i + ')">' +
             '</div>';
     } else {
         textArea.innerHTML = "";
     }
 }
 
-function showReplySReplyTextArea(commentId, weiboId) {
+function showReplySReplyTextArea(commentId, weiboId, parentFloor) {
     var textArea = document.getElementById(commentId + "replySreply");
     if (textArea.innerHTML == "") {
         textArea.innerHTML = '<div class="option_1_option_1">' +
             '<textarea class="OptionTextarea"  id="' + commentId + 'replySreplyInput"></textarea>' +
-            '<input type="submit" name="" value="回复" class="OptionReply" onclick="addReply(' + commentId + ',' + '\'replySreplyInput\'' + ',' + weiboId + ')">' +
+            '<input type="submit" name="" value="回复" class="OptionReply" onclick="addReply(' + commentId + ',' + '\'replySreplyInput\'' + ',' + weiboId + ',' + parentFloor + ')">' +
             '</div>';
     } else {
         textArea.innerHTML = "";
@@ -457,7 +541,7 @@ function showComment(weiboId) {
 }
 
 function praise(weiboId) {
-    var flag = 0;
+    var data = {};
     $.ajax({
         url: '/PraiseServlet?type=weibo',
         type: 'get',
@@ -466,19 +550,23 @@ function praise(weiboId) {
             weibo: weiboId
         },
         success: function (text) {
-            if (text != null) {
-                alert(text);
-                flag++;
-                return;
-            }
+            data = eval(text)
         },
         async: false
     });
 
-    if (flag === 0) {
-        document.getElementById(weiboId + "aaaa").style.color = "red";
-        var praiseNum = document.getElementById(weiboId + 'p');
+    var praiseNum = document.getElementById(weiboId + 'p');
+    if (data.msg === 1) {
+        document.getElementById(weiboId + "aaaa").style.color = "#224584";
+
         praiseNum.innerHTML = parseInt(praiseNum.innerHTML) + 1;
+        return;
+    }
+
+    if (data.msg === 0) {
+        document.getElementById(weiboId + "aaaa").style.color = "";
+
+        praiseNum.innerHTML = parseInt(praiseNum.innerHTML) - 1;
     }
 }
 
@@ -541,50 +629,6 @@ function getPraise() {
     });
 }
 
-function addWeibo() {
-    var weibo = {};
-    weibo.photo = [];
-    var weiboContent = $("#weiboContent").val();
-    if (weiboContent == undefined || weiboContent == null || weiboContent == '') {
-        alert("微博内容不能为空");
-        return;
-    }
-
-    //这部分应该写到openBrowse()里，但修改成本太大了，就先写到这里了
-    var formData = new FormData();
-    var file = $('input[name=weiboFile]')[0].files[0];
-    formData.append('photoForm', file);
-    $.ajax({
-        url: '/WeiboPhotoServlet',
-        method: 'POST',
-        data: formData,
-        contentType: false, // 注意这里应设为false
-        processData: false,
-        cache: false,
-        success: function (data) {
-            weibo.photo[0] = data;
-        },
-        async: false
-    });
-
-    weibo.weiboContent = weiboContent;
-    // console.log(weibo);
-    // console.log(JSON.stringify(weibo));
-    $.ajax({
-        url: '/AddWeiboServlet',
-        type: 'get',
-        dataType: 'json',
-        data: {
-            weibo: JSON.stringify(weibo)
-        },
-        success: function (text) {
-            alert("发布成功");
-            window.location.href = "/home";
-        },
-        async: false
-    });
-
-}
 
 function addComment(weiboId) {
     var comment = {commentContent: ''};
@@ -631,17 +675,6 @@ function addComment(weiboId) {
         '</div>' + '<div id="' + comment.commentId + "replyTextArea" + '"></div>'
         + '<div id="' + comment.commentId + 'options"></div>' +
         '</div>';
-    //
-    // var toReply = '<div class="option_1" id="'+comment.commentId+'comment">' +
-    //     '<img src="' + userInfo.profilePicture + '" alt="img" class="head_img">' +
-    //     '<div class="message">' +
-    //     '<p class="nickname"><span>' + userInfo.nickname + ' ：</span>' + commentContent + '</p>' +
-    //     '<p class="date">' + new Date().toLocaleString() + '</p>' +
-    //     '<p class="reply" onclick="showReplyTextArea(' + comment.commentId + ', ' + comment.weiboId + ')" style="cursor: pointer">回复</p>' +
-    //     '<p class="string"></p>' +
-    //     '<p class="like" onclick="likeComment(' + comment.commentId + ',0)" id="' + comment.commentId + 'commentPraiseNum" style="cursor: pointer"><i class="iconfont">&#xe60c;</i> ' + 0 + '</p>' +
-    //     '</div>' +
-    //     '<div id="' + comment.commentId + 'replyTextArea"></div>' + '</div>';
     var elementById = document.getElementById(weiboId + "ff");
     var innerHTML1 = elementById.innerHTML;
     var number = innerHTML1.indexOf("<div class=\"option_1\"");
@@ -666,11 +699,16 @@ function likeComment(commentId, praise) {
             comment: JSON.stringify(comment)
         },
         success: function (text) {
-
+            var data = eval(text);
         },
         async: false
     });
-    praise++;
+    if (data.msg == 1) {
+        praise++;
+    } else {
+        praise--;
+    }
+
     var html = '<i class="iconfont">&#xe60c;</i> ' + praise;
 
     console.log(commentId + "commentPraiseNum");
@@ -712,13 +750,29 @@ window.onload = function () {
     height();
 };
 
-function openBrowse() {
-    var ie = navigator.appName == "Microsoft Internet Explorer" ? true : false;
-    if (ie) {
-        document.getElementById("file").click();
-    } else {
-        var a = document.createEvent("MouseEvents");//FF的处理
-        a.initEvent("click", true, true);
-        document.getElementById("file").dispatchEvent(a);
-    }
+function logout() {
+    $.ajax({
+        url: "/QuitServlet",
+        type: "get",
+        datatype: "json",
+        data: {},
+        success: function (text) {
+            var data = eval(text);
+            var message = data.msg;
+
+            if (message == "退出成功") {
+                window.location.href = "/login";
+                return;
+            }
+            alert(message);
+        }
+    })
 }
+
+$(function () {
+    $("#return").click(function () {
+        $("body,html").animate({
+            scrollTop: 0
+        }, 1000);
+    });
+});

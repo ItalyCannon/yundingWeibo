@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
 
-<script type="text/javascript" src="./js/htmls.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -14,6 +12,26 @@
 <body>
 
 <div id="1">
+
+    <div id="bg" onclick="disappear()"></div>
+
+    <div id="introduce" onclick="disappear()">
+        <p class="title">个人信息</p>
+        <i class="iconfont"></i>
+        <div><p class="introduce_name">昵称</p>
+            <p id="introduceName">zsy</p></div>
+        <div><p class="introduce_sex">性别</p>
+            <p id="introduceSex">man</p></div>
+        <div><p class="introduce_age">年龄</p>
+            <p id="introduceAge">19</p></div>
+        <div><p class="introduce_birthday">生日</p>
+            <p id="introduceBirthday">1.1</p></div>
+        <div><p class="introduce_place">所在地</p>
+            <p id="introducePlace">zzz</p></div>
+    </div>
+
+    <div id="return" class="return"><i class="iconfont">&#xe605;</i></div>
+
     <div class="public_header">
         <div class="public_container">
             <div class="header_logo" onclick="load_home1()" style="cursor: pointer;">
@@ -48,9 +66,11 @@
             </div>
             <div class="header_register">
                 <img src="" alt="img" class="portrait" id="profile1" onclick="load_space()" style="cursor: pointer">
-                <a href=""><div class="modify">
-                    <i class="iconfont">&#xe64d;</i>
-                </div></a>
+                <a href="" onclick="logout()">
+                    <div class="modify">
+                        <i class="iconfont">&#xe64d;</i>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -65,29 +85,51 @@
                     <li style="cursor: pointer;" onclick="load_home4();">我的评论</li>
                 </ul>
                 <ul class="ul">
-                    <a href=""><li>■ 好友圈</li></a>
-                    <a href=""><li>■ 特别关注</li></a>
-                    <a href=""><li>● 设计</li></a>
-                    <a href=""><li>● 互联网</li></a>
-                    <a href=""><li>● 同学</li></a>
-                    <a href=""><li>● 朋友</li></a>
+                    <a href="">
+                        <li>■ 好友圈</li>
+                    </a>
+                    <a href="">
+                        <li>■ 特别关注</li>
+                    </a>
+                    <a href="">
+                        <li>● 设计</li>
+                    </a>
+                    <a href="">
+                        <li>● 互联网</li>
+                    </a>
+                    <a href="">
+                        <li>● 同学</li>
+                    </a>
+                    <a href="">
+                        <li>● 朋友</li>
+                    </a>
                 </ul>
             </div>
 
             <div class="middle">
                 <div class="middle_up">
                     <textarea name="" class="text" id="weiboContent"></textarea>
-                    <p class="expression"><i class="iconfont">&#xe643;</i> &nbsp;表情</p>
-                    <p class="picture" onclick="openBrowse();" style="cursor: pointer"><i class="iconfont">&#xe643;</i>
+                    <p class="expression"><i class="iconfont">&#xe614;</i> &nbsp;表情</p>
+                    <p class="picture" onclick="openBrowse();" style="cursor: pointer"><i class="iconfont">&#xe72f;</i>
                         &nbsp;图片</p>
-                    <form action="/WeiboPhotoServlet" method="post" enctype="multipart/form-data" style="display: none;" id="photoForm">
-                        <input type="file" id="file" name="weiboFile">
+                    <form action="/WeiboPhotoServlet" method="post" enctype="multipart/form-data" style="display: none;"
+                          id="photoForm">
+                        <input type="file" id="file" name="weiboFile" onchange="reads(this)">
                         <input type="submit" id="addPhoto">
                     </form>
-                    <p class="video"><i class="iconfont">&#xe643;</i> 视频</p>
-                    <p class="topic"><i class="iconfont">&#xe643;</i> 话题</p>
-                    <input type="submit"  value="发布" class="submit" onclick="addWeibo()"
+                    <p class="video"><i class="iconfont">&#xe822;</i> 视频</p>
+                    <p class="topic"><i class="iconfont">&#xe6d0;</i> 话题</p>
+                    <input type="submit" value="发布" class="submit" onclick="addWeibo()"
                            style="cursor:pointer">
+                    <img src="" alt="imgs" id="backimg1" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg2" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg3" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg4" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg5" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg6" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg7" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg8" style="display: none" class="imgs" onclick="">
+                    <img src="" alt="imgs" id="backimg9" style="display: none" class="imgs" onclick="">
                 </div>
                 <div class="middle_middle">
                     <a href=""><p class="item">全部</p></a>
@@ -95,7 +137,7 @@
                     <a href=""><p>图片</p></a>
                     <a href=""><p>视频</p></a>
                     <a href=""><p>文章</p></a>
-                    <div class="search">
+                    <div class="middle_search">
                         <input type="text" name="" placeholder="我关注的人">
                         <i class="iconfont">&#xe600;</i>
                     </div>
@@ -144,5 +186,9 @@
     </div>
 </div>
 </body>
-
+<script type="text/javascript" src="./js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="./js/index2.js"></script>
+<script type="text/javascript" src="./js/addWeibo.js"></script>
+<script type="text/javascript" src="./js/htmls.js"></script>
 </html>
+
