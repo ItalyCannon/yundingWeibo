@@ -40,8 +40,9 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         return weibo;
     }
 
-    public void addCommentToBean(Weibo weibo) {
+    private void addCommentToBean(Weibo weibo) {
         List<Comment> comment = getTree(weibo.getWeiboId());
+
         for (Comment c : comment) {
             c.setNickname(userDao.getUserNickname(c.getUserId()));
             c.setProfilePicture(userDao.getUser(c.getUserId()).getProfilePicture());
@@ -49,7 +50,11 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
         }
         comment.sort((o1, o2) -> o2.getCommentTime().compareTo(o1.getCommentTime()));
 
-        weibo.setCommentNum(comment.size());
+        Long commentNum = (Long) DaoUtil.getObject("select count(*) from weibo_comment where weibo_id=?", weibo.getWeiboId());
+        if (commentNum != null) {
+            weibo.setCommentNum(commentNum.intValue());
+        }
+
         weibo.setComments(comment);
     }
 
@@ -78,6 +83,7 @@ public class JdbcWeiboDaoImpl implements WeiboDao {
                 User user = userDao.getUser(temp.getUserId());
                 temp.setProfilePicture(user.getProfilePicture());
                 temp.setNickname(user.getNickname());
+
                 temp.setFloor(floor);
                 DaoUtil.query("update weibo_comment set floor=? where comment_id=?", floor, temp.getCommentId());
                 floor++;

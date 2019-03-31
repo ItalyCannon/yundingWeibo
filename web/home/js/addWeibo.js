@@ -41,7 +41,7 @@ function addWeibo() {
             weibo: JSON.stringify(weibo)
         },
         success: function (text) {
-            alert("发布成功");
+            // alert("发布成功");
             window.location.href = "/home";
         },
         async: false

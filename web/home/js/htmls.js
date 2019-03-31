@@ -69,7 +69,7 @@ function showWeibo() {
             for (var i = 0; i < data.beanList.length; i++) {
                 html +=
                     '<div class="part_1"' + ' id="' + data.beanList[i].weiboId + 'main' + '"' + '>' +
-                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait" onclick="showOtherUserInfo('+data.beanList[i].userId+');seeMore()" style="cursor: pointer">' +
+                    '<img src="' + data.beanList[i].profilePicture + '" alt="" class="portrait" onclick="showOtherUserInfo(' + data.beanList[i].userId + ');seeMore()" style="cursor: pointer">' +
                     '<div class="name">' +
                     '<p class="nickname">' + data.beanList[i].nickname + '</p>' +
                     '<p class="date">' + new Date(data.beanList[i].createTime).toLocaleString() + '</p>' +
@@ -257,7 +257,6 @@ function getTotalPage(totalRecord, pageSize) {
 }
 
 var profile = '';
-
 var userInfo;
 
 function baseInfo() {
@@ -435,6 +434,12 @@ function addReply(commentId, textArea, weiboId, parentFloor) {
         var innerHTML = elementById.innerHTML;
         elementById.innerHTML = toReplySReply + innerHTML;
     }
+
+    //微博的评论数加一
+    var $1 = $("#" + weiboId + "commentNum");
+    var html = $1.html();
+    var never = Number(html);
+    $1.html(never + 1);
 }
 
 function showReplyTextArea(commentId, weiboId) {
@@ -678,19 +683,22 @@ function addComment(weiboId) {
     var elementById = document.getElementById(weiboId + "ff");
     var innerHTML1 = elementById.innerHTML;
     var number = innerHTML1.indexOf("<div class=\"option_1\"");
+    var botton = ' <div class="option_bottom" style="width:749px;height: 20px;background-color:#F2F2F5;"></div>';
     if (number != -1) {
         var s = innerHTML1.substring(0, number);
         var end = innerHTML1.substring(number);
-        elementById.innerHTML = s + toReply + end;
+        elementById.innerHTML = s + toReply + end + botton;
     } else {
         elementById.innerHTML += toReply;
+        elementById.innerHTML += botton;
     }
 }
 
 function likeComment(commentId, praise) {
     var comment = {};
     comment.commentId = commentId;
-    console.log(comment);
+    // console.log(comment);
+    var data = -1;
     $.ajax({
         url: '/PraiseServlet?type=comment',
         type: 'get',
@@ -699,20 +707,24 @@ function likeComment(commentId, praise) {
             comment: JSON.stringify(comment)
         },
         success: function (text) {
-            var data = eval(text);
+            data = eval(text);
         },
         async: false
     });
+
+
     if (data.msg == 1) {
         praise++;
     } else {
         praise--;
     }
 
-    var html = '<i class="iconfont">&#xe60c;</i> ' + praise;
 
-    console.log(commentId + "commentPraiseNum");
-    $("#" + commentId + "commentPraiseNum").html(html);
+    var html = '<i class="iconfont">&#xe60c;</i> ' + praise;
+    var $1 = $("#" + commentId + "commentPraiseNum");
+    $1.html(html);
+    $1.removeAttr("onclick");
+    $1.attr("onclick", 'likeComment(' + commentId + ',' + praise + ')');
 }
 
 
